@@ -1,0 +1,712 @@
+[
+  {
+    "menuName": "대시보드",
+    "menuId": "1",
+    "parentMenuId": "0",
+    "sort": 1,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": []
+  },
+  {
+    "menuName": "정책관리",
+    "menuId": "2",
+    "parentMenuId": "0",
+    "sort": 2,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "단위정책관리",
+        "menuId": "2.1",
+        "parentMenuId": "2",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "컴플라이언스관리",
+        "menuId": "2.2",
+        "parentMenuId": "2",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "정보",
+            "menuId": "2.2.1",
+            "parentMenuId": "2.2",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuName": "자산관리",
+    "menuId": "3",
+    "parentMenuId": "0",
+    "sort": 3,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "자산현황",
+        "menuId": "3.1",
+        "parentMenuId": "3",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "자산정보관리",
+        "menuId": "3.2",
+        "parentMenuId": "3",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "자산현황(개편)",
+        "menuId": "3.3",
+        "parentMenuId": "3",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "예외관리",
+    "menuId": "4",
+    "parentMenuId": "0",
+    "sort": 4,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "예외신청",
+        "menuId": "4.1",
+        "parentMenuId": "4",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "예외신청",
+            "menuId": "4.1.1",
+            "parentMenuId": "4.1",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "menuName": "예외현황",
+        "menuId": "4.2",
+        "parentMenuId": "4",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "상시평가",
+    "menuId": "5",
+    "parentMenuId": "0",
+    "sort": 4,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "증빙현황",
+        "menuId": "5.1",
+        "parentMenuId": "5",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "기반시설진단",
+    "menuId": "6",
+    "parentMenuId": "0",
+    "sort": 5,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "자동점검",
+        "menuId": "6.1",
+        "parentMenuId": "6",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "점검결과",
+            "menuId": "6.1.1",
+            "parentMenuId": "6.1",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": [
+              {
+                "menuName": "취약점리스트",
+                "menuId": "6.1.1.1",
+                "parentMenuId": "6.1.1",
+                "sort": 1,
+                "permit": {
+                  "c": true,
+                  "r": true,
+                  "u": true,
+                  "d": true
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "menuName": "수동점검",
+        "menuId": "6.2",
+        "parentMenuId": "6",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "점검결과",
+            "menuId": "6.2.1",
+            "parentMenuId": "6.2",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": [
+              {
+                "menuName": "취약점리스트",
+                "menuId": "6.2.1.1",
+                "parentMenuId": "6.2.1",
+                "sort": 1,
+                "permit": {
+                  "c": true,
+                  "r": true,
+                  "u": true,
+                  "d": true
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "menuName": "조치현황",
+        "menuId": "6.3",
+        "parentMenuId": "6",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "보안성심의",
+    "menuId": "7",
+    "parentMenuId": "0",
+    "sort": 6,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "신청현황",
+        "menuId": "7.1",
+        "parentMenuId": "7",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "상세정보",
+            "menuId": "7.1.1",
+            "parentMenuId": "7.1",
+            "sort": 2,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "menuName": "전체현황",
+        "menuId": "7.2",
+        "parentMenuId": "7",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "상세정보",
+            "menuId": "7.2.1",
+            "parentMenuId": "7.2",
+            "sort": 2,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          },
+          {
+            "menuName": "심의기준정보설정",
+            "menuId": "7.2.2",
+            "parentMenuId": "7.2",
+            "sort": 3,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "menuName": "심의일정관리",
+        "menuId": "7.3",
+        "parentMenuId": "7",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "기타보안점검",
+    "menuId": "8",
+    "parentMenuId": "0",
+    "sort": 8,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "정기점검",
+        "menuId": "8.1",
+        "parentMenuId": "8",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "상세현황",
+            "menuId": "8.1.1",
+            "parentMenuId": "8.1",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": [
+              {
+                "menuName": "증빙·조치현황",
+                "menuId": "8.1.1.1",
+                "parentMenuId": "8.1.1",
+                "sort": 1,
+                "permit": {
+                  "c": true,
+                  "r": true,
+                  "u": true,
+                  "d": true
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "menuName": "DMZPort점검",
+        "menuId": "8.2",
+        "parentMenuId": "8",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "CVE점검",
+        "menuId": "8.3",
+        "parentMenuId": "8",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "점검결과",
+            "menuId": "8.3.1",
+            "parentMenuId": "8.3",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuName": "전자결재",
+    "menuId": "9",
+    "parentMenuId": "0",
+    "sort": 9,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "개인 결재함",
+        "menuId": "9.1",
+        "parentMenuId": "9",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "부서 결재함",
+        "menuId": "9.2",
+        "parentMenuId": "9",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "개인위임현황",
+        "menuId": "9.3",
+        "parentMenuId": "9",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "폐쇄부서관리",
+        "menuId": "9.4",
+        "parentMenuId": "9",
+        "sort": 4,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "업무공유",
+    "menuId": "10",
+    "parentMenuId": "0",
+    "sort": 10,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "공지사항",
+        "menuId": "10.1",
+        "parentMenuId": "10",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "자료실",
+        "menuId": "10.2",
+        "parentMenuId": "10",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "환경설정",
+    "menuId": "99",
+    "parentMenuId": "0",
+    "sort": 99,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "사용자관리",
+        "menuId": "99.1",
+        "parentMenuId": "99",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "권한관리",
+        "menuId": "99.2",
+        "parentMenuId": "99",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "대시보드관리",
+        "menuId": "99.3",
+        "parentMenuId": "99",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "공통서식관리",
+        "menuId": "99.4",
+        "parentMenuId": "99",
+        "sort": 4,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "코드/설정/태그관리",
+        "menuId": "99.5",
+        "parentMenuId": "99",
+        "sort": 5,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "사용로그",
+        "menuId": "99.6",
+        "parentMenuId": "99",
+        "sort": 6,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "보안성심의 관리",
+        "menuId": "99.7",
+        "parentMenuId": "99",
+        "sort": 7,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  }
+]
