@@ -36,7 +36,7 @@
     font-weight: 900;
   }
   .el-aside{
-    width: 220px !important;
+    /* width: 220px !important; */
     height: calc(100vh - 72px);
     border-right: 1px solid var(--el-menu-border-color);
   }

@@ -1,188 +1,269 @@
 <template>
   <div class="main-view">
-    <!-- 첫 번째 줄 -->
-    <div class="grid grid-1">
-      <div class="grid grid-0">
-        <div class="card card-1">
-          <h4 class="dash-title">내 자산현황</h4>
-          <p style="font-size: 18px; color: #4CAF50;">안전</p>
-        </div>
 
-        <div class="card card-1">
-          <h4 class="dash-title">진행중인 심의</h4>
-          <div>
-            <p ref="progressText" class="progress-text">현대카드 메인 홈페이지 UX/UI 개편</p>
-            <progress class="progress-bar" value="70" max="100"></progress>
-          </div>
-        </div>
+    <el-row :gutter="20" align="stretch" class="responsive-row">
+      <!-- 왼쪽 3개 아코디언 -->
+      <el-col :xs="24" :sm="24" :md="4">
+        <el-collapse
+          v-model="accordionState[0].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 0) }"
+          :style="{ minHeight: isExpanded('1', 0) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="내 자산현황" name="1" class="dash-title">
+            <p style="font-size: 18px; color: #4CAF50;">안전</p>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
 
-        <div class="card card-1">
-          <h4 class="dash-title">조치필요 취약점</h4>
-          <div>
-            <p style="font-size: 20px; font-weight: 900; margin-bottom: 5px;">12<span style="font-size: 12px; color: #777777;">개</span></p>
-            <p style="font-size: 12px; color: #777777;">이전달 대비 <span style="color: #D32F2F;">+9</span></p>
-          </div>
-        </div>
-      </div>
+      <el-col :xs="24" :sm="24" :md="8">
+        <el-collapse
+          v-model="accordionState[1].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 1) }"
+          :style="{ minHeight: isExpanded('1', 1) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="진행중인 심의" name="1" class="dash-title">
+            <div>
+              <p ref="progressText" class="progress-text">현대카드 메인 홈페이지 UX/UI 개편</p>
+              <progress class="progress-bar" value="70" max="100"></progress>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
+
+      <el-col :xs="24" :sm="24" :md="4">
+        <el-collapse
+          v-model="accordionState[2].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 2) }"
+          :style="{ minHeight: isExpanded('1', 2) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="조치필요 취약점" name="1" class="dash-title">
+            <div>
+              <p style="font-size: 20px; font-weight: 900; margin-bottom: 5px;">12<span style="font-size: 12px; color: #777777;">개</span></p>
+              <p style="font-size: 12px; color: #777777;">이전달 대비 <span style="color: #D32F2F;">+9</span></p>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
+
+      <el-col :xs="24" :sm="24" :md="8">
+        <el-collapse
+          v-model="accordionState[3].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 3) }"
+          :style="{ minHeight: isExpanded('1', 3) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="조치 지연 취약점" name="1" class="dash-title">
+            <div>
+              <p ref="progressText" class="progress-text" style="margin-bottom: 5px;">
+                현대카드 메인 홈페이지 cross-site Scripting
+              </p>
+              <p style="font-size: 12px; color: #777777;">등 3건</p>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
+    </el-row>
 
 
-      <div class="card card-1">
-        <h4 class="dash-title">조치 지연 취약점</h4>  
-        <div>
-          <p ref="progressText" class="progress-text" style="margin-bottom: 5px;">현대카드 메인 홈페이지 cross-site Scripting</p>
-          <p style="font-size: 12px; color: #777777;">등 3건</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- 두 번째 줄 -->
-    <div class="grid grid-2">
-      <div>
-        <h3 class="dash-title2">취약점 현황</h3>
-        <div class="card wide">
-          <el-table :data="tableData" style="width: 100%">
-            <!-- 테이블 컬럼을 동적으로 생성 -->
-            <el-table-column
-              v-for="column in tableColumns"
-              :key="column.prop"
-              :prop="column.prop"
-              :label="column.label"
-              :width="column.width"
-              :show-overflow-tooltip="column.tooltip"
-            >
-              <!-- 헤더 영역 -->
-              <template #header>
-                <div class="header-with-menu">
-                  {{ column.label }}
-                  <el-dropdown trigger="click">
-                    <el-icon class="header-menu"><More /></el-icon>
-                    <template #dropdown>
-                      <el-dropdown-menu>
-                        <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
-                        <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
-                      </el-dropdown-menu>
+    <el-row :gutter="20" align="stretch" class="responsive-row">
+      <el-col :xs="24" :sm="24" :md="16">
+        <el-collapse
+          v-model="accordionState[4].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 4) }"
+          :style="{ minHeight: isExpanded('1', 4) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="취약점 현황" name="1" class="dash-title">
+            <div>
+              <el-table :data="tableData" style="width: 100%">
+                <!-- 테이블 컬럼을 동적으로 생성 -->
+                <el-table-column
+                  v-for="column in tableColumns"
+                  :key="column.prop"
+                  :prop="column.prop"
+                  :label="column.label"
+                  :width="column.width"
+                  :show-overflow-tooltip="column.tooltip"
+                >
+                  <!-- 헤더 영역 -->
+                  <template #header>
+                    <div class="header-with-menu">
+                      {{ column.label }}
+                      <el-dropdown trigger="click">
+                        <el-icon class="header-menu"><More /></el-icon>
+                        <template #dropdown>
+                          <el-dropdown-menu>
+                            <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
+                            <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
+                          </el-dropdown-menu>
+                        </template>
+                      </el-dropdown>
+                    </div>
+                  </template>
+
+                  <!-- 데이터 영역 -->
+                  <template #default="{ row }">
+                    <template v-if="column.prop === 'status'">
+                      <div class="status-container">
+                        <el-tag :type="getStatusTag(row[column.prop])">
+                          {{ row[column.prop] }}
+                        </el-tag>
+                        <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
+                      </div>
                     </template>
-                  </el-dropdown>
-                </div>
-              </template>
+                    <template v-else>
+                      <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
+                        <span class="ellipsis">{{ row[column.prop] }}</span>
+                      </el-tooltip>
+                    </template>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
 
-              <!-- 데이터 영역 -->
-              <template #default="{ row }">
-                <template v-if="column.prop === 'status'">
-                  <div class="status-container">
-                    <el-tag :type="getStatusTag(row[column.prop])">
-                      {{ row[column.prop] }}
-                    </el-tag>
-                    <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
+      <el-col :xs="24" :sm="24" :md="8">
+        <el-collapse
+          v-model="accordionState[5].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 5) }"
+          :style="{ minHeight: isExpanded('1', 5) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="취약점 조치 현황" name="1" class="dash-title">
+            <div class="chart-container">
+              <!-- ECharts 도넛 차트 -->
+              <div ref="chartRef" class="chart"></div>
+
+              <!-- 퍼센트 리스트 -->
+              <ul class="percentage-list">
+                <li v-for="item in chartData" :key="item.name">
+                  <span class="dot" :style="{ backgroundColor: item.color }"></span>
+                  <span>{{ item.name }}</span>
+                  <span class="percent">{{ item.value }}%</span>
+                </li>
+              </ul>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20" align="stretch" class="responsive-row">
+      <el-col :xs="24" :sm="24" :md="16">
+        <el-collapse
+          v-model="accordionState[6].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 6) }"
+          :style="{ minHeight: isExpanded('1', 6) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="보안선 심의 현황" name="1" class="dash-title">
+            <div>
+              <el-table :data="tableData_2" style="width: 100%">
+              <!-- 테이블 컬럼을 동적으로 생성 -->
+              <el-table-column
+                v-for="column in tableColumns_2"
+                :key="column.prop"
+                :prop="column.prop"
+                :label="column.label"
+                :width="column.width"
+                :show-overflow-tooltip="column.tooltip"
+              >
+                <!-- 헤더 영역 -->
+                <template #header>
+                  <div class="header-with-menu">
+                    {{ column.label }}
+                    <el-dropdown trigger="click">
+                      <el-icon class="header-menu"><More /></el-icon>
+                      <template #dropdown>
+                        <el-dropdown-menu>
+                          <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
+                          <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </template>
+                    </el-dropdown>
                   </div>
                 </template>
-                <template v-else>
-                  <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
-                    <span class="ellipsis">{{ row[column.prop] }}</span>
-                  </el-tooltip>
+
+                <!-- 데이터 영역 -->
+                <template #default="{ row }">
+                  <template v-if="column.prop === 'status'">
+                    <div class="status-container">
+                      <el-tag :type="getStatusTag(row[column.prop])">
+                        {{ row[column.prop] }}
+                      </el-tag>
+                      <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
+                    </div>
+                  </template>
+                  <template v-else>
+                    <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
+                      <span class="ellipsis">{{ row[column.prop] }}</span>
+                    </el-tooltip>
+                  </template>
                 </template>
-              </template>
-            </el-table-column>
-          </el-table>
-        </div>
-      </div>
+              </el-table-column>
+            </el-table>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
 
-      <div>
-        <h3 class="dash-title2">취약점 조치 현황</h3>
-        <div class="card chart-container">
-          <!-- ECharts 도넛 차트 -->
-          <div ref="chartRef" class="chart"></div>
-
-          <!-- 퍼센트 리스트 -->
-          <ul class="percentage-list">
-            <li v-for="item in chartData" :key="item.name">
-              <span class="dot" :style="{ backgroundColor: item.color }"></span>
-              <span>{{ item.name }}</span>
-              <span class="percent">{{ item.value }}%</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 세 번째 줄 -->
-    <div class="grid grid-3">
-      <div>
-        <h3 class="dash-title2">보안선 심의 현황</h3>
-        <div class="card wide">
-          <el-table :data="tableData_2" style="width: 100%">
-            <!-- 테이블 컬럼을 동적으로 생성 -->
-            <el-table-column
-              v-for="column in tableColumns_2"
-              :key="column.prop"
-              :prop="column.prop"
-              :label="column.label"
-              :width="column.width"
-              :show-overflow-tooltip="column.tooltip"
-            >
-              <!-- 헤더 영역 -->
-              <template #header>
-                <div class="header-with-menu">
-                  {{ column.label }}
-                  <el-dropdown trigger="click">
-                    <el-icon class="header-menu"><More /></el-icon>
-                    <template #dropdown>
-                      <el-dropdown-menu>
-                        <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
-                        <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
-                      </el-dropdown-menu>
-                    </template>
-                  </el-dropdown>
+      <el-col :xs="24" :sm="24" :md="8">
+        <el-collapse
+          v-model="accordionState[7].state"
+          accordion
+          class="custom-collapse"
+          :class="{ 'collapsed-style': !isExpanded('1', 7) }"
+          :style="{ minHeight: isExpanded('1', 7) ? '100%' : '50px' }"
+        >
+          <el-collapse-item title="취약점 조치 현황" name="1" class="dash-title">
+            <el-calendar v-model="selectedDate">
+              <template #date-cell="{ data }">
+                <div :class="['calendar-day', { today: isToday(data.timestamp) }]">
+                  {{ data.day.substr(8,9) }}
                 </div>
               </template>
+            </el-calendar>
+          </el-collapse-item>
+        </el-collapse>
+      </el-col>
+    </el-row>
 
-              <!-- 데이터 영역 -->
-              <template #default="{ row }">
-                <template v-if="column.prop === 'status'">
-                  <div class="status-container">
-                    <el-tag :type="getStatusTag(row[column.prop])">
-                      {{ row[column.prop] }}
-                    </el-tag>
-                    <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
-                  </div>
-                </template>
-                <template v-else>
-                  <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
-                    <span class="ellipsis">{{ row[column.prop] }}</span>
-                  </el-tooltip>
-                </template>
-              </template>
-            </el-table-column>
-          </el-table>
-        </div>
-      </div>
-      <div>
-        <h3 class="dash-title2">취약점 조치 현황</h3>
-        <div class="card wide">
-          <el-calendar v-model="selectedDate">
-            <template #date-cell="{ data }">
-              <div :class="['calendar-day', { today: isToday(data.timestamp) }]">
-                {{ data.day.substr(8,9) }}
-              </div>
-            </template>
-          </el-calendar>
-        </div>
-      </div>
-
-    </div>
   </div>
 </template>
 
 <script>
-  import { ref, onMounted  } from "vue";
+  import { ref, onMounted, nextTick ,watch } from "vue";
   import { More } from "@element-plus/icons-vue";
   import * as echarts from "echarts";
+
   export default {
     components: {
       More,
     },
     setup() {
-
+      const accordionState = ref([
+        {state: '1'},
+        {state: '1'},
+        {state: '1'},
+        {state: '1'},
+        {state: '1'},
+        {state: '1'},
+        {state: '1'},
+        {state: '1'}
+      ]);
       const selectedDate = ref(new Date());
       const isToday = (timestamp) => {
         const today = new Date();
@@ -299,17 +380,18 @@
         }
       };
       const getStatusClass = (status) => {
-      switch (status) {
-        case "조치완료":
-          return "status-success";
-        case "조치필요":
-          return "status-warning";
-        case "조치지연":
-          return "status-danger";
-        default:
-          return "";
-      }
-    };
+        switch (status) {
+          case "조치완료":
+            return "status-success";
+          case "조치필요":
+            return "status-warning";
+          case "조치지연":
+            return "status-danger";
+          default:
+            return "";
+        }
+      };
+      const isExpanded = (name, num) => accordionState.value[num].state === name;
 
       const sortTable = (key) => {
         tableData.value.sort((a, b) => (a[key] > b[key] ? 1 : -1));
@@ -321,40 +403,62 @@
       };
 
       const chartRef = ref(null);
+      let myChart = null;
       const chartData = ref([
         { name: "조치완료", value: 50, color: "#67C23A" }, // 초록색
         { name: "조치필요", value: 30, color: "#E6A23C" }, // 주황색
         { name: "조치지연", value: 20, color: "#F56C6C" }, // 빨간색
       ]);
-      const initChart = () => {
-        if (!chartRef.value) return;
-        const myChart = echarts.init(chartRef.value);
-
-        const option = {
-          tooltip: { trigger: "item" },
-          legend: { show: false }, // 옆에 퍼센트 리스트를 따로 표시하므로 기본 legend 숨김
-          series: [
-            {
-              name: "취약점 조치 현황",
-              type: "pie",
-              radius: ["50%", "70%"], // 도넛 모양
-              avoidLabelOverlap: false,
-              itemStyle: { borderRadius: 10, borderColor: "#fff", borderWidth: 2 },
-              label: { show: false },
-              data: chartData.value.map((item) => ({
-                value: item.value,
-                name: item.name,
-                itemStyle: { color: item.color },
-              })),
-            },
-          ],
-        };
-        myChart.setOption(option);
-        window.addEventListener("resize", myChart.resize); // 반응형 처리
+      const updateChartSize = () => {
+        if (chartRef.value) {
+          chartRef.value.style.width = window.innerWidth < 768 ? "100%" : "80%";
+        }
       };
-      onMounted(initChart);
+      const initChart = () => {
+        if (chartRef.value) {
+          myChart = echarts.init(chartRef.value);
+          myChart.setOption({
+            tooltip: { trigger: "item" },
+            legend: { show: false },
+            series: [
+              {
+                name: "취약점 조치 현황",
+                type: "pie",
+                radius: ["50%", "70%"],
+                avoidLabelOverlap: true,
+                label: { show: false },
+                data: chartData.value.map((item) => ({
+                  value: item.value,
+                  name: item.name,
+                  itemStyle: { color: item.color },
+                })),
+              },
+            ],
+          });
+        }
+      };
+      const onCollapseChange = async (activeName) => {
+        if (activeName === "1") { // 아코디언이 열렸을 때
+          await nextTick(); // DOM 업데이트 후 실행
+          myChart?.resize(); // 차트 크기 조정
+        }
+      };
+      onMounted(() => {
+        window.addEventListener("resize", updateChartSize);
+        initChart();
+      });
 
-      return { tableColumns, tableData, tableColumns_2, tableData_2, getStatusTag, getStatusClass, sortTable, filterTable, chartRef, chartData, selectedDate, isToday };
+      watch(() => window.innerWidth, updateChartSize);
+      return { 
+        tableColumns, tableData, 
+        tableColumns_2, tableData_2, 
+        chartRef, onCollapseChange, 
+        getStatusTag, getStatusClass, 
+        sortTable, filterTable, 
+        chartRef, chartData, 
+        selectedDate, isToday,
+        accordionState, isExpanded
+      };
     },
 };
 </script>
@@ -365,13 +469,26 @@
     flex-direction: column;
     gap: 50px;
   }
-
+  .responsive-row {
+    display: flex;
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+  }
+  @media (max-width: 600px) {
+    .responsive-row {
+      gap: 20px; /* 테이블과 차트 사이 여백 추가 */
+    }
+  }
   /* 그리드 레이아웃 */
   .grid {
     display: grid;
     gap: 20px;
+    align-items: flex-start;
   }
-
+  .t {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
   .grid-0 {
     grid-template-columns: 1fr 2fr 1fr;
   }
@@ -484,7 +601,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
   }
 
   .chart {
@@ -537,11 +653,11 @@
     color: white;
     font-weight: bold;
   }
-.selected {
-  background-color: #67c23a;
-  color: white;
-  font-weight: bold;
-}
+  .selected {
+    background-color: #67c23a;
+    color: white;
+    font-weight: bold;
+  }
   .in-range {
     background-color: #f0f9eb;
   }
@@ -551,6 +667,20 @@
     background-color: #409eff;
     color: white;
     font-weight: bold;
+  }
+  .custom-collapse {
+    border-radius: 7px;
+    overflow: hidden; /* border-radius 적용을 위한 설정 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    background-color: #fff;
+  }
+  .collapsed-style {
+    border-radius: 8px;
+    box-shadow: none;
+    overflow: hidden;
+    background-color: transparent;
   }
 </style>
 <style>
@@ -564,5 +694,19 @@
     height: auto;
     font-size: 12px;
     padding: 4px;
+  }
+  .el-collapse{
+    border-bottom: none;
+    border-top: none;
+  }
+  .el-collapse-item__header{
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .el-collapse-item__wrap{
+    padding: 0 20px;
+    border-bottom: none;
+    height: 100%;
   }
 </style>
