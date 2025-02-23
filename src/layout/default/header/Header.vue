@@ -2,7 +2,10 @@
   <el-header class="header">
     <!-- 로고 & 메뉴 버튼 -->
     <div class="left-section">
-      <img src="@/assets/card_logo.png" alt="Logo" class="logo" />
+      <img 
+      :src="config.logo" 
+      alt="Logo" 
+      class="logo" />
 
       <!-- 모바일에서는 햄버거 메뉴 -->
       <el-icon class="menu-icon" @click="drawerVisible = true">
@@ -58,7 +61,9 @@
   import { ref, defineEmits } from 'vue';
   import { useRouter } from "vue-router";
   import menuData from '@/data/menu.json';
+  import configData from '@/data/config.json';
 
+  const config = ref(configData)
   const router = useRouter();
   const emit = defineEmits(['menu-selected']);
   const menuList = ref(menuData);

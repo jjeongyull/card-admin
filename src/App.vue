@@ -4,10 +4,11 @@
 
   const router = useRouter();
   onMounted(() => {
-  if (router.currentRoute.value.path === '/') {
-    router.push('/dashboard')
-  }
-})
+    if (router && router.currentRoute && router.currentRoute.value?.path === '/') {
+      router.push('/dashboard');
+    }
+  });
+
 </script>
 
 <template>

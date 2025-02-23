@@ -84,50 +84,7 @@
         >
           <el-collapse-item title="취약점 현황" name="1" class="dash-title">
             <div>
-              <el-table :data="tableData" style="width: 100%">
-                <!-- 테이블 컬럼을 동적으로 생성 -->
-                <el-table-column
-                  v-for="column in tableColumns"
-                  :key="column.prop"
-                  :prop="column.prop"
-                  :label="column.label"
-                  :width="column.width"
-                  :show-overflow-tooltip="column.tooltip"
-                >
-                  <!-- 헤더 영역 -->
-                  <template #header>
-                    <div class="header-with-menu">
-                      {{ column.label }}
-                      <el-dropdown trigger="click">
-                        <el-icon class="header-menu"><More /></el-icon>
-                        <template #dropdown>
-                          <el-dropdown-menu>
-                            <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
-                            <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
-                          </el-dropdown-menu>
-                        </template>
-                      </el-dropdown>
-                    </div>
-                  </template>
-
-                  <!-- 데이터 영역 -->
-                  <template #default="{ row }">
-                    <template v-if="column.prop === 'status'">
-                      <div class="status-container">
-                        <el-tag :type="getStatusTag(row[column.prop])">
-                          {{ row[column.prop] }}
-                        </el-tag>
-                        <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
-                      </div>
-                    </template>
-                    <template v-else>
-                      <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
-                        <span class="ellipsis">{{ row[column.prop] }}</span>
-                      </el-tooltip>
-                    </template>
-                  </template>
-                </el-table-column>
-              </el-table>
+              <TableComponent :tableColumns="tableColumns" :tableData="tableData" />
             </div>
           </el-collapse-item>
         </el-collapse>
@@ -171,50 +128,7 @@
         >
           <el-collapse-item title="보안선 심의 현황" name="1" class="dash-title">
             <div>
-              <el-table :data="tableData_2" style="width: 100%">
-              <!-- 테이블 컬럼을 동적으로 생성 -->
-              <el-table-column
-                v-for="column in tableColumns_2"
-                :key="column.prop"
-                :prop="column.prop"
-                :label="column.label"
-                :width="column.width"
-                :show-overflow-tooltip="column.tooltip"
-              >
-                <!-- 헤더 영역 -->
-                <template #header>
-                  <div class="header-with-menu">
-                    {{ column.label }}
-                    <el-dropdown trigger="click">
-                      <el-icon class="header-menu"><More /></el-icon>
-                      <template #dropdown>
-                        <el-dropdown-menu>
-                          <el-dropdown-item @click="sortTable(column.prop)">정렬</el-dropdown-item>
-                          <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
-                        </el-dropdown-menu>
-                      </template>
-                    </el-dropdown>
-                  </div>
-                </template>
-
-                <!-- 데이터 영역 -->
-                <template #default="{ row }">
-                  <template v-if="column.prop === 'status'">
-                    <div class="status-container">
-                      <el-tag :type="getStatusTag(row[column.prop])">
-                        {{ row[column.prop] }}
-                      </el-tag>
-                      <span class="status-icon" :class="getStatusClass(row[column.prop])">!</span>
-                    </div>
-                  </template>
-                  <template v-else>
-                    <el-tooltip effect="dark" :content="row[column.prop]" placement="top">
-                      <span class="ellipsis">{{ row[column.prop] }}</span>
-                    </el-tooltip>
-                  </template>
-                </template>
-              </el-table-column>
-            </el-table>
+              <TableComponent :tableColumns="tableColumns_2" :tableData="tableData_2" />
             </div>
           </el-collapse-item>
         </el-collapse>
@@ -248,10 +162,12 @@
   import { ref, onMounted, nextTick ,watch } from "vue";
   import { More } from "@element-plus/icons-vue";
   import * as echarts from "echarts";
+  import TableComponent from '@/components/Table.vue';
 
   export default {
     components: {
       More,
+      TableComponent
     },
     setup() {
       const accordionState = ref([
@@ -274,99 +190,27 @@
           date.getDate() === today.getDate()
         );
       };
-      
-      const tableColumns = ref([
-        { prop: "service", label: "서비스명", width: "200", tooltip: true },
-        { prop: "vulnerability", label: "취약점내용", width: "300", tooltip: true },
-        { prop: "status", label: "조치현황", width: "150", tooltip: false },
-        { prop: "area", label: "점검영역", width: "200", tooltip: true },
-        { prop: "dueDate", label: "조치기한", width: "150", tooltip: true },
-      ]);
-      
-      const tableColumns_2 = ref([
-        { prop: "service", label: "보안성 심의 과제명", width: "400", tooltip: true },
-        { prop: "status", label: "조치현황", width: "150", tooltip: false },
-        { prop: "playing", label: "진행단계", width: "200", tooltip: false },
-        { prop: "dueDate", label: "심의 상신일", width: "150", tooltip: true },
-      ]);
 
-      const tableData = ref([
-        {
-          service: "결제 시스템",
-          vulnerability: "SQL 인젝션 취약점 발견",
-          status: "조치필요",
-          area: "DB 보안",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "로그인 시스템",
-          vulnerability: "취약한 패스워드 정책",
-          status: "조치완료",
-          area: "인증 보안",
-          dueDate: "2025-02-15",
-        },
-        {
-          service: "API 게이트웨이",
-          vulnerability: "잘못된 인증 토큰 처리",
-          status: "조치완료",
-          area: "네트워크 보안",
-          dueDate: "2025-02-25",
-        },
-        {
-          service: "API 게이트웨이",
-          vulnerability: "잘못된 인증 토큰 처리",
-          status: "조치지연",
-          area: "네트워크 보안",
-          dueDate: "2025-02-25",
-        },
-        {
-          service: "API 게이트웨이",
-          vulnerability: "잘못된 인증 토큰 처리",
-          status: "조치지연",
-          area: "네트워크 보안",
-          dueDate: "2025-02-25",
-        },
-      ]);
+      const tableColumns = ref([]);
+      const tableColumns_2 = ref([]);
+      const tableData = ref([]);
+      const tableData_2 = ref([]);
 
-      const tableData_2 = ref([
-        {
-          service: "현대카드 메인 홈페이지",
-          status: "조치필요",
-          playing: "현업 조치중",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "현대카드 메인 홈페이지",
-          status: "조치필요",
-          playing: "현업 조치중",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "Dive 앱",
-          status: "조치지연",
-          playing: "취약점 점검 중",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "현대카드 디자인 라이브러리",
-          status: "조치필요",
-          playing: "현업 조치중",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "현대카드 메인 홈페이지",
-          status: "조치완료",
-          playing: "최종 결재완료",
-          dueDate: "2025-03-01",
-        },
-        {
-          service: "현대카드앱",
-          status: "조치필요",
-          playing: "최종 결재완료",
-          dueDate: "2025-03-01",
+      const loadTableData = async () => {
+        try {
+          const response = await fetch('/src/data/tableData.json');
+          const data = await response.json();
+          tableColumns.value = data.tableColumns;
+          tableColumns_2.value = data.tableColumns_2;
+          tableData.value = data.tableData;
+          tableData_2.value = data.tableData_2;
+        } catch (error) {
+          console.error("JSON 데이터 로드 실패:", error);
         }
-      ]);
+      };
 
+      
+      
       const getStatusTag = (status) => {
         switch (status) {
           case "조치완료":
@@ -446,6 +290,7 @@
       onMounted(() => {
         window.addEventListener("resize", updateChartSize);
         initChart();
+        loadTableData();
       });
 
       watch(() => window.innerWidth, updateChartSize);
@@ -464,7 +309,7 @@
 </script>
 
 <style scoped>
-  .main-view {
+ .main-view {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -556,47 +401,7 @@
     text-overflow: ellipsis;
     max-width: 100%;
   }
-  .header-with-menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 
-  .header-menu {
-    cursor: pointer;
-    font-size: 16px;
-    color: #999;
-    margin-left: 5px;
-  }
-  .status-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .status-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-  }
-
-  .status-success {
-    background-color: #67c23a; /* 초록색 */
-  }
-
-  .status-warning {
-    background-color: #e6a23c; /* 노란색 */
-  }
-
-  .status-danger {
-    background-color: #f56c6c; /* 빨간색 */
-  }
   .chart-container {
     display: flex;
     align-items: center;
