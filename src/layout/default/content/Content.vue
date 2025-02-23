@@ -21,6 +21,13 @@ export default {
 <style scoped>
   .default-layout-content{
     background-color: #e6e6e6;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
+  }
+
+</style>
+
+<style>
+  .el-scrollbar__view{
+    height: 100%;
   }
 </style>

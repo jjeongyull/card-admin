@@ -120,7 +120,7 @@ export default {
   position: relative;
 }
 
-/* 햄버거 메뉴 버튼 (모바일에서만 보임) */
+/* 햄버거 버튼*/
 .menu-toggle {
   display: none;
   position: absolute;
@@ -152,16 +152,15 @@ export default {
 .resize-handle {
   width: 3px;
   cursor: ew-resize;
-  background: #ccc;
+  background: #f5f5f5;
   transition: background 0.2s;
 }
 
-.resize-handle:hover {
-  background: #999;
-}
 
-/* 콘텐츠 영역 (사이드바 크기에 따라 자동 조정) */
 .content {
   flex-grow: 1;
+}
+.el-aside{
+  border-right: none;
 }
 </style>
