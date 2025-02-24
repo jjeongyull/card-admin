@@ -1,12 +1,12 @@
 <template>
   <el-main class="default-layout-content">
     <router-view v-slot="{ Component }">
-      <el-scrollbar>
-        <keep-alive>
-          <transition name="slide" mode="out-in">
-            <component :is="Component" class="default-layout-content-container"/>
+      <el-scrollbar class="main-content-view">
+          <transition name="slide">
+            <keep-alive>
+              <component :is="Component" class="default-layout-content-container"/>
+            </keep-alive>
           </transition>
-        </keep-alive>
       </el-scrollbar>
     </router-view>
   </el-main>
@@ -24,4 +24,10 @@ export default {
     height: calc(100vh - 70px);
   }
 
+
+</style>
+<style>
+  .main-content-view .el-scrollbar__view{
+    height: 100%;
+  }
 </style>

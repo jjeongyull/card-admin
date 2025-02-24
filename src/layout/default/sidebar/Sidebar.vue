@@ -22,7 +22,7 @@
         class="menu-container"
         v-if="!isCollapsed"
       >
-        <template v-for="menu in selectedMenu.children" :key="menu.menuId">
+        <div v-for="menu in selectedMenu.children" :key="menu.menuId">
           <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.menuId">
             <template #title>
               <span>{{ menu.menuName }}</span>
@@ -32,7 +32,7 @@
           <el-menu-item v-else :index="menu.menuId">
             <span>{{ menu.menuName }}</span>
           </el-menu-item>
-        </template>
+        </div>
       </el-menu>
     </el-scrollbar>
 
@@ -55,8 +55,9 @@ const sidebarRef = ref(null);
 const enableTransition = ref(true); // 애니메이션 활성화 여부
 
 const toggleCollapse = () => {
-  enableTransition.value = true; // 애니메이션 적용
+  enableTransition.value = true;
   isCollapsed.value = !isCollapsed.value;
+  sidebarWidth.value = isCollapsed.value ? 64 : 220;
 };
 
 const startResize = (event) => {

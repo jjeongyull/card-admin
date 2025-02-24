@@ -4,21 +4,17 @@
           <default-header @menu-selected="menuSelection" />
           <el-container class="main-container">
               <default-sidebar
-                  v-if="selectedMenu && selectedMenu.children && selectedMenu.children.length"
+                  v-if="selectedMenu !== null && selectedMenu.children && selectedMenu.children.length"
                   :selectedMenu="selectedMenu"
-                  @update:width="updateSidebarWidth"
               />
-              <default-content 
-                  class="content" 
-                  :style="{ width: (selectedMenu && selectedMenu.children && selectedMenu.children.length) ? contentWidth : '100%' }" 
-              />
+              <default-content class="content"  :class="{ 'full-width': !selectedMenu }"/>
           </el-container>
       </el-container>
   </div>
 </template>
 
 <script>
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { Content, Header, Sidebar } from ".";
 
 export default {
@@ -35,20 +31,12 @@ export default {
       const isSidebarOpen = ref(true);
 
       const menuSelection = (menu) => {
-          if (!menu) {
-              selectedMenu.value = null;
-          } else {
-              selectedMenu.value = Object.assign({}, menu);
-          }
+        if (menu === null) {
+            selectedMenu.value = null;
+        } else {
+            selectedMenu.value = Object.assign({}, menu);
+        }
       };
-
-      const updateSidebarWidth = (width) => {
-          sidebarWidth.value = width > 64 ? width : 220;
-      };
-
-      const contentWidth = computed(() => {
-          return isMobile.value ? "100%" : `calc(100% - ${sidebarWidth.value}px)`;
-      });
 
       const handleResize = () => {
           isMobile.value = window.innerWidth <= 768;
@@ -69,8 +57,6 @@ export default {
           selectedMenu,
           menuSelection,
           sidebarWidth,
-          updateSidebarWidth,
-          contentWidth,
           isMobile,
           isSidebarOpen,
       };
@@ -91,6 +77,6 @@ export default {
 
 .content {
   flex-grow: 1;
-  transition: width 0.3s ease;
+  width: 100%;
 }
 </style>

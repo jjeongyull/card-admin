@@ -69,7 +69,7 @@ import { useRouter } from "vue-router";
   const menuList = ref(menuData);
   const drawerVisible = ref(false);
 
-  const menuPath = ref([
+  const menuPath = [
     { path: "/dashboard" },
     { path: "/policy" },
     { path: "/policy" },
@@ -81,12 +81,12 @@ import { useRouter } from "vue-router";
     { path: "/policy" },
     { path: "/policy" },
     { path: "/policy" },
-  ]);
+  ];
 
   const selectMenu = (menu, index) => {
     emit('menu-selected', menu.children.length > 0 ? menu : null);
-    if (menuPath.value[index]) {
-      router.push(menuPath.value[index].path);
+    if (menuPath[index].path) {
+      router.push(menuPath[index].path);
     }
   };
 </script>
