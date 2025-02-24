@@ -1,7 +1,7 @@
 <template>
   <div class="main-view">
 
-    <el-row :gutter="20" align="stretch" class="responsive-row">
+    <el-row :gutter="20" class="responsive-row">
       <!-- 왼쪽 3개 아코디언 -->
       <el-col :xs="24" :sm="24" :md="4">
         <el-collapse
@@ -73,7 +73,7 @@
 
 
 
-    <el-row :gutter="20" align="stretch" class="responsive-row">
+    <el-row :gutter="20" class="responsive-row">
       <el-col :xs="24" :sm="24" :md="16">
         <el-collapse
           v-model="accordionState[4].state"
@@ -117,7 +117,7 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="20" align="stretch" class="responsive-row">
+    <el-row :gutter="20" class="responsive-row">
       <el-col :xs="24" :sm="24" :md="16">
         <el-collapse
           v-model="accordionState[6].state"
@@ -159,10 +159,10 @@
 </template>
 
 <script>
-  import { ref, onMounted, nextTick ,watch } from "vue";
-  import { More } from "@element-plus/icons-vue";
-  import * as echarts from "echarts";
   import TableComponent from '@/components/Table.vue';
+import { More } from "@element-plus/icons-vue";
+import * as echarts from "echarts";
+import { nextTick, onMounted, ref, watch } from "vue";
 
   export default {
     components: {

@@ -1,136 +1,93 @@
 <template>
-  <div class="content-container">
+  <!-- <div class="content-container"> -->
     <!-- 왼쪽: 데이터 리스트 -->
-    <div class="data-list">
-      <h4 class="mb-20">단위정책 탐색</h4>
-      <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable />
-      <el-scrollbar class="tree-container">
-        <el-tree
-          class="tree-list custom-tree"
-          :data="formattedTreeData"
-          :default-expand-all="false"
-          highlight-current
-          :props="treeProps"
-          @node-click="handleNodeClick"
-          :render-content="renderContent"
-        />
-      </el-scrollbar>
-    </div>
+    <el-row :gutter="20" class="responsive-row">
+      <el-col class="data-list" :xs="24" :sm="24" :md="4">
+        <h4 class="mb-20">단위정책 탐색</h4>
+        <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable />
+        <el-scrollbar class="tree-container">
+          <el-tree
+            class="tree-list custom-tree"
+            :data="formattedTreeData"
+            :default-expand-all="false"
+            highlight-current
+            :props="treeProps"
+            @node-click="handleNodeClick"
+            :render-content="renderContent"
+          />
+        </el-scrollbar>
+      </el-col>
 
-    <!-- 오른쪽: 선택된 데이터 상세 -->
-    <div class="data-details">
-      <el-tabs v-model="activeTab" class="custom-tabs">
-        <el-tab-pane label="전체" name="all"></el-tab-pane>
-        <el-tab-pane label="관리" name="management"></el-tab-pane>
-        <el-tab-pane label="기술" name="tech"></el-tab-pane>
-        <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
-      </el-tabs>
+      <!-- 오른쪽: 선택된 데이터 상세 -->
+      <el-col class="data-details" :xs="24" :sm="24" :md="19" >
+        <el-tabs v-model="activeTab" class="custom-tabs">
+          <el-tab-pane label="전체" name="all"></el-tab-pane>
+          <el-tab-pane label="관리" name="management"></el-tab-pane>
+          <el-tab-pane label="기술" name="tech"></el-tab-pane>
+          <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
+        </el-tabs>
 
-      <!-- 필터 옵션 -->
-      <div class="filters">
-        <el-select v-model="filter" placeholder="정책명" clearable>
-          <el-option label="정책명1" value="정책명1" />
-          <el-option label="정책명2" value="정책명2" />
-          <el-option label="정책명3" value="정책명3" />
-        </el-select>
-        <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
-        <el-select v-model="filter" placeholder="중요도" clearable>
-          <el-option label="높음" value="high" />
-          <el-option label="보통" value="medium" />
-          <el-option label="낮음" value="low" />
-        </el-select>
-        <el-select v-model="filter" placeholder="위험등금" clearable>
-          <el-option label="1" value="1" />
-          <el-option label="2" value="2" />
-          <el-option label="3" value="3" />
-        </el-select>
-        <el-select v-model="filter" placeholder="대상구분" clearable>
-          <el-option label="1" value="1" />
-          <el-option label="2" value="2" />
-          <el-option label="3" value="3" />
-        </el-select>
-        <el-select v-model="filter" placeholder="태그" clearable>
-          <el-option label="태그1" value="태그1" />
-          <el-option label="태그2" value="태그2" />
-          <el-option label="태그3" value="태그3" />
-        </el-select>
-        <el-select v-model="filter" placeholder="상태" clearable>
-          <el-option label="상태1" value="상태1" />
-          <el-option label="상태2" value="상태2" />
-          <el-option label="상태3" value="상태3" />
-        </el-select>
-        
-        <el-button class="black-button">
-          <el-icon><Plus /></el-icon>
-        </el-button>
+        <!-- 필터 옵션 -->
+        <div class="filters">
+          <el-select v-model="filter" placeholder="정책명" clearable>
+            <el-option label="정책명1" value="정책명1" />
+            <el-option label="정책명2" value="정책명2" />
+            <el-option label="정책명3" value="정책명3" />
+          </el-select>
+          <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
+          <el-select v-model="filter" placeholder="중요도" clearable>
+            <el-option label="높음" value="high" />
+            <el-option label="보통" value="medium" />
+            <el-option label="낮음" value="low" />
+          </el-select>
+          <el-select v-model="filter" placeholder="위험등금" clearable>
+            <el-option label="1" value="1" />
+            <el-option label="2" value="2" />
+            <el-option label="3" value="3" />
+          </el-select>
+          <el-select v-model="filter" placeholder="대상구분" clearable>
+            <el-option label="1" value="1" />
+            <el-option label="2" value="2" />
+            <el-option label="3" value="3" />
+          </el-select>
+          <el-select v-model="filter" placeholder="태그" clearable>
+            <el-option label="태그1" value="태그1" />
+            <el-option label="태그2" value="태그2" />
+            <el-option label="태그3" value="태그3" />
+          </el-select>
+          <el-select v-model="filter" placeholder="상태" clearable>
+            <el-option label="상태1" value="상태1" />
+            <el-option label="상태2" value="상태2" />
+            <el-option label="상태3" value="상태3" />
+          </el-select>
+          
+          <el-button class="black-button">
+            <el-icon><Plus /></el-icon>
+          </el-button>
 
-        <el-button class="white-button">
-          <el-icon><Delete /></el-icon>
-        </el-button>
-      </div>
+          <el-button class="white-button">
+            <el-icon><Delete /></el-icon>
+          </el-button>
+        </div>
 
-      <!-- 데이터 리스트 -->
-      <el-scrollbar class="data-list-scroll">
-        <el-card 
-        v-for="item in filteredDetails" 
-        :key="item.complianceSeq" 
-        class="detail-card">
-          <!-- 카테고리 및 제목 -->
-          <div class="card-chk">
-            <el-checkbox v-model="item.checked"></el-checkbox>
-            <span class="subtitle">{{ item.categoryName }}</span>
-          </div>
-          <div class="card-header">
-            <el-tag class="dot" type="success" effect="dark"></el-tag>
-            <span class="title">{{ item.categoryName }}</span>
-            <div 
-              class="tags"
-              v-for="tagItem in item.tags" 
-              :key="tagItem.itemTagSeq"
-            >
-              <el-tag size="small" type="info">{{ tagItem.tagName }}</el-tag>
-            </div>
-          </div>
-
-          <!-- 중요도, 위험등급, 코드 정보 -->
-          <div class="info">
-            <div>
-              <el-tag style="opacity: 0;"class="dot" type="success" effect="dark"></el-tag>
-              <span>중요도 <strong>{{ item.policyLevel }}</strong></span>
-              <span>위험등급 <strong class="danger">{{ item.threatLevelName }}</strong></span>
-              <span>코드 {{ item.itemCode }} 대상 {{ item.target }}</span>
-            </div>
-            <div class="footer">
-            <el-tag style="opacity: 0;"class="dot" type="success" effect="dark"></el-tag>
-              <div>
-                <p class="date">{{ item.regDate.substr(0, 10) }}</p>
-                <p class="author">운영 | 
-                  <span
-                    v-for="(maItem, index) in item.managers"
-                      :key="maItem.userId"
-                  >
-                    <strong v-if="index > 0">, {{ maItem.userName }}</strong>
-                    <strong v-else>{{ maItem.userName }}</strong>
-                  </span>
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 날짜 및 운영자 정보 -->
-       
-        </el-card>
-      </el-scrollbar>
-    </div>
-  </div>
+        <!-- 데이터 리스트 -->
+        <div class="data-list-scroll">
+          <ElcardDiv v-if="dataViewState === 0" :filteredDetails="filteredDetails"></ElcardDiv>
+          <JiraTable v-else></JiraTable>
+        </div>
+      </el-col>
+    </el-row>
+    
+  <!-- </div> -->
 </template>
 
 <script setup>
-import { ref, computed, h } from 'vue';
-import { ElMessage, ElButton, ElIcon } from 'element-plus';
-import { Plus, Delete } from '@element-plus/icons-vue';
 import { Edit } from '@element-plus/icons-vue';
+import { ElButton, ElIcon, ElMessage } from 'element-plus';
+import { computed, ref, watch } from 'vue';
+
+import JiraTable from '@/components/JiraTable.vue';
+import ElcardDiv from './components/ElcardDiv.vue';
 
 import policyData from '@/data/policy.json';
 import policyDetailData from '@/data/policy_detail.json';
@@ -140,6 +97,12 @@ const searchDetail = ref('');
 const activeTab = ref('all');
 const filter = ref('');
 
+// 탭버튼(보기 형식)
+const dataViewState = ref(0);
+
+watch(activeTab, (newValue) => {
+  dataViewState.value = newValue === "privacy" ? 1 : 0;
+});
 const details = ref(policyDetailData);
 
 const formatTree = (nodes) => {
@@ -177,7 +140,6 @@ const handleNodeClick = (node) => {
 };
 // 트리 노드 커스텀 렌더링 (수정 버튼 추가)
 const renderContent = (h, { node, data }) => {
-
   return h('div', { class: 'tree-node' }, [
     h('span', node.label),
     h(ElButton, {
@@ -215,99 +177,48 @@ const editNode = (nodeData) => {
 .mb-15{
   margin-bottom: 15px;
 }
-
-
 .data-list {
-  width: 300px;
   background: #fff;
   padding: 25px 15px;
   border-radius: 8px;
   height: 100%;
 }
-.card-chk{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
 .data-details {
-  flex: 1;
+
   display: flex;
   flex-direction: column;
   background-color: #fff;
   padding: 20px 15px;
   border-radius: 8px;
 }
-
 .filters {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
-
 .data-list-scroll {
-  max-height: 500px;
-  overflow-y: auto;
+  width: 100%;
+
 }
 
-.detail-card {
-  border-radius: 8px;
-  margin-bottom: 10px;
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #e7e7e7
-}
 
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.tags {
-  display: flex;
-  gap: 5px;
-}
-
-.dot {
-  font-size: 12px;
-  padding: 0;
-  width: 10px;
-  height: 10px;
-}
-
-.info {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0;
-  display: flex;
-  gap: 10px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.subtitle {
-  font-size: 12px;
-  color: #888;
-}
-.info .danger {
-  color: red;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #666;
+.responsive-row {
+    justify-content: center;
+    gap: 20px; 
+    height: 100%;
+  }
+@media (max-width: 600px) {
+  .responsive-row {
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    /* 테이블과 차트 사이 여백 추가 */
+    height: fit-content;
+  }
 }
 .black-button {
   background-color: #000 !important;
   color: #fff !important;
   border: none !important;
 }
-
 .white-button {
   background-color: #fff !important;
   color: #000 !important;

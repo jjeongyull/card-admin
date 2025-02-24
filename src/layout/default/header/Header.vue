@@ -58,10 +58,10 @@
 </template>
 
 <script setup>
-  import { ref, defineEmits } from 'vue';
-  import { useRouter } from "vue-router";
-  import menuData from '@/data/menu.json';
   import configData from '@/data/config.json';
+import menuData from '@/data/menu.json';
+import { defineEmits, ref } from 'vue';
+import { useRouter } from "vue-router";
 
   const config = ref(configData)
   const router = useRouter();

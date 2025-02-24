@@ -25,9 +25,3 @@ export default {
   }
 
 </style>
-
-<style>
-  .el-scrollbar__view{
-    height: 100%;
-  }
-</style>

@@ -10,3 +10,17 @@
   box-sizing: border-box;
   font-family: 'YouandiModern', sans-serif;
 }
+body{
+  max-height: 100vh;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#app{
+  max-height: 100vh;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
