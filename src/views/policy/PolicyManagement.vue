@@ -66,8 +66,14 @@
           </el-button>
 
           <el-button class="white-button">
-            <el-icon><Delete /></el-icon>
+            <el-icon><Delete/></el-icon>
           </el-button>
+        </div>
+        <div>
+          <el-button @click="showMessage">Show Message</el-button>
+          <el-button @click="showAlert">Show Alert</el-button>
+          <el-button @click="showConfirm">Show Confirm</el-button>
+          <el-button @click="showModal">Show Modal</el-button>
         </div>
 
         <!-- 데이터 리스트 -->
@@ -83,7 +89,7 @@
 
 <script setup>
 import { Edit } from '@element-plus/icons-vue';
-import { ElButton, ElIcon, ElMessage } from 'element-plus';
+import { ElButton, ElMessage } from 'element-plus';
 import { computed, ref, watch } from 'vue';
 
 import JiraTable from '@/components/JiraTable.vue';
@@ -91,6 +97,57 @@ import ElcardDiv from './components/ElcardDiv.vue';
 
 import policyData from '@/data/policy.json';
 import policyDetailData from '@/data/policy_detail.json';
+
+// 메세지박스
+import {useMessage} from "@/assets/utils/uNewMessageBox.js";
+
+const message = useMessage();
+
+// ✅ 일반 메시지
+const showMessage = () => {
+  message({ type: "msg", status: "success", message: "성공했습니다!", position: "top", duration: 1000 });
+};
+
+// ✅ 경고 메시지
+const showAlert = () => {
+  message({ type: "alert", message: "경고 메시지입니다.", position: "center" });
+
+};
+
+const alalal = () => {
+  alert('aaaa')
+}
+
+// ✅ 확인 창
+const showConfirm = () => {
+  message({
+    type: "confirm",
+    title: "확인",
+    message: "정말 삭제하시겠습니까?",
+    position: "center",
+    onConfirm: alalal
+  }).then(() => {
+    console.log("삭제 확인됨");
+  });
+
+};
+
+// ✅ 모달 창 (예제 컴포넌트 포함)
+import MyComponent from "@/components/MyComponent.vue";
+
+const showModal = () => {
+  message({
+    type: "modal",
+    title: "입력 폼",
+    component: MyComponent, // 동적 컴포넌트 전달
+    position: "center",
+  }).then(() => {
+    console.log("폼 제출됨");
+  });
+};
+
+
+
 
 const search = ref('');
 const searchDetail = ref('');

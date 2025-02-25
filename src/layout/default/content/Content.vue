@@ -23,8 +23,6 @@ export default {
     background-color: #e6e6e6;
     height: calc(100vh - 70px);
   }
-
-
 </style>
 <style>
   .main-content-view .el-scrollbar__view{

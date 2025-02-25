@@ -60,7 +60,7 @@
 <script setup>
   import configData from '@/data/config.json';
 import menuData from '@/data/menu.json';
-import { defineEmits, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from "vue-router";
 
   const config = ref(configData)
