@@ -32,7 +32,9 @@
    <div v-if="visible && type === 'modal'" class="modal-overlay">
      <div class="modal-box" :style="positionStyle">
        <h3>{{ title }}</h3>
-       <component :is="component" />
+       <keep-alive>
+        <component :is="component" />
+       </keep-alive>
        <div class="modal-footer">
          <button class="cancel-btn" @click="close">취소</button>
          <button class="confirm-btn" @click="confirmAction">확인</button>
@@ -59,12 +61,12 @@ const props = defineProps({
 const emit = defineEmits(["close", "confirm"]);
 const visible = ref(true);
 
-// ✅ type이 변경될 때마다 visible을 다시 true로 설정
+// ype이 변경될 때마다 visible을 다시 true로 설정
 watch(() => props.type, () => {
  visible.value = true;
 });
 
-// ✅ position에 따라 동적 스타일 반환
+// position에 따라 동적 스타일 반환
 const positionStyle = computed(() => {
  switch (props.position) {
    case "top": return { top: "70px", left: "50%", transform: "translateX(-50%)" };

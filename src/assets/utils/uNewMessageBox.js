@@ -3,7 +3,7 @@ import MessageBox from "@/components/MessageBox.vue";
 
 export function useMessage() {
   return (options) => {
-    console.log("✅ useMessage 호출됨", options);
+    console.log("호출됨", options);
 
     return new Promise((resolve) => {
       const container = document.createElement("div");
@@ -15,7 +15,6 @@ export function useMessage() {
         }),
         methods: {
           close() {
-            console.log("❌ 창 닫힘");
             this.visible = false;
             app.unmount();
             document.body.removeChild(container);
@@ -23,12 +22,12 @@ export function useMessage() {
           confirm() {
             console.log("✔️ 확인 버튼 클릭됨");
 
-            // ✅ onConfirm 함수 실행
+            // onConfirm 함수 실행
             if (typeof options.onConfirm === "function") {
               options.onConfirm(); // 전달된 함수 실행
             }
 
-            resolve(true); // Promise 성공 처리
+            resolve(true);
             this.close();
           },
         },

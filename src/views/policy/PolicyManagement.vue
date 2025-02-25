@@ -103,12 +103,12 @@ import {useMessage} from "@/assets/utils/uNewMessageBox.js";
 
 const message = useMessage();
 
-// ✅ 일반 메시지
+// 일반 메시지
 const showMessage = () => {
   message({ type: "msg", status: "success", message: "성공했습니다!", position: "top", duration: 1000 });
 };
 
-// ✅ 경고 메시지
+// 경고 메시지
 const showAlert = () => {
   message({ type: "alert", message: "경고 메시지입니다.", position: "center" });
 
@@ -118,7 +118,7 @@ const alalal = () => {
   alert('aaaa')
 }
 
-// ✅ 확인 창
+// 확인 창
 const showConfirm = () => {
   message({
     type: "confirm",
