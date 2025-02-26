@@ -221,3 +221,185 @@ const timelineData = ref([
 ]);
 </script>
 ```
+
+## 팝업 화면 - 반응형, 높이 제한 (2025.02.27)
+```
+<template>
+  <el-button type="primary" @click="dialogVisible = true">업무 수정</el-button>
+
+  <el-dialog
+    v-model="dialogVisible"
+    title="업무 수정"
+    :style="dialogStyle"
+    :close-on-click-modal="false"
+  >
+    <div class="dialog-content">
+      <el-form label-width="100px">
+        <!-- 업무명 -->
+        <el-form-item label="업무명">
+          <el-input v-model="task.name" />
+        </el-form-item>
+
+        <!-- 운영 -->
+        <el-form-item label="운영">
+          <el-select v-model="task.operation" placeholder="운영 선택">
+            <el-option label="운영" value="운영" />
+            <el-option label="개발" value="개발" />
+          </el-select>
+        </el-form-item>
+
+        <!-- 대내 / 대외 -->
+        <el-form-item label="대내 / 대외">
+          <el-radio-group v-model="task.internal">
+            <el-radio label="대내">대내</el-radio>
+            <el-radio label="대외">대외</el-radio>
+          </el-radio-group>
+        </el-form-item>
+
+        <!-- 업무 테이블 -->
+        <el-form-item label="업무 분류">
+          <el-table :data="task.categories" border style="width: 100%">
+            <el-table-column prop="category" label="분류" />
+            <el-table-column prop="count" label="개수" />
+          </el-table>
+        </el-form-item>
+
+        <!-- 담당자 -->
+        <el-form-item label="담당자">
+          <el-input v-model="newMember" placeholder="담당자 입력 후 Enter" @keyup.enter="addMember" />
+          <div class="tag-container">
+            <el-tag
+              v-for="(member, index) in task.members"
+              :key="index"
+              closable
+              @close="removeMember(index)"
+              class="tag-item"
+            >
+              {{ member }}
+            </el-tag>
+          </div>
+        </el-form-item>
+
+        <!-- 파일 업로드 -->
+        <el-form-item label="첨부파일">
+          <el-upload
+            class="upload-demo"
+            drag
+            action="#"
+            multiple
+            :auto-upload="false"
+          >
+            <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+            <div class="el-upload__text">파일을 여기에 드래그하거나 <em>여기를 클릭해주세요</em></div>
+            <template #tip>
+              <div class="el-upload__tip">jpg/png 파일만 허용 (최대 500KB)</div>
+            </template>
+          </el-upload>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="danger" @click="deleteTask">삭제</el-button>
+        <el-button @click="dialogVisible = false">취소</el-button>
+        <el-button type="primary" @click="saveTask">수정완료</el-button>
+      </span>
+    </template>
+  </el-dialog>
+</template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { UploadFilled } from "@element-plus/icons-vue";
+
+const dialogVisible = ref(false);
+
+const task = ref({
+  name: "Dive",
+  operation: "운영",
+  internal: "대내",
+  categories: [
+    { category: "웹", count: 3 },
+    { category: "앱", count: 7 },
+    { category: "서버 (OS)", count: 16 },
+    { category: "데이터베이스", count: 2 },
+    { category: "WEB / WAS", count: 3 },
+  ],
+  members: ["관리자", "강민호"],
+});
+
+const newMember = ref("");
+
+const addMember = () => {
+  if (newMember.value && !task.value.members.includes(newMember.value)) {
+    task.value.members.push(newMember.value);
+    newMember.value = "";
+  }
+};
+
+const removeMember = (index) => {
+  task.value.members.splice(index, 1);
+};
+
+const deleteTask = () => {
+  console.log("삭제 실행");
+  dialogVisible.value = false;
+};
+
+const saveTask = () => {
+  console.log("저장 실행", task.value);
+  dialogVisible.value = false;
+};
+
+// 반응형 스타일 적용
+const dialogStyle = computed(() => ({
+  width: window.innerWidth < 768 ? "90%" : "600px",
+  height: "60vh",
+  "max-width": "90vw",
+}));
+</script>
+
+<style scoped>
+.dialog-content {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* 태그 스타일 */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tag-item {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+  .dialog-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dialog-footer el-button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+</style>
+
+```
