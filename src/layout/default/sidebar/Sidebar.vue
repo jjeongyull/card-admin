@@ -10,7 +10,7 @@
     <el-scrollbar class="sidebar-scroll">
       <!-- 접기/펼치기 버튼 -->
       <div class="sidebar-header">
-        <el-button @click="toggleCollapse" class="toggle-btn" circle>
+        <el-button @click="toggleCollapse" class="toggle-btn" circle type="link">
           <el-icon v-if="!isCollapsed"><ArrowLeft /></el-icon>
           <el-icon v-else><ArrowRight /></el-icon>
         </el-button>

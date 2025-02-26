@@ -9,7 +9,7 @@
 
       <!-- 모바일에서는 햄버거 메뉴 -->
       <el-icon class="menu-icon" @click="drawerVisible = true">
-        <Menu />
+        <el-icon><Menu /></el-icon>
       </el-icon>
 
       <!-- 데스크톱에서는 네비게이션 메뉴 -->
@@ -18,7 +18,7 @@
           v-for="(menu, index) in menuList"
           :key="menu.menuId"
           class="header-text"
-          text
+          link
           @click="selectMenu(menu, index)"
         >
           {{ menu.menuName }}
@@ -30,7 +30,7 @@
     <div class="toolbar">
       <el-dropdown>
         <div class="icon-wrapper">
-          <el-icon><UserFilled /></el-icon>
+          <el-icon><el-icon><User /></el-icon></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>

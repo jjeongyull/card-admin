@@ -4,12 +4,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'YouandiModern', sans-serif;
 }
+
 body{
   max-height: 100vh;
   height: 100%;
@@ -17,10 +19,45 @@ body{
   margin: 0;
   box-sizing: border-box;
 }
+
 #app{
   max-height: 100vh;
   height: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.custom-message-top {
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.custom-message-bottom {
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.custom-message-left {
+  top: 50% !important;
+  left: 20px !important;
+  transform: translateY(-50%) !important;
+}
+
+.custom-message-right {
+  top: 50% !important;
+  right: 20px !important;
+  transform: translateY(-50%) !important;
+}
+
+.custom-message-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.custom-message-max-zindex {
+  z-index: 9999 !important;
 }

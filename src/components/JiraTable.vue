@@ -2,7 +2,7 @@
   <div class="table-header">
     <div class="header-actions">
       <el-dropdown>
-        <el-button type="text"><el-icon class="custom-set"><Setting /></el-icon></el-button>
+        <el-button type="link"><el-icon class="custom-set"><Setting /></el-icon></el-button>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item v-for="(col, index) in columns" :key="index">
@@ -25,7 +25,7 @@
         <div class="header-container">
           <span>{{ col }}</span>
           <el-dropdown>
-            <el-button type="text">
+            <el-button type="link">
               <el-icon><More /></el-icon>
             </el-button>
             <template #dropdown>
@@ -48,13 +48,13 @@
     <!-- 마지막 칼럼 고정 -->
     <el-table-column label="➕" align="center" fixed="right" class="sticky-add-column" width="70">
       <template #header>
-        <el-button @click="addColumn">
+        <el-button @click="addColumn" type="link">
           <el-icon><Plus /></el-icon>
         </el-button>
       </template>
     </el-table-column>
   </el-table>
-  <el-button class="table-plus" @click="addRow">+ 행 추가</el-button>
+  <el-button class="table-plus" @click="addRow" type="link">+ 행 추가</el-button>
 </template>
 
 <script setup>

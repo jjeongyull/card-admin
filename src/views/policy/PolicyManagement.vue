@@ -61,19 +61,19 @@
             <el-option label="상태3" value="상태3" />
           </el-select>
           
-          <el-button class="black-button">
+          <el-button class="black-button" type="link">
             <el-icon><Plus /></el-icon>
           </el-button>
 
-          <el-button class="white-button">
+          <el-button class="white-button" type="link">
             <el-icon><Delete/></el-icon>
           </el-button>
         </div>
         <div>
-          <el-button @click="showMessage">Show Message</el-button>
-          <el-button @click="showAlert">Show Alert</el-button>
-          <el-button @click="showConfirm">Show Confirm</el-button>
-          <el-button @click="showModal">Show Modal</el-button>
+          <el-button @click="showMessageSuccess" type="link">메시지(success)</el-button>
+          <el-button @click="showMessageError" type="link">메시지(error)</el-button>
+          <el-button @click="alertTopRight" type="link">알림 (상단 우측)</el-button>
+          <el-button @click="alertBottomLeft" type="link">알림 (하단 좌측)</el-button>
         </div>
 
         <!-- 데이터 리스트 -->
@@ -98,54 +98,41 @@ import ElcardDiv from './components/ElcardDiv.vue';
 import policyData from '@/data/policy.json';
 import policyDetailData from '@/data/policy_detail.json';
 
-// 메세지박스
-import {useMessage} from "@/assets/utils/uNewMessageBox.js";
+import { uNewMessageBox } from "@/assets/utils/";
 
-const message = useMessage();
-
-// 일반 메시지
-const showMessage = () => {
-  message({ type: "msg", status: "success", message: "성공했습니다!", position: "top", duration: 1000 });
-};
-
-// 경고 메시지
-const showAlert = () => {
-  message({ type: "alert", message: "경고 메시지입니다.", position: "center" });
-
-};
-
-const alalal = () => {
-  alert('aaaa')
+const showMessageSuccess = () => {
+  uNewMessageBox.showMessage({
+    message: "성공적으로 처리되었습니다!",
+    type: "success",
+    duration: 3000,
+    position: "top",
+    stack: false,
+  });
 }
-
-// 확인 창
-const showConfirm = () => {
-  message({
-    type: "confirm",
-    title: "확인",
-    message: "정말 삭제하시겠습니까?",
+const showMessageError = () => {
+  uNewMessageBox.showMessage({
+    message: "오류가 발생했습니다.",
+    type: "error",
+    duration: 4000,
     position: "center",
-    onConfirm: alalal
-  }).then(() => {
-    console.log("삭제 확인됨");
   });
-
-};
-
-// ✅ 모달 창 (예제 컴포넌트 포함)
-import MyComponent from "@/components/MyComponent.vue";
-
-const showModal = () => {
-  message({
-    type: "modal",
-    title: "입력 폼",
-    component: MyComponent, // 동적 컴포넌트 전달
-    position: "center",
-  }).then(() => {
-    console.log("폼 제출됨");
+}
+const alertTopRight = () => {
+  uNewMessageBox.showNotification({
+    title: "경고",
+    message: "우측 상단",
+    type: "warning",
+    position: "top-right",
   });
-};
-
+}
+const alertBottomLeft = () => {
+  uNewMessageBox.showNotification({
+    title: "경고",
+    message: "죄측 하단",
+    type: "warning",
+    position: "bottom-left",
+  });
+}
 
 
 
@@ -200,7 +187,7 @@ const renderContent = (h, { node, data }) => {
   return h('div', { class: 'tree-node' }, [
     h('span', node.label),
     h(ElButton, {
-      type: 'text',
+      type: 'link',
       icon: Edit,
       class: 'edit-btn',
       onClick: (event) => {
