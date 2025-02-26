@@ -70,7 +70,7 @@ const filterTable = (key) => {
 
 # (2025.02.26)
 
-### 메시지 상자 출력을 컴포넌트로 작성 후 동적으로 호출 하려면면
+### 메시지 상자 출력을 컴포넌트로 작성 후 동적으로 호출 하려면
 #### 확인 및 처리 여부 : 
 ##### 컴포넌트를 만들고, props를 통해 메시지, 제목, 버튼 텍스트, 콜백 등을 동적으로 설정.
 ##### 확인 버튼 클릭 시 confirmed 이벤트가 부모 컴포넌트로 전달되며, 이를 이용해 추가적인 동작을 수행
@@ -185,4 +185,39 @@ const handleCancel = () => {
     @confirmed="handleConfirm"
   />
 </template>
+```
+
+##이력 타임 라인 출력 인터페이스 (2025.02.27)
+```
+<template>
+  <div class="max-w-2xl mx-auto p-5">
+    <h2 class="text-xl font-semibold mb-4">이력 타임라인</h2>
+
+    <el-timeline>
+      <el-timeline-item
+        v-for="(event, index) in timelineData"
+        :key="index"
+        :timestamp="event.date"
+        placement="top"
+        :color="event.color"
+      >
+        <el-card>
+          <h3 class="text-lg font-semibold">{{ event.title }}</h3>
+          <p class="text-gray-700">{{ event.description }}</p>
+        </el-card>
+      </el-timeline-item>
+    </el-timeline>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const timelineData = ref([
+  { date: "2024-02-27", title: "프로젝트 시작", description: "프로젝트가 공식적으로 시작되었습니다.", color: "#409EFF" },
+  { date: "2024-03-10", title: "기능 개발", description: "핵심 기능 개발이 완료되었습니다.", color: "#67C23A" },
+  { date: "2024-04-05", title: "테스트 완료", description: "기능 테스트를 성공적으로 마쳤습니다.", color: "#E6A23C" },
+  { date: "2024-05-01", title: "배포 완료", description: "서비스가 정식으로 배포되었습니다.", color: "#F56C6C" }
+]);
+</script>
 ```
