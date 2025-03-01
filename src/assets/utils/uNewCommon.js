@@ -36,6 +36,75 @@ const isEmpty = (value, isCheckWithZero = false) => {
   )
 }
 
+/**
+ * 주어진 평면 배열 데이터를 트리 구조로 변환하는 함수입니다.
+ *
+ * 이 함수는 주어진 데이터를 `parentKey`와 `key`를 기준으로 트리 구조로 변환하고,
+ * 부모 메뉴 ID가 `startMenuId`인 항목들을 찾아 트리의 루트로 설정합니다.
+ * 또한, 항목들을 `sortKey`를 기준으로 정렬합니다.
+ *
+ * @param {Array} items - 트리 구조로 변환할 평면 배열 데이터입니다.
+ * @param {string} parentKey - 부모 항목의 ID를 나타내는 키입니다.
+ * @param {string} key - 각 항목의 고유 ID를 나타내는 키입니다.
+ * @param {string} startMenuId - 트리 구조의 루트로 설정할 부모 항목의 ID입니다.
+ * @param {string} [sortKey='sort'] - 항목들을 정렬할 키입니다. 기본값은 `'sort'`입니다.
+ *
+ * @returns {Array} 트리 구조로 변환된 배열을 반환합니다.
+ *
+ * @example
+ * const flatData = [
+ *   { menuId: '1', parentMenuId: '0', sort: 1 },
+ *   { menuId: '2', parentMenuId: '0', sort: 2 },
+ *   { menuId: '3', parentMenuId: '1', sort: 1 },
+ *   { menuId: '4', parentMenuId: '1', sort: 2 },
+ * ];
+ * const treeData = buildTree(flatData, 'parentMenuId', 'menuId', '0');
+ * console.log(treeData);
+ *
+ * // 결과:
+ * [
+ *   {
+ *     menuId: '1',
+ *     parentMenuId: '0',
+ *     sort: 1,
+ *     children: [
+ *       { menuId: '3', parentMenuId: '1', sort: 1, children: [] },
+ *       { menuId: '4', parentMenuId: '1', sort: 2, children: [] }
+ *     ]
+ *   },
+ *   {
+ *     menuId: '2',
+ *     parentMenuId: '0',
+ *     sort: 2,
+ *     children: []
+ *   }
+ * ]
+ */
+const buildTree = (items, parentKey, key, startMenuId, sortKey = "sort") =>
+  items
+    .filter(item => item[parentKey] === startMenuId) // 부모 ID가 startMenuId인 것만 필터링
+    .sort((a, b) => a[sortKey] - b[sortKey]) // 정렬 적용
+    .map(item => ({
+      ...item,
+      children: buildTree(item.children, parentKey, key, item[key], sortKey) // 자식 노드 재귀 호출
+    }));
+
+
+    /**
+     * 
+     * @param {*} nodes 트리구조로 만들 최종데이터
+     * @param {*} keyName : label데이터에 넣을 기존의 key값
+     * @returns 
+     */
+const addLabelRecursively = (nodes, keyName) => {
+  return nodes.map(node => ({
+    ...node,
+    label: node[keyName], // 현재 노드에 label 추가
+    children: node.children ? addLabelRecursively(node.children, keyName) : [] // 자식 노드도 재귀적으로 label 추가
+  }));
+};
 export default {
-  isEmpty
+  isEmpty,
+  buildTree,
+  addLabelRecursively
 }

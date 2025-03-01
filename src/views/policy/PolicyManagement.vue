@@ -1,207 +1,132 @@
 <template>
-  <!-- <div class="content-container"> -->
-    <!-- 왼쪽: 데이터 리스트 -->
-    <el-row :gutter="20" class="responsive-row">
-      <el-col class="data-list" :xs="24" :sm="24" :md="4">
-        <h4 class="mb-20">단위정책 탐색</h4>
-        <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable />
-        <el-scrollbar class="tree-container">
-          <el-tree
-            class="tree-list custom-tree"
-            :data="formattedTreeData"
-            :default-expand-all="false"
-            highlight-current
-            :props="treeProps"
-            @node-click="handleNodeClick"
-            :render-content="renderContent"
-          />
-        </el-scrollbar>
-      </el-col>
+  <el-row :gutter="20" class="responsive-row">
+    <!-- 왼쪽: 트리 데이터 리스트 -->
+    <el-col class="data-list" :xs="24" :sm="24" :md="4">
+      <h4 class="mb-20">단위정책 탐색</h4>
+      <!-- <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable /> -->
+      
+      <!-- TreeComponent 사용 -->
+      <TreeComponent 
+        :data="treeData" 
+        @edit="editNode" 
+        @add="addNode" 
+        @delete="deleteNode" 
+        @viewData="viewNodeData" 
+      />
+    </el-col>
 
-      <!-- 오른쪽: 선택된 데이터 상세 -->
-      <el-col class="data-details" :xs="24" :sm="24" :md="19" >
-        <el-tabs v-model="activeTab" class="custom-tabs">
-          <el-tab-pane label="전체" name="all"></el-tab-pane>
-          <el-tab-pane label="관리" name="management"></el-tab-pane>
-          <el-tab-pane label="기술" name="tech"></el-tab-pane>
-          <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
-        </el-tabs>
+    <!-- 오른쪽: 선택된 데이터 상세 -->
+    <el-col class="data-details" :xs="24" :sm="24" :md="19">
+      <el-tabs v-model="activeTab" class="custom-tabs">
+        <el-tab-pane label="전체" name="all"></el-tab-pane>
+        <el-tab-pane label="관리" name="management"></el-tab-pane>
+        <el-tab-pane label="기술" name="tech"></el-tab-pane>
+        <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
+      </el-tabs>
 
-        <!-- 필터 옵션 -->
-        <div class="filters">
-          <el-select v-model="filter" placeholder="정책명" clearable>
-            <el-option label="정책명1" value="정책명1" />
-            <el-option label="정책명2" value="정책명2" />
-            <el-option label="정책명3" value="정책명3" />
-          </el-select>
-          <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
-          <el-select v-model="filter" placeholder="중요도" clearable>
-            <el-option label="높음" value="high" />
-            <el-option label="보통" value="medium" />
-            <el-option label="낮음" value="low" />
-          </el-select>
-          <el-select v-model="filter" placeholder="위험등금" clearable>
-            <el-option label="1" value="1" />
-            <el-option label="2" value="2" />
-            <el-option label="3" value="3" />
-          </el-select>
-          <el-select v-model="filter" placeholder="대상구분" clearable>
-            <el-option label="1" value="1" />
-            <el-option label="2" value="2" />
-            <el-option label="3" value="3" />
-          </el-select>
-          <el-select v-model="filter" placeholder="태그" clearable>
-            <el-option label="태그1" value="태그1" />
-            <el-option label="태그2" value="태그2" />
-            <el-option label="태그3" value="태그3" />
-          </el-select>
-          <el-select v-model="filter" placeholder="상태" clearable>
-            <el-option label="상태1" value="상태1" />
-            <el-option label="상태2" value="상태2" />
-            <el-option label="상태3" value="상태3" />
-          </el-select>
-          
-          <el-button class="black-button" type="link">
-            <el-icon><Plus /></el-icon>
-          </el-button>
+      <!-- 필터 옵션 -->
+      <div class="filters">
+        <el-select v-model="filter.policyName" placeholder="정책명" clearable>
+          <el-option label="정책명1" value="정책명1" />
+          <el-option label="정책명2" value="정책명2" />
+          <el-option label="정책명3" value="정책명3" />
+        </el-select>
+        <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
+        <el-select v-model="filter.priority" placeholder="중요도" clearable>
+          <el-option label="높음" value="high" />
+          <el-option label="보통" value="medium" />
+          <el-option label="낮음" value="low" />
+        </el-select>
+        <el-select v-model="filter.riskLevel" placeholder="위험등급" clearable>
+          <el-option label="1" value="1" />
+          <el-option label="2" value="2" />
+          <el-option label="3" value="3" />
+        </el-select>
+        <el-select v-model="filter.status" placeholder="상태" clearable>
+          <el-option label="상태1" value="상태1" />
+          <el-option label="상태2" value="상태2" />
+          <el-option label="상태3" value="상태3" />
+        </el-select>
 
-          <el-button class="white-button" type="link">
-            <el-icon><Delete/></el-icon>
-          </el-button>
-        </div>
-        <div>
-          <el-button @click="showMessageSuccess" type="link">메시지(success)</el-button>
-          <el-button @click="showMessageError" type="link">메시지(error)</el-button>
-          <el-button @click="alertTopRight" type="link">알림 (상단 우측)</el-button>
-          <el-button @click="alertBottomLeft" type="link">알림 (하단 좌측)</el-button>
-        </div>
+        <el-button class="black-button" type="link">
+          <el-icon><Plus /></el-icon>
+        </el-button>
 
-        <!-- 데이터 리스트 -->
-        <div class="data-list-scroll">
-          <ElcardDiv v-if="dataViewState === 0" :filteredDetails="filteredDetails"></ElcardDiv>
-          <JiraTable v-else></JiraTable>
-        </div>
-      </el-col>
-    </el-row>
-    
-  <!-- </div> -->
+        <el-button class="white-button" type="link">
+          <el-icon><Delete/></el-icon>
+        </el-button>
+      </div>
+
+      <!-- 데이터 리스트 -->
+      <div class="data-list-scroll">
+        <ElcardDiv v-if="dataViewState === 0" :filteredDetails="filteredDetails"></ElcardDiv>
+        <JiraTable v-else></JiraTable>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script setup>
-import { Edit } from '@element-plus/icons-vue';
-import { ElButton, ElMessage } from 'element-plus';
-import { computed, ref, watch } from 'vue';
-
+import { ref, watch, computed } from 'vue';
+import { ElMessage } from 'element-plus';
+import TreeComponent from '@/components/TreeComponent.vue'; // 트리 컴포넌트 import
 import JiraTable from '@/components/JiraTable.vue';
 import ElcardDiv from './components/ElcardDiv.vue';
-
-import policyData from '@/data/policy.json';
+import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
-import { uNewMessageBox } from "@/assets/utils/";
+// 트리 데이터
+const treeData = ref(menu);
 
-const showMessageSuccess = () => {
-  uNewMessageBox.showMessage({
-    message: "성공적으로 처리되었습니다!",
-    type: "success",
-    duration: 3000,
-    position: "top",
-    stack: false,
-  });
-}
-const showMessageError = () => {
-  uNewMessageBox.showMessage({
-    message: "오류가 발생했습니다.",
-    type: "error",
-    duration: 4000,
-    position: "center",
-  });
-}
-const alertTopRight = () => {
-  uNewMessageBox.showNotification({
-    title: "경고",
-    message: "우측 상단",
-    type: "warning",
-    position: "top-right",
-  });
-}
-const alertBottomLeft = () => {
-  uNewMessageBox.showNotification({
-    title: "경고",
-    message: "죄측 하단",
-    type: "warning",
-    position: "bottom-left",
-  });
-}
-
-
-
+// 필터 및 검색어 상태
 const search = ref('');
 const searchDetail = ref('');
 const activeTab = ref('all');
-const filter = ref('');
+const filter = ref({
+  policyName: '',
+  priority: '',
+  riskLevel: '',
+  status: '',
+});
 
-// 탭버튼(보기 형식)
+// 탭 버튼 상태
 const dataViewState = ref(0);
-
 watch(activeTab, (newValue) => {
   dataViewState.value = newValue === "privacy" ? 1 : 0;
 });
+
+// 정책 데이터
 const details = ref(policyDetailData);
-
-const formatTree = (nodes) => {
-  return nodes.map(node => ({
-    label: node._custom?.value?.categoryName || node._custom?.value?.categoryName, // description이 없으면 categoryName 표시
-    children: node._custom?.value?.children ? formatChildrenTree(node._custom.value.children) : []
-  }))
-}
-
-const formatChildrenTree = (nodes) => {
-  return nodes.map(node => ({
-    label: node.categoryName || node.categoryName, // description이 없으면 categoryName 표시
-    children: node?.children ? formatChildrenTree(node.children) : []
-  }))
-}
-
-const formattedTreeData = computed(() => formatTree(policyData));
-const treeProps = {
-  children: 'children',
-  label: 'label'
-}
-
-const selectedCategory = ref(null);
-
-
 const filteredDetails = computed(() => {
   return details.value.filter(item =>
-    (!filter.value || item.category === filter.value) &&
+    (!filter.value.policyName || item.category === filter.value.policyName) &&
     (!searchDetail.value || item.title.includes(searchDetail.value))
   );
 });
 
-const handleNodeClick = (node) => {
-  selectedCategory.value = node.label;
-};
-// 트리 노드 커스텀 렌더링 (수정 버튼 추가)
-const renderContent = (h, { node, data }) => {
-  return h('div', { class: 'tree-node' }, [
-    h('span', node.label),
-    h(ElButton, {
-      type: 'link',
-      icon: Edit,
-      class: 'edit-btn',
-      onClick: (event) => {
-        event.stopPropagation();
-        editNode(data);
-      }
-    })
-  ]);
-};
+// 선택된 노드 저장
+const selectedCategory = ref(null);
 
+// 트리 노드 클릭 (편집)
 const editNode = (nodeData) => {
-  ElMessage.info(`수정할 항목: ${nodeData.label}`);
+  selectedCategory.value = nodeData.menuName;
+  ElMessage.info(`수정할 항목: ${nodeData.menuName}`);
 };
 
+// 트리 노드 추가
+const addNode = (nodeData) => {
+  ElMessage.success(`새로운 노드 추가됨: ${nodeData.menuName}`);
+};
+
+// 트리 노드 삭제
+const deleteNode = (nodeData) => {
+  ElMessage.warning(`노드 삭제됨: ${nodeData.menuName}`);
+};
+
+// 트리 노드 데이터 보기
+const viewNodeData = (nodeData) => {
+  ElMessage.info(`노드 정보: ${JSON.stringify(nodeData, null, 2)}`);
+};
 </script>
 
 <style scoped>
@@ -212,13 +137,13 @@ const editNode = (nodeData) => {
   height: 100%;
 }
 .tree-container {
-  max-height: 600px; /* 높이 지정 (필요하면 조정 가능) */
+  max-height: 600px;
   padding-right: 10px;
 }
-.mb-20{
+.mb-20 {
   margin-bottom: 20px;
 }
-.mb-15{
+.mb-15 {
   margin-bottom: 15px;
 }
 .data-list {
@@ -228,7 +153,6 @@ const editNode = (nodeData) => {
   height: 100%;
 }
 .data-details {
-
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -242,19 +166,15 @@ const editNode = (nodeData) => {
 }
 .data-list-scroll {
   width: 100%;
-
 }
-
-
 .responsive-row {
-    justify-content: center;
-    gap: 20px; 
-    height: 100%;
-  }
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+}
 @media (max-width: 600px) {
   .responsive-row {
-    flex-wrap: wrap; /* 줄바꿈 허용 */
-    /* 테이블과 차트 사이 여백 추가 */
+    flex-wrap: wrap;
     height: fit-content;
   }
 }
@@ -267,51 +187,5 @@ const editNode = (nodeData) => {
   background-color: #fff !important;
   color: #000 !important;
   border: 1px solid #000 !important;
-}
-</style>
-<style>
-.tree-list .tree-node{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  color: #000;
-  justify-content: space-between;
-  font-weight: bold;
-}
-.tree-list .tree-node span{
-  display: inline-block;
-  max-width: 180px; /* 너비 지정 (조정 가능) */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-}
-.el-button+.el-button {
-    margin-left: 0;
-}
-.custom-tree .el-tree-node__content {
-  border-radius: 4px;
-}
-.custom-tree .el-tree-node__content:hover {
-  background-color: #ECECEC !important;
-}
-.custom-tree .el-tree-node.is-current > .el-tree-node__content {
-  background-color: #ECECEC !important;
-}
-.custom-tabs .el-tabs__item {
-  color: #000 !important;
-  font-weight: bold
-}
-.custom-tabs .el-tabs__item.is-active {
-  color: #000 !important;
-}
-.custom-tabs .el-tabs__active-bar {
-  background-color: #000 !important;
-}
-.black-button.el-button>span{
-  color: #fff;
-}
-.el-card__body{
-  padding: 10px 20px;
 }
 </style>

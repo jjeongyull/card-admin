@@ -11,11 +11,12 @@
     <div class="tree-wrapper">
       <el-tree
         ref="treeRef"
-        :data="treeData"
+        :data="formattedTreeData"
         :props="defaultProps"
+        highlight-current
         :filter-node-method="filterNode"
         node-key="menuId"
-        default-expand-all
+        :default-expand-all="false"
         draggable
         @node-drop="handleNodeDrop"
       >
@@ -61,9 +62,10 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { ElTree, ElInput, ElDialog, ElButton } from 'element-plus'
 import PopupMenu from '@/components/PopupMenu.vue' // 팝업 메뉴 컴포넌트 import
+import uNewCommon from "@/assets/utils/uNewCommon.js"
 
 export default {
   name: 'TreeComponent',
@@ -80,14 +82,13 @@ export default {
       required: true
     }
   },
-  emits: ['edit', 'add', 'delete', 'viewData'],
+  emits: ['edit', 'add', 'delete', 'viewData', "update:data"],
   setup(props, { emit }) {
     const treeRef = ref(null)
     const filterText = ref('')
-    const treeData = ref(props.data)
     const defaultProps = ref({
       children: 'children',
-      label: 'menuName'
+      label: 'label'
     })
     const editDialogVisible = ref(false)
     const addDialogVisible = ref(false)
@@ -97,6 +98,29 @@ export default {
     const currentNode = ref(null)
     const currentNodeData = ref(null)
     const parentNode = ref(null)
+
+    const treeData = ref([]);
+    watch(
+      () => props.data,
+      (newData) => {
+        treeData.value = newData;
+      },
+      { immediate: true, deep: true }
+    );
+
+    const formattedTreeData = computed(() =>
+      uNewCommon.addLabelRecursively(
+        uNewCommon.buildTree(treeData.value, "parentMenuId", "menuId", "0"),
+        "menuName"
+      )
+    );
+
+
+    console.log()
+
+
+
+
 
     // 트리용 메뉴 항목
     const treeMenuItems = ref([
@@ -165,6 +189,8 @@ export default {
       emit('update:data', treeData.value)
     }
 
+    console.log(formattedTreeData)
+
     return {
       treeRef,
       filterText,
@@ -177,6 +203,7 @@ export default {
       newNodeLabel,
       currentNodeData,
       treeMenuItems,
+      formattedTreeData,
       filterNode,
       handleCommand,
       saveEdit,
@@ -192,7 +219,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh; /* 화면 전체 높이 */
-  padding: 20px;
 }
 
 .tree-wrapper {
