@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/assets/utils/uAxios.js | card-admin</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#assets-utils-config">assets/utils/config</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-aesKey">aesKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-attachment">attachment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-errorMsg">errorMsg</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-message">message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-policyPart">policyPart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-searchScope">searchScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplStatusCode">secReviewImplStatusCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplType">secReviewImplType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewManagerType">secReviewManagerType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewStatus">secReviewStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-taskCode">taskCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ui">ui</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stores">stores</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-useAuthStore">useAuthStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/assets/utils/uAxios.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * axios &#xD568;&#xC218; &#xBC0F; &#xC804;&#xCC98;&#xB9AC;
+ * RESTful API &#xB514;&#xC790;&#xC778; &#xC6D0;&#xCE59;&#xC5D0; &#xB530;&#xB77C; GET, POST, PUT, PATCH, DELETE &#xAD6C;&#xD604;
+**/
+
+import axios from &apos;axios&apos;
+import { uMessage, uRouter, uCommon } from &apos;@/assets/utils&apos;
+import { errorMsg } from &apos;@/config/constants&apos;
+import storeGlobal from &apos;@/store/helper/global/storeGlobal&apos;
+
+/* axios instance */
+const instance = axios.create({
+  /**
+   * TODO : &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xC5D0; &#xAE30;&#xBCF8;&#xAC12; &#xC124;&#xC815; &#xD544;&#xC694;
+   * baseURL : import.meta.env.VITE_API_BASE_URL (&#xD658;&#xACBD; &#xBCC0;&#xC218;&#xC5D0; &#xC124;&#xC815;)
+   * timeout : import.meta.env.VITE_API_TIMECOUT (&#xD658;&#xACBD; &#xBCC0;&#xC218;&#xC5D0; &#xC124;&#xC815;)
+   */
+  baseURL: &apos;&apos;,
+  timeout: 30000,
+})
+
+/**
+ * &#xC694;&#xCCAD; interceptors
+ * TODO : Authorization &#xB204;&#xB77D; &#xC2DC; &#xC608;&#xC678; &#xCC98;&#xB9AC; &#xD544;&#xC694;. storeGlobal.getToken()&#xC774; null &#xB610;&#xB294; undefined&#xC77C; &#xACBD;&#xC6B0;, Bearer null&#xC774; &#xB420; &#xC218; &#xC788;&#xC73C;&#xBBC0;&#xB85C; Authorization &#xD5E4;&#xB354;&#xB97C; &#xC870;&#xAC74;&#xBD80;&#xB85C; &#xC124;&#xC815; &#xD544;&#xC694;.
+ * const token = storeGlobal.getToken();
+ * ...(token &amp;&amp; { Authorization: `Bearer ${token}` }),
+ * ==&gt; ...(&#xC2A4;&#xD504;&#xB808;&#xB4DC; &#xC5F0;&#xC0B0;&#xC790;)&#xC758; &#xC5ED;&#xD560; &#xD655;&#xC778;&#xD560; &#xAC83;
+**/
+instance.interceptors.request.use(
+  function (config) {
+    if (config.method === &apos;delete&apos;) {
+      config.headers.permit = &apos;d&apos;
+    }
+    const token = storeGlobal.getToken();
+    config.headers = {
+      Authorization: &apos;Bearer &apos; + storeGlobal.getToken(),
+      &apos;Content-type&apos;: &apos;application/json&apos;,
+      menuid: storeGlobal.getLastMenuMenuId(),
+      permit: config.headers.permit || &apos;&apos;,
+      refreshtoken: config.headers.refreshtoken || &apos;&apos;
+    }
+    return config
+  },
+  function (error) {
+    return Promise.reject(error)
+  }
+)
+
+/* &#xC751;&#xB2F5; interceptors */
+instance.interceptors.response.use(
+  function (response) {
+    if (response.config.url !== &apos;/api/test/app/info&apos;) storeGlobal.setLoginInterval()
+    // console.log(&apos;method.js&apos;, response)
+    return response
+  },
+  function (error) {
+    try {
+      const data = error.response.data
+      if (data.status === 4001) {
+        return resolveAuth(error.config)
+      } else if (data.status === 4002) {
+        forceToLogout(data.msg)
+      } else if (data.status === 4003) {
+        // uAPIPersonal.login()
+        storeGlobal.clearAuth()
+        uRouter.replace(&apos;Error&apos;, { title: data.status, message: data.msg })
+      } else {
+        /* &#xAE30;&#xD0C0; &#xC624;&#xB958; &#xBAA8;&#xB2EC; &#xC54C;&#xB9BC; */
+        const msg = data.msg || errorMsg.e503.message
+        /**
+         * TODO : showSingleAlertBox&#xC5D0; &#xC9C1;&#xC811; HTML &#xC804;&#xB2EC;&#xB418;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; (consts.js&#xC5D0; &#xC0C1;&#xC218; &#xCC98;&#xB9AC;)
+        **/
+        uMessage.showSingleAlertBox(&apos;&#xC54C;&#xB9BC;&apos;, &apos;&lt;span class=&quot;ti ti-alert-circle error-alert-msg&quot;&gt;&amp;nbsp;&apos; + msg + &apos;&lt;/span&gt;&apos;, &apos;&#xD655;&#xC778;&apos;)
+      }
+    } catch (e) {
+      uMessage.showSingleAlertBox(&apos;&#xC54C;&#xB9BC;&apos;, &apos;&lt;span class=&quot;ti ti-alert-circle error-alert-msg&quot;&gt;&amp;nbsp;&apos; + errorMsg.e0.message + &apos;&lt;/span&gt;&apos;, &apos;&#xD655;&#xC778;&apos;)
+    }
+    return Promise.reject(error)
+  }
+)
+
+/**
+ * access token &#xB9CC;&#xB8CC;&#xB85C; &#xC7AC;&#xBC1C;&#xAE09; &#xC694;&#xCCAD; &#xBC0F; &#xB9C8;&#xC9C0;&#xB9C9; &#xC694;&#xCCAD; retry 
+ * TODO : config&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xCC98;&#xB9AC; &#xD544;&#xC694;, config&#xAC00; undefined&#xC77C; &#xACBD;&#xC6B0;, instance.request(config) &#xC2E4;&#xD589; &#xC2DC; &#xC5D0;&#xB7EC; &#xBC1C;&#xC0DD;. &#xC0C1;&#xC138; &#xC5D0;&#xB7EC; &#xCC98;&#xB9AC; &#xD544;&#xC694;
+ const resolveAuth = async (config = {}) =&gt; { // &#xAE30;&#xBCF8;&#xAC12; &#xC124;&#xC815;&#xC815;
+  try {
+    const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI, { 
+      headers: { refreshtoken: storeGlobal.getRefreshToken() }
+    });
+
+    if (response.status === 200) {
+      const headers = response.headers;
+      storeGlobal.setToken(headers.accesstoken);
+      storeGlobal.setRefreshToken(headers.refreshtoken);
+      return instance.request(config);
+    } else {
+      console.error(`[ERROR] Auth resolve failed: ${response.status} - ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error(&apos;[ERROR] Failed to resolve auth token&apos;, {
+      url: config.url || &apos;UNKNOWN&apos;, // &#xC694;&#xCCAD;&#xD55C; API URL
+      message: error.message || &apos;No error message&apos;, // &#xC5D0;&#xB7EC; &#xBA54;&#xC2DC;&#xC9C0;
+      responseData: error.response?.data || &apos;No response data&apos;, // &#xC751;&#xB2F5; &#xB370;&#xC774;&#xD130;
+      status: error.response?.status || &apos;Unknown status&apos;, // &#xC751;&#xB2F5; &#xC0C1;&#xD0DC; &#xCF54;&#xB4DC;
+      headers: error.response?.headers || &apos;No headers&apos;, // &#xC751;&#xB2F5; &#xD5E4;&#xB354;
+    });
+
+    throw error; // &#xC5D0;&#xB7EC;&#xB97C; &#xB2E4;&#xC2DC; &#xB358;&#xC838;&#xC11C; &#xC0C1;&#xC704;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD568;
+  }
+};
+**/
+const resolveAuth = async (config) =&gt; {
+  const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI,
+    { headers: { refreshtoken: storeGlobal.getRefreshToken() } })
+  if (response.status === 200) {
+    const headers = response.headers
+    storeGlobal.setToken(headers.accesstoken)
+    storeGlobal.setRefreshToken(headers.refreshtoken)
+    return instance.request(config)
+  } else {
+    /**
+     * TODO : &#xC5D0;&#xB7EC; &#xCC98;&#xB9AC;&#xB97C; &#xC704;&#xC640; &#xAC19;&#xC774; &#xD574;&#xC57C; &#xD568;. &#xB2E8;&#xC21C;&#xD788; error&#xB9CC; &#xCC0D;&#xC73C;&#xBA74; &#xC548;&#xB428;
+     */
+    console.log(&apos;error&apos;)
+  }
+}
+
+const resolveAuthWithTimer = async () =&gt; {
+  const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI,
+    { headers: { refreshtoken: storeGlobal.getRefreshToken() } })
+  if (response.status === 200) {
+    const headers = response.headers
+    storeGlobal.setToken(headers.accesstoken)
+    storeGlobal.setRefreshToken(headers.refreshtoken)
+  } else {
+    console.log(&apos;error&apos;)
+  }
+}
+
+/**
+ * &#xBAA8;&#xB4E0; &#xC778;&#xC99D; &#xC2E4;&#xD328;&#xB85C; &#xC790;&#xB3D9; &#xB85C;&#xADF8;&#xC544;&#xC6C3; &#xCC98;&#xB9AC;
+ * &#xCC38;&#xACE0; : 4002&#xB294; accesstoken &#xBC0F; refreshtoken &#xBAA8;&#xB450; &#xB9CC;&#xB8CC; &#xCF54;&#xB4DC;
+ * TODO : forceToLogout&#xC774; &#xC911;&#xBCF5; &#xD638;&#xCD9C;&#xB420; &#xAC00;&#xB2A5;&#xC131; &#xC874;&#xC7AC;, isLogOut &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xD55C;&#xBC88;&#xB9CC; &#xC2E4;&#xD589;&#xB418;&#xB3C4;&#xB85D; &#xC218;&#xC815;&#xD574;&#xC57C; &#xD568;.
+ * let isLogOut = false;  // &#xAE00;&#xB85C;&#xBC8C; &#xBCC0;&#xC218; &#xCC98;&#xB9AC; &#xD544;&#xC694;
+**/
+const forceToLogout = (msg) =&gt; {
+  /** &#xCF54;&#xB4DC; &#xCD94;&#xAC00; &#xD544;&#xC694;
+   * if (isLogOut) return; // &#xC774;&#xBBF8; &#xB85C;&#xADF8;&#xC544;&#xC6C3; &#xC911;&#xC774;&#xBA74; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC74C;
+        isLogOut = true;
+  **/
+  storeGlobal.clearLoginInterval()
+  if (!uCommon.isEmpty(msg)) uMessage.showMessage(msg, &apos;error&apos;)
+  storeGlobal.clearAuth()
+  uRouter.replace(&apos;Login&apos;)
+  /** &#xCF54;&#xB4DC; &#xCD94;&#xAC00; &#xD544;&#xC694;
+   * setTimeout(() =&gt; {
+      isLogOut = false; // 3&#xCD08; &#xD6C4; &#xB2E4;&#xC2DC; &#xC2E4;&#xD589; &#xAC00;&#xB2A5;&#xD558;&#xB3C4;&#xB85D; &#xCD08;&#xAE30;&#xD654;
+      }, 3000
+   */
+}
+
+/*********************************************************************
+&#xC5C5;&#xBB34;&#xB85C;&#xC9C1; api crud request&#xB294; get post, patch, del &#xD15C;&#xD50C;&#xB9BF; &#xD568;&#xC218; &#xC0AC;&#xC6A9;!
+&#xB2E8; &#xD2B9;&#xC218;&#xD55C; &#xACBD;&#xC6B0; instance&#xB85C; &#xC9C1;&#xC811; &#xC791;&#xC131; &#xC0AC;&#xC6A9;
+&#xCC38;&#xACE0; : &#xC5C5;&#xBB34;&#xB85C;&#xC9C1; crud&#xB294; &#xAD8C;&#xD55C; &#xD655;&#xC778;&#xC744; &#xC704;&#xD574; headers&#xC5D0; permit&#xC774; &#xD544;&#xC218;&#xC774;&#xB2E4;.
+instance &#xC9C1;&#xC811;&#xB85C; &#xC791;&#xC131;&#xD558;&#xB294; &#xACBD;&#xC6B0; permit&#xC774; &#xD544;&#xC694;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xB85C;&#xC9C1;&#xC5D0; &#xC0AC;&#xC6A9;!
+*********************************************************************/
+/* &#xC870;&#xD68C; */
+const get = (api, condition) =&gt; {
+  const query = condition || &apos;&apos;
+  return instance.get(api + query,
+    {
+      headers: { permit: &apos;r&apos; }
+    }
+  )
+}
+
+/**
+ * CREATE 
+ * @param {*} api 
+ * @param {*} body 
+ * @returns 
+ * TODO : &#xC5D0;&#xB7EC; &#xCC98;&#xB9AC; &#xD544;&#xC694;, PUT, DEL &#xBAA8;&#xB450; &#xCC98;&#xB9AC; &#xD544;&#xC694;&#xC694;
+    try {
+      return await instance.post(api, body, { headers: { permit: &apos;c&apos; } });
+    } catch (error) {
+      console.error(`[POST ERROR] ${api} -`, error.response?.data || error.message);
+      throw error;
+    }
+ */
+const post = (api, body) =&gt; {
+  return instance.post(api, body,
+    {
+      headers: { permit: &apos;c&apos; }
+    }
+  )
+}
+
+/* &#xC218;&#xC815; */
+const put = (api, body) =&gt; {
+  return instance.put(
+    api,
+    body,
+    {
+      headers: { permit: &apos;u&apos; }
+    }
+  )
+}
+
+/* &#xC0AD;&#xC81C; */
+const del = (api, body) =&gt; {
+  return instance.delete(
+    api,
+    body,
+    {
+      headers: { permit: &apos;u&apos; }
+    }
+  )
+}
+
+/**
+ * &#xC5C5;&#xB85C;&#xB4DC; &#xCC98;&#xB9AC;
+ * TODO : &#xC5C5;&#xB85C;&#xB4DC; &#xCDE8;&#xC18C; &#xAE30;&#xB2A5; &#xCD94;&#xAC00; &#xD544;&#xC694;
+ * @param {*} api 
+ * @param {*} body 
+ * @param {*} progressCallback 
+ * @returns 
+ * 
+  const upload = (api, body, progressCallback) =&gt; {
+    const controller = new AbortController(); // &#x2705; &#xC5C5;&#xB85C;&#xB4DC; &#xCDE8;&#xC18C; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC; &#xC0DD;&#xC131;
+
+    const request = instance.post(api, body, {
+      timeout: 180000,
+      headers: { permit: &apos;c&apos;, &apos;Content-Type&apos;: &apos;multipart/form-data&apos; },
+      signal: controller.signal, // &#x2705; &#xC694;&#xCCAD; &#xCDE8;&#xC18C; &#xAE30;&#xB2A5; &#xCD94;&#xAC00;
+      onUploadProgress: progressEvent =&gt; {
+        progressCallback(progressEvent);
+      }
+    });
+
+    request.cancel = () =&gt; controller.abort(); // &#x2705; &#xC694;&#xCCAD; &#xCDE8;&#xC18C; &#xD568;&#xC218; &#xCD94;&#xAC00;
+    return request;
+    };
+  */
+const upload = (api, body, progressCallback) =&gt; {
+  return instance.post(api, body,
+    {
+      timeout: 180000,
+      headers: { permit: &apos;c&apos;, &apos;Content-Type&apos;: &apos;multipart/form-data&apos; },
+      onUploadProgress: progressEvent =&gt; {
+        progressCallback(progressEvent)
+      }
+    }
+  )
+}
+
+const download = (api, progressCallback) =&gt; {
+  return instance.get(api,
+    {
+      timeout: 180000,
+      headers: { permit: &apos;r&apos; },
+      responseType: &apos;blob&apos;,
+      onDownloadProgress: progressEvent =&gt; {
+        if (!uCommon.isEmpty(progressCallback)) {
+          progressCallback(progressEvent)
+        }
+      }
+    }
+  )
+}
+
+const excelDownload = (api, condition, progressCallback) =&gt; {
+  const query = condition || &apos;&apos;
+  return instance.get(api + query,
+    {
+      timeout: 180000,
+      headers: { permit: &apos;r&apos; },
+      responseType: &apos;blob&apos;,
+      onDownloadProgress: progressEvent =&gt; {
+        if (!uCommon.isEmpty(progressCallback)) {
+          progressCallback(progressEvent)
+        }
+      }
+    }
+  )
+}
+
+const postExcelDownload = (api, condition, progressCallback) =&gt; {
+  return instance.post(api, condition,
+    {
+      timeout: 180000,
+      headers: { permit: &apos;r&apos; },
+      responseType: &apos;blob&apos;,
+      onDownloadProgress: progressEvent =&gt; {
+        if (!uCommon.isEmpty(progressCallback)) {
+          progressCallback(progressEvent)
+        }
+      }
+    }
+  )
+}
+
+export default {
+  instance,
+  upload,
+  download,
+  excelDownload,
+  postExcelDownload,
+  get,
+  post,
+  put,
+  del,
+  resolveAuthWithTimer,
+  forceToLogout
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

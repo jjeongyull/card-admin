@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DefaultLayout from '../layout/default/Layout.vue'
+import DefaultLayout from '../layouts/default/Layout.vue'
 
 const routes = [
   {
@@ -10,7 +10,7 @@ const routes = [
       {
         path: 'summary',
         name: 'DashboardSummary',
-        component: () => import('@/views/dashboard/main/Summary.vue'),
+        component: () => import('@/pages/dashboard/main/Summary.vue'),
       }
     ]
   },
@@ -22,7 +22,7 @@ const routes = [
       {
         path: 'management',
         name: 'PolicyManagement',
-        component: () => import('@/views/policy/PolicyManagement.vue'),
+        component: () => import('@/pages/policy/PolicyManagement.vue'),
       }
     ]
   }

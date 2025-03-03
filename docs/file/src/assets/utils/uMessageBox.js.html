@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/assets/utils/uMessageBox.js | card-admin</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#assets-utils-config">assets/utils/config</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-aesKey">aesKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-attachment">attachment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-errorMsg">errorMsg</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-message">message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-policyPart">policyPart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-searchScope">searchScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplStatusCode">secReviewImplStatusCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplType">secReviewImplType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewManagerType">secReviewManagerType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewStatus">secReviewStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-taskCode">taskCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ui">ui</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stores">stores</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-useAuthStore">useAuthStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/assets/utils/uMessageBox.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * MessageBox &#xC815;&#xC758;
+ * element plus message, notification, messagebox component &#xC0AC;&#xC6A9;
+**/
+
+import { ElMessage, ElNotification, ElMessageBox } from &apos;element-plus&apos;
+import { h } from &apos;vue&apos;
+import { uDom, uCommon } from &apos;@/assets/utils&apos;
+
+
+/*
+&#xBA54;&#xC2DC;&#xC9C0;
+type : info, error, warning
+*/
+const showMessage = (message, type, duration) =&gt; {
+  type = type || &apos;info&apos;
+  duration = duration || 3000
+
+  /* &#xBAA8;&#xB2EC;&#xC774; &#xB5A0; &#xC788;&#xB294;&#xACBD;&#xC6B0; &#xBA54;&#xC2DC;&#xC9C0; &#xBC15;&#xC2A4;&#xAC00; &#xB4A4;&#xB85C; &#xC228;&#xC5B4;&#xC11C;, &#xBAA8;&#xB2EC;&#xC774; &#xC788;&#xC73C;&#xBA74; zindex &#xCEE4;&#xC2A4;&#xD140; &#xD074;&#xB798;&#xC2A4; &#xC801;&#xC6A9;&#xC73C;&#xB85C; &#xBB34;&#xC870;&#xAC74; &#xCD5C;&#xC0C1;&#xC704;! */
+  const thereHasBeenOverlayAlready = uDom.getElement(&apos;.el-overlay&apos;)
+  ElMessage({
+    message: message,
+    type: type,
+    duration: duration,
+    grouping: true,
+    showClose: true,
+    dangerouslyUseHTMLString: true
+  })
+
+  if (!uCommon.isEmpty(thereHasBeenOverlayAlready)) {
+    uDom.addClass(uDom.getElement(&apos;.el-message&apos;), &apos;custom-message-max-zindex&apos;)
+  }
+}
+
+/*
+&#xBA54;&#xC2DC;&#xC9C0;(&#xC911;&#xC559; &#xC9D1;&#xC911;&#xD615; &#xBA54;&#xC2DC;&#xC9C0;)
+&#xC0AC;&#xC6A9;&#xC790; &#xC561;&#xC158; &#xC0C1;&#xD0DC;&#xB97C; &#xAC15;&#xC870;&#xD574;&#xC11C; &#xC54C;&#xB824;&#xC918;&#xC57C; &#xD560; &#xACBD;&#xC6B0; &#xC0AC;&#xC6A9;
+showMessage &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xBD84;&#xAE30;&#xCC98;&#xB9AC; &#xC548;&#xD558;&#xACE0; &#xADF8;&#xB0E5; &#xC0C8;&#xB85C; &#xB9CC;&#xB4E4;&#xC5C8;&#xB2E4;.
+*/
+const showCentreMessage = (message, custType, duration, showClose) =&gt; {
+  const type = !uCommon.isEmpty(custType) ? &apos;custom-message-centre-style-&apos;.concat(custType) : &apos;&apos;
+  duration = duration || 2000
+  showClose = showClose || true
+
+  /* &#xBAA8;&#xB2EC;&#xC774; &#xB5A0; &#xC788;&#xB294;&#xACBD;&#xC6B0; &#xBA54;&#xC2DC;&#xC9C0; &#xBC15;&#xC2A4;&#xAC00; &#xB4A4;&#xB85C; &#xC228;&#xC5B4;&#xC11C;, &#xBAA8;&#xB2EC;&#xC774; &#xC788;&#xC73C;&#xBA74; zindex &#xCEE4;&#xC2A4;&#xD140; &#xD074;&#xB798;&#xC2A4; &#xC801;&#xC6A9;&#xC73C;&#xB85C; &#xBB34;&#xC870;&#xAC74; &#xCD5C;&#xC0C1;&#xC704;! */
+  const thereHasBeenOverlayAlready = uDom.getElement(&apos;.el-overlay&apos;)
+  const f = ElMessage({
+    message: message,
+    type: &apos;info&apos;,
+    duration: duration,
+    grouping: true,
+    showClose: showClose,
+    dangerouslyUseHTMLString: true,
+    customClass: &apos;custom-message-centre-style&apos; + &apos; &apos; + type
+  })
+
+  if (!uCommon.isEmpty(thereHasBeenOverlayAlready)) {
+    uDom.addClass(uDom.getElement(&apos;.el-message&apos;), &apos;custom-message-max-zindex&apos;)
+  }
+  return f
+}
+
+/* &#xC54C;&#xB9BC;: &#xAE30;&#xBCF8; */
+const showNotification = (title, message, duration) =&gt; {
+  duration = duration || 5000
+  ElNotification.success({
+    title: title,
+    message: h(&apos;span&apos;, { style: &apos;color: #444444&apos; }, message),
+    duration: duration
+  })
+}
+
+/* &#xC54C;&#xB9BC;: h&#xD568;&#xC218;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0; &#xC9C1;&#xC811; &#xC791;&#xC131; */
+const showhNotification = (title, h, duration) =&gt; {
+  duration = duration || 5000
+  ElNotification.success({
+    title: title,
+    message: h,
+    duration: duration
+  })
+}
+
+/* alert &#xBAA8;&#xB2EC; */
+const showAlertBox = (title, message, btnLabel, callback, customClass) =&gt; {
+  callback = callback || function () { }
+  btnLabel = btnLabel || &apos;&#xD655;&#xC778;&apos;
+  customClass = customClass || &apos;&apos;
+  ElMessageBox.alert(message, title, {
+    confirmButtonText: btnLabel,
+    showClose: false,
+    closeOnPressEscape: false,
+    closeOnClickModal: false,
+    dangerouslyUseHTMLString: true,
+    draggable: true,
+    confirmButtonClass: &apos;el-button--info&apos;,
+    cancelButtonClass: &apos;el-button--text&apos;,
+    customClass: customClass,
+    callback: () =&gt; {
+      callback()
+    }
+  })
+}
+
+/*
+alert &#xBAA8;&#xB2EC;
+&#xCD5C;&#xCD08; &#xBAA8;&#xB2EC; 1&#xAC1C;&#xB9CC;!!!
+*/
+let isAlerted = null
+const showSingleAlertBox = (title, message, btnLabel, callback) =&gt; {
+  callback = callback || function () { }
+  btnLabel = btnLabel || &apos;&#xD655;&#xC778;&apos;
+  if (isAlerted === null) {
+    isAlerted = ElMessageBox.alert(message, title, {
+      confirmButtonText: btnLabel,
+      showClose: false,
+      closeOnPressEscape: true,
+      closeOnClickModal: true,
+      dangerouslyUseHTMLString: true,
+      draggable: true,
+      confirmButtonClass: &apos;el-button--info&apos;,
+      cancelButtonClass: &apos;el-button--text&apos;,
+      callback: () =&gt; {
+        callback()
+        isAlerted = null
+      }
+    })
+  }
+}
+
+/**
+ * &#xD655;&#xC778; &#xBA54;&#xC2DC;&#xC9C0; &#xBC15;&#xC2A4; &#xD45C;&#xC2DC;
+ * @param {string} title - &#xC81C;&#xBAA9;
+ * @param {string} message - &#xBA54;&#xC2DC;&#xC9C0; &#xB0B4;&#xC6A9;
+ * @param {string} confirmBtnType - &#xD655;&#xC778; &#xBC84;&#xD2BC; &#xD0C0;&#xC785; (primary, danger &#xB4F1;)
+ * @param {string} confirmBtnLabel - &#xD655;&#xC778; &#xBC84;&#xD2BC; &#xD14D;&#xC2A4;&#xD2B8;
+ * @param {string} cancelBtnLabel - &#xCDE8;&#xC18C; &#xBC84;&#xD2BC; &#xD14D;&#xC2A4;&#xD2B8;
+ * @param {Function} confirmCallback - &#xD655;&#xC778; &#xBC84;&#xD2BC; &#xD074;&#xB9AD; &#xC2DC; &#xC2E4;&#xD589;&#xB420; &#xD568;&#xC218;
+ * @param {Function} cancelCallback - &#xCDE8;&#xC18C; &#xBC84;&#xD2BC; &#xD074;&#xB9AD; &#xC2DC; &#xC2E4;&#xD589;&#xB420; &#xD568;&#xC218;
+ * @param {boolean} closeOnClickModal - &#xBAA8;&#xB2EC; &#xC678;&#xBD80; &#xD074;&#xB9AD; &#xC2DC; &#xB2EB;&#xAE30; &#xC5EC;&#xBD80;
+ */
+const showConfirmBox = (title, message, confirmBtnType, confirmBtnLabel, cancelBtnLabel, confirmCallback, cancelCallback, closeOnClickModal) =&gt; {
+  confirmBtnType = confirmBtnType || &apos;primary&apos;
+  cancelCallback = cancelCallback || function () { }
+  closeOnClickModal = closeOnClickModal || false
+  /* &apos;force-btn-color-&apos; + confirmBtnType &lt;- danger&#xB9CC; common.scss&#xC5D0; &#xC801;&#xC6A9;&#xD588;&#xB2E4;.
+  &#xCD94;&#xAC00; &#xC2A4;&#xD0C0;&#xC77C;&#xC774; &#xD544;&#xC694;&#xD558;&#xBA74; force-btn-color-info&#xC640; &#xAC19;&#xC774; common.scss&#xC5D0; &#xC120;&#xC5B8;&#xD558;&#xC790;! */
+  ElMessageBox.confirm(
+    message,
+    title,
+    {
+      confirmButtonText: confirmBtnLabel,
+      cancelButtonText: cancelBtnLabel,
+      showClose: false,
+      draggable: true,
+      closeOnPressEscape: closeOnClickModal,
+      closeOnClickModal: closeOnClickModal,
+      dangerouslyUseHTMLString: true,
+      confirmButtonClass: &apos;force-btn-color-&apos; + confirmBtnType,
+      cancelButtonClass: &apos;el-button--text&apos;
+    }
+  )
+    .then(() =&gt; {
+      confirmCallback()
+    })
+    .catch(() =&gt; {
+      cancelCallback()
+    })
+}
+
+const hideConfirmBox = () =&gt; {
+  ElMessageBox.close()
+}
+
+export default {
+  showMessage,
+  showCentreMessage,
+  showNotification,
+  showhNotification,
+  showAlertBox,
+  showSingleAlertBox,
+  showConfirmBox,
+  hideConfirmBox
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

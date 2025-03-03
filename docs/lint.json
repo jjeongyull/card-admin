@@ -1,0 +1,111 @@
+[
+  {
+    "name": "showMessage",
+    "filePath": "src/assets/utils/uNewMessageBox.js",
+    "lines": [
+      {
+        "lineNumber": 4,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 5,
+        "line": " * 커스텀 메시지 함수"
+      },
+      {
+        "lineNumber": 6,
+        "line": " * @param {string} message - 출력할 메시지"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * @param {string} type - 메시지 타입 (success, info, warning, error)"
+      },
+      {
+        "lineNumber": 8,
+        "line": " * @param {number} duration - 지속 시간 (ms)"
+      },
+      {
+        "lineNumber": 9,
+        "line": " * @param {string} position - 메시지 위치 (top, bottom, left, right, center)"
+      },
+      {
+        "lineNumber": 10,
+        "line": " * @param {boolean} closeable - 닫기 버튼 여부"
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param {boolean} stack - 중복 메시지 허용 여부 (기본: false)"
+      },
+      {
+        "lineNumber": 12,
+        "line": " */"
+      },
+      {
+        "lineNumber": 13,
+        "line": "const showMessage = ({"
+      }
+    ],
+    "codeParams": [
+      "*"
+    ],
+    "docParams": [
+      "message",
+      "type",
+      "duration",
+      "position",
+      "closeable",
+      "stack"
+    ]
+  },
+  {
+    "name": "showNotification",
+    "filePath": "src/assets/utils/uNewMessageBox.js",
+    "lines": [
+      {
+        "lineNumber": 60,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 61,
+        "line": " * 커스텀 알림 함수 (Notification)"
+      },
+      {
+        "lineNumber": 62,
+        "line": " * @param {string} title - 알림 제목"
+      },
+      {
+        "lineNumber": 63,
+        "line": " * @param {string} message - 알림 내용"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * @param {string} type - 알림 타입 (success, info, warning, error)"
+      },
+      {
+        "lineNumber": 65,
+        "line": " * @param {number} duration - 지속 시간 (ms)"
+      },
+      {
+        "lineNumber": 66,
+        "line": " * @param {string} position - 알림 위치 (top-right, top-left, bottom-right, bottom-left)"
+      },
+      {
+        "lineNumber": 67,
+        "line": " */"
+      },
+      {
+        "lineNumber": 68,
+        "line": "const showNotification = ({"
+      }
+    ],
+    "codeParams": [
+      "*"
+    ],
+    "docParams": [
+      "title",
+      "message",
+      "type",
+      "duration",
+      "position"
+    ]
+  }
+]

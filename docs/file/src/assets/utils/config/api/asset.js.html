@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../../">
+  <title data-ice="title">src/assets/utils/config/api/asset.js | card-admin</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#assets-utils-config">assets/utils/config</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-aesKey">aesKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-attachment">attachment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-errorMsg">errorMsg</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-message">message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-policyPart">policyPart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-searchScope">searchScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplStatusCode">secReviewImplStatusCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplType">secReviewImplType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewManagerType">secReviewManagerType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewStatus">secReviewStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-taskCode">taskCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ui">ui</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stores">stores</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-useAuthStore">useAuthStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/assets/utils/config/api/asset.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * &#xC790;&#xC0B0; &#xAD00;&#xB9AC;&#xB9AC; RESTful API
+**/
+module.exports = {
+  FIND_ASSET_CIA_LIST: {
+    URI: &apos;/api/asset/cia/list&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;CIA &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_CIA: {
+    URI: &apos;/api/asset/cia/create&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;CIA &#xB4F1;&#xB85D;&apos;
+  },
+  UPDATE_ASSET_CIA: {
+    URI: &apos;/api/asset/cia/update&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;CIA &#xC218;&#xC815;&apos;
+  },
+  DELETE_ASSET_CIA: {
+    URI: &apos;/api/asset/cia/delete&apos;,
+    METHOD: &apos;DELETE&apos;,
+    DESCRIPTION: &apos;CIA &#xC0AD;&#xC81C;&apos;
+  },
+  FIND_ASSET_CATEGORY_LIST: {
+    URI: &apos;/api/asset/category/list&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xAD6C;&#xBD84; &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_CATEGORY: {
+    URI: &apos;/api/asset/category/create&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xAD6C;&#xBD84; &#xB4F1;&#xB85D;&apos;
+  },
+  UPDATE_ASSET_CATEGORY: {
+    URI: &apos;/api/asset/category/update&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xAD6C;&#xBD84; &#xC218;&#xC815;&apos;
+  },
+  DELETE_ASSET_CATEGORY: {
+    URI: &apos;/api/asset/category/delete&apos;,
+    METHOD: &apos;DELETE&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xAD6C;&#xBD84; &#xC0AD;&#xC81C;&apos;
+  },
+  EXCEL_ASSET_LIST: {
+    URI: &apos;/api/asset/group/excel&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xBAA9;&#xB85D; &#xC5D1;&#xC140;&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&apos;
+  },
+  FIND_ASSET_INSPECTION_GROUP_LIST: {
+    URI: &apos;/api/asset/inspection/group/list&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC810;&#xAC80;&#xADF8;&#xB8F9; &#xB9AC;&#xC2A4;&#xD2B8; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_INSPECTION_GROUP: {
+    URI: &apos;/api/asset/inspection/group/find&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC810;&#xAC80;&#xADF8;&#xB8F9; &#xB9AC;&#xC2A4;&#xD2B8; &#xB2E8;&#xAC74; &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_INSPECTION_GROUP: {
+    URI: &apos;/api/asset/inspection/group/create&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC810;&#xAC80;&#xADF8;&#xB8F9; &#xB4F1;&#xB85D;&apos;
+  },
+  UPDATE_ASSET_INSPECTION_GROUP: {
+    URI: &apos;/api/asset/inspection/group/update&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;&#xC810;&#xAC80;&#xADF8;&#xB8F9; &#xC218;&#xC815;&apos;
+  },
+  DELETE_ASSET_INSPECTION_GROUP: {
+    URI: &apos;/api/asset/inspection/group/delete&apos;,
+    METHID: &apos;DELETE&apos;,
+    DESCRIPTION: &apos;&#xC810;&#xAC80;&#xADF8;&#xB8F9; &#xC0AD;&#xC81C;&apos;
+  },
+  FIND_ASSET_GROUP_LIST: {
+    URI: &apos;/api/asset/group/list&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_GROUP: {
+    URI: &apos;/api/asset/group/&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xB2E8;&#xAC74; &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_GROUP: {
+    URI: &apos;/api/asset/group/create&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xB4F1;&#xB85D;&apos;
+  },
+  UPDATE_ASSET_GROUP: {
+    URI: &apos;/api/asset/group/update&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xC218;&#xC815;&apos;
+  },
+  DELETE_ASSET_GROUP: {
+    URI: &apos;/api/asset/group/delete&apos;,
+    METHOD: &apos;DELETE&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xC0AD;&#xC81C;&apos;
+  },
+  FIND_ASSET_INFO: {
+    URI: &apos;/api/asset/info/&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xB2E8;&#xAC74; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_INFO_LIST: {
+    URI: &apos;/api/asset/info/list&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_INFO: {
+    URI: &apos;/api/asset/info/create&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xB4F1;&#xB85D;&apos;
+  },
+  UPDATE_ASSET_INFO: {
+    URI: &apos;/api/asset/info/update&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xC218;&#xC815;&apos;
+  },
+  UPDATE_BATCH_ASSET_INFO: {
+    URI: &apos;/api/asset/info/update/batch&apos;,
+    METHOD: &apos;PUT&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xC77C;&#xAD04; &#xC218;&#xC815;&apos;
+  },
+  INSERT_BATCH_ASSET_INFO: {
+    URI: &apos;/api/asset/info/insert/batch&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xC77C;&#xAD04; &#xC218;&#xC815;&apos;
+  },
+  DELETE_ASSET_INFO: {
+    URI: &apos;/api/asset/info/delete&apos;,
+    METHOD: &apos;DELETE&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xC0AD;&#xC81C;&apos;
+  },
+  FIND_ASSET_HIST_LIST: {
+    URI: &apos;/api/hist/list&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xBC0F; &#xADF8;&#xB8F9; &#xC774;&#xB825; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_HIST: {
+    URI: &apos;/api/hist/find&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xBC0F; &#xADF8;&#xB8F9; &#xC774;&#xB825; &#xB2E8;&#xAC74; &#xC870;&#xD68C;&apos;
+  },
+  COMPARE_HIST: {
+    URI: &apos;/api/hist/compare&apos;,
+    METHOD: &apos;GET&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0; &#xBC0F; &#xADF8;&#xB8F9; &#xC774;&#xB825; &#xBE44;&#xAD50;&#xB0B4;&#xC5ED; &#xC870;&#xD68C;&apos;
+  },
+  CREATE_ASSET_GROUP_INFO: {
+    URI: &apos;/api/asset/group/create/batch&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xADF8;&#xB8F9; &#xB4F1;&#xB85D;&apos;
+  },
+  FIND_ASSET_CATEGORY_GROUP_BY_LIST: {
+    URI: &apos;/api/asset/info/category/list&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xAD6C;&#xBD84;&#xBCC4; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_INFRA_LIST: {
+    URI: &apos;/api/asset/info/infra/list&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xC778;&#xD504;&#xB77C; &#xC870;&#xD68C;&apos;
+  },
+  FIND_ASSET_DELETED_LIST: {
+    URI: &apos;/api/asset/info/deleted/list&apos;,
+    METHOD: &apos;POST&apos;,
+    DESCRIPTION: &apos;&#xC790;&#xC0B0;&#xC778;&#xD504;&#xB77C; &#xC870;&#xD68C;&apos;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

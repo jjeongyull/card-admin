@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">src/assets/utils/config/consts.js | card-admin</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#assets-utils-config">assets/utils/config</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-aesKey">aesKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-attachment">attachment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-errorMsg">errorMsg</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-message">message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-policyPart">policyPart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-searchScope">searchScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplStatusCode">secReviewImplStatusCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplType">secReviewImplType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewManagerType">secReviewManagerType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewStatus">secReviewStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-taskCode">taskCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ui">ui</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stores">stores</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-useAuthStore">useAuthStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/assets/utils/config/consts.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * &#xC0C1;&#xC218; &#xC815;&#xC758; (&#xBA54;&#xC2DC;&#xC9C0; &#xB4F1;)
+**/
+export const ui = {
+  theme: {
+    indigo:
+      { value: &apos;indigo&apos;, label: &apos;&#xC778;&#xB514;&#xACE0;&apos; },
+    white:
+      { value: &apos;white&apos;, label: &apos;&#xBC00;&#xD06C;&#xD654;&#xC774;&#xD2B8;&apos; },
+    blue:
+      { value: &apos;blue&apos;, label: &apos;&#xB525;&#xC624;&#xC158;&apos; },
+    black:
+      { value: &apos;black&apos;, label: &apos;&#xB2E4;&#xD06C;&apos; }
+  },
+  cookies: { theme: &apos;theme&apos; }
+}
+
+export const aesKey = &apos;aeskey1234567898&apos;
+
+export const attachment = {
+  /*
+  1MB: 1048576
+  5MB: 5242880
+  10MB: 10485760
+  20MB: 20971520
+  50MB: 52428800
+  100MB: 104857600
+  &#xCC38;&#xACE0;: API&#xC11C;&#xBC84;&#xB294; max 100MB&#xB85C; &#xB418;&#xC5B4; &#xC788;&#xC74C;
+  */
+  maxSize: 20971520,
+  whiteList: [&apos;jpg&apos;, &apos;jpeg&apos;, &apos;bmp&apos;, &apos;png&apos;, &apos;pdf&apos;, &apos;hwp&apos;, &apos;hwpx&apos;, &apos;doc&apos;, &apos;docx&apos;, &apos;xls&apos;, &apos;xlsx&apos;, &apos;xlsb&apos;, &apos;ppt&apos;, &apos;pptx&apos;, &apos;cell&apos;, &apos;csv&apos;, &apos;txt&apos;, &apos;htm&apos;, &apos;html&apos;, &apos;xml&apos;, &apos;json&apos;, &apos;zip&apos;],
+  imgWhiteList: [&apos;jpg&apos;, &apos;jpeg&apos;, &apos;bmp&apos;, &apos;png&apos;]
+}
+
+export const message = {
+  auth: {
+    m1: &apos;&#xB85C;&#xADF8;&#xC778; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;,
+    m2: &apos;&#xB85C;&#xADF8;&#xC544;&#xC6C3; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;
+  }
+}
+
+export const errorMsg = {
+  e0: { status: 0, message: &apos;&#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC624;&#xB958;&#xB85C; &#xC778;&#xD574; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.&apos; },
+  e1: { status: 0, message: &apos;&#xC774;&#xBBF8; &#xC870;&#xD68C;&#xC911;&#xC785;&#xB2C8;&#xB2E4;.&apos; },
+  /* &#xD45C;&#xC900; http status */
+  e401: { status: 401, message: [&apos;&#xC811;&#xADFC;&#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xAC70;&#xB098; &#xB85C;&#xADF8;&#xC778;&#xD558;&#xC9C0; &#xC54A;&#xC558;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;, &apos;&#xC811;&#xADFC;&#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xAC70;&#xB098; &#xC138;&#xC158;&#xC774; &#xB9CC;&#xB8CC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;] },
+  e404: { status: 404, message: &apos;&#xC54C;&#xC218;&#xC5C6;&#xB294; &#xD398;&#xC774;&#xC9C0;&#xB85C; &#xC811;&#xADFC;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.&apos; },
+  e503: { status: 503, message: &apos;&#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC774;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAD00;&#xB9AC;&#xC790;&#xC5D0;&#xAC8C; &#xBB38;&#xC758;&#xD558;&#xC138;&#xC694;.&apos; },
+  /* &#xB0B4;&#xBD80; &#xC624;&#xB958; &#xCF54;&#xB4DC; &#xC815;&#xC758; */
+  e4003: { status: 4003, message: [&apos;&#xC811;&#xADFC;&#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xAC70;&#xB098; &#xB85C;&#xADF8;&#xC778;&#xD558;&#xC9C0; &#xC54A;&#xC558;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;, &apos;&#xC811;&#xADFC;&#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xAC70;&#xB098; &#xC138;&#xC158;&#xC774; &#xB9CC;&#xB8CC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.&apos;] }
+}
+
+/* &#xAC80;&#xC0C9;&#xBC94;&#xC704; */
+export const searchScope = {
+  a: { code: &apos;A&apos;, name: &apos;&#xC804;&#xCCB4;&#xC870;&#xD68C;&apos; },
+  d: { code: &apos;D&apos;, name: &apos;&#xBCF8;&#xBD80;&#xC870;&#xD68C;&apos; },
+  t: { code: &apos;T&apos;, name: &apos;&#xBD80;&#xC11C;&#xC870;&#xD68C;&apos; },
+  p: { code: &apos;P&apos;, name: &apos;&#xAC1C;&#xC778;&#xC870;&#xD68C;&apos; }
+}
+
+/* &#xAD8C;&#xD55C; */
+export const taskCode = {
+  nep: { code: &apos;NEP&apos;, name: &apos;&#xC77C;&#xBC18;&apos; },
+  nth: { code: &apos;NTH&apos;, name: &apos;&#xBD80;&#xC11C;&#xC7A5;&apos; },
+  ndh: { code: &apos;NDH&apos;, name: &apos;&#xBCF8;&#xBD80;&#xC7A5;&apos; },
+  aph: { code: &apos;APH&apos;, name: &apos;&#xBB3C;&#xB9AC;&apos; },
+  ama: { code: &apos;AMA&apos;, name: &apos;&#xAD00;&#xB9AC;&apos; },
+  ate: { code: &apos;ATE&apos;, name: &apos;&#xAE30;&#xC220;&apos; },
+  apr: { code: &apos;APR&apos;, name: &apos;&#xAC1C;&#xC778;&#xC815;&#xBCF4;&apos; },
+  aaa: { code: &apos;AAA&apos;, name: &apos;&#xAD00;&#xB9AC;&#xC790;&apos; }
+}
+
+/* &#xC815;&#xCC45;&#xBD84;&#xC57C; */
+export const policyPart = {
+  ma: { code: &apos;MA&apos;, name: &apos;&#xAD00;&#xB9AC;&apos; },
+  ph: { code: &apos;PH&apos;, name: &apos;&#xBB3C;&#xB9AC;&apos; },
+  te: { code: &apos;TE&apos;, name: &apos;&#xAE30;&#xC220;&apos; },
+  pr: { code: &apos;PR&apos;, name: &apos;&#xAC1C;&#xC778;&#xC815;&#xBCF4;&apos; },
+  et: { code: &apos;ET&apos;, name: &apos;&#xAE30;&#xD0C0;&apos; },
+  na: { code: &apos;NA&apos;, name: &apos;N/A&apos; }
+}
+
+/* &#xBCF4;&#xC548;&#xC131;&#xC2EC;&#xC758; &#xB2F4;&#xB2F9;&#xC790; &#xAD6C;&#xBD84; */
+export const secReviewManagerType = {
+  ma: { code: &apos;MA&apos;, name: &apos;&#xAD00;&#xB9AC;&apos; },
+  ph: { code: &apos;PH&apos;, name: &apos;&#xBB3C;&#xB9AC;&apos; },
+  te: { code: &apos;TE&apos;, name: &apos;&#xAE30;&#xC220;&apos; },
+  pr: { code: &apos;PR&apos;, name: &apos;&#xAC1C;&#xC778;&#xC815;&#xBCF4;&apos; },
+  pt: { code: &apos;PT&apos;, name: &apos;&#xBAA8;&#xC758;&#xD574;&#xD0B9;&apos; },
+  ra: { code: &apos;RA&apos;, name: &apos;&#xBCF4;&#xC548;&#xB300;&#xD45C;&#xC790;&#xB3D9;&#xACB0;&#xC7AC;&#xC0C1;&#xC2E0;&#xC790;&apos; }
+}
+
+/* &#xBCF4;&#xC548;&#xC131;&#xC2EC;&#xC758; &#xC0C1;&#xD0DC; */
+export const secReviewStatus = {
+  a: { code: &apos;A&apos;, name: &apos;&#xC784;&#xC2DC;&#xC800;&#xC7A5;&apos; },
+  b: { code: &apos;B&apos;, name: &apos;&#xD604;&#xC5C5;&#xACB0;&#xC7AC;&apos; },
+  c: { code: &apos;C&apos;, name: &apos;&#xC2E0;&#xCCAD;&apos; },
+  d: { code: &apos;D&apos;, name: &apos;&#xBCF4;&#xC548;&#xACB0;&#xC7AC;&apos; },
+  e: { code: &apos;E&apos;, name: &apos;&#xAC80;&#xD1A0;&apos; },
+  f: { code: &apos;F&apos;, name: &apos;&#xC774;&#xD589;/&#xAC80;&#xC99D;&apos; },
+  g: { code: &apos;G&apos;, name: &apos;&#xCD5C;&#xC885;&#xD604;&#xC5C5;&#xACB0;&#xC7AC;&apos; },
+  h: { code: &apos;H&apos;, name: &apos;&#xCD5C;&#xC885;&#xBCF4;&#xC548;&#xACB0;&#xC7AC;&apos; },
+  i: { code: &apos;I&apos;, name: &apos;&#xC2EC;&#xC758;&#xC644;&#xB8CC;&apos; }
+}
+
+/* &#xBCF4;&#xC548;&#xC131;&#xC2EC;&#xC758; &#xC774;&#xD589;/&#xAC80;&#xC99D; &#xCF54;&#xB4DC; */
+export const secReviewImplType = {
+  po: { code: &apos;PO&apos;, name: &apos;&#xBCF4;&#xC548;&#xC815;&#xCC45;&apos; },
+  te: { code: &apos;TE&apos;, name: &apos;&#xAE30;&#xC220;&#xC810;&#xAC80;&apos; },
+  pt: { code: &apos;PT&apos;, name: &apos;&#xBAA8;&#xC758;&#xD574;&#xD0B9;&apos; }
+}
+
+/* &#xBCF4;&#xC548;&#xC131;&#xC2EC;&#xC758; &#xC774;&#xD589;/&#xAC80;&#xC99D; &#xCF54;&#xB4DC; */
+export const secReviewImplStatusCode = {
+  a: { code: &apos;A&apos;, name: &apos;&#xC810;&#xAC80;&#xC804;&apos; },
+  b: { code: &apos;B&apos;, name: &apos;&#xC774;&#xD589;&#xC911;&apos; },
+  c: { code: &apos;C&apos;, name: &apos;&#xAC80;&#xC99D;&#xC911;&apos; },
+  d: { code: &apos;D&apos;, name: &apos;&#xC644;&#xB8CC;&apos; }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

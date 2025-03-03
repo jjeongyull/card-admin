@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/assets/utils/uDom.js | card-admin</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#assets-utils-config">assets/utils/config</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-aesKey">aesKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-attachment">attachment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-errorMsg">errorMsg</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-message">message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-policyPart">policyPart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-searchScope">searchScope</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplStatusCode">secReviewImplStatusCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewImplType">secReviewImplType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewManagerType">secReviewManagerType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-secReviewStatus">secReviewStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-taskCode">taskCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ui">ui</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stores">stores</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-useAuthStore">useAuthStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/assets/utils/uDom.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * dom &#xAD00;&#xB828; &#xD568;&#xC218; &#xBAA8;&#xC74C;
+**/
+
+const removeNode = el =&gt; el &amp;&amp; el.parentNode &amp;&amp; el.parentNode.removeChild(el)
+
+const isElement = el =&gt; !!(el &amp;&amp; el.nodeType === Node.ELEMENT_NODE)
+
+const getElement = (selector) =&gt; {
+  return document.querySelector(selector)
+}
+
+const getElementAllNestedDom = (el, selector) =&gt; {
+  return el.querySelectorAll(selector)
+}
+
+const getElementAllSiblingsDom = (parentNode, selector) =&gt; {
+  return parentNode.querySelectorAll(selector)
+}
+
+const getElementIndex = (selector, index) =&gt; {
+  return document.querySelectorAll(selector)[index]
+}
+
+const addClass = (el, className) =&gt; {
+  if (className &amp;&amp; isElement(el) &amp;&amp; el.classList) {
+    el.classList.add(className)
+  }
+}
+
+const removeClass = (el, className) =&gt; {
+  if (className &amp;&amp; isElement(el) &amp;&amp; el.classList) {
+    el.classList.remove(className)
+  }
+}
+
+const switchClass = (selector, fromTo) =&gt; {
+  const el = isElement(selector) ? selector : document.querySelector(selector)
+  if (fromTo &amp;&amp; el.classList) {
+    el.classList.remove(fromTo[0])
+    if (fromTo[1] !== undefined) {
+      el.classList.add(fromTo[1])
+    }
+  }
+}
+
+const hasClass = (el, className) =&gt; {
+  if (className &amp;&amp; isElement(el) &amp;&amp; el.classList) {
+    return el.classList.contains(className)
+  }
+  return false
+}
+
+const setAttr = (el, attr, value) =&gt; {
+  if (attr &amp;&amp; isElement(el)) {
+    el.setAttribute(attr, value)
+  }
+}
+
+const removeAttr = (el, attr) =&gt; {
+  if (attr &amp;&amp; isElement(el)) {
+    el.removeAttribute(attr)
+  }
+}
+
+const trim = (html) =&gt; {
+  return html.replace(/&amp;nbsp;/gi, &apos;&apos;).trim()
+}
+
+const getAttr = (el, attr) =&gt; (attr &amp;&amp; isElement(el) ? el.getAttribute(attr) : null)
+
+const hasAttr = (el, attr) =&gt; (attr &amp;&amp; isElement(el) ? el.hasAttribute(attr) : null)
+
+// Set an style property on an element
+const setStyle = (el, prop, value) =&gt; {
+  if (prop &amp;&amp; isElement(el)) {
+    el.style[prop] = value
+  }
+}
+
+const removeStyle = (el, prop) =&gt; {
+  if (prop &amp;&amp; isElement(el)) {
+    el.style[prop] = &apos;&apos;
+  }
+}
+
+const switchDisplay = (from, to) =&gt; {
+  from.style.display = &apos;none&apos;
+  setTimeout(() =&gt; {
+    to.style.display = &apos;block&apos;
+  }, 300)
+}
+
+const getStyle = (el, prop) =&gt; (prop &amp;&amp; isElement(el) ? el.style[prop] || null : null)
+
+/*
+&#xD14D;&#xC2A4;&#xD2B8; &#xC624;&#xBC84;&#xD50C;&#xB85C;&#xC6B0; &#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xC5EC;&#xBD80; &#xD655;&#xC778;
+*/
+const isOverflow = (el) =&gt; {
+  var curOverflow = el.style.overflow
+  if (!curOverflow || curOverflow === &apos;visible&apos;) {
+    el.style.overflow = &apos;hidden&apos;
+  }
+  const isOverflowing = el.clientWidth &lt; el.scrollWidth || el.clientHeight &lt; el.scrollHeight
+  el.style.overflow = curOverflow
+  return isOverflowing
+}
+
+/*
+element array&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xD074;&#xB798;&#xC2A4;&#xBA85;&#xC744; &#xC9C0;&#xC6B0;&#xACE0; &#xD0C0;&#xD0B7; element&#xC5D0; &#xC801;&#xC6A9;
+*/
+const removeClassInElArrayAndThenAddClassOnTargetEl = (elArray, targetEl, className) =&gt; {
+  removeClassInElArray(elArray, className)
+  addClass(targetEl, className)
+}
+
+const removeClassInElArray = (elArray, className) =&gt; {
+  Array.from(elArray).forEach(item =&gt; {
+    removeClass(item, className)
+  })
+}
+
+// const removeAllElementByClassName = (className) =&gt; {
+//   const targets = document.querySelector(className)
+//   console.log(&apos;&gt;&gt;&gt;&gt;&gt;&apos;, targets)
+//   // Array.from(elArray).forEach(item =&gt; {
+//   //   removeClass(item, className)
+//   // })
+// }
+
+/*
+path&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xD074;&#xB798;&#xC2A4;&#xBA85; el &#xCC3E;&#xAE30;
+TODO : childNodes &#xAE4C;&#xC9C0; &#xB4A4;&#xC9C0;&#xC790;!!!
+*/
+const findElByClassNameFromPath = (path, className) =&gt; {
+  return path.filter((el) =&gt; hasClass(el, className))[0]
+}
+
+const stringToDom = (htmlStr) =&gt; {
+  var frame = document.createElement(&apos;iframe&apos;)
+  frame.style.display = &apos;none&apos;
+  document.body.appendChild(frame)
+  frame.contentDocument.open()
+  frame.contentDocument.write(htmlStr)
+  frame.contentDocument.close()
+  var el = frame.contentDocument.body.firstChild
+  document.body.removeChild(frame)
+  return el
+}
+
+/*
+&#xC5D8;&#xB9AC;&#xBA3C;&#xD2B8; draggable &#xB9CC;&#xB4E4;&#xAE30;
+e: Header element mousedown event
+targetSelector: target element class name (must be unique of the app)
+&#xCC38;&#xACE0;:
+- el-popover&#xB97C; draggable&#xD560; &#xACBD;&#xC6B0; persistent=false(persistent &#xC758;&#xBBF8; elementPlus &#xACF5;&#xC2DD;&#xC0AC;&#xC774;&#xD2B8; &#xCC38;&#xACE0;)
+*/
+const draggableElementHandler = (e, targetSelector) =&gt; {
+  e.preventDefault()
+  const $el = getElement(targetSelector)
+  setStyle($el, &apos;position&apos;, &apos;absolute&apos;)
+  setStyle(e.toElement, &apos;cursor&apos;, &apos;move&apos;)
+  let pos1 = 0
+  let pos2 = 0
+  let pos3 = e.clientX
+  let pos4 = e.clientY
+  document.onmousemove = (e) =&gt; {
+    e.preventDefault()
+    pos1 = pos3 - e.clientX
+    pos2 = pos4 - e.clientY
+    pos3 = e.clientX
+    pos4 = e.clientY
+    $el.style.top = ($el.offsetTop - pos2) + &apos;px&apos;
+    $el.style.left = ($el.offsetLeft - pos1) + &apos;px&apos;
+  }
+  document.onmousedown = (e) =&gt; {
+    const isTarget = findElByClassNameFromPath(e.composedPath(), targetSelector.substr(1, targetSelector.length))
+    if (isTarget !== undefined) {
+      e.preventDefault()
+    }
+  }
+  e.toElement.onmouseup = (e) =&gt; {
+    e.preventDefault()
+    document.onmousedown = null
+    document.onmousemove = null
+  }
+}
+/*
+&#xC774;&#xBCA4;&#xD2B8; &#xD328;&#xC2A4; &#xBC30;&#xC5F4; &#xC624;&#xBE0C;&#xC81D;&#xD2B8;
+&#xCD5C;&#xC18C; &#xC5E3;&#xC9C0;, &#xD06C;&#xB86C;&#xC758; &#xBC84;&#xC804; &#xC9C0;&#xC6D0; &#xC5EC;&#xBD80;&#xC5D0; &#xB530;&#xB978; &#xAC04;&#xACB0;&#xCC98;&#xB9AC;
+*/
+const getComposedPath = (e) =&gt; {
+  return e.path || e.composedPath()
+}
+
+export default {
+  removeNode,
+  getElement,
+  getElementAllNestedDom,
+  getElementAllSiblingsDom,
+  addClass,
+  removeClass,
+  switchClass,
+  hasClass,
+  setAttr,
+  removeAttr,
+  getAttr,
+  hasAttr,
+  setStyle,
+  removeStyle,
+  getStyle,
+  switchDisplay,
+  trim,
+  isOverflow,
+  findElByClassNameFromPath,
+  removeClassInElArrayAndThenAddClassOnTargetEl,
+  removeClassInElArray,
+  stringToDom,
+  draggableElementHandler,
+  getComposedPath,
+  getElementIndex
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

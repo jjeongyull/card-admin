@@ -14,7 +14,7 @@ const icons = { Edit, Delete, Search, ArrowRight, ArrowLeft, More, Plus, Setting
 
 for (const [key, component] of Object.entries(icons)) {
   app.component(key, component)
-} 
+}
 
 app.use(pinia);
 app.use(ElementPlus)

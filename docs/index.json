@@ -1,0 +1,3895 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/assets/utils/config/api/api.js",
+    "content": "/*******************************************************\r\nAPI URIs\r\n*******************************************************/\r\nconst personal = require('./personal.js')\r\nconst menuRole = require('./menuRole.js')\r\nconst statusBoard = require('./statusBoard.js')\r\nconst compliance = require('./compliance.js')\r\nconst policyCategory = require('./policyCategory.js')\r\nconst policyItem = require('./policyItem.js')\r\nconst user = require('./user.js')\r\nconst dept = require('./dept.js')\r\nconst log = require('./log.js')\r\nconst commonCode = require('./commonCode.js')\r\nconst calendar = require('./calendar.js')\r\nconst asset = require('./asset.js')\r\nconst inspectionAuto = require('./inspectionAuto.js')\r\nconst boardNotification = require('./boardNotification.js')\r\nconst attachment = require('./attachment.js')\r\nconst evidenceAttachment = require('./evidenceAttachment.js')\r\nconst policyTag = require('./policyTag.js')\r\nconst codeSetting = require('./codeSetting.js')\r\nconst securityReviewSetting = require('./securityReviewSetting.js')\r\nconst vulnerability = require('./vulnerability.js')\r\nconst exceptedVuln = require('./exceptedVuln.js')\r\nconst openPortHist = require('./openPortHist.js')\r\nconst privacyEvaluation = require('./privacyEvaluation.js')\r\nconst securityReviewApply = require('./securityReviewApply.js')\r\nconst securityReviewApplyDetail = require('./securityReviewApplyDetail.js')\r\nconst securityReviewAudit = require('./securityReviewAudit.js')\r\nconst regularInspection = require('./regularInspection.js')\r\nconst themeInspection = require('./themeInspection.js')\r\nconst realTimeSSE = require('./realTimeSSE.js')\r\nconst policyItemDescriptionTemlate = require('./policyItemDescriptionTemplate.js')\r\nconst notificationSender = require('./notificationSender.js')\r\nconst notification = require('./notification.js')\r\nconst manageapproval = require('./manageapproval.js')\r\nconst approval = require('./approval.js')\r\nconst systemLog = require('./systemLog.js')\r\nconst inspectionManual = require('./inspectionManual.js')\r\nconst cveInspection = require('./cveInspection.js')\r\nconst inspectionPlan = require('./inspectionPlan.js')\r\nconst inspectionResult = require('./inspectionResult.js')\r\nconst periodInfo = require('./periodInfo.js')\r\nconst dashboardSetting = require('./dashboardSetting.js')\r\nconst dashboard = require('./dashboard.js')\r\n\r\nmodule.exports = {\r\n  PERSONAL: personal,\r\n  ROLE_MENU: menuRole,\r\n  STATUS_BOARD: statusBoard,\r\n  COMPLIANCE: compliance,\r\n  POLICY_CATEGORY: policyCategory,\r\n  POLICY_ITEM: policyItem,\r\n  USER: user,\r\n  DEPT: dept,\r\n  ROLE: log,\r\n  COMMON_CODE: commonCode,\r\n  CALENDAR: calendar,\r\n  ASSET: asset,\r\n  INSPECTION_AUTO: inspectionAuto,\r\n  BOARD_NOTIFICATION: boardNotification,\r\n  ATTACHMENT: attachment,\r\n  EVIDENCE_ATTACHMENT: evidenceAttachment,\r\n  POLICY_TAG: policyTag,\r\n  CODE_SETTING: codeSetting,\r\n  SEC_REVIEW_SETTING: securityReviewSetting,\r\n  SEC_REVIEW_APPLY: securityReviewApply,\r\n  SEC_REVIEW_APPLY_DETAIL: securityReviewApplyDetail,\r\n  SEC_REVIEW_AUDIT: securityReviewAudit,\r\n  VULNERABILITY: vulnerability,\r\n  EXCEPTEDVULN: exceptedVuln,\r\n  OPEN_PORT_HIST: openPortHist,\r\n  PRI_EVALUATION: privacyEvaluation,\r\n  REG_INSPECTION: regularInspection,\r\n  THE_INSPECTION: themeInspection,\r\n  REAL_TIME_SSE: realTimeSSE,\r\n  POLICY_ITEM_DESCRIPTION_TEMPLATE: policyItemDescriptionTemlate,\r\n  NOTIFICATION_SENDER: notificationSender,\r\n  NOTIFICATION: notification,\r\n  MANAGEAPPROVAL: manageapproval,\r\n  APPROVAL: approval,\r\n  SYSTEMLOG: systemLog,\r\n  INSPECTION_MANUAL: inspectionManual,\r\n  CVE_INSPECTION: cveInspection,\r\n  INSPECTION_RESULT: inspectionResult,\r\n  INSPECCTION_PLAN: inspectionPlan,\r\n  PERIOD_INFO: periodInfo,\r\n  DASHBOARD_SETTING: dashboardSetting,\r\n  DASHBOARD: dashboard\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/config/api/api.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "personal",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~personal",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": "****************************************************\nAPI URIs\n*****************************************************",
+    "lineNumber": 4,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "menuRole",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~menuRole",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "variable",
+    "name": "statusBoard",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~statusBoard",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "compliance",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~compliance",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "variable",
+    "name": "policyCategory",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~policyCategory",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "variable",
+    "name": "policyItem",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~policyItem",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "variable",
+    "name": "user",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~user",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "dept",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~dept",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "log",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~log",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "variable",
+    "name": "commonCode",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~commonCode",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "variable",
+    "name": "calendar",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~calendar",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "variable",
+    "name": "asset",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~asset",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "variable",
+    "name": "inspectionAuto",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~inspectionAuto",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "variable",
+    "name": "boardNotification",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~boardNotification",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "variable",
+    "name": "attachment",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~attachment",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "variable",
+    "name": "evidenceAttachment",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~evidenceAttachment",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "variable",
+    "name": "policyTag",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~policyTag",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "variable",
+    "name": "codeSetting",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~codeSetting",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "variable",
+    "name": "securityReviewSetting",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~securityReviewSetting",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "variable",
+    "name": "vulnerability",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~vulnerability",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "variable",
+    "name": "exceptedVuln",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~exceptedVuln",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "variable",
+    "name": "openPortHist",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~openPortHist",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "variable",
+    "name": "privacyEvaluation",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~privacyEvaluation",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "variable",
+    "name": "securityReviewApply",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~securityReviewApply",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "variable",
+    "name": "securityReviewApplyDetail",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~securityReviewApplyDetail",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "variable",
+    "name": "securityReviewAudit",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~securityReviewAudit",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "variable",
+    "name": "regularInspection",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~regularInspection",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "variable",
+    "name": "themeInspection",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~themeInspection",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "realTimeSSE",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~realTimeSSE",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "variable",
+    "name": "policyItemDescriptionTemlate",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~policyItemDescriptionTemlate",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "variable",
+    "name": "notificationSender",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~notificationSender",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "notification",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~notification",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "variable",
+    "name": "manageapproval",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~manageapproval",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "variable",
+    "name": "approval",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~approval",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "systemLog",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~systemLog",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "variable",
+    "name": "inspectionManual",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~inspectionManual",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "variable",
+    "name": "cveInspection",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~cveInspection",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "variable",
+    "name": "inspectionPlan",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~inspectionPlan",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "inspectionResult",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~inspectionResult",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "variable",
+    "name": "periodInfo",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~periodInfo",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "variable",
+    "name": "dashboardSetting",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~dashboardSetting",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "variable",
+    "name": "dashboard",
+    "memberof": "src/assets/utils/config/api/api.js",
+    "static": true,
+    "longname": "src/assets/utils/config/api/api.js~dashboard",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/api/api.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "file",
+    "name": "src/assets/utils/config/api/asset.js",
+    "content": "/**\r\n * 자산 관리리 RESTful API\r\n**/\r\nmodule.exports = {\r\n  FIND_ASSET_CIA_LIST: {\r\n    URI: '/api/asset/cia/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: 'CIA 조회'\r\n  },\r\n  CREATE_ASSET_CIA: {\r\n    URI: '/api/asset/cia/create',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: 'CIA 등록'\r\n  },\r\n  UPDATE_ASSET_CIA: {\r\n    URI: '/api/asset/cia/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: 'CIA 수정'\r\n  },\r\n  DELETE_ASSET_CIA: {\r\n    URI: '/api/asset/cia/delete',\r\n    METHOD: 'DELETE',\r\n    DESCRIPTION: 'CIA 삭제'\r\n  },\r\n  FIND_ASSET_CATEGORY_LIST: {\r\n    URI: '/api/asset/category/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산구분 조회'\r\n  },\r\n  CREATE_ASSET_CATEGORY: {\r\n    URI: '/api/asset/category/create',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산구분 등록'\r\n  },\r\n  UPDATE_ASSET_CATEGORY: {\r\n    URI: '/api/asset/category/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '자산구분 수정'\r\n  },\r\n  DELETE_ASSET_CATEGORY: {\r\n    URI: '/api/asset/category/delete',\r\n    METHOD: 'DELETE',\r\n    DESCRIPTION: '자산구분 삭제'\r\n  },\r\n  EXCEL_ASSET_LIST: {\r\n    URI: '/api/asset/group/excel',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산목록 엑셀다운로드'\r\n  },\r\n  FIND_ASSET_INSPECTION_GROUP_LIST: {\r\n    URI: '/api/asset/inspection/group/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '점검그룹 리스트 조회'\r\n  },\r\n  FIND_ASSET_INSPECTION_GROUP: {\r\n    URI: '/api/asset/inspection/group/find',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '점검그룹 리스트 단건 조회'\r\n  },\r\n  CREATE_ASSET_INSPECTION_GROUP: {\r\n    URI: '/api/asset/inspection/group/create',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '점검그룹 등록'\r\n  },\r\n  UPDATE_ASSET_INSPECTION_GROUP: {\r\n    URI: '/api/asset/inspection/group/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '점검그룹 수정'\r\n  },\r\n  DELETE_ASSET_INSPECTION_GROUP: {\r\n    URI: '/api/asset/inspection/group/delete',\r\n    METHID: 'DELETE',\r\n    DESCRIPTION: '점검그룹 삭제'\r\n  },\r\n  FIND_ASSET_GROUP_LIST: {\r\n    URI: '/api/asset/group/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산그룹 조회'\r\n  },\r\n  FIND_ASSET_GROUP: {\r\n    URI: '/api/asset/group/',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산그룹 단건 조회'\r\n  },\r\n  CREATE_ASSET_GROUP: {\r\n    URI: '/api/asset/group/create',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산그룹 등록'\r\n  },\r\n  UPDATE_ASSET_GROUP: {\r\n    URI: '/api/asset/group/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '자산그룹 수정'\r\n  },\r\n  DELETE_ASSET_GROUP: {\r\n    URI: '/api/asset/group/delete',\r\n    METHOD: 'DELETE',\r\n    DESCRIPTION: '자산그룹 삭제'\r\n  },\r\n  FIND_ASSET_INFO: {\r\n    URI: '/api/asset/info/',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산 단건 조회'\r\n  },\r\n  FIND_ASSET_INFO_LIST: {\r\n    URI: '/api/asset/info/list',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산 조회'\r\n  },\r\n  CREATE_ASSET_INFO: {\r\n    URI: '/api/asset/info/create',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산 등록'\r\n  },\r\n  UPDATE_ASSET_INFO: {\r\n    URI: '/api/asset/info/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '자산 수정'\r\n  },\r\n  UPDATE_BATCH_ASSET_INFO: {\r\n    URI: '/api/asset/info/update/batch',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '자산 일괄 수정'\r\n  },\r\n  INSERT_BATCH_ASSET_INFO: {\r\n    URI: '/api/asset/info/insert/batch',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산 일괄 수정'\r\n  },\r\n  DELETE_ASSET_INFO: {\r\n    URI: '/api/asset/info/delete',\r\n    METHOD: 'DELETE',\r\n    DESCRIPTION: '자산 삭제'\r\n  },\r\n  FIND_ASSET_HIST_LIST: {\r\n    URI: '/api/hist/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산 및 그룹 이력 조회'\r\n  },\r\n  FIND_ASSET_HIST: {\r\n    URI: '/api/hist/find',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산 및 그룹 이력 단건 조회'\r\n  },\r\n  COMPARE_HIST: {\r\n    URI: '/api/hist/compare',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '자산 및 그룹 이력 비교내역 조회'\r\n  },\r\n  CREATE_ASSET_GROUP_INFO: {\r\n    URI: '/api/asset/group/create/batch',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산그룹 등록'\r\n  },\r\n  FIND_ASSET_CATEGORY_GROUP_BY_LIST: {\r\n    URI: '/api/asset/info/category/list',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산구분별 조회'\r\n  },\r\n  FIND_ASSET_INFRA_LIST: {\r\n    URI: '/api/asset/info/infra/list',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산인프라 조회'\r\n  },\r\n  FIND_ASSET_DELETED_LIST: {\r\n    URI: '/api/asset/info/deleted/list',\r\n    METHOD: 'POST',\r\n    DESCRIPTION: '자산인프라 조회'\r\n  }\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/config/api/asset.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "file",
+    "name": "src/assets/utils/config/api/policy.js",
+    "content": "/**\r\n * 단위 정책 RESTful API\r\n**/\r\nmodule.exports = {\r\n  INFO: {\r\n    URI: '/api/compliance/policy/item/info',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '정책항목 정보 조회'\r\n  },\r\n  CATEGORY_ITEM_CNT: {\r\n    URI: '/api/compliance/policy/item/category/cnt',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '정책분류 내 정책항목 개수'\r\n  },\r\n  LIST: {\r\n    URI: '/api/compliance/policy/item/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '정책항목 리스트 조회'\r\n  },\r\n  SIMPLE_LIST: {\r\n    URI: '/api/compliance/policy/item/simple/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '정책항목 심플 리스트 조회(no pageable and for search item by name)'\r\n  },\r\n  CREATE: {\r\n    URI: '/api/compliance/policy/item/create',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '정책저장소 정책항목 정보 등록'\r\n  },\r\n  UPDATE: {\r\n    URI: '/api/compliance/policy/item/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '정책항목 정보 수정'\r\n  },\r\n  UPDATE_SORT: {\r\n    URI: '/api/compliance/policy/item/sort/update',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '정책항목 순서 변경'\r\n  },\r\n  DELETE: {\r\n    URI: '/api/compliance/policy/item/delete',\r\n    METHOD: 'DELETE',\r\n    DESCRIPTION: '정책항목 삭제'\r\n  },\r\n  CREATE_REF: {\r\n    URI: '/api/compliance/policy/item/ref/create',\r\n    METHOD: 'PUT',\r\n    DESCRIPTION: '일반 컴플라이언스 정책저장소 정책항목 참조 정보 등록'\r\n  },\r\n  LIST_SIMPLE_REF: {\r\n    URI: '/api/compliance/policy/item/ref/simple/list',\r\n    METHOD: 'GET',\r\n    DESCRIPTION: '일반 컴플라이언스 심플 리스트 조회'\r\n  }\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/config/api/policy.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 93,
+    "kind": "file",
+    "name": "src/assets/utils/config/consts.js",
+    "content": "/**\r\n * 상수 정의 (메시지 등)\r\n**/\r\nexport const ui = {\r\n  theme: {\r\n    indigo:\r\n      { value: 'indigo', label: '인디고' },\r\n    white:\r\n      { value: 'white', label: '밀크화이트' },\r\n    blue:\r\n      { value: 'blue', label: '딥오션' },\r\n    black:\r\n      { value: 'black', label: '다크' }\r\n  },\r\n  cookies: { theme: 'theme' }\r\n}\r\n\r\nexport const aesKey = 'aeskey1234567898'\r\n\r\nexport const attachment = {\r\n  /*\r\n  1MB: 1048576\r\n  5MB: 5242880\r\n  10MB: 10485760\r\n  20MB: 20971520\r\n  50MB: 52428800\r\n  100MB: 104857600\r\n  참고: API서버는 max 100MB로 되어 있음\r\n  */\r\n  maxSize: 20971520,\r\n  whiteList: ['jpg', 'jpeg', 'bmp', 'png', 'pdf', 'hwp', 'hwpx', 'doc', 'docx', 'xls', 'xlsx', 'xlsb', 'ppt', 'pptx', 'cell', 'csv', 'txt', 'htm', 'html', 'xml', 'json', 'zip'],\r\n  imgWhiteList: ['jpg', 'jpeg', 'bmp', 'png']\r\n}\r\n\r\nexport const message = {\r\n  auth: {\r\n    m1: '로그인 되었습니다.',\r\n    m2: '로그아웃 되었습니다.'\r\n  }\r\n}\r\n\r\nexport const errorMsg = {\r\n  e0: { status: 0, message: '네트워크 오류로 인해 서비스를 이용할 수 없습니다.' },\r\n  e1: { status: 0, message: '이미 조회중입니다.' },\r\n  /* 표준 http status */\r\n  e401: { status: 401, message: ['접근권한이 없거나 로그인하지 않았습니다.', '접근권한이 없거나 세션이 만료되었습니다.'] },\r\n  e404: { status: 404, message: '알수없는 페이지로 접근하였습니다.' },\r\n  e503: { status: 503, message: '서비스를 이용할 수 없습니다. 관리자에게 문의하세요.' },\r\n  /* 내부 오류 코드 정의 */\r\n  e4003: { status: 4003, message: ['접근권한이 없거나 로그인하지 않았습니다.', '접근권한이 없거나 세션이 만료되었습니다.'] }\r\n}\r\n\r\n/* 검색범위 */\r\nexport const searchScope = {\r\n  a: { code: 'A', name: '전체조회' },\r\n  d: { code: 'D', name: '본부조회' },\r\n  t: { code: 'T', name: '부서조회' },\r\n  p: { code: 'P', name: '개인조회' }\r\n}\r\n\r\n/* 권한 */\r\nexport const taskCode = {\r\n  nep: { code: 'NEP', name: '일반' },\r\n  nth: { code: 'NTH', name: '부서장' },\r\n  ndh: { code: 'NDH', name: '본부장' },\r\n  aph: { code: 'APH', name: '물리' },\r\n  ama: { code: 'AMA', name: '관리' },\r\n  ate: { code: 'ATE', name: '기술' },\r\n  apr: { code: 'APR', name: '개인정보' },\r\n  aaa: { code: 'AAA', name: '관리자' }\r\n}\r\n\r\n/* 정책분야 */\r\nexport const policyPart = {\r\n  ma: { code: 'MA', name: '관리' },\r\n  ph: { code: 'PH', name: '물리' },\r\n  te: { code: 'TE', name: '기술' },\r\n  pr: { code: 'PR', name: '개인정보' },\r\n  et: { code: 'ET', name: '기타' },\r\n  na: { code: 'NA', name: 'N/A' }\r\n}\r\n\r\n/* 보안성심의 담당자 구분 */\r\nexport const secReviewManagerType = {\r\n  ma: { code: 'MA', name: '관리' },\r\n  ph: { code: 'PH', name: '물리' },\r\n  te: { code: 'TE', name: '기술' },\r\n  pr: { code: 'PR', name: '개인정보' },\r\n  pt: { code: 'PT', name: '모의해킹' },\r\n  ra: { code: 'RA', name: '보안대표자동결재상신자' }\r\n}\r\n\r\n/* 보안성심의 상태 */\r\nexport const secReviewStatus = {\r\n  a: { code: 'A', name: '임시저장' },\r\n  b: { code: 'B', name: '현업결재' },\r\n  c: { code: 'C', name: '신청' },\r\n  d: { code: 'D', name: '보안결재' },\r\n  e: { code: 'E', name: '검토' },\r\n  f: { code: 'F', name: '이행/검증' },\r\n  g: { code: 'G', name: '최종현업결재' },\r\n  h: { code: 'H', name: '최종보안결재' },\r\n  i: { code: 'I', name: '심의완료' }\r\n}\r\n\r\n/* 보안성심의 이행/검증 코드 */\r\nexport const secReviewImplType = {\r\n  po: { code: 'PO', name: '보안정책' },\r\n  te: { code: 'TE', name: '기술점검' },\r\n  pt: { code: 'PT', name: '모의해킹' }\r\n}\r\n\r\n/* 보안성심의 이행/검증 코드 */\r\nexport const secReviewImplStatusCode = {\r\n  a: { code: 'A', name: '점검전' },\r\n  b: { code: 'B', name: '이행중' },\r\n  c: { code: 'C', name: '검증중' },\r\n  d: { code: 'D', name: '완료' }\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/config/consts.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 94,
+    "kind": "variable",
+    "name": "ui",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~ui",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{ui}",
+    "description": "상수 정의 (메시지 등)",
+    "lineNumber": 4,
+    "type": {
+      "types": [
+        "{\"theme\": *, \"cookies\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "variable",
+    "name": "aesKey",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~aesKey",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{aesKey}",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "variable",
+    "name": "attachment",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~attachment",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{attachment}",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"maxSize\": number, \"whiteList\": *, \"imgWhiteList\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "variable",
+    "name": "message",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~message",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{message}",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"auth\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "variable",
+    "name": "errorMsg",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~errorMsg",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{errorMsg}",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"e0\": *, \"e1\": *, \"e401\": *, \"e404\": *, \"e503\": *, \"e4003\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "variable",
+    "name": "searchScope",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~searchScope",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{searchScope}",
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"a\": *, \"d\": *, \"t\": *, \"p\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "variable",
+    "name": "taskCode",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~taskCode",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{taskCode}",
+    "description": null,
+    "lineNumber": 62,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"nep\": *, \"nth\": *, \"ndh\": *, \"aph\": *, \"ama\": *, \"ate\": *, \"apr\": *, \"aaa\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "variable",
+    "name": "policyPart",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~policyPart",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{policyPart}",
+    "description": null,
+    "lineNumber": 74,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"ma\": *, \"ph\": *, \"te\": *, \"pr\": *, \"et\": *, \"na\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "variable",
+    "name": "secReviewManagerType",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~secReviewManagerType",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{secReviewManagerType}",
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"ma\": *, \"ph\": *, \"te\": *, \"pr\": *, \"pt\": *, \"ra\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "variable",
+    "name": "secReviewStatus",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~secReviewStatus",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{secReviewStatus}",
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"a\": *, \"b\": *, \"c\": *, \"d\": *, \"e\": *, \"f\": *, \"g\": *, \"h\": *, \"i\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "variable",
+    "name": "secReviewImplType",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~secReviewImplType",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{secReviewImplType}",
+    "description": null,
+    "lineNumber": 107,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"po\": *, \"te\": *, \"pt\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "variable",
+    "name": "secReviewImplStatusCode",
+    "memberof": "src/assets/utils/config/consts.js",
+    "static": true,
+    "longname": "src/assets/utils/config/consts.js~secReviewImplStatusCode",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/assets/utils/config/consts.js",
+    "importStyle": "{secReviewImplStatusCode}",
+    "description": null,
+    "lineNumber": 114,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"a\": *, \"b\": *, \"c\": *, \"d\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 106,
+    "kind": "file",
+    "name": "src/assets/utils/config/server.js",
+    "content": "/*\r\n서버 정보\r\n*/\r\nconst api = require('./api/api.js')\r\nmodule.exports = {\r\n  LOCAL: {\r\n    PORT: 8443,\r\n    DOMAIN: 'https://localhost',\r\n    DESCRIPTION: '로컬 서버 정보',\r\n    API: api\r\n  },\r\n  STAGING: {\r\n    PORT: 50443,\r\n    DOMAIN: 'https://com.liveapp.co.kr',\r\n    DESCRIPTION: '개발(스테이징)서버 정보',\r\n    API: api\r\n  },\r\n  PROD: {\r\n    PORT: 443,\r\n    DOMAIN: 'https://localhost',\r\n    DESCRIPTION: '운영 서버 정보',\r\n    API: api\r\n  }\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/config/server.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 107,
+    "kind": "variable",
+    "name": "api",
+    "memberof": "src/assets/utils/config/server.js",
+    "static": true,
+    "longname": "src/assets/utils/config/server.js~api",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/config/server.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "file",
+    "name": "src/assets/utils/index.js",
+    "content": "export { default as uDom } from './uDom'\nexport { default as uNewCommon } from './uNewCommon'\nexport { default as uNewMessageBox } from './uNewMessageBox'\n\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 109,
+    "kind": "file",
+    "name": "src/assets/utils/uAxios.js",
+    "content": "/**\r\n * axios 함수 및 전처리\r\n * RESTful API 디자인 원칙에 따라 GET, POST, PUT, PATCH, DELETE 구현\r\n**/\r\n\r\nimport axios from 'axios'\r\nimport { uMessage, uRouter, uCommon } from '@/assets/utils'\r\nimport { errorMsg } from '@/config/constants'\r\nimport storeGlobal from '@/store/helper/global/storeGlobal'\r\n\r\n/* axios instance */\r\nconst instance = axios.create({\r\n  /**\r\n   * TODO : 환경 변수에 기본값 설정 필요\r\n   * baseURL : import.meta.env.VITE_API_BASE_URL (환경 변수에 설정)\r\n   * timeout : import.meta.env.VITE_API_TIMECOUT (환경 변수에 설정)\r\n   */\r\n  baseURL: '',\r\n  timeout: 30000,\r\n})\r\n\r\n/**\r\n * 요청 interceptors\r\n * TODO : Authorization 누락 시 예외 처리 필요. storeGlobal.getToken()이 null 또는 undefined일 경우, Bearer null이 될 수 있으므로 Authorization 헤더를 조건부로 설정 필요.\r\n * const token = storeGlobal.getToken();\r\n * ...(token && { Authorization: `Bearer ${token}` }),\r\n * ==> ...(스프레드 연산자)의 역할 확인할 것\r\n**/\r\ninstance.interceptors.request.use(\r\n  function (config) {\r\n    if (config.method === 'delete') {\r\n      config.headers.permit = 'd'\r\n    }\r\n    const token = storeGlobal.getToken();\r\n    config.headers = {\r\n      Authorization: 'Bearer ' + storeGlobal.getToken(),\r\n      'Content-type': 'application/json',\r\n      menuid: storeGlobal.getLastMenuMenuId(),\r\n      permit: config.headers.permit || '',\r\n      refreshtoken: config.headers.refreshtoken || ''\r\n    }\r\n    return config\r\n  },\r\n  function (error) {\r\n    return Promise.reject(error)\r\n  }\r\n)\r\n\r\n/* 응답 interceptors */\r\ninstance.interceptors.response.use(\r\n  function (response) {\r\n    if (response.config.url !== '/api/test/app/info') storeGlobal.setLoginInterval()\r\n    // console.log('method.js', response)\r\n    return response\r\n  },\r\n  function (error) {\r\n    try {\r\n      const data = error.response.data\r\n      if (data.status === 4001) {\r\n        return resolveAuth(error.config)\r\n      } else if (data.status === 4002) {\r\n        forceToLogout(data.msg)\r\n      } else if (data.status === 4003) {\r\n        // uAPIPersonal.login()\r\n        storeGlobal.clearAuth()\r\n        uRouter.replace('Error', { title: data.status, message: data.msg })\r\n      } else {\r\n        /* 기타 오류 모달 알림 */\r\n        const msg = data.msg || errorMsg.e503.message\r\n        /**\r\n         * TODO : showSingleAlertBox에 직접 HTML 전달되지 않도록 (consts.js에 상수 처리)\r\n        **/\r\n        uMessage.showSingleAlertBox('알림', '<span class=\"ti ti-alert-circle error-alert-msg\">&nbsp;' + msg + '</span>', '확인')\r\n      }\r\n    } catch (e) {\r\n      uMessage.showSingleAlertBox('알림', '<span class=\"ti ti-alert-circle error-alert-msg\">&nbsp;' + errorMsg.e0.message + '</span>', '확인')\r\n    }\r\n    return Promise.reject(error)\r\n  }\r\n)\r\n\r\n/**\r\n * access token 만료로 재발급 요청 및 마지막 요청 retry \r\n * TODO : config가 없을 경우 처리 필요, config가 undefined일 경우, instance.request(config) 실행 시 에러 발생. 상세 에러 처리 필요\r\n const resolveAuth = async (config = {}) => { // 기본값 설정정\r\n  try {\r\n    const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI, { \r\n      headers: { refreshtoken: storeGlobal.getRefreshToken() }\r\n    });\r\n\r\n    if (response.status === 200) {\r\n      const headers = response.headers;\r\n      storeGlobal.setToken(headers.accesstoken);\r\n      storeGlobal.setRefreshToken(headers.refreshtoken);\r\n      return instance.request(config);\r\n    } else {\r\n      console.error(`[ERROR] Auth resolve failed: ${response.status} - ${response.statusText}`);\r\n    }\r\n  } catch (error) {\r\n    console.error('[ERROR] Failed to resolve auth token', {\r\n      url: config.url || 'UNKNOWN', // 요청한 API URL\r\n      message: error.message || 'No error message', // 에러 메시지\r\n      responseData: error.response?.data || 'No response data', // 응답 데이터\r\n      status: error.response?.status || 'Unknown status', // 응답 상태 코드\r\n      headers: error.response?.headers || 'No headers', // 응답 헤더\r\n    });\r\n\r\n    throw error; // 에러를 다시 던져서 상위에서 처리할 수 있도록 함\r\n  }\r\n};\r\n**/\r\nconst resolveAuth = async (config) => {\r\n  const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI,\r\n    { headers: { refreshtoken: storeGlobal.getRefreshToken() } })\r\n  if (response.status === 200) {\r\n    const headers = response.headers\r\n    storeGlobal.setToken(headers.accesstoken)\r\n    storeGlobal.setRefreshToken(headers.refreshtoken)\r\n    return instance.request(config)\r\n  } else {\r\n    /**\r\n     * TODO : 에러 처리를 위와 같이 해야 함. 단순히 error만 찍으면 안됨\r\n     */\r\n    console.log('error')\r\n  }\r\n}\r\n\r\nconst resolveAuthWithTimer = async () => {\r\n  const response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI,\r\n    { headers: { refreshtoken: storeGlobal.getRefreshToken() } })\r\n  if (response.status === 200) {\r\n    const headers = response.headers\r\n    storeGlobal.setToken(headers.accesstoken)\r\n    storeGlobal.setRefreshToken(headers.refreshtoken)\r\n  } else {\r\n    console.log('error')\r\n  }\r\n}\r\n\r\n/**\r\n * 모든 인증 실패로 자동 로그아웃 처리\r\n * 참고 : 4002는 accesstoken 및 refreshtoken 모두 만료 코드\r\n * TODO : forceToLogout이 중복 호출될 가능성 존재, isLogOut 변수를 사용해 한번만 실행되도록 수정해야 함.\r\n * let isLogOut = false;  // 글로벌 변수 처리 필요\r\n**/\r\nconst forceToLogout = (msg) => {\r\n  /** 코드 추가 필요\r\n   * if (isLogOut) return; // 이미 로그아웃 중이면 실행하지 않음\r\n        isLogOut = true;\r\n  **/\r\n  storeGlobal.clearLoginInterval()\r\n  if (!uCommon.isEmpty(msg)) uMessage.showMessage(msg, 'error')\r\n  storeGlobal.clearAuth()\r\n  uRouter.replace('Login')\r\n  /** 코드 추가 필요\r\n   * setTimeout(() => {\r\n      isLogOut = false; // 3초 후 다시 실행 가능하도록 초기화\r\n      }, 3000\r\n   */\r\n}\r\n\r\n/*********************************************************************\r\n업무로직 api crud request는 get post, patch, del 템플릿 함수 사용!\r\n단 특수한 경우 instance로 직접 작성 사용\r\n참고 : 업무로직 crud는 권한 확인을 위해 headers에 permit이 필수이다.\r\ninstance 직접로 작성하는 경우 permit이 필요하지 않은 로직에 사용!\r\n*********************************************************************/\r\n/* 조회 */\r\nconst get = (api, condition) => {\r\n  const query = condition || ''\r\n  return instance.get(api + query,\r\n    {\r\n      headers: { permit: 'r' }\r\n    }\r\n  )\r\n}\r\n\r\n/**\r\n * CREATE \r\n * @param {*} api \r\n * @param {*} body \r\n * @returns \r\n * TODO : 에러 처리 필요, PUT, DEL 모두 처리 필요요\r\n    try {\r\n      return await instance.post(api, body, { headers: { permit: 'c' } });\r\n    } catch (error) {\r\n      console.error(`[POST ERROR] ${api} -`, error.response?.data || error.message);\r\n      throw error;\r\n    }\r\n */\r\nconst post = (api, body) => {\r\n  return instance.post(api, body,\r\n    {\r\n      headers: { permit: 'c' }\r\n    }\r\n  )\r\n}\r\n\r\n/* 수정 */\r\nconst put = (api, body) => {\r\n  return instance.put(\r\n    api,\r\n    body,\r\n    {\r\n      headers: { permit: 'u' }\r\n    }\r\n  )\r\n}\r\n\r\n/* 삭제 */\r\nconst del = (api, body) => {\r\n  return instance.delete(\r\n    api,\r\n    body,\r\n    {\r\n      headers: { permit: 'u' }\r\n    }\r\n  )\r\n}\r\n\r\n/**\r\n * 업로드 처리\r\n * TODO : 업로드 취소 기능 추가 필요\r\n * @param {*} api \r\n * @param {*} body \r\n * @param {*} progressCallback \r\n * @returns \r\n * \r\n  const upload = (api, body, progressCallback) => {\r\n    const controller = new AbortController(); // ✅ 업로드 취소 컨트롤러 생성\r\n\r\n    const request = instance.post(api, body, {\r\n      timeout: 180000,\r\n      headers: { permit: 'c', 'Content-Type': 'multipart/form-data' },\r\n      signal: controller.signal, // ✅ 요청 취소 기능 추가\r\n      onUploadProgress: progressEvent => {\r\n        progressCallback(progressEvent);\r\n      }\r\n    });\r\n\r\n    request.cancel = () => controller.abort(); // ✅ 요청 취소 함수 추가\r\n    return request;\r\n    };\r\n  */\r\nconst upload = (api, body, progressCallback) => {\r\n  return instance.post(api, body,\r\n    {\r\n      timeout: 180000,\r\n      headers: { permit: 'c', 'Content-Type': 'multipart/form-data' },\r\n      onUploadProgress: progressEvent => {\r\n        progressCallback(progressEvent)\r\n      }\r\n    }\r\n  )\r\n}\r\n\r\nconst download = (api, progressCallback) => {\r\n  return instance.get(api,\r\n    {\r\n      timeout: 180000,\r\n      headers: { permit: 'r' },\r\n      responseType: 'blob',\r\n      onDownloadProgress: progressEvent => {\r\n        if (!uCommon.isEmpty(progressCallback)) {\r\n          progressCallback(progressEvent)\r\n        }\r\n      }\r\n    }\r\n  )\r\n}\r\n\r\nconst excelDownload = (api, condition, progressCallback) => {\r\n  const query = condition || ''\r\n  return instance.get(api + query,\r\n    {\r\n      timeout: 180000,\r\n      headers: { permit: 'r' },\r\n      responseType: 'blob',\r\n      onDownloadProgress: progressEvent => {\r\n        if (!uCommon.isEmpty(progressCallback)) {\r\n          progressCallback(progressEvent)\r\n        }\r\n      }\r\n    }\r\n  )\r\n}\r\n\r\nconst postExcelDownload = (api, condition, progressCallback) => {\r\n  return instance.post(api, condition,\r\n    {\r\n      timeout: 180000,\r\n      headers: { permit: 'r' },\r\n      responseType: 'blob',\r\n      onDownloadProgress: progressEvent => {\r\n        if (!uCommon.isEmpty(progressCallback)) {\r\n          progressCallback(progressEvent)\r\n        }\r\n      }\r\n    }\r\n  )\r\n}\r\n\r\nexport default {\r\n  instance,\r\n  upload,\r\n  download,\r\n  excelDownload,\r\n  postExcelDownload,\r\n  get,\r\n  post,\r\n  put,\r\n  del,\r\n  resolveAuthWithTimer,\r\n  forceToLogout\r\n}",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/uAxios.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 110,
+    "kind": "variable",
+    "name": "instance",
+    "memberof": "src/assets/utils/uAxios.js",
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~instance",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 111,
+    "kind": "function",
+    "name": "resolveAuth",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~resolveAuth",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": "access token 만료로 재발급 요청 및 마지막 요청 retry \nTODO : config가 없을 경우 처리 필요, config가 undefined일 경우, instance.request(config) 실행 시 에러 발생. 상세 에러 처리 필요\nconst resolveAuth = async (config = {}) => { // 기본값 설정정\ntry {\nconst response = await instance.get(process.env.API_SERVER.API.PERSONAL.RESOLVE_AUTH.URI, { \nheaders: { refreshtoken: storeGlobal.getRefreshToken() }\n});\n\nif (response.status === 200) {\nconst headers = response.headers;\nstoreGlobal.setToken(headers.accesstoken);\nstoreGlobal.setRefreshToken(headers.refreshtoken);\nreturn instance.request(config);\n} else {\nconsole.error(`[ERROR] Auth resolve failed: ${response.status} - ${response.statusText}`);\n}\n} catch (error) {\nconsole.error('[ERROR] Failed to resolve auth token', {\nurl: config.url || 'UNKNOWN', // 요청한 API URL\nmessage: error.message || 'No error message', // 에러 메시지\nresponseData: error.response?.data || 'No response data', // 응답 데이터\nstatus: error.response?.status || 'Unknown status', // 응답 상태 코드\nheaders: error.response?.headers || 'No headers', // 응답 헤더\n});\n\nthrow error; // 에러를 다시 던져서 상위에서 처리할 수 있도록 함\n}\n};",
+    "lineNumber": 112,
+    "params": [
+      {
+        "name": "config",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 112,
+    "kind": "function",
+    "name": "resolveAuthWithTimer",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~resolveAuthWithTimer",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 128,
+    "undocument": true,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "function",
+    "name": "forceToLogout",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~forceToLogout",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": "모든 인증 실패로 자동 로그아웃 처리\n참고 : 4002는 accesstoken 및 refreshtoken 모두 만료 코드\nTODO : forceToLogout이 중복 호출될 가능성 존재, isLogOut 변수를 사용해 한번만 실행되도록 수정해야 함.\nlet isLogOut = false;  // 글로벌 변수 처리 필요",
+    "lineNumber": 146,
+    "params": [
+      {
+        "name": "msg",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 114,
+    "kind": "function",
+    "name": "get",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~get",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": "******************************************************************\n업무로직 api crud request는 get post, patch, del 템플릿 함수 사용!\n단 특수한 경우 instance로 직접 작성 사용\n참고 : 업무로직 crud는 권한 확인을 위해 headers에 permit이 필수이다.\ninstance 직접로 작성하는 경우 permit이 필요하지 않은 로직에 사용!\n*******************************************************************",
+    "lineNumber": 169,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 115,
+    "kind": "function",
+    "name": "post",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~post",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": "CREATE ",
+    "lineNumber": 191,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "TODO : 에러 처리 필요, PUT, DEL 모두 처리 필요요\ntry {\nreturn await instance.post(api, body, { headers: { permit: 'c' } });\n} catch (error) {\nconsole.error(`[POST ERROR] ${api} -`, error.response?.data || error.message);\nthrow error;\n}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "api",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "body",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "TODO : 에러 처리 필요, PUT, DEL 모두 처리 필요요\ntry {\nreturn await instance.post(api, body, { headers: { permit: 'c' } });\n} catch (error) {\nconsole.error(`[POST ERROR] ${api} -`, error.response?.data || error.message);\nthrow error;\n}"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 116,
+    "kind": "function",
+    "name": "put",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~put",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 200,
+    "undocument": true,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "body",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 117,
+    "kind": "function",
+    "name": "del",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~del",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 211,
+    "undocument": true,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "body",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 118,
+    "kind": "function",
+    "name": "upload",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~upload",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": "업로드 처리\nTODO : 업로드 취소 기능 추가 필요",
+    "lineNumber": 245,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "\nconst upload = (api, body, progressCallback) => {\nconst controller = new AbortController(); // ✅ 업로드 취소 컨트롤러 생성\n\nconst request = instance.post(api, body, {\ntimeout: 180000,\nheaders: { permit: 'c', 'Content-Type': 'multipart/form-data' },\nsignal: controller.signal, // ✅ 요청 취소 기능 추가\nonUploadProgress: progressEvent => {\nprogressCallback(progressEvent);\n}\n});\n\nrequest.cancel = () => controller.abort(); // ✅ 요청 취소 함수 추가\nreturn request;\n};"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "api",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "body",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "progressCallback",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "const upload = (api, body, progressCallback) => {\nconst controller = new AbortController(); // ✅ 업로드 취소 컨트롤러 생성\n\nconst request = instance.post(api, body, {\ntimeout: 180000,\nheaders: { permit: 'c', 'Content-Type': 'multipart/form-data' },\nsignal: controller.signal, // ✅ 요청 취소 기능 추가\nonUploadProgress: progressEvent => {\nprogressCallback(progressEvent);\n}\n});\n\nrequest.cancel = () => controller.abort(); // ✅ 요청 취소 함수 추가\nreturn request;\n};"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 119,
+    "kind": "function",
+    "name": "download",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~download",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 257,
+    "undocument": true,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "progressCallback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 120,
+    "kind": "function",
+    "name": "excelDownload",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~excelDownload",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 272,
+    "undocument": true,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "progressCallback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 121,
+    "kind": "function",
+    "name": "postExcelDownload",
+    "memberof": "src/assets/utils/uAxios.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uAxios.js~postExcelDownload",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uAxios.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 288,
+    "undocument": true,
+    "params": [
+      {
+        "name": "api",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "progressCallback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 122,
+    "kind": "file",
+    "name": "src/assets/utils/uDom.js",
+    "content": "/**\r\n * dom 관련 함수 모음\r\n**/\r\n\r\nconst removeNode = el => el && el.parentNode && el.parentNode.removeChild(el)\r\n\r\nconst isElement = el => !!(el && el.nodeType === Node.ELEMENT_NODE)\r\n\r\nconst getElement = (selector) => {\r\n  return document.querySelector(selector)\r\n}\r\n\r\nconst getElementAllNestedDom = (el, selector) => {\r\n  return el.querySelectorAll(selector)\r\n}\r\n\r\nconst getElementAllSiblingsDom = (parentNode, selector) => {\r\n  return parentNode.querySelectorAll(selector)\r\n}\r\n\r\nconst getElementIndex = (selector, index) => {\r\n  return document.querySelectorAll(selector)[index]\r\n}\r\n\r\nconst addClass = (el, className) => {\r\n  if (className && isElement(el) && el.classList) {\r\n    el.classList.add(className)\r\n  }\r\n}\r\n\r\nconst removeClass = (el, className) => {\r\n  if (className && isElement(el) && el.classList) {\r\n    el.classList.remove(className)\r\n  }\r\n}\r\n\r\nconst switchClass = (selector, fromTo) => {\r\n  const el = isElement(selector) ? selector : document.querySelector(selector)\r\n  if (fromTo && el.classList) {\r\n    el.classList.remove(fromTo[0])\r\n    if (fromTo[1] !== undefined) {\r\n      el.classList.add(fromTo[1])\r\n    }\r\n  }\r\n}\r\n\r\nconst hasClass = (el, className) => {\r\n  if (className && isElement(el) && el.classList) {\r\n    return el.classList.contains(className)\r\n  }\r\n  return false\r\n}\r\n\r\nconst setAttr = (el, attr, value) => {\r\n  if (attr && isElement(el)) {\r\n    el.setAttribute(attr, value)\r\n  }\r\n}\r\n\r\nconst removeAttr = (el, attr) => {\r\n  if (attr && isElement(el)) {\r\n    el.removeAttribute(attr)\r\n  }\r\n}\r\n\r\nconst trim = (html) => {\r\n  return html.replace(/&nbsp;/gi, '').trim()\r\n}\r\n\r\nconst getAttr = (el, attr) => (attr && isElement(el) ? el.getAttribute(attr) : null)\r\n\r\nconst hasAttr = (el, attr) => (attr && isElement(el) ? el.hasAttribute(attr) : null)\r\n\r\n// Set an style property on an element\r\nconst setStyle = (el, prop, value) => {\r\n  if (prop && isElement(el)) {\r\n    el.style[prop] = value\r\n  }\r\n}\r\n\r\nconst removeStyle = (el, prop) => {\r\n  if (prop && isElement(el)) {\r\n    el.style[prop] = ''\r\n  }\r\n}\r\n\r\nconst switchDisplay = (from, to) => {\r\n  from.style.display = 'none'\r\n  setTimeout(() => {\r\n    to.style.display = 'block'\r\n  }, 300)\r\n}\r\n\r\nconst getStyle = (el, prop) => (prop && isElement(el) ? el.style[prop] || null : null)\r\n\r\n/*\r\n텍스트 오버플로우 되었는지 여부 확인\r\n*/\r\nconst isOverflow = (el) => {\r\n  var curOverflow = el.style.overflow\r\n  if (!curOverflow || curOverflow === 'visible') {\r\n    el.style.overflow = 'hidden'\r\n  }\r\n  const isOverflowing = el.clientWidth < el.scrollWidth || el.clientHeight < el.scrollHeight\r\n  el.style.overflow = curOverflow\r\n  return isOverflowing\r\n}\r\n\r\n/*\r\nelement array에서 특정 클래스명을 지우고 타킷 element에 적용\r\n*/\r\nconst removeClassInElArrayAndThenAddClassOnTargetEl = (elArray, targetEl, className) => {\r\n  removeClassInElArray(elArray, className)\r\n  addClass(targetEl, className)\r\n}\r\n\r\nconst removeClassInElArray = (elArray, className) => {\r\n  Array.from(elArray).forEach(item => {\r\n    removeClass(item, className)\r\n  })\r\n}\r\n\r\n// const removeAllElementByClassName = (className) => {\r\n//   const targets = document.querySelector(className)\r\n//   console.log('>>>>>', targets)\r\n//   // Array.from(elArray).forEach(item => {\r\n//   //   removeClass(item, className)\r\n//   // })\r\n// }\r\n\r\n/*\r\npath에서 특정 클래스명 el 찾기\r\nTODO : childNodes 까지 뒤지자!!!\r\n*/\r\nconst findElByClassNameFromPath = (path, className) => {\r\n  return path.filter((el) => hasClass(el, className))[0]\r\n}\r\n\r\nconst stringToDom = (htmlStr) => {\r\n  var frame = document.createElement('iframe')\r\n  frame.style.display = 'none'\r\n  document.body.appendChild(frame)\r\n  frame.contentDocument.open()\r\n  frame.contentDocument.write(htmlStr)\r\n  frame.contentDocument.close()\r\n  var el = frame.contentDocument.body.firstChild\r\n  document.body.removeChild(frame)\r\n  return el\r\n}\r\n\r\n/*\r\n엘리먼트 draggable 만들기\r\ne: Header element mousedown event\r\ntargetSelector: target element class name (must be unique of the app)\r\n참고:\r\n- el-popover를 draggable할 경우 persistent=false(persistent 의미 elementPlus 공식사이트 참고)\r\n*/\r\nconst draggableElementHandler = (e, targetSelector) => {\r\n  e.preventDefault()\r\n  const $el = getElement(targetSelector)\r\n  setStyle($el, 'position', 'absolute')\r\n  setStyle(e.toElement, 'cursor', 'move')\r\n  let pos1 = 0\r\n  let pos2 = 0\r\n  let pos3 = e.clientX\r\n  let pos4 = e.clientY\r\n  document.onmousemove = (e) => {\r\n    e.preventDefault()\r\n    pos1 = pos3 - e.clientX\r\n    pos2 = pos4 - e.clientY\r\n    pos3 = e.clientX\r\n    pos4 = e.clientY\r\n    $el.style.top = ($el.offsetTop - pos2) + 'px'\r\n    $el.style.left = ($el.offsetLeft - pos1) + 'px'\r\n  }\r\n  document.onmousedown = (e) => {\r\n    const isTarget = findElByClassNameFromPath(e.composedPath(), targetSelector.substr(1, targetSelector.length))\r\n    if (isTarget !== undefined) {\r\n      e.preventDefault()\r\n    }\r\n  }\r\n  e.toElement.onmouseup = (e) => {\r\n    e.preventDefault()\r\n    document.onmousedown = null\r\n    document.onmousemove = null\r\n  }\r\n}\r\n/*\r\n이벤트 패스 배열 오브젝트\r\n최소 엣지, 크롬의 버전 지원 여부에 따른 간결처리\r\n*/\r\nconst getComposedPath = (e) => {\r\n  return e.path || e.composedPath()\r\n}\r\n\r\nexport default {\r\n  removeNode,\r\n  getElement,\r\n  getElementAllNestedDom,\r\n  getElementAllSiblingsDom,\r\n  addClass,\r\n  removeClass,\r\n  switchClass,\r\n  hasClass,\r\n  setAttr,\r\n  removeAttr,\r\n  getAttr,\r\n  hasAttr,\r\n  setStyle,\r\n  removeStyle,\r\n  getStyle,\r\n  switchDisplay,\r\n  trim,\r\n  isOverflow,\r\n  findElByClassNameFromPath,\r\n  removeClassInElArrayAndThenAddClassOnTargetEl,\r\n  removeClassInElArray,\r\n  stringToDom,\r\n  draggableElementHandler,\r\n  getComposedPath,\r\n  getElementIndex\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/uDom.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 123,
+    "kind": "function",
+    "name": "removeNode",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeNode",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": "dom 관련 함수 모음",
+    "lineNumber": 5,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "function",
+    "name": "isElement",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~isElement",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 125,
+    "kind": "function",
+    "name": "getElement",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getElement",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "selector",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "function",
+    "name": "getElementAllNestedDom",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getElementAllNestedDom",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "selector",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "function",
+    "name": "getElementAllSiblingsDom",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getElementAllSiblingsDom",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "parentNode",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "selector",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "function",
+    "name": "getElementIndex",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getElementIndex",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "selector",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 129,
+    "kind": "function",
+    "name": "addClass",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~addClass",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 130,
+    "kind": "function",
+    "name": "removeClass",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeClass",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "function",
+    "name": "switchClass",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~switchClass",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [
+      {
+        "name": "selector",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "fromTo",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 132,
+    "kind": "function",
+    "name": "hasClass",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~hasClass",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 133,
+    "kind": "function",
+    "name": "setAttr",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~setAttr",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 134,
+    "kind": "function",
+    "name": "removeAttr",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeAttr",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "function",
+    "name": "trim",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~trim",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [
+      {
+        "name": "html",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 136,
+    "kind": "function",
+    "name": "getAttr",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getAttr",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 137,
+    "kind": "function",
+    "name": "hasAttr",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~hasAttr",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 138,
+    "kind": "function",
+    "name": "setStyle",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~setStyle",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prop",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 139,
+    "kind": "function",
+    "name": "removeStyle",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeStyle",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 140,
+    "kind": "function",
+    "name": "switchDisplay",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~switchDisplay",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "params": [
+      {
+        "name": "from",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "to",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 141,
+    "kind": "function",
+    "name": "getStyle",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getStyle",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "prop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 142,
+    "kind": "function",
+    "name": "isOverflow",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~isOverflow",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 99,
+    "undocument": true,
+    "params": [
+      {
+        "name": "el",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 143,
+    "kind": "function",
+    "name": "removeClassInElArrayAndThenAddClassOnTargetEl",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeClassInElArrayAndThenAddClassOnTargetEl",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 112,
+    "undocument": true,
+    "params": [
+      {
+        "name": "elArray",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "targetEl",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 144,
+    "kind": "function",
+    "name": "removeClassInElArray",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~removeClassInElArray",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 117,
+    "undocument": true,
+    "params": [
+      {
+        "name": "elArray",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 145,
+    "kind": "function",
+    "name": "findElByClassNameFromPath",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~findElByClassNameFromPath",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 135,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 146,
+    "kind": "function",
+    "name": "stringToDom",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~stringToDom",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 139,
+    "undocument": true,
+    "params": [
+      {
+        "name": "htmlStr",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 147,
+    "kind": "function",
+    "name": "draggableElementHandler",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~draggableElementHandler",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 158,
+    "undocument": true,
+    "params": [
+      {
+        "name": "e",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "targetSelector",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 148,
+    "kind": "function",
+    "name": "getComposedPath",
+    "memberof": "src/assets/utils/uDom.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uDom.js~getComposedPath",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uDom.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 192,
+    "undocument": true,
+    "params": [
+      {
+        "name": "e",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 149,
+    "kind": "file",
+    "name": "src/assets/utils/uMessageBox.js",
+    "content": "/**\r\n * MessageBox 정의\r\n * element plus message, notification, messagebox component 사용\r\n**/\r\n\r\nimport { ElMessage, ElNotification, ElMessageBox } from 'element-plus'\r\nimport { h } from 'vue'\r\nimport { uDom, uCommon } from '@/assets/utils'\r\n\r\n\r\n/*\r\n메시지\r\ntype : info, error, warning\r\n*/\r\nconst showMessage = (message, type, duration) => {\r\n  type = type || 'info'\r\n  duration = duration || 3000\r\n\r\n  /* 모달이 떠 있는경우 메시지 박스가 뒤로 숨어서, 모달이 있으면 zindex 커스텀 클래스 적용으로 무조건 최상위! */\r\n  const thereHasBeenOverlayAlready = uDom.getElement('.el-overlay')\r\n  ElMessage({\r\n    message: message,\r\n    type: type,\r\n    duration: duration,\r\n    grouping: true,\r\n    showClose: true,\r\n    dangerouslyUseHTMLString: true\r\n  })\r\n\r\n  if (!uCommon.isEmpty(thereHasBeenOverlayAlready)) {\r\n    uDom.addClass(uDom.getElement('.el-message'), 'custom-message-max-zindex')\r\n  }\r\n}\r\n\r\n/*\r\n메시지(중앙 집중형 메시지)\r\n사용자 액션 상태를 강조해서 알려줘야 할 경우 사용\r\nshowMessage 활용하여 분기처리 안하고 그냥 새로 만들었다.\r\n*/\r\nconst showCentreMessage = (message, custType, duration, showClose) => {\r\n  const type = !uCommon.isEmpty(custType) ? 'custom-message-centre-style-'.concat(custType) : ''\r\n  duration = duration || 2000\r\n  showClose = showClose || true\r\n\r\n  /* 모달이 떠 있는경우 메시지 박스가 뒤로 숨어서, 모달이 있으면 zindex 커스텀 클래스 적용으로 무조건 최상위! */\r\n  const thereHasBeenOverlayAlready = uDom.getElement('.el-overlay')\r\n  const f = ElMessage({\r\n    message: message,\r\n    type: 'info',\r\n    duration: duration,\r\n    grouping: true,\r\n    showClose: showClose,\r\n    dangerouslyUseHTMLString: true,\r\n    customClass: 'custom-message-centre-style' + ' ' + type\r\n  })\r\n\r\n  if (!uCommon.isEmpty(thereHasBeenOverlayAlready)) {\r\n    uDom.addClass(uDom.getElement('.el-message'), 'custom-message-max-zindex')\r\n  }\r\n  return f\r\n}\r\n\r\n/* 알림: 기본 */\r\nconst showNotification = (title, message, duration) => {\r\n  duration = duration || 5000\r\n  ElNotification.success({\r\n    title: title,\r\n    message: h('span', { style: 'color: #444444' }, message),\r\n    duration: duration\r\n  })\r\n}\r\n\r\n/* 알림: h함수고 메시지 직접 작성 */\r\nconst showhNotification = (title, h, duration) => {\r\n  duration = duration || 5000\r\n  ElNotification.success({\r\n    title: title,\r\n    message: h,\r\n    duration: duration\r\n  })\r\n}\r\n\r\n/* alert 모달 */\r\nconst showAlertBox = (title, message, btnLabel, callback, customClass) => {\r\n  callback = callback || function () { }\r\n  btnLabel = btnLabel || '확인'\r\n  customClass = customClass || ''\r\n  ElMessageBox.alert(message, title, {\r\n    confirmButtonText: btnLabel,\r\n    showClose: false,\r\n    closeOnPressEscape: false,\r\n    closeOnClickModal: false,\r\n    dangerouslyUseHTMLString: true,\r\n    draggable: true,\r\n    confirmButtonClass: 'el-button--info',\r\n    cancelButtonClass: 'el-button--text',\r\n    customClass: customClass,\r\n    callback: () => {\r\n      callback()\r\n    }\r\n  })\r\n}\r\n\r\n/*\r\nalert 모달\r\n최초 모달 1개만!!!\r\n*/\r\nlet isAlerted = null\r\nconst showSingleAlertBox = (title, message, btnLabel, callback) => {\r\n  callback = callback || function () { }\r\n  btnLabel = btnLabel || '확인'\r\n  if (isAlerted === null) {\r\n    isAlerted = ElMessageBox.alert(message, title, {\r\n      confirmButtonText: btnLabel,\r\n      showClose: false,\r\n      closeOnPressEscape: true,\r\n      closeOnClickModal: true,\r\n      dangerouslyUseHTMLString: true,\r\n      draggable: true,\r\n      confirmButtonClass: 'el-button--info',\r\n      cancelButtonClass: 'el-button--text',\r\n      callback: () => {\r\n        callback()\r\n        isAlerted = null\r\n      }\r\n    })\r\n  }\r\n}\r\n\r\n/**\r\n * 확인 메시지 박스 표시\r\n * @param {string} title - 제목\r\n * @param {string} message - 메시지 내용\r\n * @param {string} confirmBtnType - 확인 버튼 타입 (primary, danger 등)\r\n * @param {string} confirmBtnLabel - 확인 버튼 텍스트\r\n * @param {string} cancelBtnLabel - 취소 버튼 텍스트\r\n * @param {Function} confirmCallback - 확인 버튼 클릭 시 실행될 함수\r\n * @param {Function} cancelCallback - 취소 버튼 클릭 시 실행될 함수\r\n * @param {boolean} closeOnClickModal - 모달 외부 클릭 시 닫기 여부\r\n */\r\nconst showConfirmBox = (title, message, confirmBtnType, confirmBtnLabel, cancelBtnLabel, confirmCallback, cancelCallback, closeOnClickModal) => {\r\n  confirmBtnType = confirmBtnType || 'primary'\r\n  cancelCallback = cancelCallback || function () { }\r\n  closeOnClickModal = closeOnClickModal || false\r\n  /* 'force-btn-color-' + confirmBtnType <- danger만 common.scss에 적용했다.\r\n  추가 스타일이 필요하면 force-btn-color-info와 같이 common.scss에 선언하자! */\r\n  ElMessageBox.confirm(\r\n    message,\r\n    title,\r\n    {\r\n      confirmButtonText: confirmBtnLabel,\r\n      cancelButtonText: cancelBtnLabel,\r\n      showClose: false,\r\n      draggable: true,\r\n      closeOnPressEscape: closeOnClickModal,\r\n      closeOnClickModal: closeOnClickModal,\r\n      dangerouslyUseHTMLString: true,\r\n      confirmButtonClass: 'force-btn-color-' + confirmBtnType,\r\n      cancelButtonClass: 'el-button--text'\r\n    }\r\n  )\r\n    .then(() => {\r\n      confirmCallback()\r\n    })\r\n    .catch(() => {\r\n      cancelCallback()\r\n    })\r\n}\r\n\r\nconst hideConfirmBox = () => {\r\n  ElMessageBox.close()\r\n}\r\n\r\nexport default {\r\n  showMessage,\r\n  showCentreMessage,\r\n  showNotification,\r\n  showhNotification,\r\n  showAlertBox,\r\n  showSingleAlertBox,\r\n  showConfirmBox,\r\n  hideConfirmBox\r\n}\r\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/uMessageBox.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 150,
+    "kind": "function",
+    "name": "showMessage",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "duration",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 151,
+    "kind": "function",
+    "name": "showCentreMessage",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showCentreMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "params": [
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "custType",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "duration",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "showClose",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 152,
+    "kind": "function",
+    "name": "showNotification",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showNotification",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 64,
+    "undocument": true,
+    "params": [
+      {
+        "name": "title",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "duration",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 153,
+    "kind": "function",
+    "name": "showhNotification",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showhNotification",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 74,
+    "undocument": true,
+    "params": [
+      {
+        "name": "title",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "h",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "duration",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 154,
+    "kind": "function",
+    "name": "showAlertBox",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showAlertBox",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "params": [
+      {
+        "name": "title",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "btnLabel",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "customClass",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 155,
+    "kind": "variable",
+    "name": "isAlerted",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~isAlerted",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 108,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 156,
+    "kind": "function",
+    "name": "showSingleAlertBox",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showSingleAlertBox",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 109,
+    "undocument": true,
+    "params": [
+      {
+        "name": "title",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "btnLabel",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 157,
+    "kind": "function",
+    "name": "showConfirmBox",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~showConfirmBox",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": "확인 메시지 박스 표시",
+    "lineNumber": 141,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "title",
+        "description": "제목"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "메시지 내용"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "confirmBtnType",
+        "description": "확인 버튼 타입 (primary, danger 등)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "confirmBtnLabel",
+        "description": "확인 버튼 텍스트"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "cancelBtnLabel",
+        "description": "취소 버튼 텍스트"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "confirmCallback",
+        "description": "확인 버튼 클릭 시 실행될 함수"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "cancelCallback",
+        "description": "취소 버튼 클릭 시 실행될 함수"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "closeOnClickModal",
+        "description": "모달 외부 클릭 시 닫기 여부"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 158,
+    "kind": "function",
+    "name": "hideConfirmBox",
+    "memberof": "src/assets/utils/uMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uMessageBox.js~hideConfirmBox",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uMessageBox.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 170,
+    "undocument": true,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 159,
+    "kind": "file",
+    "name": "src/assets/utils/uNewMessageBox.js",
+    "content": "import { uDom, uNewCommon } from \"@/assets/utils\";\nimport { ElMessage, ElNotification } from \"element-plus\";\nimport { nextTick } from \"vue\";\n\n/**\n * 커스텀 메시지 함수\n * @param {string} message - 출력할 메시지\n * @param {string} type - 메시지 타입 (success, info, warning, error)\n * @param {number} duration - 지속 시간 (ms)\n * @param {string} position - 메시지 위치 (top, bottom, left, right, center)\n * @param {boolean} closeable - 닫기 버튼 여부\n * @param {boolean} stack - 중복 메시지 허용 여부 (기본: false)\n */\nconst showMessage = ({\n  message,\n  type = \"info\",\n  duration = 3000,\n  position = \"top\", // 기본적으로 상단 표시\n  closeable = true,\n  stack = false,\n}) => {\n  \n  const centralMsgShowe = uDom.getElement(\".custom-message-centre-style\");\n  if (!uNewCommon.isEmpty(centralMsgShowe)) {\n    uDom.removeNode(centralMsgShowe);\n  }\n\n  // 기존 메시지와 동일한 내용이 있을 경우 제거 (stack=false일 때)\n  if (!stack) {\n    const existingMessage = document.querySelector(\".el-message\");\n    if (existingMessage) {\n      existingMessage.remove();\n    }\n  }\n\n  nextTick(() => {\n    ElMessage({\n      message: message,\n      type: type,\n      duration: duration,\n      grouping: true,\n      showClose: closeable,\n      dangerouslyUseHTMLString: true,\n      position: position,\n      customClass: `custom-message-${position}`, // 위치 설정을 위한 클래스 추가\n    });\n  });\n\n  nextTick(() => {\n    // 모달(.el-overlay)이 떠 있는 경우 메시지 박스를 최상위로 조정\n    const overlayExists = uDom.getElement(\".el-overlay\");\n    if (!uNewCommon.isEmpty(overlayExists)) {\n      const elMessage = uDom.getElement(\".el-message\");\n      if (elMessage) {\n        uDom.addClass(elMessage, \"custom-message-max-zindex\");\n      }\n    }\n  });\n};\n\n/**\n * 커스텀 알림 함수 (Notification)\n * @param {string} title - 알림 제목\n * @param {string} message - 알림 내용\n * @param {string} type - 알림 타입 (success, info, warning, error)\n * @param {number} duration - 지속 시간 (ms)\n * @param {string} position - 알림 위치 (top-right, top-left, bottom-right, bottom-left)\n */\nconst showNotification = ({\n  title,\n  message,\n  type = \"info\",\n  duration = 5000,\n  position = \"top-right\",\n}) => {\n  ElNotification({\n    title,\n    message,\n    type,\n    duration,\n    position,\n    showClose: true,\n    dangerouslyUseHTMLString: true,\n  });\n};\n\nexport default { \n  showMessage, \n  showNotification \n};\n\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/uNewMessageBox.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 160,
+    "kind": "function",
+    "name": "showMessage",
+    "memberof": "src/assets/utils/uNewMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uNewMessageBox.js~showMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uNewMessageBox.js",
+    "importStyle": null,
+    "description": "커스텀 메시지 함수",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "출력할 메시지"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "메시지 타입 (success, info, warning, error)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "duration",
+        "description": "지속 시간 (ms)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "position",
+        "description": "메시지 위치 (top, bottom, left, right, center)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "closeable",
+        "description": "닫기 버튼 여부"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stack",
+        "description": "중복 메시지 허용 여부 (기본: false)"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 161,
+    "kind": "function",
+    "name": "showNotification",
+    "memberof": "src/assets/utils/uNewMessageBox.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uNewMessageBox.js~showNotification",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uNewMessageBox.js",
+    "importStyle": null,
+    "description": "커스텀 알림 함수 (Notification)",
+    "lineNumber": 69,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "title",
+        "description": "알림 제목"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "알림 내용"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "알림 타입 (success, info, warning, error)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "duration",
+        "description": "지속 시간 (ms)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "position",
+        "description": "알림 위치 (top-right, top-left, bottom-right, bottom-left)"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 162,
+    "kind": "file",
+    "name": "src/assets/utils/uRouer.js",
+    "content": "import router from '@/router'\nimport { uCommon } from '@/assets/utils'\nimport { useRoute } from 'vue-router'\n\nconst getRouterInfoByMenuId = (menuId) => {\n return router.getRoutes().filter(r => r.meta.menuId === menuId)\n}\n\n/*\nby MenuId 는 store에 마지막 메뉴 menuId정보를 저장/유지한다.\n참고: aside menu의 이벤트 마지막 상태값을 유지하기 위해...\n*/\nconst goToByMenuId = (menuId, params) => {\n params = params || null\n storeGlobal.setLastMenuMenuId(menuId)\n\n try {\n   const routerInfo = router.getRoutes().filter(r => r.meta.menuId === menuId)\n   if (routerInfo.length !== 0) {\n     router.push({ name: routerInfo[0].name, params: params })\n   } else {\n     router.replace('Error', { title: errorMsg.e401.status, message: errorMsg.e401.message[1] })\n   }\n } catch (error) {\n   alert('DB와 router 에 정의된 메뉴 구조 맞지 않음! 확인바람!')\n }\n}\n\nexport default {\n getRouterInfoByMenuId,\n goToByMenuId\n}",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/assets/utils/uRouer.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 163,
+    "kind": "function",
+    "name": "getRouterInfoByMenuId",
+    "memberof": "src/assets/utils/uRouer.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uRouer.js~getRouterInfoByMenuId",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uRouer.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "menuId",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 164,
+    "kind": "function",
+    "name": "goToByMenuId",
+    "memberof": "src/assets/utils/uRouer.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/assets/utils/uRouer.js~goToByMenuId",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/assets/utils/uRouer.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "menuId",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 165,
+    "kind": "file",
+    "name": "src/layout/default/index.js",
+    "content": "export { default as Sidebar } from './sidebar/Sidebar.vue'\nexport { default as Content } from './content/Content.vue'\nexport { default as Header } from './header/Header.vue'",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/layout/default/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 166,
+    "kind": "file",
+    "name": "src/main.js",
+    "content": "import { ArrowLeft, ArrowRight, Delete, Edit, Menu, More, Plus, Search, Setting, User } from '@element-plus/icons-vue'\nimport ElementPlus from 'element-plus'\nimport 'element-plus/dist/index.css'\nimport { createApp } from 'vue'\nimport App from './App.vue'\nimport router from './router'\nimport './style.css'\n\nimport { createPinia } from \"pinia\";\n\nconst app = createApp(App)\nconst pinia = createPinia();\nconst icons = { Edit, Delete, Search, ArrowRight, ArrowLeft, More, Plus, Setting, Menu, User }\n\nfor (const [key, component] of Object.entries(icons)) {\n  app.component(key, component)\n} \n\napp.use(pinia);\napp.use(ElementPlus)\napp.use(router)\napp.mount('#app')\n",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/main.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 167,
+    "kind": "variable",
+    "name": "app",
+    "memberof": "src/main.js",
+    "static": true,
+    "longname": "src/main.js~app",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/main.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 168,
+    "kind": "variable",
+    "name": "pinia",
+    "memberof": "src/main.js",
+    "static": true,
+    "longname": "src/main.js~pinia",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/main.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 169,
+    "kind": "variable",
+    "name": "icons",
+    "memberof": "src/main.js",
+    "static": true,
+    "longname": "src/main.js~icons",
+    "access": "public",
+    "export": false,
+    "importPath": "card-admin/src/main.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"Edit\": *, \"Delete\": *, \"Search\": *, \"ArrowRight\": *, \"ArrowLeft\": *, \"More\": *, \"Plus\": *, \"Setting\": *, \"Menu\": *, \"User\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 170,
+    "kind": "file",
+    "name": "src/stores/index.js",
+    "content": "import { defineStore } from \"pinia\";\n\n\n/**\n * \n * state: Pinia에서 관리할 데이터를 저장 count: 0, user: { name: \"John\" }\n * actions: state값을 변경하는 함수\n * getters: 상태 데이터를 가공하여 반환 (캐싱 지원) -> 컴포넌트에서 호출하면 기존의 데이터를 getter로 계산된 데이터를 불러온다\n * \n */\nexport const useAuthStore = defineStore(\"auth\", {\n  state: () => ({\n   user: null,\n   counter: 0\n  }),\n  actions: {\n    login(user) {\n      this.user = user;\n    },\n    logout() {\n      this.user = null;\n    },\n  },\n  getters: {\n   userName: (state) => state.user.name, // ✅ 상태 값 반환\n   upperCaseUserName: (state) => state.user.name.toUpperCase()\n  },\n});",
+    "static": true,
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/src/stores/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 171,
+    "kind": "variable",
+    "name": "useAuthStore",
+    "memberof": "src/stores/index.js",
+    "static": true,
+    "longname": "src/stores/index.js~useAuthStore",
+    "access": "public",
+    "export": true,
+    "importPath": "card-admin/src/stores/index.js",
+    "importStyle": "{useAuthStore}",
+    "description": "\nstate: Pinia에서 관리할 데이터를 저장 count: 0, user: { name: \"John\" }\nactions: state값을 변경하는 함수\ngetters: 상태 데이터를 가공하여 반환 (캐싱 지원) -> 컴포넌트에서 호출하면 기존의 데이터를 getter로 계산된 데이터를 불러온다",
+    "lineNumber": 11,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# Vue 3 + Vite\n\nThis template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.\n\nLearn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).\n",
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"card-admin\",\n  \"private\": true,\n  \"version\": \"0.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"@element-plus/icons-vue\": \"^2.3.1\",\n    \"echarts\": \"^5.6.0\",\n    \"element-plus\": \"^2.9.4\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"pinia\": \"^3.0.1\",\n    \"vue\": \"^3.5.13\",\n    \"vue-router\": \"^4.5.0\"\n  },\n  \"devDependencies\": {\n    \"@vitejs/plugin-vue\": \"^5.2.1\",\n    \"vite\": \"^6.1.0\"\n  }\n}\n",
+    "longname": "/Users/jeong-yongjae/Desktop/card-admin/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

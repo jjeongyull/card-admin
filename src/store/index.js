@@ -1,6 +1,4 @@
 import { defineStore } from "pinia";
-
-
 /**
  * 
  * state: Pinia에서 관리할 데이터를 저장 count: 0, user: { name: "John" }
@@ -22,7 +20,7 @@ export const useAuthStore = defineStore("auth", {
     },
   },
   getters: {
-   userName: (state) => state.user.name, // ✅ 상태 값 반환
+   userName: (state) => state.user.name, // 상태 값 반환
    upperCaseUserName: (state) => state.user.name.toUpperCase()
   },
 });

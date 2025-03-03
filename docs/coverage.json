@@ -1,0 +1,163 @@
+{
+  "coverage": "10.9%",
+  "expectCount": 110,
+  "actualCount": 12,
+  "files": {
+    "src/assets/utils/config/api/api.js": {
+      "expectCount": 42,
+      "actualCount": 1,
+      "undocumentLines": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "src/assets/utils/config/consts.js": {
+      "expectCount": 12,
+      "actualCount": 1,
+      "undocumentLines": [
+        18,
+        20,
+        35,
+        42,
+        54,
+        62,
+        74,
+        84,
+        94,
+        107,
+        114
+      ]
+    },
+    "src/assets/utils/config/server.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "src/assets/utils/uAxios.js": {
+      "expectCount": 12,
+      "actualCount": 5,
+      "undocumentLines": [
+        12,
+        128,
+        200,
+        211,
+        257,
+        272,
+        288
+      ]
+    },
+    "src/assets/utils/uDom.js": {
+      "expectCount": 26,
+      "actualCount": 1,
+      "undocumentLines": [
+        7,
+        9,
+        13,
+        17,
+        21,
+        25,
+        31,
+        37,
+        47,
+        54,
+        60,
+        66,
+        70,
+        72,
+        75,
+        81,
+        87,
+        94,
+        99,
+        112,
+        117,
+        135,
+        139,
+        158,
+        192
+      ]
+    },
+    "src/assets/utils/uMessageBox.js": {
+      "expectCount": 9,
+      "actualCount": 1,
+      "undocumentLines": [
+        15,
+        40,
+        64,
+        74,
+        84,
+        108,
+        109,
+        170
+      ]
+    },
+    "src/assets/utils/uNewMessageBox.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/assets/utils/uRouer.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        13
+      ]
+    },
+    "src/main.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        11,
+        12,
+        13
+      ]
+    },
+    "src/stores/index.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    }
+  }
+}
