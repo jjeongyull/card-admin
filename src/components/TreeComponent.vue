@@ -65,7 +65,7 @@
 import { ref, watch, computed } from 'vue'
 import { ElTree, ElInput, ElDialog, ElButton } from 'element-plus'
 import PopupMenu from '@/components/PopupMenu.vue' // 팝업 메뉴 컴포넌트 import
-import uNewCommon from "@/assets/utils/uNewCommon.js"
+import uNewCommon from "@/utils/uNewCommon.js"
 
 export default {
   name: 'TreeComponent',
@@ -115,13 +115,6 @@ export default {
       )
     );
 
-
-    console.log()
-
-
-
-
-
     // 트리용 메뉴 항목
     const treeMenuItems = ref([
       { command: 'edit', label: '편집' },
@@ -139,7 +132,7 @@ export default {
     // 필터 텍스트 변경 시 트리 필터링
     watch(filterText, (val) => {
       treeRef.value.filter(val)
-    })
+    });
 
     // 드롭다운 메뉴 핸들러
     const handleCommand = (command, data) => {
@@ -225,7 +218,6 @@ export default {
   flex: 1;
   overflow-y: auto; /* 스크롤 추가 */
   max-height: calc(100vh - 100px); /* 필터 입력란과 여백 고려 */
-  border: 1px solid #ebeef5;
   border-radius: 4px;
   padding: 10px;
 }

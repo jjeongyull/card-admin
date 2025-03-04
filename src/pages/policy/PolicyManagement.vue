@@ -1,17 +1,17 @@
 <template>
-  <el-row :gutter="20" class="responsive-row">
+  <el-row class="responsive-row">
     <!-- 왼쪽: 트리 데이터 리스트 -->
     <el-col class="data-list" :xs="24" :sm="24" :md="4">
       <h4 class="mb-20">단위정책 탐색</h4>
       <!-- <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable /> -->
       
       <!-- TreeComponent 사용 -->
-      <TreeComponent 
-        :data="treeData" 
-        @edit="editNode" 
-        @add="addNode" 
-        @delete="deleteNode" 
-        @viewData="viewNodeData" 
+      <TreeComponent
+        :data="treeData"
+        @edit="editNode"
+        @add="addNode"
+        @delete="deleteNode"
+        @viewData="viewNodeData"
       />
     </el-col>
 
@@ -48,8 +48,8 @@
           <el-option label="상태3" value="상태3" />
         </el-select>
 
-        <el-button class="black-button" type="link">
-          <el-icon><Plus /></el-icon>
+        <el-button class="black-button" type="link" @click="openAddPolicyPop">
+          단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
         </el-button>
 
         <el-button class="white-button" type="link">
@@ -63,7 +63,17 @@
         <JiraTable v-else></JiraTable>
       </div>
     </el-col>
+
+    <!-- 정책 수정 팝업 -->
+    <PolicyAddPopup
+      v-model="dialogVisible"
+      :policyData="selectedPolicy"
+      @close="closePop"
+      @submit="handleSubmit"
+      @delete="handleDelete"
+    />
   </el-row>
+  
 </template>
 
 <script setup>
@@ -75,11 +85,20 @@ import ElcardDiv from './components/ElcardDiv.vue';
 import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
+// 단위정책 추가 팝업
+import PolicyAddPopup from "./components/PolicyAddPopup.vue";
+const dialogVisible = ref(false);
+const openAddPolicyPop = () => {
+  dialogVisible.value = true;
+};
+const closePop = () => {
+  dialogVisible.value = false;
+};
+
 // 트리 데이터
 const treeData = ref(menu);
 
 // 필터 및 검색어 상태
-const search = ref('');
 const searchDetail = ref('');
 const activeTab = ref('all');
 const filter = ref({
@@ -127,6 +146,7 @@ const deleteNode = (nodeData) => {
 const viewNodeData = (nodeData) => {
   ElMessage.info(`노드 정보: ${JSON.stringify(nodeData, null, 2)}`);
 };
+
 </script>
 
 <style scoped>
@@ -156,9 +176,10 @@ const viewNodeData = (nodeData) => {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  padding: 20px 15px;
+  padding: 20px !important;
   border-radius: 8px;
 }
+
 .filters {
   display: flex;
   gap: 10px;
@@ -183,9 +204,25 @@ const viewNodeData = (nodeData) => {
   color: #fff !important;
   border: none !important;
 }
+.black-button .el-icon {
+  color: #fff !important;
+}
 .white-button {
   background-color: #fff !important;
   color: #000 !important;
   border: 1px solid #000 !important;
+  margin-left: 0;
+}
+
+</style>
+<style>
+.custom-tabs .el-tabs__header .el-tabs__item {
+  font-weight: bold !important;
+}
+.custom-tabs .el-tabs__item.is-active, .el-tabs__item:hover {
+  color: #000 !important;
+}
+.custom-tabs .el-tabs__active-bar{
+  background-color: #000 !important;
 }
 </style>

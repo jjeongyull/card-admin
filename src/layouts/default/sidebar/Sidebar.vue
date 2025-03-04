@@ -10,7 +10,7 @@
     <el-scrollbar class="sidebar-scroll">
       <!-- 접기/펼치기 버튼 -->
       <div class="sidebar-header">
-        <el-button @click="toggleCollapse" class="toggle-btn" circle type="link">
+        <el-button @click="toggleCollapse" class="toggle-btn" circle>
           <el-icon v-if="!isCollapsed"><ArrowLeft /></el-icon>
           <el-icon v-else><ArrowRight /></el-icon>
         </el-button>
@@ -25,11 +25,11 @@
         <div v-for="menu in selectedMenu.children" :key="menu.menuId">
           <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.menuId">
             <template #title>
-              <span>{{ menu.menuName }}</span>
+              <span @click="goTo(menu.menuId)">{{ menu.menuName }}</span>
             </template>
-            <menu-item :items="menu.children" />
+            <menu-item :items="menu.children" @select="goTo" />
           </el-sub-menu>
-          <el-menu-item v-else :index="menu.menuId">
+          <el-menu-item v-else :index="menu.menuId" @click="goTo(menu.menuId)">
             <span>{{ menu.menuName }}</span>
           </el-menu-item>
         </div>
@@ -43,12 +43,23 @@
 
 <script setup>
 import MenuItem from '@/components/MenuItem.vue';
+import { uRouter } from '@/utils'
 import { ref } from 'vue';
 
 const props = defineProps({
   selectedMenu: Object
 });
 
+// 페이지 이동
+const goTo = (menuId) => {
+  try {
+    uRouter.goToByMenuId(menuId)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+console.log(props.selectedMenu)
 const isCollapsed = ref(false);
 const sidebarWidth = ref(220);
 const sidebarRef = ref(null);
@@ -133,13 +144,18 @@ const startResize = (event) => {
   border-right: 1px solid var(--el-menu-border-color);
   position: relative;
 }
+.sidebar .el-menu-item,
+.sidebar .el-sub-menu__title {
+  font-weight: 900 !important;
+}
+.sidebar .el-menu-item.is-active{
+  color: #000;
+}
 .toggle-btn{
   position: absolute;
   right: -16px;
   z-index: 999;
 }
-
-
 .sidebar-header {
   display: flex;
   justify-content: center;
@@ -150,7 +166,6 @@ const startResize = (event) => {
   border-right: none;
   overflow: hidden;
 }
-
 .resizer {
   width: 2px;
   height: 100%;
@@ -172,5 +187,4 @@ const startResize = (event) => {
 .sidebar-scroll.el-scrollbar .el-scrollbar__wrap--hidden-default{
   overflow: visible !important;
 }
-
 </style>

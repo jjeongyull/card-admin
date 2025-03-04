@@ -1,3 +1,7 @@
+<template>
+  <router-view />
+</template>
+
 <script setup>
   import { useRouter } from 'vue-router'
   import { onMounted } from 'vue'
@@ -8,13 +12,4 @@
       router.push('/dashboard');
     }
   });
-
 </script>
-
-<template>
-  <router-view />
-</template>
-
-<style scoped>
-
-</style>

@@ -15,11 +15,11 @@
       <!-- 데스크톱에서는 네비게이션 메뉴 -->
       <nav class="menu">
         <el-button
-          v-for="(menu, index) in menuList"
+          v-for="menu in menuList"
           :key="menu.menuId"
           class="header-text"
           link
-          @click="selectMenu(menu, index)"
+          @click="selectMenu(menu)"
         >
           {{ menu.menuName }}
         </el-button>
@@ -59,34 +59,22 @@
 
 <script setup>
   import configData from '@/data/config.json';
-import menuData from '@/data/menu.json';
-import { ref } from 'vue';
-import { useRouter } from "vue-router";
+  import menuData from '@/data/menu.json';
+  import { ref } from 'vue';
+  import { uRouter } from '@/utils'
 
   const config = ref(configData)
-  const router = useRouter();
   const emit = defineEmits(['menu-selected']);
   const menuList = ref(menuData);
   const drawerVisible = ref(false);
 
-  const menuPath = [
-    { path: "/dashboard" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-    { path: "/policy" },
-  ];
 
-  const selectMenu = (menu, index) => {
+  const selectMenu = (menu) => {
     emit('menu-selected', menu.children.length > 0 ? menu : null);
-    if (menuPath[index].path) {
-      router.push(menuPath[index].path);
+    try {
+    uRouter.goToByMenuId(menu.menuId)
+    } catch (error) {
+      console.log(error)
     }
   };
 </script>
@@ -171,7 +159,7 @@ import { useRouter } from "vue-router";
 </style>
 
 <style>
-.el-button>span{
+.header .el-button>span{
   font-weight: 900;
   color: #000;
 }
