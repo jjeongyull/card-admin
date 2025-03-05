@@ -1,11 +1,7 @@
 <template>
   <div class="tree-container">
     <!-- 필터 입력란 -->
-    <el-input
-      v-model="filterText"
-      placeholder="노드 필터"
-      clearable
-    />
+    <el-input v-model="filterText" placeholder="노드 필터" clearable />
 
     <!-- 트리 컴포넌트 -->
     <div class="tree-wrapper">
@@ -36,24 +32,6 @@
       </el-tree>
     </div>
 
-    <!-- 편집 다이얼로그 -->
-    <el-dialog v-model="editDialogVisible" title="노드 편집" width="30%">
-      <el-input v-model="editNodeLabel" />
-      <template #footer>
-        <el-button @click="editDialogVisible = false">취소</el-button>
-        <el-button type="primary" @click="saveEdit">저장</el-button>
-      </template>
-    </el-dialog>
-
-    <!-- 추가 다이얼로그 -->
-    <el-dialog v-model="addDialogVisible" title="노드 추가" width="30%">
-      <el-input v-model="newNodeLabel" placeholder="새 노드 이름" />
-      <template #footer>
-        <el-button @click="addDialogVisible = false">취소</el-button>
-        <el-button type="primary" @click="saveNewNode">저장</el-button>
-      </template>
-    </el-dialog>
-
     <!-- 데이터 상세 정보 다이얼로그 -->
     <el-dialog v-model="dataDialogVisible" title="노드 데이터" width="50%">
       <pre>{{ JSON.stringify(currentNodeData, null, 2) }}</pre>
@@ -82,7 +60,7 @@ export default {
       required: true
     }
   },
-  emits: ['edit', 'add', 'delete', 'viewData', "update:data"],
+  emits: ['edit', 'add', 'delete','viewData', 'update:data'],
   setup(props, { emit }) {
     const treeRef = ref(null)
     const filterText = ref('')
@@ -90,14 +68,9 @@ export default {
       children: 'children',
       label: 'label'
     })
-    const editDialogVisible = ref(false)
-    const addDialogVisible = ref(false)
+
     const dataDialogVisible = ref(false)
-    const editNodeLabel = ref('')
-    const newNodeLabel = ref('')
-    const currentNode = ref(null)
     const currentNodeData = ref(null)
-    const parentNode = ref(null)
 
     const treeData = ref([]);
     watch(
@@ -136,45 +109,17 @@ export default {
 
     // 드롭다운 메뉴 핸들러
     const handleCommand = (command, data) => {
-      if (command === 'edit') {
-        editNodeLabel.value = data.menuName
-        currentNode.value = data
-        editDialogVisible.value = true
-      } else if (command === 'add') {
-        parentNode.value = data
-        addDialogVisible.value = true
-      } else if (command === 'delete') {
+      if(command === 'add'){
+        emit("add", 'parent', data);
+      }else if (command === 'edit') {
+        currentNodeData.value = data;
+        emit("edit", data);
+      }else if (command === 'delete') {
         emit('delete', data)
-      } else if (command === 'viewData') {
+      }else if (command === 'viewData') {
         currentNodeData.value = data
         dataDialogVisible.value = true
       }
-    }
-
-    // 노드 편집 저장
-    const saveEdit = () => {
-      currentNode.value.menuName = editNodeLabel.value
-      editDialogVisible.value = false
-      emit('edit', currentNode.value)
-    }
-
-    // 새 노드 추가
-    const saveNewNode = () => {
-      const newId = `${parentNode.value.menuId}.${parentNode.value.children.length + 1}` // 고유 ID 생성
-      const newNode = {
-        menuId: newId,
-        menuName: newNodeLabel.value,
-        parentMenuId: parentNode.value.menuId,
-        permit: { c: true, r: true, u: true, d: true },
-        children: []
-      }
-      if (!parentNode.value.children) {
-        parentNode.value.children = []
-      }
-      parentNode.value.children.push(newNode)
-      addDialogVisible.value = false
-      newNodeLabel.value = ''
-      emit('add', newNode)
     }
 
     // 노드 드래그 앤 드롭 핸들러
@@ -182,25 +127,17 @@ export default {
       emit('update:data', treeData.value)
     }
 
-    console.log(formattedTreeData)
-
     return {
       treeRef,
       filterText,
       treeData,
       defaultProps,
-      editDialogVisible,
-      addDialogVisible,
       dataDialogVisible,
-      editNodeLabel,
-      newNodeLabel,
       currentNodeData,
       treeMenuItems,
       formattedTreeData,
       filterNode,
       handleCommand,
-      saveEdit,
-      saveNewNode,
       handleNodeDrop
     }
   }
@@ -211,7 +148,7 @@ export default {
 .tree-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* 화면 전체 높이 */
+  height: fit-content; /* 화면 전체 높이 */
 }
 
 .tree-wrapper {
@@ -229,6 +166,7 @@ export default {
   justify-content: space-between;
   font-size: 14px;
   padding-right: 8px;
+  color: #000;
 }
 
 .node-actions {

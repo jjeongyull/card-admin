@@ -62,3 +62,12 @@ body{
 .custom-message-max-zindex {
   z-index: 9999 !important;
 }
+.black-button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.el-dialog.custom-dialog{
+  padding: 20px;
+  border-radius: 10px;
+}

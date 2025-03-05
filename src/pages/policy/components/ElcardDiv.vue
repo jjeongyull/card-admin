@@ -4,6 +4,7 @@
       v-for="item in filteredDetails" 
       :key="item.complianceSeq" 
       class="detail-card"
+      @update="openUpdatePop"
       >
       <!-- 카테고리 및 제목 -->
       <div class="card-chk">
@@ -12,7 +13,7 @@
       </div>
       <div class="card-header">
         <el-tag class="dot" type="success" effect="dark"></el-tag>
-        <span class="title">{{ item.categoryName }}</span>
+        <span class="title" @click="updateDataPopup(item)">{{ item.categoryName }}</span>
         <div 
           class="tags"
           v-for="tagItem in item.tags" 
@@ -59,6 +60,11 @@
       required: true
     }
   });
+  const emit = defineEmits(["openPanel"]);
+
+  const updateDataPopup = (data) => {
+    emit("openPanel", data);
+  } 
 </script>
 
 <style scoped>
@@ -101,6 +107,9 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+}
+.title{
+  cursor: pointer;;
 }
 .subtitle {
   font-size: 12px;

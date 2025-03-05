@@ -8,11 +8,14 @@
       <!-- TreeComponent 사용 -->
       <TreeComponent
         :data="treeData"
-        @edit="editNode"
-        @add="addNode"
+        @edit="openUpdatePop"
+        @add="openAddPolicyPop"
         @delete="deleteNode"
         @viewData="viewNodeData"
       />
+      <div class="add-policy-button" @click="openAddPolicyPop">
+        정책분야 추가 <el-icon><Plus /></el-icon>
+      </div>
     </el-col>
 
     <!-- 오른쪽: 선택된 데이터 상세 -->
@@ -48,7 +51,7 @@
           <el-option label="상태3" value="상태3" />
         </el-select>
 
-        <el-button class="black-button" type="link" @click="openAddPolicyPop">
+        <el-button class="black-button" type="link" @click="openDataPop">
           단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
         </el-button>
 
@@ -59,44 +62,91 @@
 
       <!-- 데이터 리스트 -->
       <div class="data-list-scroll">
-        <ElcardDiv v-if="dataViewState === 0" :filteredDetails="filteredDetails"></ElcardDiv>
+        <!--  @update="openUpdatePop" -->
+        <ElcardDiv 
+          v-if="dataViewState === 0" :filteredDetails="filteredDetails"
+          @openPanel="openDetail"
+        ></ElcardDiv>
         <JiraTable v-else></JiraTable>
       </div>
     </el-col>
 
-    <!-- 정책 수정 팝업 -->
+    <!-- 정책분야 팝업 -->
     <PolicyAddPopup
       v-model="dialogVisible"
       :policyData="selectedPolicy"
+      :policyType="policyType"
       @close="closePop"
       @submit="handleSubmit"
       @delete="handleDelete"
+    />
+
+    <!-- 단위정책 팝업 -->
+    <PolicyDataDialog
+      v-model="dataDialogVisible"
+      @close="closeDataPop"
+    />
+
+     <!-- 상세 패널 -->
+     <PolicyDetailPanel 
+      :visible="detailVisible" 
+      :selectedPolicy="selectedPanel"
+      @close="detailVisible = false"
+      @update="updateDetail"
+      @delete="deleteDetail"
     />
   </el-row>
   
 </template>
 
 <script setup>
+import menu from '@/data/menu.json';
 import { ref, watch, computed } from 'vue';
+
 import { ElMessage } from 'element-plus';
 import TreeComponent from '@/components/TreeComponent.vue'; // 트리 컴포넌트 import
 import JiraTable from '@/components/JiraTable.vue';
 import ElcardDiv from './components/ElcardDiv.vue';
-import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
+import PolicyAddPopup from "./components/PolicyAddPopup.vue"; // 정책분야 추가 팝업
+import PolicyDataDialog from "./components/PolicyDataDialog.vue"; // 단위정책 추가 팝업
+import PolicyDetailPanel from "./components/PolicyDetailPanel.vue"; // 단위정책 디테일 패널
 
-// 단위정책 추가 팝업
-import PolicyAddPopup from "./components/PolicyAddPopup.vue";
+// 트리 데이터
+const treeData = ref(menu);
+
+// 정책분야 팝업
 const dialogVisible = ref(false);
-const openAddPolicyPop = () => {
+const selectedPolicy = ref({});
+const policyType = ref("");
+const openAddPolicyPop = (type="", data=null) => {
+  if(type === "parent"){
+    policyType.value = type;
+    selectedPolicy.value = data;
+  }else{
+    policyType.value = "";
+    selectedPolicy.value = {};
+  }
   dialogVisible.value = true;
 };
+const openUpdatePop = (data) => {
+  policyType.value = "edit";
+  selectedPolicy.value = data;
+  dialogVisible.value = true;
+}
 const closePop = () => {
   dialogVisible.value = false;
 };
 
-// 트리 데이터
-const treeData = ref(menu);
+// 트리 노드 삭제
+const deleteNode = (nodeData) => {
+  ElMessage.warning(`노드 삭제됨: ${nodeData.menuName}`);
+};
+
+// 트리 노드 데이터 보기
+const viewNodeData = (nodeData) => {
+  ElMessage.info(`노드 정보: ${JSON.stringify(nodeData, null, 2)}`);
+};
 
 // 필터 및 검색어 상태
 const searchDetail = ref('');
@@ -123,28 +173,30 @@ const filteredDetails = computed(() => {
   );
 });
 
-// 선택된 노드 저장
-const selectedCategory = ref(null);
 
-// 트리 노드 클릭 (편집)
-const editNode = (nodeData) => {
-  selectedCategory.value = nodeData.menuName;
-  ElMessage.info(`수정할 항목: ${nodeData.menuName}`);
+// 단위정책추가 팝업
+const dataDialogVisible = ref(false);
+const openDataPop = () => {
+  dataDialogVisible.value = true;
+};
+const closeDataPop = () => {
+  dataDialogVisible.value = false;
 };
 
-// 트리 노드 추가
-const addNode = (nodeData) => {
-  ElMessage.success(`새로운 노드 추가됨: ${nodeData.menuName}`);
-};
 
-// 트리 노드 삭제
-const deleteNode = (nodeData) => {
-  ElMessage.warning(`노드 삭제됨: ${nodeData.menuName}`);
+// 단위정책 패널
+const detailVisible = ref(false);
+const selectedPanel = ref({});
+const openDetail = (row) => {
+  selectedPanel.value = row;
+  detailVisible.value = true;
 };
-
-// 트리 노드 데이터 보기
-const viewNodeData = (nodeData) => {
-  ElMessage.info(`노드 정보: ${JSON.stringify(nodeData, null, 2)}`);
+const updateDetail = (updatedData) => {
+  console.log("업데이트된 데이터:", updatedData);
+};
+const deleteDetail = (policy) => {
+  console.log("삭제된 정책:", policy);
+  detailVisible.value = false;
 };
 
 </script>
@@ -213,7 +265,20 @@ const viewNodeData = (nodeData) => {
   border: 1px solid #000 !important;
   margin-left: 0;
 }
+.add-policy-button {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  color: #8c8c8c; /* 연한 회색 */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.add-policy-button:hover {
+  color: #000; /* 마우스 오버 시 검정색 */
+}
 </style>
 <style>
 .custom-tabs .el-tabs__header .el-tabs__item {

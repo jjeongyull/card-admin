@@ -1,39 +1,54 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="정책분야 등록 및 수정" width="500px" @close="onClose">
+  <el-dialog 
+    v-model="dialogVisible" 
+    :title="policyType === '' || policyType === 'parent'?'정책분야 추가':'정책분야 수정'" 
+    :width="dialogWidth"
+    @close="onClose"
+    class="custom-dialog"
+  >
     <el-form label-position="top">
       <!-- 상위정책 분야명 -->
       <el-form-item label="상위정책 분야명">
-        <el-input v-model="formData.parentName" disabled />
+        <el-input v-model="formData.menuName" :disabled="formData.menuName || policyType === 'parent'" placeholder="상위정책 분야명"/>
       </el-form-item>
 
       <!-- 상위정책 코드 -->
       <el-form-item label="상위정책 코드">
-        <el-input v-model="formData.parentCode" placeholder="정책분야코드 (Optional)" disabled />
+        <el-input v-model="formData.itemCode" placeholder="정책분야코드 (Optional)" :disabled="formData.menuName || policyType === 'parent'" />
       </el-form-item>
 
       <!-- 정책분야명 -->
       <el-form-item label="정책분야명">
-        <el-input v-model="formData.policyName" />
+        <el-input v-model="formData.label" placeholder="정책분야명을 입력해주세요"/>
+      </el-form-item>
+
+      <!-- 상태 -->
+      <el-form-item label="상태" v-if="!formData.menuName">
+        <el-select placeholder="상태를 선택해주세요" clearable>
+          <el-option label="상태1" value="0" />
+          <el-option label="상태2" value="1" />
+          <el-option label="상태3" value="2" />
+        </el-select>
       </el-form-item>
 
       <!-- 상세설명 -->
       <el-form-item label="상세설명">
-        <el-input v-model="formData.description" type="textarea" rows="3" />
+        <el-input v-model="formData.description" type="textarea" rows="3" placeholder="상세설명을 입력해주세요"/>
       </el-form-item>
     </el-form>
 
     <!-- 푸터 영역 (버튼 표시) -->
     <template #footer>
-      <div class="dialog-footer">
+      <div class="dialog-footer" :class="{ 'flex-end': !formData.menuName || policyType !== 'edit' }">
         <!-- 정책 데이터가 있을 때만 삭제 버튼 표시 -->
-        <el-button v-if="formData.policyName" type="danger" @click="deletePolicy">
+        <el-button v-if="formData.menuName && policyType === 'edit'" type="danger" @click="deletePolicy">
           <el-icon><Delete /></el-icon> 삭제
         </el-button>
         
         <div class="footer-right">
           <!-- 정책 데이터가 있을 때: "취소", "수정완료" / 없을 때: "닫기", "완료" -->
-          <el-button @click="onClose">{{ formData.policyName ? "취소" : "닫기" }}</el-button>
-          <el-button type="primary" @click="submitForm">{{ formData.policyName ? "수정완료" : "완료" }}</el-button>
+          <el-button plain @click="onClose">닫기</el-button>
+          <el-button class="black-button" type="info" @click="submitForm">{{ formData.menuName && policyType === 'edit' ? "수정완료" : "추가완료" }}</el-button>
         </div>
       </div>
     </template>
@@ -41,18 +56,24 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { Delete } from "@element-plus/icons-vue";
 
 const props = defineProps({
   visible: Boolean,
-  policyData: Object
+  policyData: Object,
+  policyType: String
 });
 
-const emit = defineEmits(["update:visible", "submit", "delete"]);
+const emit = defineEmits(["update", "submit", "delete"]);
 
 const dialogVisible = ref(props.visible);
 const formData = ref({});
+
+// 반응형 다이얼로그 크기 설정
+const dialogWidth = computed(() => {
+  return window.innerWidth < 600 ? "90vw" : "500px";
+});
 
 // props가 변경될 때 `formData` 업데이트
 watch(() => props.policyData, (newData) => {
@@ -75,9 +96,36 @@ const deletePolicy = () => {
 </script>
 
 <style scoped>
-/* 팝업 전체 스타일 */
+/* 반응형 스타일 */
+@media (max-width: 600px) {
+  .el-dialog {
+    width: 90vw !important;
+    max-width: 90vw;
+  }
+
+  .dialog-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .el-button {
+    width: 100%;
+    min-width: 100px;
+    height: 40px;
+  }
+}
+
+/* 기본 다이얼로그 스타일 */
 .el-dialog {
   border-radius: 8px;
+  width: 500px;
+  max-width: 100%;
 }
 
 /* 푸터 스타일 */
@@ -87,9 +135,32 @@ const deletePolicy = () => {
   width: 100%;
 }
 
+.dialog-footer.flex-end {
+  justify-content: flex-end;
+}
+
 /* 우측 버튼 정렬 */
 .footer-right {
   display: flex;
   gap: 8px;
+}
+
+/* 입력 필드 스타일 */
+.el-form-item {
+  margin-bottom: 16px;
+}
+
+.el-form-item label {
+  font-size: 14px;
+}
+
+.el-input,
+.el-select {
+  width: 100%;
+}
+
+/* 버튼 스타일 */
+.el-button {
+  min-width: 100px;
 }
 </style>
