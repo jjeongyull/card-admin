@@ -9,7 +9,8 @@
       </div>
 
       <el-scrollbar class="panel-body">
-        <el-form label-position="top">
+        <div class="body-inner">
+          <el-form label-position="top">
           <!-- 기본 정보 -->
           <h4 class="section-title">기본 정보</h4>
           <el-row :gutter="20">
@@ -70,6 +71,7 @@
                   v-model="inputManager"
                   placeholder="담당자 입력 후 Enter"
                   @keyup.enter="addManager"
+                  v-if="isEditing"
                 />
                 <div class="tag-container">
                   <el-tag v-for="(manager, index) in policyData.managers" :key="index" closable @close="removeManager(index)">
@@ -92,6 +94,7 @@
               v-model="inputTag"
               placeholder="태그 입력 후 Enter"
               @keyup.enter="addTag"
+              v-if="isEditing"
             />
             <div class="tag-container">
               <el-tag v-for="(tag, index) in policyData.tags" :key="index" closable @close="removeTag(index)">
@@ -106,6 +109,7 @@
                 v-model="inputPolicy"
                 placeholder="유관 정책 입력 후 Enter"
                 @keyup.enter="addPolicy"
+                v-if="isEditing"
               />
             <div class="tag-container">
               
@@ -117,31 +121,39 @@
 
           <!-- 상세 가이드 -->
           <h4 class="section-title">상세 가이드</h4>
-          <table class="guide-table">
-            <thead>
-              <tr>
-                <th>Requirements and Testing Procedures</th>
-                <th>Guidance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, index) in policyData.detailGuide" :key="index">
-                <td>{{ item.requirement }}</td>
-                <td>{{ item.guidance }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </el-form>
+          <div v-if="!isEditing" class="guide-container">
+              <table class="guide-table">
+                <thead>
+                  <tr>
+                    <th>Requirements</th>
+                    <th>Guidance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, index) in policyData.detailGuide" :key="index">
+                    <td>{{ item.requirement }}</td>
+                    <td>{{ item.guidance }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <Editor v-else v-model="policyData.detailGuide" />
+          </el-form>
+        </div>
+      
       </el-scrollbar>
 
       <!-- 푸터 (수정 및 삭제) -->
       <div class="panel-footer">
         <div>
-          <el-button type="danger" @click="deletePolicy">삭제</el-button>
+          <el-button v-if="!isEditing" type="danger" @click="deletePolicy">삭제</el-button>
         </div>
         <div>
-          <el-button @click="closePanel">닫기</el-button>
-          <el-button class="black-button" @click="enableEdit">단위정책 수정</el-button>
+          <el-button @click="cancelEdit">
+            {{ isEditing ? '취소' : '닫기' }}
+          </el-button>
+          <el-button v-if="isEditing" class="black-button" @click="saveChanges">수정 완료</el-button>
+          <el-button v-else class="black-button" @click="enableEdit">단위정책 수정</el-button>
         </div>
       </div>
     </div>
@@ -151,6 +163,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { Close } from "@element-plus/icons-vue";
+import Editor from "@/components/Editor.vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -175,6 +188,18 @@ const addTag = () => {
 const addPolicy = () => {
 
 }
+const enableEdit = () => {
+  isEditing.value = true;
+};
+
+const cancelEdit = () => {
+  if(!isEditing.value){
+    closePanel();
+  }else{
+    policyData.value = { ...props.selectedPolicy }; // 원본 데이터 복원
+    isEditing.value = false;
+  }
+};
 
 watch(() => props.selectedPolicy, (newData) => {
   policyData.value = { ...newData };
@@ -182,10 +207,6 @@ watch(() => props.selectedPolicy, (newData) => {
 
 const closePanel = () => {
   emit("close");
-};
-
-const enableEdit = () => {
-  isEditing.value = true;
 };
 
 const removeManager = (index) => {
@@ -243,13 +264,14 @@ const deletePolicy = () => {
 
 /* 스크롤 가능 영역 */
 .panel-body {
-  padding: 25px;
   border-radius: 30px;
   overflow-y: auto;
   width: 100%;
   border: 1px solid #E4E7ED;
   margin-bottom: 20px;
-  overflow-x: hidden !important;
+}
+.body-inner{
+  padding: 25px;
 }
 
 /* 태그 스타일 */

@@ -7,7 +7,7 @@
     align-center
   >
     <!-- 모달 바디 -->
-    <el-scrollbar>
+    <el-scrollbar class="no-x-scroll">
       <div class="modal-body">
         <el-form label-position="top">
           <!-- 기본 정보 -->

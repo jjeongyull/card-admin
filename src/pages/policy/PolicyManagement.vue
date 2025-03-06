@@ -1,101 +1,134 @@
 <template>
-  <el-row class="responsive-row">
+  <div class="responsive-row">
+    <el-row :gutter="20" class="responsive-row-inner">
     <!-- 왼쪽: 트리 데이터 리스트 -->
-    <el-col class="data-list" :xs="24" :sm="24" :md="4">
-      <h4 class="mb-20">단위정책 탐색</h4>
-      <!-- <el-input class="mb-15" v-model="search" placeholder="정책분야 조회" clearable /> -->
-      
-      <!-- TreeComponent 사용 -->
-      <TreeComponent
-        :data="treeData"
-        @edit="openUpdatePop"
-        @add="openAddPolicyPop"
-        @delete="deleteNode"
-        @viewData="viewNodeData"
+      <el-col :xs="24" :sm="24" :md="4">
+        <div class="data-list">
+          <h4 class="mb-20">단위정책 탐색</h4>
+          <TreeComponent
+            :data="treeData"
+            @edit="openUpdatePop"
+            @add="openAddPolicyPop"
+            @delete="deleteNode"
+            @viewData="viewNodeData"
+          />
+          <div class="add-policy-button" @click="openAddPolicyPop">
+            정책분야 추가 <el-icon><Plus /></el-icon>
+          </div>
+        </div>
+      </el-col>
+
+      <!-- 오른쪽: 선택된 데이터 상세 -->
+      <el-col :xs="24" :sm="24" :md="20">
+        <div class="data-details">
+          <el-tabs v-model="activeTab" class="custom-tabs">
+            <el-tab-pane label="전체" name="all"></el-tab-pane>
+            <el-tab-pane label="관리" name="management"></el-tab-pane>
+            <el-tab-pane label="기술" name="tech"></el-tab-pane>
+            <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
+          </el-tabs>
+
+          <el-row :gutter="10" class="mb-10">
+            <el-col :xs="24" :sm="24" :md="3">
+              <el-select v-model="filter.policyName" placeholder="정책명" clearable>
+                <el-option label="정책명1" value="정책명1" />
+                <el-option label="정책명2" value="정책명2" />
+                <el-option label="정책명3" value="정책명3" />
+              </el-select>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="5">
+              <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="3">
+              <el-select v-model="filter.priority" placeholder="중요도" clearable>
+                <el-option label="높음" value="high" />
+                <el-option label="보통" value="medium" />
+                <el-option label="낮음" value="low" />
+              </el-select>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="2">
+              <el-select v-model="filter.riskLevel" placeholder="위험등급" clearable>
+                <el-option label="1" value="1" />
+                <el-option label="2" value="2" />
+                <el-option label="3" value="3" />
+              </el-select>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="2">
+              <el-select v-model="filter.target" placeholder="대상구분" clearable>
+                <el-option label="1" value="1" />
+                <el-option label="2" value="2" />
+                <el-option label="3" value="3" />
+              </el-select>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="2">
+              <el-select v-model="filter.tag" placeholder="태그" clearable>
+                <el-option label="1" value="1" />
+                <el-option label="2" value="2" />
+                <el-option label="3" value="3" />
+              </el-select>
+            </el-col>
+            <el-col :xs="24" :sm="24" :md="2">
+              <el-select v-model="filter.status" placeholder="상태" clearable>
+                <el-option label="상태1" value="상태1" />
+                <el-option label="상태2" value="상태2" />
+                <el-option label="상태3" value="상태3" />
+              </el-select>
+            </el-col>
+            <el-col :sm="12" :md="3">
+              <el-button class="black-button w-100" type="link" @click="openDataPop">
+                단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
+              </el-button>
+            </el-col>
+            <el-col :sm="6" :md="1">
+              <el-button class="white-button w-100" type="link">
+                <el-icon><Delete/></el-icon>
+              </el-button>
+            </el-col>
+            <el-col :sm="6" :md="1">
+              <el-button class="white-button w-100" type="link">
+                <el-icon><Operation /></el-icon>
+              </el-button>
+            </el-col>
+          </el-row>  
+
+          <div>
+            <!--  @update="openUpdatePop" -->
+            <ElcardDiv 
+              v-if="dataViewState === 0" :filteredDetails="filteredDetails"
+              @openPanel="openDetail"
+            ></ElcardDiv>
+            <JiraTable v-else></JiraTable>
+          </div>
+        </div>        
+      </el-col>
+
+      <!-- 정책분야 팝업 -->
+      <PolicyAddPopup
+        v-model="dialogVisible"
+        :policyData="selectedPolicy"
+        :policyType="policyType"
+        @close="closePop"
+        @submit="handleSubmit"
+        @delete="handleDelete"
       />
-      <div class="add-policy-button" @click="openAddPolicyPop">
-        정책분야 추가 <el-icon><Plus /></el-icon>
-      </div>
-    </el-col>
 
-    <!-- 오른쪽: 선택된 데이터 상세 -->
-    <el-col class="data-details" :xs="24" :sm="24" :md="19">
-      <el-tabs v-model="activeTab" class="custom-tabs">
-        <el-tab-pane label="전체" name="all"></el-tab-pane>
-        <el-tab-pane label="관리" name="management"></el-tab-pane>
-        <el-tab-pane label="기술" name="tech"></el-tab-pane>
-        <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
-      </el-tabs>
+      <!-- 단위정책 팝업 -->
+      <PolicyDataDialog
+        v-model="dataDialogVisible"
+        @close="closeDataPop"
+      />
 
-      <!-- 필터 옵션 -->
-      <div class="filters">
-        <el-select v-model="filter.policyName" placeholder="정책명" clearable>
-          <el-option label="정책명1" value="정책명1" />
-          <el-option label="정책명2" value="정책명2" />
-          <el-option label="정책명3" value="정책명3" />
-        </el-select>
-        <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
-        <el-select v-model="filter.priority" placeholder="중요도" clearable>
-          <el-option label="높음" value="high" />
-          <el-option label="보통" value="medium" />
-          <el-option label="낮음" value="low" />
-        </el-select>
-        <el-select v-model="filter.riskLevel" placeholder="위험등급" clearable>
-          <el-option label="1" value="1" />
-          <el-option label="2" value="2" />
-          <el-option label="3" value="3" />
-        </el-select>
-        <el-select v-model="filter.status" placeholder="상태" clearable>
-          <el-option label="상태1" value="상태1" />
-          <el-option label="상태2" value="상태2" />
-          <el-option label="상태3" value="상태3" />
-        </el-select>
+      <!-- 상세 패널 -->
+      <PolicyDetailPanel 
+        :visible="detailVisible" 
+        :selectedPolicy="selectedPanel"
+        @close="detailVisible = false"
+        @update="updateDetail"
+        @delete="deleteDetail"
+      />
+    </el-row>
+  </div>
 
-        <el-button class="black-button" type="link" @click="openDataPop">
-          단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
-        </el-button>
-
-        <el-button class="white-button" type="link">
-          <el-icon><Delete/></el-icon>
-        </el-button>
-      </div>
-
-      <!-- 데이터 리스트 -->
-      <div class="data-list-scroll">
-        <!--  @update="openUpdatePop" -->
-        <ElcardDiv 
-          v-if="dataViewState === 0" :filteredDetails="filteredDetails"
-          @openPanel="openDetail"
-        ></ElcardDiv>
-        <JiraTable v-else></JiraTable>
-      </div>
-    </el-col>
-
-    <!-- 정책분야 팝업 -->
-    <PolicyAddPopup
-      v-model="dialogVisible"
-      :policyData="selectedPolicy"
-      :policyType="policyType"
-      @close="closePop"
-      @submit="handleSubmit"
-      @delete="handleDelete"
-    />
-
-    <!-- 단위정책 팝업 -->
-    <PolicyDataDialog
-      v-model="dataDialogVisible"
-      @close="closeDataPop"
-    />
-
-     <!-- 상세 패널 -->
-     <PolicyDetailPanel 
-      :visible="detailVisible" 
-      :selectedPolicy="selectedPanel"
-      @close="detailVisible = false"
-      @update="updateDetail"
-      @delete="deleteDetail"
-    />
-  </el-row>
   
 </template>
 
@@ -156,6 +189,8 @@ const filter = ref({
   priority: '',
   riskLevel: '',
   status: '',
+  target: '',
+  tag: '',
 });
 
 // 탭 버튼 상태
@@ -206,17 +241,10 @@ const deleteDetail = (policy) => {
   display: flex;
   gap: 20px;
   padding: 20px;
-  height: 100%;
 }
 .tree-container {
   max-height: 600px;
   padding-right: 10px;
-}
-.mb-20 {
-  margin-bottom: 20px;
-}
-.mb-15 {
-  margin-bottom: 15px;
 }
 .data-list {
   background: #fff;
@@ -230,25 +258,22 @@ const deleteDetail = (policy) => {
   background-color: #fff;
   padding: 20px !important;
   border-radius: 8px;
-}
-
-.filters {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.data-list-scroll {
-  width: 100%;
-}
-.responsive-row {
-  justify-content: center;
-  gap: 20px;
   height: 100%;
 }
-@media (max-width: 600px) {
-  .responsive-row {
-    flex-wrap: wrap;
+.responsive-row {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+.responsive-row-inner{
+  flex: 1;
+
+}
+@media screen and (max-width: 600px) {
+  .responsive-row-inner {
     height: fit-content;
+    gap: 20px;
   }
 }
 .black-button {
@@ -275,7 +300,6 @@ const deleteDetail = (policy) => {
   align-items: center;
   gap: 5px;
 }
-
 .add-policy-button:hover {
   color: #000; /* 마우스 오버 시 검정색 */
 }

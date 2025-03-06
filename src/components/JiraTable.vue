@@ -1,60 +1,62 @@
 <template>
-  <div class="table-header">
-    <div class="header-actions">
-      <el-dropdown>
-        <el-button type="link"><el-icon class="custom-set"><Setting /></el-icon></el-button>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item v-for="(col, index) in columns" :key="index">
-              <el-checkbox v-model="visibleColumns[col]">{{ col }}</el-checkbox>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+  <div>
+    <div class="table-header">
+      <div class="header-actions">
+        <el-dropdown>
+          <el-button type="link"><el-icon class="custom-set"><Setting /></el-icon></el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item v-for="(col, index) in columns" :key="index">
+                <el-checkbox v-model="visibleColumns[col]">{{ col }}</el-checkbox>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </div>
+
+    <el-table :data="tableData" class="custom-table">
+      <el-table-column type="selection" width="55" align="center" />
+      <el-table-column
+        v-for="(col, colIndex) in visibleColumnsArray"
+        :key="colIndex"
+        :label="col"
+      >
+        <template #header>
+          <div class="header-container">
+            <span>{{ col }}</span>
+            <el-dropdown>
+              <el-button type="link">
+                <el-icon><More /></el-icon>
+              </el-button>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item @click="hideColumn(col)">칼럼 숨기기</el-dropdown-item>
+                  <el-dropdown-item>필터</el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </div>
+        </template>
+        <template #default="{ row, $index }">
+          <span @click="editCell($index, col)" v-if="!row.editing[col]" class="cell-text">
+            {{ row[col] || '-' }}
+          </span>
+          <el-input v-else v-model="row[col]" @blur="saveData($index, col)" class="cell-input" />
+        </template>
+      </el-table-column>
+
+      <!-- 마지막 칼럼 고정 -->
+      <el-table-column label="➕" align="center" fixed="right" class="sticky-add-column" width="70">
+        <template #header>
+          <el-button @click="addColumn" type="link">
+            <el-icon><Plus /></el-icon>
+          </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-button class="table-plus" @click="addRow" type="link">+ 행 추가</el-button>
   </div>
-
-  <el-table :data="tableData" class="custom-table">
-    <el-table-column type="selection" width="55" align="center" />
-    <el-table-column
-      v-for="(col, colIndex) in visibleColumnsArray"
-      :key="colIndex"
-      :label="col"
-    >
-      <template #header>
-        <div class="header-container">
-          <span>{{ col }}</span>
-          <el-dropdown>
-            <el-button type="link">
-              <el-icon><More /></el-icon>
-            </el-button>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item @click="hideColumn(col)">칼럼 숨기기</el-dropdown-item>
-                <el-dropdown-item>필터</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
-      </template>
-      <template #default="{ row, $index }">
-        <span @click="editCell($index, col)" v-if="!row.editing[col]" class="cell-text">
-          {{ row[col] || '-' }}
-        </span>
-        <el-input v-else v-model="row[col]" @blur="saveData($index, col)" class="cell-input" />
-      </template>
-    </el-table-column>
-
-    <!-- 마지막 칼럼 고정 -->
-    <el-table-column label="➕" align="center" fixed="right" class="sticky-add-column" width="70">
-      <template #header>
-        <el-button @click="addColumn" type="link">
-          <el-icon><Plus /></el-icon>
-        </el-button>
-      </template>
-    </el-table-column>
-  </el-table>
-  <el-button class="table-plus" @click="addRow" type="link">+ 행 추가</el-button>
 </template>
 
 <script setup>

@@ -5,6 +5,7 @@
     :width="dialogWidth"
     @close="onClose"
     class="custom-dialog"
+    align-center
   >
     <el-form label-position="top">
       <!-- 상위정책 분야명 -->

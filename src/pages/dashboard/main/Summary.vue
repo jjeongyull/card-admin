@@ -1,4 +1,5 @@
 <template>
+
   <div class="main-view">
 
     <el-row :gutter="10" class="responsive-row">
@@ -313,6 +314,7 @@ import { nextTick, onMounted, ref, watch } from "vue";
     display: flex;
     flex-direction: column;
     gap: 50px;
+    width: 100%;
   }
   .responsive-row {
     display: flex;
