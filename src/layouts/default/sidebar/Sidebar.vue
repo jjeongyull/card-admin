@@ -23,13 +23,18 @@
         v-if="!isCollapsed"
       >
         <div v-for="menu in selectedMenu.children" :key="menu.menuId">
+          <!-- 하위 메뉴가 있는 경우 -->
           <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.menuId">
             <template #title>
-              <span @click="goTo(menu.menuId)">{{ menu.menuName }}</span>
+              <span @click="sideClick(menu)">{{ menu.menuName }}</span>
             </template>
-            <menu-item :items="menu.children" @select="goTo" />
+            <el-menu-item v-for="sub in menu.children" :key="sub.menuId" :index="sub.menuId" @click="sideClick(sub)">
+              <span>{{ sub.menuName }}</span>
+            </el-menu-item>
           </el-sub-menu>
-          <el-menu-item v-else :index="menu.menuId" @click="goTo(menu.menuId)">
+
+          <!-- 하위 메뉴가 없는 경우 -->
+          <el-menu-item v-else :index="menu.menuId" @click="sideClick(menu)">
             <span>{{ menu.menuName }}</span>
           </el-menu-item>
         </div>
@@ -42,24 +47,16 @@
 </template>
 
 <script setup>
-import MenuItem from '@/components/MenuItem.vue';
-import { uRouter } from '@/utils'
+// import { uRouter } from '@/utils'
 import { ref } from 'vue';
-
+const emit = defineEmits(["sidebar-menu-click"]);
 const props = defineProps({
   selectedMenu: Object
 });
+const sideClick = (menu) => {
+  emit("sidebar-menu-click", menu);
+};
 
-// 페이지 이동
-const goTo = (menuId) => {
-  try {
-    uRouter.goToByMenuId(menuId)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-console.log(props.selectedMenu)
 const isCollapsed = ref(false);
 const sidebarWidth = ref(220);
 const sidebarRef = ref(null);

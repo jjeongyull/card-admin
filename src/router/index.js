@@ -3,12 +3,12 @@ import DefaultLayout from '../layouts/default/Layout.vue'
 
 const routes = [
   {
-    path: '/dashboard',
+    path: '/',
     component: DefaultLayout,
-    redirect: '/dashboard/summary',
+    redirect: '/',
     children: [
       {
-        path: 'summary',
+        path: '',
         name: 'DashboardSummary',
         component: () => import('@/pages/dashboard/main/Summary.vue'),
         meta: {

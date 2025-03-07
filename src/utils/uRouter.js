@@ -1,11 +1,12 @@
 import router from '@/router'
 import { uNewCommon } from '@/utils'
-import { useRoute } from 'vue-router'
+
 
 // 임시 데이터
 import menuData from '@/data/menu.json';
 import { ref } from 'vue';
 const menuList = ref(menuData);
+
 
 /*
 권한메뉴 초기화
@@ -55,8 +56,51 @@ const goToByMenuId = (menuId, params) => {
  }
 }
 
+/**
+ * 주어진 path 값으로 routes 배열에서 해당하는 menuId와 menu 객체를 찾아 반환하는 함수
+ * @param {string} path - 찾고자 하는 경로
+ * @returns {Object|null} - { menuId, menu } 객체 반환, 없으면 `null`
+ */
+const findMenuByPath = (path) => {
+  // 1. Vue Router에서 해당 path에 맞는 menuId 찾기
+  const searchMenuId = (path, routes) => {
+    for (let route of routes) {
+      if (route.path === path && route.meta?.menuId) {
+        return route.meta.menuId;
+      }
+      if (route.children && route.children.length > 0) {
+        let found = searchMenuId(path, route.children);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  // 2. `/` 경로는 기본값 `menuId: "1"` 설정
+  const menuId = path === "/" ? "1" : searchMenuId(path, router.getRoutes());
+  if (!menuId) return null;
+
+  // 3. menuList에서 해당 menuId에 맞는 객체 찾기
+  const searchMenu = (menuId, menus) => {
+    for (let menu of menus) {
+      if (menu.menuId === menuId) return menu;
+      if (menu.children && menu.children.length > 0) {
+        let found = searchMenu(menuId, menu.children);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  const menu = searchMenu(menuId, menuList.value);
+  return menu ? { menu } : null;
+};
+
+
+
 export default {
  getRouterInfoByMenuId,
  goToByMenuId,
- initRoutesWithMenuRole
+ initRoutesWithMenuRole,
+ findMenuByPath
 }

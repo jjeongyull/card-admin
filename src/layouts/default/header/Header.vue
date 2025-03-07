@@ -59,23 +59,17 @@
 
 <script setup>
   import configData from '@/data/config.json';
-  import menuData from '@/data/menu.json';
-  import { ref } from 'vue';
-  import { uRouter } from '@/utils'
+  import { ref, computed } from 'vue';
+  import { useMenuStore } from '@/store/menuStore';
 
   const config = ref(configData)
   const emit = defineEmits(['menu-selected']);
-  const menuList = ref(menuData);
+  const menuStore = useMenuStore();
+  const menuList = computed(() => menuStore.menuList);
   const drawerVisible = ref(false);
 
-
   const selectMenu = (menu) => {
-    emit('menu-selected', menu.children.length > 0 ? menu : null);
-    try {
-    uRouter.goToByMenuId(menu.menuId)
-    } catch (error) {
-      console.log(error)
-    }
+    emit("menu-selected", menu);
   };
 </script>
 
