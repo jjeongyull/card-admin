@@ -1,0 +1,38 @@
+/* 태그 컨테이너 */
+.tag-container {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 태그 스타일 */
+.el-tag {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+}
+
+/* 모달 내부 스크롤 지원 */
+.modal-body {
+  max-height: 70vh;
+  padding-right: 10px;
+}
+
+/* 섹션 타이틀 */
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+}
+
+/* 푸터 스타일 (하단 고정) */
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 10px 0;
+}

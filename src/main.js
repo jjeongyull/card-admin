@@ -1,4 +1,7 @@
-import { ArrowLeft, ArrowRight, Delete, Edit, Menu, More, Plus, Search, Setting, User, Operation } from '@element-plus/icons-vue'
+import { ArrowLeft, ArrowRight, Delete,
+    Edit, Menu, More, Plus, Search, Setting,
+    User, Operation, UploadFilled, Calendar, Warning
+  } from '@element-plus/icons-vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
@@ -10,7 +13,11 @@ import { createPinia } from "pinia";
 
 const app = createApp(App)
 const pinia = createPinia();
-const icons = { Edit, Delete, Search, ArrowRight, ArrowLeft, More, Plus, Setting, Menu, User, Operation }
+const icons = { Edit, Delete, Search,
+  ArrowRight, ArrowLeft, More, Plus,
+  Setting, Menu, User, Operation,
+  UploadFilled, Calendar, Warning
+}
 
 for (const [key, component] of Object.entries(icons)) {
   app.component(key, component)

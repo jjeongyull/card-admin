@@ -1,7 +1,7 @@
 <template>
-  <el-dialog 
-    v-model="dialogVisible" 
-    :title="policyType === '' || policyType === 'parent'?'정책분야 추가':'정책분야 수정'" 
+  <el-dialog
+    v-model="dialogVisible"
+    :title="policyType === '' || policyType === 'parent'?'정책분야 추가':'정책분야 수정'"
     :width="dialogWidth"
     @close="onClose"
     class="custom-dialog"
@@ -45,7 +45,7 @@
         <el-button v-if="formData.menuName && policyType === 'edit'" type="danger" @click="deletePolicy">
           <el-icon><Delete /></el-icon> 삭제
         </el-button>
-        
+
         <div class="footer-right">
           <!-- 정책 데이터가 있을 때: "취소", "수정완료" / 없을 때: "닫기", "완료" -->
           <el-button plain @click="onClose">닫기</el-button>
@@ -96,72 +96,4 @@ const deletePolicy = () => {
 };
 </script>
 
-<style scoped>
-/* 반응형 스타일 */
-@media (max-width: 600px) {
-  .el-dialog {
-    width: 90vw !important;
-    max-width: 90vw;
-  }
-
-  .dialog-footer {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .el-button {
-    width: 100%;
-    min-width: 100px;
-    height: 40px;
-  }
-}
-
-/* 기본 다이얼로그 스타일 */
-.el-dialog {
-  border-radius: 8px;
-  width: 500px;
-  max-width: 100%;
-}
-
-/* 푸터 스타일 */
-.dialog-footer {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.dialog-footer.flex-end {
-  justify-content: flex-end;
-}
-
-/* 우측 버튼 정렬 */
-.footer-right {
-  display: flex;
-  gap: 8px;
-}
-
-/* 입력 필드 스타일 */
-.el-form-item {
-  margin-bottom: 16px;
-}
-
-.el-form-item label {
-  font-size: 14px;
-}
-
-.el-input,
-.el-select {
-  width: 100%;
-}
-
-/* 버튼 스타일 */
-.el-button {
-  min-width: 100px;
-}
-</style>
+<style scoped src="@/assets/styles/components/PolicyAddPopup.css"></style>

@@ -1,0 +1,43 @@
+.main-view {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+.responsive-row {
+  display: flex;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+}
+@media (max-width: 600px) {
+  .responsive-row {
+    gap: 20px; /* 테이블과 차트 사이 여백 추가 */
+  }
+}
+.progress-text {
+  display: inline-block; /* 글자 길이만큼만 차지 */
+  font-size: 16px;
+}
+.progress-bar {
+  appearance: none; /* 브라우저 기본 스타일 제거 */
+  width: 100%; /* 기본 너비 설정 */
+  height: 10px; /* 프로그래스 바 높이 */
+  border-radius: 5px; /* 둥근 모서리 */
+  background-color: #ececec;
+}
+/* 프로그래스 바 채워진 부분 */
+.progress-bar::-webkit-progress-bar {
+  background-color: #ececec;
+  border-radius: 5px;
+}
+.progress-bar::-webkit-progress-value {
+  background-color: #bebebe; /* 진행 중 색상 */
+  border-radius: 5px;
+}
+.progress-bar::-moz-progress-bar {
+  background-color: #bebebe;
+  border-radius: 5px;
+}
+.dash-title2{
+  font-size: 16px;
+  margin-bottom: 15px;
+}

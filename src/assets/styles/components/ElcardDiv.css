@@ -1,0 +1,56 @@
+.detail-card {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #e7e7e7
+}
+.card-chk{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.tags {
+  display: flex;
+  gap: 5px;
+}
+.dot {
+  font-size: 12px;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+}
+.info {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+  display: flex;
+  gap: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.title{
+  cursor: pointer;;
+}
+.subtitle {
+  font-size: 12px;
+  color: #888;
+}
+.info .danger {
+  color: red;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+}

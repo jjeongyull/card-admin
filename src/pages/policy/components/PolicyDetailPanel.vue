@@ -67,7 +67,7 @@
           <el-row :gutter="20">
             <el-col :span="12">
               <el-form-item label="담당자">
-                <el-input 
+                <el-input
                   v-model="inputManager"
                   placeholder="담당자 입력 후 Enter"
                   @keyup.enter="addManager"
@@ -90,7 +90,7 @@
           <!-- 관련 정보 -->
           <h4 class="section-title">관련 정보</h4>
           <el-form-item label="태그">
-            <el-input 
+            <el-input
               v-model="inputTag"
               placeholder="태그 입력 후 Enter"
               @keyup.enter="addTag"
@@ -105,14 +105,14 @@
 
           <h4 class="section-title">유관 정책</h4>
           <el-form-item>
-            <el-input 
+            <el-input
                 v-model="inputPolicy"
                 placeholder="유관 정책 입력 후 Enter"
                 @keyup.enter="addPolicy"
                 v-if="isEditing"
               />
             <div class="tag-container">
-              
+
               <el-tag v-for="(policy, index) in policyData.relatedPolicies" :key="index" closable @close="removePolicy(index)">
                 {{ policy }}
               </el-tag>
@@ -140,7 +140,7 @@
             <Editor v-else v-model="policyData.detailGuide" />
           </el-form>
         </div>
-      
+
       </el-scrollbar>
 
       <!-- 푸터 (수정 및 삭제) -->
@@ -180,10 +180,10 @@ const inputPolicy = ref('');
 
 // 담당자 추가
 const addManager = () => {
-  
+
 }
 const addTag = () => {
-  
+
 }
 const addPolicy = () => {
 
@@ -227,80 +227,4 @@ const deletePolicy = () => {
 };
 </script>
 
-<style scoped>
-.slide{
-  padding: 16px;
-}
-/* 패널 애니메이션 */
-.slide-enter-active, .slide-leave-active {
-  transition: transform 0.3s ease-in-out;
-}
-
-.slide-enter, .slide-leave-to {
-  transform: translateX(100%);
-}
-
-/* 패널 스타일 */
-.policy-detail-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: white;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-/* 헤더 */
-.panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-/* 스크롤 가능 영역 */
-.panel-body {
-  border-radius: 30px;
-  overflow-y: auto;
-  width: 100%;
-  border: 1px solid #E4E7ED;
-  margin-bottom: 20px;
-}
-.body-inner{
-  padding: 25px;
-}
-
-/* 태그 스타일 */
-.tag-container {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.el-tag {
-  background-color: #000;
-  color: #fff;
-  border: none;
-}
-
-/* 상세 가이드 테이블 */
-.guide-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.guide-table th, .guide-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-/* 푸터 */
-.panel-footer {
-  display: flex;
-  justify-content: space-between;
-}
-</style>
+<style scoped src="@/assets/styles/components/PolicyDetailPanel.css"></style>

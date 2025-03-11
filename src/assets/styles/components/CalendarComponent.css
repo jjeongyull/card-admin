@@ -1,0 +1,83 @@
+.calendar-wrapper {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 8px;
+  position: relative;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-day:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.today {
+  background-color: #409eff !important;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.data-dot {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #f39c12;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .calendar-wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .calendar-day {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+.el-table td.el-table__cell div{
+  color: #000;
+}
+.el-calendar-table thead th{
+  padding: 5px 0;
+}
+.el-calendar-table .el-calendar-day{
+  height: auto;
+  font-size: 12px;
+  padding: 4px;
+}
+.el-collapse{
+  border-bottom: none;
+  border-top: none;
+}
+.el-collapse-item__header{
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.el-collapse-item__wrap{
+  padding: 0 20px;
+  border-bottom: none;
+  height: 100%;
+}

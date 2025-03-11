@@ -1,5 +1,5 @@
 <template>
-  <el-card class="compliance-card" :class="item.type ? item.type : ''">
+  <el-card class="compliance-card" :class="item.type ? item.type : ''" @click="handleClick">
     <div class="status-div" v-if="item.status">
       <span class="status-dot" :class="item.status"></span>
     </div>
@@ -12,9 +12,18 @@
 </template>
 
 <script setup>
-defineProps({
+
+const props = defineProps({
   item: Object,
 });
+
+
+const handleClick = () => {
+  console.log(props.item)
+  if (props.item.click) {
+    props.item.click()
+  }
+};
 </script>
 
 <style scoped>

@@ -3,42 +3,12 @@
     :style="{
       width: isCollapsed ? '24px' : sidebarWidth + 'px',
       transition: enableTransition ? 'width 0.3s ease' : 'none'
-    }"
+      }"
     class="sidebar"
-    ref="sidebarRef"
   >
     <el-scrollbar class="sidebar-scroll">
-      <!-- 접기/펼치기 버튼 -->
-      <div class="sidebar-header">
-        <el-button @click="toggleCollapse" class="toggle-btn" circle>
-          <el-icon v-if="!isCollapsed"><ArrowLeft /></el-icon>
-          <el-icon v-else><ArrowRight /></el-icon>
-        </el-button>
-      </div>
-
-      <el-menu
-        :default-active="selectedMenu.menuId"
-        :collapse="isCollapsed"
-        class="menu-container"
-        v-if="!isCollapsed"
-      >
-        <div v-for="menu in selectedMenu.children" :key="menu.menuId">
-          <!-- 하위 메뉴가 있는 경우 -->
-          <el-sub-menu v-if="menu.children && menu.children.length" :index="menu.menuId">
-            <template #title>
-              <span @click="sideClick(menu)">{{ menu.menuName }}</span>
-            </template>
-            <el-menu-item v-for="sub in menu.children" :key="sub.menuId" :index="sub.menuId" @click="sideClick(sub)">
-              <span>{{ sub.menuName }}</span>
-            </el-menu-item>
-          </el-sub-menu>
-
-          <!-- 하위 메뉴가 없는 경우 -->
-          <el-menu-item v-else :index="menu.menuId" @click="sideClick(menu)">
-            <span>{{ menu.menuName }}</span>
-          </el-menu-item>
-        </div>
-      </el-menu>
+      <SidebarToggle :isCollapsed="isCollapsed" @toggle="toggleCollapse" />
+      <SidebarMenu :selectedMenu="selectedMenu" :isCollapsed="isCollapsed" @menu-click="sideClick" />
     </el-scrollbar>
 
     <!-- 사이즈 조절 핸들 -->
@@ -47,25 +17,28 @@
 </template>
 
 <script setup>
-// import { uRouter } from '@/utils'
-import { ref } from 'vue';
+import { ref, defineProps, defineEmits } from "vue";
+import SidebarMenu from "@/components/SidebarMenu.vue";
+import SidebarToggle from "@/components/SidebarToggle.vue";
+
+
 const emit = defineEmits(["sidebar-menu-click"]);
 const props = defineProps({
-  selectedMenu: Object
+  selectedMenu: Object,
 });
-const sideClick = (menu) => {
-  emit("sidebar-menu-click", menu);
-};
 
 const isCollapsed = ref(false);
 const sidebarWidth = ref(220);
-const sidebarRef = ref(null);
-const enableTransition = ref(true); // 애니메이션 활성화 여부
+const enableTransition = ref(true);
 
 const toggleCollapse = () => {
   enableTransition.value = true;
   isCollapsed.value = !isCollapsed.value;
   sidebarWidth.value = isCollapsed.value ? 64 : 220;
+};
+
+const sideClick = (menu) => {
+  emit("sidebar-menu-click", menu);
 };
 
 const startResize = (event) => {
@@ -102,86 +75,4 @@ const startResize = (event) => {
 };
 </script>
 
-<style scoped>
-.sidebar {
-  border-right: 1px solid var(--el-menu-border-color);
-  position: relative;
-}
-.toggle-btn{
-  position: absolute;
-  right: -16px;
-  z-index: 999;
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  position: relative;
-}
-.menu-container {
-  border-right: none;
-  overflow: hidden;
-}
-
-.resizer {
-  width: 2px;
-  height: 100%;
-  background: #ccc;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: ew-resize;
-}
-</style>
-
-
-<style>
-.sidebar {
-  border-right: 1px solid var(--el-menu-border-color);
-  position: relative;
-}
-.sidebar .el-menu-item,
-.sidebar .el-sub-menu__title {
-  font-weight: 900 !important;
-}
-.sidebar .el-menu-item.is-active{
-  color: #000;
-}
-.toggle-btn{
-  position: absolute;
-  right: -16px;
-  z-index: 999;
-}
-.sidebar-header {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  position: relative;
-}
-.menu-container {
-  border-right: none;
-  overflow: hidden;
-}
-.resizer {
-  width: 2px;
-  height: 100%;
-  background: #ccc;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: ew-resize;
-}
-.el-aside.sidebar{
-  overflow: visible !important;
-}
-.sidebar-scroll.el-scrollbar{
-  overflow: visible !important;
-}
-.sidebar-scroll.el-scrollbar .el-aside.sidebar{
-  overflow: visible !important;
-}
-.sidebar-scroll.el-scrollbar .el-scrollbar__wrap--hidden-default{
-  overflow: visible !important;
-}
-</style>
+<style src="@/assets/styles/layout/sidebar.css"></style>

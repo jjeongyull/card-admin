@@ -1,0 +1,33 @@
+.compliance-container {
+  flex: 1;
+}
+
+/* 필터 헤더 */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* 카테고리 선택 */
+.category-select {
+  width: 150px;
+}
+
+/* 카테고리 추가 버튼 */
+.category-add {
+  background-color: black;
+  color: white;
+}

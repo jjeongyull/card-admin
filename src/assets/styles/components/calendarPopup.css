@@ -1,0 +1,52 @@
+.calendar-popup {
+  border-radius: 12px;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+/* 데이터 리스트 */
+.data-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.data-icon {
+  color: #409eff;
+  font-size: 18px;
+}
+
+.data-text {
+  flex-grow: 1;
+}
+
+/* 데이터가 없을 때 */
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.empty-icon {
+  font-size: 30px;
+  color: #ff7043;
+}

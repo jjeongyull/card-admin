@@ -1,7 +1,7 @@
 <template>
-  <el-dialog 
-    title="단위정책 추가" 
-    width="800px" 
+  <el-dialog
+    title="단위정책 추가"
+    width="800px"
     @close="closeDialog"
     class="custom-dialog"
     align-center
@@ -66,16 +66,16 @@
           <el-row :gutter="10">
             <el-col :xs="24" :sm="16">
               <el-form-item label="담당자">
-                <el-input 
+                <el-input
                   v-model="inputManager"
                   placeholder="담당자 입력 후 Enter"
                   @keyup.enter="addManager"
                 />
                 <div class="tag-container">
-                  <el-tag 
-                    v-for="(manager, index) in formData.managers" 
-                    :key="index" 
-                    closable 
+                  <el-tag
+                    v-for="(manager, index) in formData.managers"
+                    :key="index"
+                    closable
                     @close="removeManager(index)"
                   >
                     {{ manager }}
@@ -95,16 +95,16 @@
           <!-- 관련 정보 -->
           <h4 class="section-title">관련 정보</h4>
           <el-form-item label="태그">
-            <el-input 
+            <el-input
               v-model="inputTag"
               placeholder="태그 입력 후 Enter"
               @keyup.enter="addTag"
             />
             <div class="tag-container">
-              <el-tag 
-                v-for="(tag, index) in formData.tags" 
-                :key="index" 
-                closable 
+              <el-tag
+                v-for="(tag, index) in formData.tags"
+                :key="index"
+                closable
                 @close="removeTag(index)"
               >
                 {{ tag }}
@@ -115,16 +115,16 @@
           <!-- 유관 정책 -->
           <h4 class="section-title">유관 정책</h4>
           <el-form-item>
-            <el-input 
+            <el-input
               v-model="inputPolicy"
               placeholder="유관 정책 입력 후 Enter"
               @keyup.enter="addPolicy"
             />
             <div class="tag-container">
-              <el-tag 
-                v-for="(policy, index) in formData.relatedPolicies" 
-                :key="index" 
-                closable 
+              <el-tag
+                v-for="(policy, index) in formData.relatedPolicies"
+                :key="index"
+                closable
                 @close="removePolicy(index)"
               >
                 {{ policy }}
@@ -164,11 +164,11 @@ const formData = ref({
   risk: '',
   area: '',
   common: '',
-  managers: [], 
-  exception: '', 
+  managers: [],
+  exception: '',
   tags: [],
   relatedPolicies: [],
-  detailGuide: '' 
+  detailGuide: ''
 });
 
 // 입력값
@@ -225,44 +225,4 @@ const submitForm = () => {
 }
 </script>
 
-<style scoped>
-
-/* 태그 컨테이너 */
-.tag-container {
-  margin-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* 태그 스타일 */
-.el-tag {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  font-size: 14px;
-}
-
-/* 모달 내부 스크롤 지원 */
-.modal-body {
-  max-height: 70vh;
-  padding-right: 10px;
-}
-
-/* 섹션 타이틀 */
-.section-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 20px 0 10px;
-}
-
-/* 푸터 스타일 (하단 고정) */
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  position: sticky;
-  bottom: 0;
-  background: white;
-  padding: 10px 0;
-}
-</style>
+<style scoped src="@/assets/styles/components/PolicyDataDialog.css"></style>

@@ -2,9 +2,9 @@
   <el-header class="header">
     <!-- 로고 & 메뉴 버튼 -->
     <div class="left-section">
-      <img 
-      :src="config.logo" 
-      alt="Logo" 
+      <img
+      :src="config.logo"
+      alt="Logo"
       class="logo" />
 
       <!-- 모바일에서는 햄버거 메뉴 -->
@@ -73,88 +73,4 @@
   };
 </script>
 
-<style scoped>
-/* 헤더 스타일 */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  height: 72px;
-  background-color: #fff;
-  border-bottom: 1px solid #E4E7ED;
-}
-
-/* 왼쪽 섹션 (로고 & 메뉴) */
-.left-section {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 로고 */
-.logo {
-  height: 25px;
-}
-
-/* 네비게이션 메뉴 (데스크톱) */
-.menu {
-  display: flex;
-  gap: 7px;
-}
-
-/* 햄버거 메뉴 (모바일) */
-.menu-icon {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* 버튼 스타일 */
-.el-button.header-text span {
-  font-weight: 900;
-  color: #000;
-}
-
-/* 툴바 */
-.toolbar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 아이콘 */
-.icon-wrapper {
-  width: 37px;
-  height: 37px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #ddd;
-}
-
-.user-role {
-  font-size: 12px;
-  color: #333;
-}
-
-/* 📌 반응형 스타일 */
-@media (max-width: 768px) {
-  /* 모바일에서는 네비게이션 숨기고 햄버거 아이콘 표시 */
-  .menu {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-}
-</style>
-
-<style>
-.header .el-button>span{
-  font-weight: 900;
-  color: #000;
-}
-</style>
+<style scoped src="@/assets/styles/layout/header.css"></style>

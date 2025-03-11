@@ -1,0 +1,14 @@
+.common-layout > .el-container {
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  height: calc(100vh - 72px);
+  position: relative;
+}
+
+.content {
+  flex-grow: 1;
+  width: 100%;
+}
