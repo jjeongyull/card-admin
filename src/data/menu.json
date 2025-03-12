@@ -48,21 +48,7 @@
           "u": true,
           "d": true
         },
-        "children": [
-          {
-            "menuName": "정보",
-            "menuId": "2.2.1",
-            "parentMenuId": "2.2",
-            "sort": 1,
-            "permit": {
-              "c": true,
-              "r": true,
-              "u": true,
-              "d": true
-            },
-            "children": []
-          }
-        ]
+        "children": []
       }
     ]
   },

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
   background: white;
   width: 100%;
   transition: all 0.3s ease;
@@ -13,8 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 220px; /* 내부 차트 크기만큼 설정 */
-  height: 220px;
+  width: 100%; /* 내부 차트 크기만큼 설정 */
+  height: 250px;
 }
 
 /* 차트 크기 자동 조정 */
@@ -56,29 +55,4 @@
   font-weight: 700;
   font-size: 14px;
   color: #333;
-}
-
-/* 반응형: 화면이 작아져도 차트 크기 유지 */
-@media (max-width: 500px) {
-  .chart-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .chart-container {
-    width: 180px;
-    height: 180px;
-  }
-
-  .legend {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .legend-item {
-    width: 45%;
-    justify-content: center;
-  }
 }

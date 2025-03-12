@@ -104,7 +104,8 @@ const form = ref({
 });
 
 const props = defineProps({
-  visible: Boolean
+  visible: Boolean,
+  selectData: Object
 });
 
 const emit = defineEmits(["close"]);
@@ -167,35 +168,4 @@ onUnmounted(() => {
 
 </script>
 
-<style scoped>
-.tag-container {
-  display: flex;
-  gap: 8px;
-  margin-top: 5px;
-}
-
-.upload-container {
-  width: 100%;
-}
-
-.upload-text {
-  color: #409eff;
-  cursor: pointer;
-}
-
-.upload-hint {
-  font-size: 12px;
-  color: gray;
-}
-
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.modal-body {
-  max-height: 70vh;
-  padding-right: 10px;
-}
-
-</style>
+<style scoped src="@/assets/styles/components/NewCompliance.css"></style>

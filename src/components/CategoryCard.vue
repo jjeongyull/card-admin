@@ -17,13 +17,6 @@ const props = defineProps({
   item: Object,
 });
 
-
-const handleClick = () => {
-  console.log(props.item)
-  if (props.item.click) {
-    props.item.click()
-  }
-};
 </script>
 
 <style scoped>

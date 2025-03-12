@@ -43,14 +43,8 @@ const routes = [
           {
             path: '',
             name: 'CompliancePolicyManage',
-            component: () => import('@/pages/policy/PolicyCompliance.vue'),
+            component: () => import('@/pages/policy/ComplianceMain.vue'),
             meta: { menuId: '2.2', icon: '', auth: null, fullPath: [], isNested: true }
-          },
-          { /*  */
-            path: 'info',
-            name: 'CompliancePolicyManageInfo',
-            component: () => import('@/pages/policy/PolicyComplianceInfo.vue'),
-            meta: { menuId: '2.2.1', icon: 'ti ti-list-details', auth: null, fullPath: [], isNested: true }
           }
         ]
       }

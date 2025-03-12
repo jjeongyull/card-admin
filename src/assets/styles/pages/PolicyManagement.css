@@ -61,15 +61,81 @@
   align-items: center;
   gap: 5px;
 }
-.add-policy-button:hover {
-  color: #000; /* 마우스 오버 시 검정색 */
+:deep(.custom-tabs .el-tabs__header .el-tabs__item:hover) {
+  color: #000 !important; /* 마우스 오버 시 검정색 */
 }
-.custom-tabs .el-tabs__header .el-tabs__item {
+:deep(.custom-tabs .el-tabs__header .el-tabs__item) {
   font-weight: bold !important;
 }
-.custom-tabs .el-tabs__item.is-active, .el-tabs__item:hover {
+:deep(.custom-tabs .el-tabs__item.is-active, .el-tabs__item:hover) {
   color: #000 !important;
 }
-.custom-tabs .el-tabs__active-bar{
+:deep(.custom-tabs .el-tabs__active-bar){
   background-color: #000 !important;
+}
+.category-slider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.scroll-container {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.scroll-content {
+  display: flex;
+}
+
+.category-item {
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-item:hover {
+  background: #e0e0e0;
+}
+
+.scroll-btn {
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 9px 5px;
+}
+
+.scroll-btn:hover {
+  background: #f0f0f0;
+}
+
+.left-btn {
+  margin-right: 5px;
+}
+
+.right-btn {
+  margin-left: 5px;
+}
+
+.add-btn {
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background: #333;
 }

@@ -58,8 +58,10 @@ export default {
         const pathSegments = window.location.pathname.split("/").filter(Boolean); // 빈 값 제거
         const lastPath = pathSegments.length ? pathSegments[pathSegments.length - 1] : "/"; // 마지막 path 값 가져오기
         const menu = uRouter.findMenuByPath(lastPath);
-        menuStore.selectMenu(menu.menu);
-        uRouter.goToByMenuId(menu.menu.menuId);
+        if(menu){
+          menuStore.selectMenu(menu.menu);
+          uRouter.goToByMenuId(menu.menu.menuId);
+        }
     };
 
 
