@@ -16,18 +16,10 @@
 </template>
 
 <script>
-import { ElDropdown, ElDropdownMenu, ElDropdownItem, ElIcon } from 'element-plus'
-import { More } from '@element-plus/icons-vue'
+
 
 export default {
   name: 'PopupMenu',
-  components: {
-    ElDropdown,
-    ElDropdownMenu,
-    ElDropdownItem,
-    ElIcon,
-    More
-  },
   props: {
     menuItems: {
       type: Array,

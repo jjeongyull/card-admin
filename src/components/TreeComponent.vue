@@ -41,17 +41,12 @@
 
 <script>
 import { ref, watch, computed } from 'vue'
-import { ElTree, ElInput, ElDialog, ElButton } from 'element-plus'
 import PopupMenu from '@/components/PopupMenu.vue' // 팝업 메뉴 컴포넌트 import
 import uNewCommon from "@/utils/uNewCommon.js"
 
 export default {
   name: 'TreeComponent',
   components: {
-    ElTree,
-    ElInput,
-    ElDialog,
-    ElButton,
     PopupMenu
   },
   props: {

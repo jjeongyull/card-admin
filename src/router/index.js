@@ -10,7 +10,7 @@ const routes = [
       {
         path: '',
         name: 'DashboardSummary',
-        component: () => import('@/pages/dashboard/main/Summary.vue'),
+        component: () => import('@/pages/dashboard/Summary.vue'),
         meta: {
           menuId: '1',
           icon: 'ti ti-layout-grid',
@@ -47,6 +47,29 @@ const routes = [
             meta: { menuId: '2.2', icon: '', auth: null, fullPath: [], isNested: true }
           }
         ]
+      }
+    ]
+  },
+  {
+    path: '/assets',
+    redirect: '/assets',
+    name: 'assetsGroup',
+    component: DefaultLayout,
+    meta: { menuId: '3', icon: 'ti ti-list-details' },
+    children: [
+      {
+        // 자산현황
+        path: '',
+        name: 'assetsView',
+        component: () => import('@/pages/asssets/AssetGroup.vue'),
+        meta: { menuId: '3.1', icon: '', auth: null, fullPath: [], isNested: true }
+      },
+      {
+        // 자산정보관리
+        path: '/assets-setting',
+        name: 'assetsSet',
+        component: () => import('@/pages/asssets/AssetSetting.vue'),
+        meta: { menuId: '3.2', icon: '', auth: null, fullPath: [], isNested: true }
       }
     ]
   }

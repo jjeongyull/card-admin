@@ -16,9 +16,9 @@
         <el-select v-model="selectedCategory" placeholder="전체" class="category-select">
           <el-option v-for="category in categories" :key="category" :label="category" :value="category" />
         </el-select>
-        <el-button class="black-button" @click="openCaPopup">
+        <BaseButton class="black-button" @click="openCaPopup">
           카테고리 등록 +
-        </el-button>
+        </BaseButton>
       </div>
     </div>
 
@@ -52,7 +52,6 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import router from '@/router'
 import CategoryCard from "../../components/CategoryCard.vue";
 import ComplianceCategoryPopup from "./components/ComplianceCategoryPopup.vue";
 import NewCompliance from "./components/NewCompliance.vue";

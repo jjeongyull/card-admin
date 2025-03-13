@@ -3,9 +3,9 @@
     <div v-if="visible" class="policy-detail-panel">
       <div class="panel-header">
         <h3>정책상세: {{ policyData.title }}</h3>
-        <el-button type="text" class="close-btn" @click="closePanel">
+        <BaseButton type="text" class="close-btn" @click="closePanel">
           <el-icon><Close /></el-icon>
-        </el-button>
+        </BaseButton>
       </div>
 
       <el-scrollbar class="panel-body">
@@ -146,14 +146,14 @@
       <!-- 푸터 (수정 및 삭제) -->
       <div class="panel-footer">
         <div>
-          <el-button v-if="!isEditing" type="danger" @click="deletePolicy">삭제</el-button>
+          <BaseButton v-if="!isEditing" type="danger" @click="deletePolicy">삭제</BaseButton>
         </div>
         <div>
-          <el-button @click="cancelEdit">
+          <BaseButton @click="cancelEdit">
             {{ isEditing ? '취소' : '닫기' }}
-          </el-button>
-          <el-button v-if="isEditing" class="black-button" @click="saveChanges">수정 완료</el-button>
-          <el-button v-else class="black-button" @click="enableEdit">단위정책 수정</el-button>
+          </BaseButton>
+          <BaseButton v-if="isEditing" class="black-button" @click="saveChanges">수정 완료</BaseButton>
+          <BaseButton v-else class="black-button" @click="enableEdit">단위정책 수정</BaseButton>
         </div>
       </div>
     </div>

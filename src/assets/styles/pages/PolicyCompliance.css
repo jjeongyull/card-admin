@@ -31,7 +31,6 @@
   background-color: black;
   color: white;
 }
-
 :deep(.custom-tabs > .el-tabs__header) {
   margin: 0 !important;
   border-bottom: 1px solid #CDD0D6;

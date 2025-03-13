@@ -83,8 +83,8 @@
     <!-- 하단 버튼 -->
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="closeDialog">취소</el-button>
-        <el-button @click="submitForm" class="black-button">추가완료</el-button>
+        <BaseButton @click="closeDialog">취소</BaseButton>
+        <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
       </div>
     </template>
   </el-dialog>

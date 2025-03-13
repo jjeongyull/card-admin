@@ -1,10 +1,9 @@
 <template>
-
   <div>
     <div class="test-btn-group">
-      <el-button :class="viewMode === 0 && 'is-active'" @click="viewMode = 0">현업자 대시보드</el-button>
-      <el-button :class="viewMode === 1 && 'is-active'" @click="viewMode = 1">점검자 대시보드</el-button>
-      <el-button :class="viewMode === 2 && 'is-active'" @click="viewMode = 2">C-level 대시보드</el-button>
+      <BaseButton :class="viewMode === 0 && 'is-active'" @click="viewMode = 0">현업자 대시보드</BaseButton>
+      <BaseButton :class="viewMode === 1 && 'is-active'" @click="viewMode = 1">점검자 대시보드</BaseButton>
+      <BaseButton :class="viewMode === 2 && 'is-active'" @click="viewMode = 2">C-level 대시보드</BaseButton>
     </div>
 
     <WorkerDashboard v-if="viewMode === 0"/>

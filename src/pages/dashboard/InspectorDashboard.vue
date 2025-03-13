@@ -52,13 +52,13 @@
     <el-row :gutter="10" class="responsive-row">
       <el-col :xs="24" :sm="24" :md="12">
         <AccordionItem title="이행점검 목록" defaultState>
-            <TableComponent :tableColumns="tableColumns" :tableData="tableData" />
+            <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
         </AccordionItem>
       </el-col>
 
       <el-col :xs="24" :sm="24" :md="12">
         <AccordionItem title="취약점 현황" defaultState>
-          <TableComponent :tableColumns="tableColumns" :tableData="tableData" />
+          <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
         </AccordionItem>
       </el-col>
     </el-row>
@@ -66,13 +66,13 @@
     <el-row :gutter="10" class="responsive-row">
       <el-col :xs="24" :sm="24" :md="12">
         <AccordionItem title="보안선 심의 현황" defaultState>
-          <TableComponent :tableColumns="tableColumns_2" :tableData="tableData_2" />
+          <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" :allData="tableData_2" />
         </AccordionItem>
       </el-col>
 
       <el-col :xs="24" :sm="24" :md="12">
         <AccordionItem title="취약점 조치 현황" defaultState>
-          <TableComponent :tableColumns="tableColumns_2" :tableData="tableData_2" />
+          <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" :allData="tableData_2" />
         </AccordionItem>
       </el-col>
     </el-row>
@@ -80,88 +80,34 @@
   </div>
 </template>
 
-<script>
-import TableComponent from '@/components/Table.vue';
-import { More } from "@element-plus/icons-vue";
+<script setup>
 import { onMounted, ref } from "vue";
 
-import AccordionItem from "@/components/AccordionItem.vue";
+const defaultState = ref(true);
 
+const tableColumns = ref([]);
+const tableColumns_2 = ref([]);
+const tableData = ref([]);
+const tableData_2 = ref([]);
 
-  export default {
-    components: {
-      More,
-      TableComponent,
-      AccordionItem
-    },
-    setup() {
-      const defaultState = ref(true);
-
-      const tableColumns = ref([]);
-      const tableColumns_2 = ref([]);
-      const tableData = ref([]);
-      const tableData_2 = ref([]);
-
-      const loadTableData = async () => {
-        try {
-          const response = await fetch('/src/data/tableData.json');
-          const data = await response.json();
-          tableColumns.value = data.tableColumns;
-          tableColumns_2.value = data.tableColumns_2;
-          tableData.value = data.tableData;
-          tableData_2.value = data.tableData_2;
-        } catch (error) {
-          console.error("JSON 데이터 로드 실패:", error);
-        }
-      };
-
-      const getStatusTag = (status) => {
-        switch (status) {
-          case "조치완료":
-            return "success"; // 초록색
-          case "조치필요":
-            return "warning"; // 노란색
-          case "조치지연":
-            return "danger"; // 빨간색
-          default:
-            return "";
-        }
-      };
-      const getStatusClass = (status) => {
-        switch (status) {
-          case "조치완료":
-            return "status-success";
-          case "조치필요":
-            return "status-warning";
-          case "조치지연":
-            return "status-danger";
-          default:
-            return "";
-        }
-      };
-
-      const sortTable = (key) => {
-        tableData.value.sort((a, b) => (a[key] > b[key] ? 1 : -1));
-      };
-
-
-      const filterTable = (key) => {
-        console.log(`필터 기능 (추후 구현) - 필터링할 키: ${key}`);
-      };
-
-
-      onMounted(() => {
-        loadTableData();
-      });
-
-      return {
-        tableColumns, tableData, defaultState,
-        tableColumns_2, tableData_2,
-        getStatusTag, getStatusClass,
-        sortTable, filterTable,
-      };
-    },
+const loadTableData = async () => {
+  try {
+    const response = await fetch('/src/data/tableData.json');
+    const data = await response.json();
+    tableColumns.value = data.tableColumns;
+    tableColumns_2.value = data.tableColumns_2;
+    tableData.value = data.tableData;
+    tableData_2.value = data.tableData_2;
+  } catch (error) {
+    console.error("JSON 데이터 로드 실패:", error);
+  }
 };
+
+
+onMounted(() => {
+  loadTableData();
+});
+
 </script>
 
 <style scoped src="@/assets/styles/pages/Summary.css"></style>

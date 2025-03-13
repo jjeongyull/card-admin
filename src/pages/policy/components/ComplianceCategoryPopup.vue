@@ -32,15 +32,15 @@
     <template #footer>
       <div class="dialog-footer" :class="{ 'flex-end': !formData.menuName || policyType !== 'edit' }">
         <!-- 정책 데이터가 있을 때만 삭제 버튼 표시 -->
-        <el-button v-if="formData.menuName && policyType === 'edit'" type="danger" @click="deletePolicy">
+        <BaseButton v-if="formData.menuName && policyType === 'edit'" type="danger" @click="deletePolicy">
           <el-icon><Delete /></el-icon> 삭제
-        </el-button>
+        </BaseButton>
 
         <div class="footer-right">
-          <el-button plain @click="onClose">취소</el-button>
-          <el-button class="black-button" type="info" @click="submitForm">
+          <BaseButton plain @click="onClose">취소</BaseButton>
+          <BaseButton class="black-button" type="info" @click="submitForm">
             {{ formData.menuName && policyType === 'edit' ? "수정완료" : "추가완료" }}
-          </el-button>
+          </BaseButton>
         </div>
       </div>
     </template>

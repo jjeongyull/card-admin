@@ -75,29 +75,28 @@
               </el-select>
             </el-col>
             <el-col :sm="12" :md="3">
-              <el-button class="black-button w-100" type="link" @click="openDataPop">
+              <BaseButton class="black-button w-100" type="link" @click="openDataPop">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <el-button class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100" type="link">
                 <el-icon><Delete/></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <el-button class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100" type="link">
                 <el-icon><Operation /></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
           </el-row>
 
           <div>
             <!--  @update="openUpdatePop" -->
             <ElcardDiv
-              v-if="dataViewState === 0" :filteredDetails="filteredDetails"
+              :filteredDetails="filteredDetails"
               @openPanel="openDetail"
             ></ElcardDiv>
-            <JiraTable v-else></JiraTable>
           </div>
         </div>
       </el-col>
@@ -137,8 +136,6 @@ import menu from '@/data/menu.json';
 import { ref, watch, computed } from 'vue';
 
 import { ElMessage } from 'element-plus';
-import TreeComponent from '@/components/TreeComponent.vue'; // 트리 컴포넌트 import
-import JiraTable from '@/components/JiraTable.vue';
 import ElcardDiv from './components/ElcardDiv.vue';
 import policyDetailData from '@/data/policy_detail.json';
 import PolicyAddPopup from "./components/PolicyAddPopup.vue"; // 정책분야 추가 팝업

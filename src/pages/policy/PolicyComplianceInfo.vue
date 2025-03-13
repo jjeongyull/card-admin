@@ -3,33 +3,33 @@
 
     <div class="category-slider">
       <!-- 왼쪽 스크롤 버튼 -->
-      <el-button class="scroll-btn left-btn" @click="scrollLeft">
+      <BaseButton class="scroll-btn left-btn" @click="scrollLeft">
         <el-icon><ArrowLeft /></el-icon>
-      </el-button>
+      </BaseButton>
 
       <!-- 가로 스크롤 가능한 리스트 -->
       <el-scrollbar ref="scrollbarRef" class="scroll-container" wrap-class="scroll-wrap">
         <div class="scroll-content">
-          <el-button
+          <BaseButton
             v-for="compliance in complianceList"
             :key="compliance.id"
             class="category-item"
             @click="selectCategory(compliance.id)"
           >
             {{ compliance.title }}
-          </el-button>
+          </BaseButton>
         </div>
       </el-scrollbar>
 
       <!-- 오른쪽 스크롤 버튼 -->
-      <el-button class="scroll-btn right-btn" @click="scrollRight">
+      <BaseButton class="scroll-btn right-btn" @click="scrollRight">
         <el-icon><ArrowRight /></el-icon>
-      </el-button>
+      </BaseButton>
 
       <!-- 신규 추가 버튼 -->
-      <el-button class="black-button" @click="openCompliancepup">
+      <BaseButton class="black-button" @click="openCompliancepup">
         신규 컴플라이언스 &nbsp;<el-icon><Plus /></el-icon>
-      </el-button>
+      </BaseButton>
     </div>
 
     <el-row :gutter="20" class="responsive-row-inner">
@@ -110,19 +110,19 @@
               </el-select>
             </el-col>
             <el-col :sm="12" :md="3">
-              <el-button class="black-button w-100" type="link" @click="openDataPop">
+              <BaseButton class="black-button w-100" type="link" @click="openDataPop">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <el-button class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100" type="link">
                 <el-icon><Delete/></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <el-button class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100" type="link" @click="openDialog">
                 <el-icon><Operation /></el-icon>
-              </el-button>
+              </BaseButton>
             </el-col>
           </el-row>
 
@@ -144,18 +144,23 @@
       @close="NewComplianceVisible = false"
       :selectData="selectComplianceData"
     />
+
+    <!-- 로그 리스트 -->
+    <ChangeLogDialog
+      :visible="dialogVisible"
+      :changeLogs="changeLogs"
+      @close="dialogVisible = false"
+    />
+
   </div>
 </template>
 
 <script setup>
 import { ref, watch, computed } from "vue";
-import { useRoute, onBeforeRouteUpdate } from "vue-router";
-import router from '@/router'
 
 import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
-import TreeComponent from '@/components/TreeComponent.vue';
 import ElcardDiv from './components/ElcardDiv.vue';
 import NewCompliance from "./components/NewCompliance.vue";
 
@@ -164,12 +169,11 @@ const props = defineProps({
   selectComplianceCategory: Object
 });
 const treeTitle = ref(props.selectComplianceCategory.title);
-const selectedItem = computed(() => props.selectComplianceCategory)
 watch(
   () => props.selectComplianceCategory, // selectCompliance 값 감지
   (newValue, oldValue) => {
     treeTitle.value = newValue.title
-    console.log("selectComplianceCategory 변경됨!");
+    console.log("selectComplianceCategory 변경");
     console.log("이전 값:", oldValue);
     console.log("새로운 값:", newValue);
   },
@@ -177,6 +181,7 @@ watch(
 );
 const emit = defineEmits(["selectedCom"]);
 const scrollbarRef = ref(null);
+const dialogVisible = ref(false);
 // 필터 및 검색어 상태
 const searchDetail = ref('');
 const activeTab = ref('all');
@@ -232,5 +237,29 @@ const openCompliancepup = () => {
   selectComplianceData.value = null;
   NewComplianceVisible.value = true;
 };
+
+// 신규컴플라이언스 수정
+const openDetail = (data) => {
+  selectComplianceData.value = data;
+  NewComplianceVisible.value = true;
+}
+
+// 로그데이터
+const changeLogs = ref([
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+
+]);
+
+const openDialog = () => {
+  dialogVisible.value = true;
+}
 </script>
 <style scoped src="@/assets/styles/pages/PolicyManagement.css"></style>

@@ -1,0 +1,120 @@
+:deep(.custom-tabs > .el-tabs__header) {
+  margin: 0 !important;
+  border-bottom: 1px solid #CDD0D6;
+}
+:deep(.filter-header) {
+  border-bottom: 1px solid #CDD0D6;
+}
+:deep(.custom-tabs .el-tabs__header .el-tabs__item:hover) {
+  color: #000 !important; /* 마우스 오버 시 검정색 */
+}
+:deep(.custom-tabs .el-tabs__header .el-tabs__item) {
+  font-weight: bold !important;
+}
+:deep(.custom-tabs .el-tabs__item.is-active, .el-tabs__item:hover) {
+  color: #000 !important;
+}
+:deep(.custom-tabs .el-tabs__active-bar){
+  background-color: #000 !important;
+}
+.compliance-container {
+  flex: 1;
+  height: 100%;
+}
+.left-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 필터 헤더 */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.responsive-row {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+.responsive-row-inner{
+  flex: 1;
+}
+.data-list {
+  background: #fff;
+  padding: 25px 15px;
+  border-radius: 8px;
+  height: 100%;
+}
+.data-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px !important;
+  border-radius: 8px;
+  height: 100%;
+}
+/* 상태 버튼 그룹 */
+.status-buttons {
+  display: flex;
+  width: 100%;
+}
+
+.status-buttons .el-button {
+  background: #f5f5f5;
+  color: #333;
+  width: 100%;
+}
+
+.status-buttons .active {
+  background: #000;
+  color: white;
+}
+.asset-explorer {
+  max-width: 360px;
+  margin: auto;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.asset-list {
+  margin-top: 10px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .status-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .responsive-row-inner {
+    height: fit-content;
+    gap: 20px;
+  }
+}
+.black-button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.black-button .el-icon {
+  color: #fff !important;
+}
+.white-button {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  margin-left: 0;
+}

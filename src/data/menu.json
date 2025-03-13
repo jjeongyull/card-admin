@@ -89,19 +89,6 @@
           "d": true
         },
         "children": []
-      },
-      {
-        "menuName": "자산현황(개편)",
-        "menuId": "3.3",
-        "parentMenuId": "3",
-        "sort": 3,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": []
       }
     ]
   },
