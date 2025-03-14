@@ -46,7 +46,7 @@
             :chartData="chartData"
             chartType="pie"
             chartTitle="차트 타이틀"
-            :radius="['40%', '80%']"
+            :radius="['65%', '80%']"
           />
         </AccordionItem>
       </el-col>

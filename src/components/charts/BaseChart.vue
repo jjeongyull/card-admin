@@ -29,7 +29,7 @@ const props = defineProps({
   chartData: Array, // 차트 데이터 (pie: [{ name, value, color }], bar/line: { categories, series })
   chartTitle: { type: String, default: "" }, // 차트 제목
   chartType: { type: String, default: "pie" }, // 차트 타입 ("pie", "bar", "line")
-  radius: { type: Array, default: () => ["60%", "80%"] }, // 도넛 차트 크기 설정
+  radius: { type: Array, default: () => ['65%', '80%'] }, // 도넛 차트 크기 설정
   showLegend: { type: Boolean, default: true }, // 범례 표시 여부
 });
 
