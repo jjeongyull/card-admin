@@ -5,10 +5,15 @@
       stripe
       :max-height="500"
       style="width: 100%"
-      :height="tableData.length ? 'auto' : '100px'"
+      :height="filteredData.length ? 'auto' : '100px'"
       @row-click="handleRowClick"
     >
+      <!--
+        체크박스 컬럼 (선택 가능)
+        cheackValue의 값에 따라 활성화
+      -->
       <el-table-column v-if="cheackValue" type="selection" width="55" />
+
       <el-table-column
         v-for="column in tableColumns"
         :key="column.prop"
@@ -18,7 +23,6 @@
         :sortable="column.sortable"
         :align="column.align || 'center'"
       >
-        <!-- 헤더 -->
         <template #header>
           <div class="header-with-menu">
             {{ column.label }}
@@ -33,8 +37,6 @@
             </el-dropdown>
           </div>
         </template>
-
-        <!-- 데이터 -->
 
         <template #default="{ row }">
           <div @click="handleCellClick(column.prop, row)" class="cell-content">
@@ -67,13 +69,15 @@
       </el-table-column>
     </el-table>
 
-    <!-- 페이지네이션 -->
+    <!-- 페이지네이션 (수정된 부분) -->
     <el-pagination
       :current-page="currentPage"
       :page-size="pageSize"
-      layout="prev, pager, next"
-      :total="allData.length"
-      @current-change="updatePage"
+      layout="total, sizes, prev, pager, next"
+      :total="filteredData.length"
+      :page-sizes="[5, 10, 20, 50]"
+      @update:current-page="updatePage"
+      @update:page-size="updatePageSize"
     />
   </div>
 </template>
@@ -84,26 +88,56 @@ import { More } from "@element-plus/icons-vue";
 
 const props = defineProps({
   tableColumns: Array, // 컬럼 정의
-  cheackValue: { type: Boolean, default: false }, // 컬럼 정의
-  tableData: Array, // 필터링 된 데이터
-  allData: Array, // 전체 테이블 데이터
+  cheackValue: { type: Boolean, default: false }, // 체크박스 컬럼
+  tableData: Array, // 필터링 된 데이터 (필터링 후 데이터)
+  allData: Array, // 전체 테이블 데이터 (필터링 전 데이터)
   pageSize: { type: Number, default: 10 }, // 페이지당 표시할 개수
   currentPage: { type: Number, default: 1 }, // 현재 페이지
+  filters: { type: Object, default: () => ({}) }, // 필터링 조건
 });
 
-const emit = defineEmits(["row-click",
-  "cell-click", "sort", "filter",
-  "update:currentPage", "history-click", "actions-click"
+const emit = defineEmits([
+  "row-click", "cell-click", "sort", "filter",
+  "update:currentPage", "update:pageSize",
+  "history-click", "actions-click"
 ]);
 
-// 행 클릭 이벤트
-const handleRowClick = (row) => {
-  emit("row-click", row);
+// 현재 페이지 상태 (props 값이 변경 가능하도록 ref 사용)
+const currentPage = ref(props.currentPage);
+const pageSize = ref(props.pageSize);
+
+// 필터링된 데이터
+const filteredData = computed(() => {
+  if (!props.filters || Object.keys(props.filters).length === 0) {
+    return props.tableData; // 필터 없으면 전체 데이터 반환
+  }
+
+  return props.tableData.filter(row => {
+    return Object.entries(props.filters).every(([key, value]) => {
+      if (!value) return true; // 필터 값 없으면 통과
+      return String(row[key]).toLowerCase().includes(String(value).toLowerCase());
+    });
+  });
+});
+
+// 페이지네이션 적용된 데이터
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize.value;
+  const end = start + pageSize.value;
+  return filteredData.value.slice(start, end);
+});
+
+// 페이지 변경 이벤트 (부모에 업데이트 이벤트 전달)
+const updatePage = (page) => {
+  currentPage.value = page;
+  emit("update:currentPage", page);
 };
 
-// 셀 클릭 이벤트
-const handleCellClick = (column, row) => {
-  emit("cell-click", { column, row });
+// 페이지 크기 변경 이벤트
+const updatePageSize = (size) => {
+  pageSize.value = size;
+  emit("update:pageSize", size);
+  updatePage(1); // 페이지 크기 변경 시 첫 페이지로 이동
 };
 
 // 정렬 기능
@@ -116,17 +150,15 @@ const filterTable = (key) => {
   emit("filter", key);
 };
 
-// 페이지네이션 변경 이벤트
-const updatePage = (page) => {
-  emit("update:currentPage", page);
+// 행 클릭 이벤트
+const handleRowClick = (row) => {
+  emit("row-click", row);
 };
 
-// 현재 페이지 데이터 계산
-const paginatedData = computed(() => {
-  const start = (props.currentPage - 1) * props.pageSize;
-  const end = start + props.pageSize;
-  return props.allData.slice(start, end);
-});
+// 셀 클릭 이벤트
+const handleCellClick = (column, row) => {
+  emit("cell-click", { column, row });
+};
 
 // 상태별 태그 색상 반환
 const getStatusTag = (status) => {
@@ -192,7 +224,6 @@ const getStatusClass = (status) => {
   gap: 10px;
 }
 
-
 .status-success {
   background-color: #67c23a;
 }
@@ -211,14 +242,17 @@ const getStatusClass = (status) => {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-:deep(.el-pagination){
+
+:deep(.el-pagination) {
   justify-content: center;
 }
-:deep(.el-table__body-wrapper){
+
+:deep(.el-table__body-wrapper) {
   overflow-y: auto !important;
-  max-height: 500px;
+  max-height: 450px;
 }
-:deep(.el-table .el-table__cell){
+
+:deep(.el-table .el-table__cell) {
   padding: 0;
 }
 </style>

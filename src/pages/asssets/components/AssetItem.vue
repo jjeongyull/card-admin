@@ -28,7 +28,6 @@
 
 <script setup>
 import { ref } from "vue";
-import BaseButton from "@/components/base/BaseButton.vue";
 
 defineProps({
   asset: Object

@@ -19,7 +19,7 @@
         <div class="data-list">
           <div class="left-header mb-20">
             <h4>전체 7건</h4>
-            <BaseButton size="small">자산 그룹 등록</BaseButton>
+            <BaseButton size="small" @click="openAssetPopup">자산 그룹 등록</BaseButton>
           </div>
 
           <el-row :gutter="10" class="filter-section">
@@ -84,7 +84,7 @@
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
-              <BaseButton class="black-button w-100">자산 등록 <el-icon><Plus /></el-icon></BaseButton>
+              <BaseButton class="black-button w-100" @click="openAssetDataPopup">자산 등록 <el-icon><Plus /></el-icon></BaseButton>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="1">
@@ -107,7 +107,17 @@
       </el-col>
     </el-row>
 
+    <!-- 자산 그룹 등록 -->
+    <NewAssetsGroup
+      :visible="NewAssetsGroupVisible"
+      @close="NewAssetsGroupVisible = false"
+    />
 
+    <!-- 자산 등록 -->
+    <NewAssetsData
+      :visible="NewAssetsDataVisible"
+      @close="NewAssetsDataVisible = false"
+    />
 
   </div>
 </template>
@@ -115,6 +125,8 @@
 <script setup>
 import { ref, computed, watch } from "vue";
 import AssetItem from "./components/AssetItem.vue";
+import NewAssetsGroup from "./components/NewAssetsGroup.vue";
+import NewAssetsData from "./components/NewAssetsData.vue";
 
 // 더미 데이터
 const assets = ref([
@@ -196,8 +208,6 @@ const filteredData = computed(() => {
   });
 });
 
-
-
 // 상태 필터 변경
 const setStatusFilter = (status) => {
   selectedCategory.value = status;
@@ -207,7 +217,6 @@ const setStatusFilter = (status) => {
 const handleCellClick = ({ column, row }) => {
   console.log(`${column} 클릭됨`, row);
 };
-
 
 const filter = ref({
   policyName: '',
@@ -224,6 +233,18 @@ const pageSize = ref(3); // 한 페이지에 표시할 개수
 // 페이지 변경 이벤트 처리
 const updateCurrentPage = (page) => {
   currentPage.value = page;
+};
+
+// 자산 그룹 등록
+const NewAssetsGroupVisible = ref(false);
+const openAssetPopup = () => {
+  NewAssetsGroupVisible.value = true;
+};
+
+// 자산등록
+const NewAssetsDataVisible = ref(false);
+const openAssetDataPopup = () => {
+  NewAssetsDataVisible.value = true;
 };
 
 </script>
