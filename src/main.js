@@ -10,6 +10,10 @@ import App from './App.vue'
 import router from './router'
 import './style.css'
 
+import VueTablerIcons from 'vue-tabler-icons'
+import '@/assets/styles/etc/tabler-icons/tabler-icons.min.css'
+
+
 import { createPinia } from "pinia";
 import components from "@/components";
 
@@ -30,4 +34,5 @@ app.use(pinia);
 app.use(ElementPlus)
 app.use(components)
 app.use(router)
+app.use(VueTablerIcons)
 app.mount('#app')

@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from "vue";
+import { ref } from "vue";
 import SidebarMenu from "@/components/SidebarMenu.vue";
 import SidebarToggle from "@/components/SidebarToggle.vue";
 
@@ -75,4 +75,4 @@ const startResize = (event) => {
 };
 </script>
 
-<style src="@/assets/styles/layout/sidebar.css"></style>
+<style lang="scss" src="@/assets/styles/layout/sidebar.scss"></style>

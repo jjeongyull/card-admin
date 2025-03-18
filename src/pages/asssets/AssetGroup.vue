@@ -3,14 +3,10 @@
     <!-- 필터 헤더 -->
     <h2 class="title">자산현황</h2>
     <div class="filter-header">
-      <el-tabs v-model="selectedCategory" class="custom-tabs">
-        <el-tab-pane
-          v-for="(category, index) in categories"
-          :key="index"
-          :label="category"
-          :name="category"
-        ></el-tab-pane>
-      </el-tabs>
+      <BaseButtonTab
+        v-model="selectedCategory"
+        :tabData="categories"
+      />
     </div>
 
     <el-row :gutter="20" class="responsive-row-inner">
@@ -31,7 +27,7 @@
               </el-select>
             </el-col>
             <el-col :span="15">
-              <el-input v-model="assetsSearchQuery" placeholder="자산 그룹명을 입력하세요." clearable />
+              <BaseInput  v-model="assetsSearchQuery" placeholder="자산 그룹명을 입력하세요."/>
             </el-col>
           </el-row>
 
@@ -49,10 +45,11 @@
       <!-- 오른쪽: 선택된 데이터 상세 -->
       <el-col :xs="24" :sm="24" :md="19">
         <div class="data-details">
-          <el-tabs v-model="activeTab" class="custom-tabs mb-20">
-            <el-tab-pane label="웹/앱" name="웹/앱"></el-tab-pane>
-            <el-tab-pane label="인프라" name="인프라"></el-tab-pane>
-          </el-tabs>
+          <BaseButtonTab
+            v-model="activeTab"
+            :tabData="TabList"
+            class="mb-10"
+          />
 
           <el-row :gutter="10" class="mb-20">
             <el-col :xs="24" :sm="24" :md="7">
@@ -68,7 +65,7 @@
               </el-button-group>
             </el-col>
             <el-col :xs="24" :sm="12" :md="10">
-              <el-input v-model="searchQuery" placeholder="정책명을 입력하세요" clearable />
+              <BaseInput  v-model="searchQuery" placeholder="정책명을 입력하세요"/>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
@@ -162,6 +159,7 @@ const selectedSecurity = ref("");
 
 
 watch(activeTab);
+const TabList = ref(['웹/앱', '인프라']);
 
 const statusFilters = ["전체", "준비", "운영", "종료", "폐기", "기타"];
 const platforms = ["Android", "iOS", "Windows", "Linux"];

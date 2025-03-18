@@ -4,6 +4,12 @@ import { defineAsyncComponent } from "vue";
 const components = {
   BaseButton: defineAsyncComponent(() => import("./base/BaseButton.vue")),
   BaseCard: defineAsyncComponent(() => import("./base/BaseCard.vue")),
+  BaseButtonTab: defineAsyncComponent(() => import("./base/BaseButtonTab.vue")),
+  BaseList: defineAsyncComponent(() => import("./base/BaseList.vue")),
+  BaseInput: defineAsyncComponent(() => import("./base/BaseInput.vue")),
+  BaseSelect: defineAsyncComponent(() => import("./base/BaseSelect.vue")),
+  BaseMenuItem: defineAsyncComponent(() => import("./base/BaseMenuItem.vue")),
+  BaseSidebarItems: defineAsyncComponent(() => import("./base/BaseSidebarItems.vue")),
   BaseTable: defineAsyncComponent(() => import("./tables/BaseTable.vue")),
   BaseChart: defineAsyncComponent(() => import("./charts/BaseChart.vue")),
   AccordionItem: defineAsyncComponent(() => import("./AccordionItem.vue")),

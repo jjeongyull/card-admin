@@ -2,48 +2,54 @@
 
   <div class="main-view">
     <el-row :gutter="10" class="responsive-row">
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="이행점검 목록" defaultState>
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">이행점검 목록</h4>
+        <BaseCard>
           <BaseChart
             :chartData="chartData"
             chartType="bar"
             chartTitle="차트 타이틀"
           />
-        </AccordionItem>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="외부 노출 서비스 현황" defaultState>
-            <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
-        </AccordionItem>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="10" class="responsive-row">
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="고위험 서비스" defaultState>
-            <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
-        </AccordionItem>
-      </el-col>
-
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="장기 미조치 취약점" defaultState>
-          <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
-        </AccordionItem>
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">외부 노출 서비스 현황</h4>
+        <BaseCard>
+          <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" :pageUse="false" />
+        </BaseCard>
       </el-col>
     </el-row>
 
     <el-row :gutter="10" class="responsive-row">
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="취약점 점검 (진행중)" defaultState>
-          <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" :allData="tableData_2" />
-        </AccordionItem>
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">고위험 서비스</h4>
+        <BaseCard>
+          <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" :pageUse="false" />
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="12">
-        <AccordionItem title="취약점 조치 현황" defaultState>
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">장기 미조치 취약점</h4>
+        <BaseCard>
+          <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" :pageUse="false"/>
+        </BaseCard>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="10" class="responsive-row">
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">취약점 점검 (진행중)</h4>
+        <BaseCard>
+          <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" :allData="tableData_2" :pageUse="false" />
+        </BaseCard>
+      </el-col>
+
+      <el-col :xs="24" :sm="24" :md="12" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">취약점 조치 현황</h4>
+        <BaseCard>
           <Calendar></Calendar>
-        </AccordionItem>
+        </BaseCard>
       </el-col>
     </el-row>
 
@@ -52,8 +58,6 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-
-const defaultState = ref(true);
 
 const tableColumns = ref([]);
 const tableColumns_2 = ref([]);

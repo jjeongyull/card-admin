@@ -1,7 +1,10 @@
 <template>
   <div class="tree-container">
     <!-- 필터 입력란 -->
-    <el-input v-model="filterText" placeholder="노드 필터" clearable />
+    <BaseInput
+      v-model="filterText"
+      placeholder="노드 필터"
+    />
 
     <!-- 트리 컴포넌트 -->
     <div class="tree-wrapper">

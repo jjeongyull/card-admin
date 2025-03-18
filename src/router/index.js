@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DefaultLayout from '../layouts/default/Layout.vue'
+import OnlyHeaderLayout from '../layouts/default/OnlyHeaderLayout.vue'
 
 const routes = [
   {
     path: '/',
-    component: DefaultLayout,
+    component: OnlyHeaderLayout,
     redirect: '/',
     children: [
       {

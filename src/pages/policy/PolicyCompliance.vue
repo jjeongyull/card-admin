@@ -4,18 +4,18 @@
     <h2 class="title">컴플라이언스 리스트</h2>
     <div class="filter-header">
 
-      <el-tabs v-model="selectedCategory" class="custom-tabs">
-        <el-tab-pane
-          v-for="(category, index) in categories"
-          :key="index"
-          :label="category"
-          :name="category"
-        ></el-tab-pane>
-      </el-tabs>
+      <BaseButtonTab
+        v-model="selectedCategory"
+        :tabData="categories"
+      />
+
       <div class="filter-actions">
-        <el-select v-model="selectedCategory" placeholder="전체" class="category-select">
-          <el-option v-for="category in categories" :key="category" :label="category" :value="category" />
-        </el-select>
+        <BaseSelect
+          v-model="selectedCategory"
+          placeholder='전체'
+          className="category-select"
+          :selectData="categories"
+        />
         <BaseButton class="black-button" @click="openCaPopup">
           카테고리 등록 +
         </BaseButton>

@@ -2,67 +2,77 @@
   <div class="main-view">
 
     <el-row :gutter="10" class="responsive-row">
-      <!-- 왼쪽 3개 아코디언 -->
-      <el-col :xs="24" :sm="24" :md="4">
-        <AccordionItem title="내 자산현황" defaultState>
+      <!-- 왼쪽 3개 -->
+      <el-col :xs="24" :sm="24" :md="4" style="display: flex; flex-direction: column;">
+        <BaseCard title="내 자산 현황">
           <p style="font-size: 18px; color: #4CAF50;">안전</p>
-        </AccordionItem>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="8">
-        <AccordionItem title="진행중인 심의" defaultState>
-          <p ref="progressText" class="progress-text">현대카드 메인 홈페이지 UX/UI 개편</p>
-          <progress class="progress-bar" value="70" max="100"></progress>
-        </AccordionItem>
+      <el-col :xs="24" :sm="24" :md="8" style="display: flex; flex-direction: column;">
+        <BaseCard title="진행중인 심의">
+          <div>
+            <p ref="progressText" class="progress-text">현대카드 메인 홈페이지 UX/UI 개편</p>
+            <progress class="progress-bar" value="70" max="100"></progress>
+          </div>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="4">
-        <AccordionItem title="조치필요 취약점" defaultState>
-          <p style="font-size: 20px; font-weight: 900; margin-bottom: 5px;">12<span style="font-size: 12px; color: #777777;">개</span></p>
-          <p style="font-size: 12px; color: #777777;">이전달 대비 <span style="color: #D32F2F;">+9</span></p>
-        </AccordionItem>
+      <el-col :xs="24" :sm="24" :md="4" style="display: flex; flex-direction: column;">
+        <BaseCard title="조치필요 취약점">
+          <div>
+            <p style="font-size: 20px; font-weight: 900; margin-bottom: 5px;">12<span style="font-size: 12px; color: #777777;">개</span></p>
+            <p style="font-size: 12px; color: #777777;">이전달 대비 <span style="color: #D32F2F;">+9</span></p>
+          </div>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="8">
-        <AccordionItem title="조치 지연 취약점" defaultState>
-          <p ref="progressText" class="progress-text" style="margin-bottom: 5px;">
-            현대카드 메인 홈페이지 cross-site Scripting
-          </p>
-          <p style="font-size: 12px; color: #777777;">등 3건</p>
-        </AccordionItem>
+      <el-col :xs="24" :sm="24" :md="8" style="display: flex; flex-direction: column;">
+        <BaseCard title="조치 지연 취약점">
+          <div>
+            <p ref="progressText" class="progress-text" style="margin-bottom: 5px;">
+              현대카드 메인 홈페이지 cross-site Scripting
+            </p>
+            <p style="font-size: 12px; color: #777777;">등 3건</p>
+          </div>
+
+        </BaseCard>
       </el-col>
     </el-row>
 
     <el-row :gutter="10" class="responsive-row">
-      <el-col :xs="24" :sm="24" :md="16">
-        <AccordionItem title="조치 지연 취약점" defaultState>
+      <el-col :xs="24" :sm="24" :md="16" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">조치 지연 취약점</h4>
+        <BaseCard>
             <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
-        </AccordionItem>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="8">
-        <AccordionItem title="취약점 조치 현황" defaultState>
+      <el-col :xs="24" :sm="24" :md="8" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">취약점 조치 현황</h4>
+        <BaseCard defaultState>
           <BaseChart
             :chartData="chartData"
             chartType="pie"
             chartTitle="차트 타이틀"
-            :radius="['65%', '80%']"
           />
-        </AccordionItem>
+        </BaseCard>
       </el-col>
     </el-row>
 
     <el-row :gutter="10" class="responsive-row">
-      <el-col :xs="24" :sm="24" :md="16">
-        <AccordionItem title="보안선 심의 현황" defaultState>
+      <el-col :xs="24" :sm="24" :md="16" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">보안선 심의 현황</h4>
+        <BaseCard>
           <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" @cell-click="handleCellClick" :allData="tableData_2"/>
-        </AccordionItem>
+        </BaseCard>
       </el-col>
 
-      <el-col :xs="24" :sm="24" :md="8">
-        <AccordionItem title="취약점 조치 현황" defaultState>
+      <el-col :xs="24" :sm="24" :md="8" style="display: flex; flex-direction: column;">
+        <h4 style="margin-bottom: 15px;">취약점 조치 현황</h4>
+        <BaseCard>
           <Calendar></Calendar>
-        </AccordionItem>
+        </BaseCard>
       </el-col>
     </el-row>
   </div>
@@ -71,7 +81,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
-const defaultState = ref(true);
+
 const tableColumns = ref([]);
 const tableColumns_2 = ref([]);
 const tableData = ref([]);

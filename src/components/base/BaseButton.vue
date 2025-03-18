@@ -30,4 +30,25 @@ const onClick = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+:deep(.el-button:hover) {
+    background-color: var(--el-button-hover-bg-color);
+    border-color: #000 !important;
+    color: #000 !important;
+    outline: none !important;
+}
+.white-button {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  margin-left: 0;
+}
+.black-button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.black-button .el-icon {
+  color: #fff !important;
+}
+</style>

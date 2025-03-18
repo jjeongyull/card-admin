@@ -71,6 +71,7 @@
 
     <!-- 페이지네이션 (수정된 부분) -->
     <el-pagination
+      v-if="pageUse"
       :current-page="currentPage"
       :page-size="pageSize"
       layout="total, sizes, prev, pager, next"
@@ -89,6 +90,7 @@ import { More } from "@element-plus/icons-vue";
 const props = defineProps({
   tableColumns: Array, // 컬럼 정의
   cheackValue: { type: Boolean, default: false }, // 체크박스 컬럼
+  pageUse: { type: Boolean, default: true }, // 페이지네이션 사용 여부
   tableData: Array, // 필터링 된 데이터 (필터링 후 데이터)
   allData: Array, // 전체 테이블 데이터 (필터링 전 데이터)
   pageSize: { type: Number, default: 10 }, // 페이지당 표시할 개수

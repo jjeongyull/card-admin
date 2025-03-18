@@ -55,61 +55,59 @@
       <!-- 오른쪽: 선택된 데이터 상세 -->
       <el-col :xs="24" :sm="24" :md="20">
         <div class="data-details">
-          <el-tabs v-model="activeTab" class="custom-tabs">
-            <el-tab-pane label="전체" name="all"></el-tab-pane>
-            <el-tab-pane label="관리" name="management"></el-tab-pane>
-            <el-tab-pane label="물리" name="physics"></el-tab-pane>
-            <el-tab-pane label="기술" name="tech"></el-tab-pane>
-            <el-tab-pane label="개인정보" name="privacy"></el-tab-pane>
-            <el-tab-pane label="기타" name="other"></el-tab-pane>
-            <el-tab-pane label="N/A" name="n/a"></el-tab-pane>
-          </el-tabs>
+          <BaseButtonTab
+            v-model="activeTab"
+            :tabData="TabList"
+          />
 
           <el-row :gutter="10" class="mb-10">
             <el-col :xs="24" :sm="24" :md="3">
-              <el-select v-model="filter.policyName" placeholder="정책명" clearable>
-                <el-option label="정책명1" value="정책명1" />
-                <el-option label="정책명2" value="정책명2" />
-                <el-option label="정책명3" value="정책명3" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.policyName"
+                placeholder="정책명"
+                :selectData="['정책명1', '정책명2', '정책명3']"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="5">
-              <el-input v-model="searchDetail" placeholder="정책명을 입력하세요" clearable />
+              <BaseInput
+                v-model="searchDetail"
+                placeholder="정책명을 입력하세요"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="3">
-              <el-select v-model="filter.priority" placeholder="중요도" clearable>
-                <el-option label="높음" value="high" />
-                <el-option label="보통" value="medium" />
-                <el-option label="낮음" value="low" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.priority"
+                placeholder="중요도"
+                :selectData="['높음', '보통', '낮음']"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="2">
-              <el-select v-model="filter.riskLevel" placeholder="위험등급" clearable>
-                <el-option label="1" value="1" />
-                <el-option label="2" value="2" />
-                <el-option label="3" value="3" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.riskLevel"
+                placeholder="위험등급"
+                :selectData="['1', '2', '3']"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="2">
-              <el-select v-model="filter.target" placeholder="대상구분" clearable>
-                <el-option label="1" value="1" />
-                <el-option label="2" value="2" />
-                <el-option label="3" value="3" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.target"
+                placeholder="대상구분"
+                :selectData="['1', '2', '3']"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="2">
-              <el-select v-model="filter.tag" placeholder="태그" clearable>
-                <el-option label="1" value="1" />
-                <el-option label="2" value="2" />
-                <el-option label="3" value="3" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.tag"
+                placeholder="태그"
+                :selectData="['1', '2', '3']"
+              />
             </el-col>
             <el-col :xs="24" :sm="24" :md="2">
-              <el-select v-model="filter.status" placeholder="상태" clearable>
-                <el-option label="상태1" value="상태1" />
-                <el-option label="상태2" value="상태2" />
-                <el-option label="상태3" value="상태3" />
-              </el-select>
+              <BaseSelect
+                v-model="filter.status"
+                placeholder="상태"
+                :selectData="['상태1', '상태2', '상태3']"
+              />
             </el-col>
             <el-col :sm="12" :md="3">
               <BaseButton class="black-button w-100" type="link" @click="openDataPop">
@@ -130,10 +128,10 @@
 
           <div>
             <!--  @update="openUpdatePop" -->
-            <ElcardDiv
+            <BaseList
               :filteredDetails="filteredDetails"
               @openPanel="openDetail"
-            ></ElcardDiv>
+            ></BaseList>
           </div>
 
         </div>
@@ -163,7 +161,6 @@ import { ref, watch, computed } from "vue";
 import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
-import ElcardDiv from './components/ElcardDiv.vue';
 import NewCompliance from "./components/NewCompliance.vue";
 
 const props = defineProps({
@@ -186,7 +183,8 @@ const scrollbarRef = ref(null);
 const dialogVisible = ref(false);
 // 필터 및 검색어 상태
 const searchDetail = ref('');
-const activeTab = ref('all');
+const activeTab = ref('전체');
+const TabList = ref(["전체", "관리", "물리", "기술", "개인정보", "기타", "N/A"]);
 const filter = ref({
   policyName: '',
   priority: '',

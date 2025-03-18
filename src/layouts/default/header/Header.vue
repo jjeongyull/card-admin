@@ -14,7 +14,7 @@
 
       <!-- 데스크톱에서는 네비게이션 메뉴 -->
       <nav class="menu">
-        <el-button
+        <BaseButton
           v-for="menu in menuList"
           :key="menu.menuId"
           class="header-text"
@@ -22,7 +22,7 @@
           @click="selectMenu(menu)"
         >
           {{ menu.menuName }}
-        </el-button>
+        </BaseButton>
       </nav>
     </div>
 
@@ -73,4 +73,4 @@
   };
 </script>
 
-<style scoped src="@/assets/styles/layout/header.css"></style>
+<style scoped lang="scss" src="@/assets/styles/layout/header.scss"></style>
