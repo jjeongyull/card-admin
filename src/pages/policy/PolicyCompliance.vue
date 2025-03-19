@@ -52,7 +52,6 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import CategoryCard from "../../components/CategoryCard.vue";
 import ComplianceCategoryPopup from "./components/ComplianceCategoryPopup.vue";
 import NewCompliance from "./components/NewCompliance.vue";
 

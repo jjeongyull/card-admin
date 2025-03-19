@@ -44,7 +44,7 @@
       <el-col :xs="24" :sm="24" :md="16" style="display: flex; flex-direction: column;">
         <h4 style="margin-bottom: 15px;">조치 지연 취약점</h4>
         <BaseCard>
-            <BaseTable :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
+            <BaseTable :pageUse="false" :tableColumns="tableColumns" :tableData="tableData" :allData="tableData" />
         </BaseCard>
       </el-col>
 
@@ -55,6 +55,7 @@
             :chartData="chartData"
             chartType="pie"
             chartTitle="차트 타이틀"
+            :percent="true"
           />
         </BaseCard>
       </el-col>
@@ -64,7 +65,7 @@
       <el-col :xs="24" :sm="24" :md="16" style="display: flex; flex-direction: column;">
         <h4 style="margin-bottom: 15px;">보안선 심의 현황</h4>
         <BaseCard>
-          <BaseTable :tableColumns="tableColumns_2" :tableData="tableData_2" @cell-click="handleCellClick" :allData="tableData_2"/>
+          <BaseTable :pageUse="false" :tableColumns="tableColumns_2" :tableData="tableData_2" @cell-click="handleCellClick" :allData="tableData_2"/>
         </BaseCard>
       </el-col>
 
@@ -89,7 +90,8 @@ const tableData_2 = ref([]);
 
 const loadTableData = async () => {
   try {
-    const response = await fetch('/src/data/tableData.json');
+    const response = await fetch('src/assets/data/tableData.json');
+    // const response = await fetch('/assets/data/tableData.json');
     const data = await response.json();
     tableColumns.value = data.tableColumns;
     tableColumns_2.value = data.tableColumns_2;

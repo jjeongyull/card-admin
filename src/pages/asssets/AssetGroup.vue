@@ -20,24 +20,25 @@
 
           <el-row :gutter="10" class="filter-section">
             <el-col :span="9">
-              <el-select v-model="assetsSelectedStatus" placeholder="운영" clearable>
-                <el-option label="운영" value="운영" />
-                <el-option label="종료" value="종료" />
-                <el-option label="폐기" value="폐기" />
-              </el-select>
+              <BaseSelect
+                v-model="assetsSelectedStatus"
+                placeholder="운영"
+                style="width: 100%;"
+                :selectData="['운영', '종료', '폐기']"
+              />
             </el-col>
             <el-col :span="15">
-              <BaseInput  v-model="assetsSearchQuery" placeholder="자산 그룹명을 입력하세요."/>
+              <el-input  v-model="assetsSearchQuery" placeholder="자산 그룹명을 입력하세요."/>
             </el-col>
           </el-row>
 
-          <div class="asset-list list-warpper-500">
-            <AssetItem
+          <ul class="asset-list list-warpper-500">
+            <ExtraList
               v-for="(asset, index) in filteredAssets"
               :key="index"
               :asset="asset"
             />
-          </div>
+          </ul>
 
         </div>
       </el-col>
@@ -65,19 +66,25 @@
               </el-button-group>
             </el-col>
             <el-col :xs="24" :sm="12" :md="10">
-              <BaseInput  v-model="searchQuery" placeholder="정책명을 입력하세요"/>
+              <el-input  v-model="searchQuery" placeholder="정책명을 입력하세요"/>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
-              <el-select v-model="selectedPlatform" placeholder="플랫폼" clearable>
-                <el-option v-for="platform in platforms" :key="platform" :label="platform" :value="platform" />
-              </el-select>
+              <BaseSelect
+                v-model="selectedPlatform"
+                placeholder="플랫폼"
+                style="width: 100%;"
+                :selectData="platforms"
+              />
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
-              <el-select v-model="selectedSecurity" placeholder="보안" clearable>
-                <el-option v-for="security in securityLevels" :key="security" :label="security" :value="security" />
-              </el-select>
+              <BaseSelect
+                v-model="selectedSecurity"
+                placeholder="보안"
+                style="width: 100%;"
+                :selectData="securityLevels"
+              />
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
@@ -121,7 +128,6 @@
 
 <script setup>
 import { ref, computed, watch } from "vue";
-import AssetItem from "./components/AssetItem.vue";
 import NewAssetsGroup from "./components/NewAssetsGroup.vue";
 import NewAssetsData from "./components/NewAssetsData.vue";
 

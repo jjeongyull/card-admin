@@ -25,11 +25,12 @@
 
       <!-- 상태 -->
       <el-form-item label="상태" v-if="!formData.menuName">
-        <el-select placeholder="상태를 선택해주세요" clearable>
-          <el-option label="상태1" value="0" />
-          <el-option label="상태2" value="1" />
-          <el-option label="상태3" value="2" />
-        </el-select>
+        <BaseSelect
+          v-model="selData"
+          placeholder="상태를 선택해주세요."
+          style="width: 100%;"
+          :selectData="['상태1', '상태2', '상태3']"
+        />
       </el-form-item>
 
       <!-- 상세설명 -->
@@ -70,6 +71,7 @@ const emit = defineEmits(["update", "submit", "delete"]);
 
 const dialogVisible = ref(props.visible);
 const formData = ref({});
+const selData = ref('')
 
 // 반응형 다이얼로그 크기 설정
 const dialogWidth = computed(() => {

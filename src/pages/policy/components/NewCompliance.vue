@@ -19,18 +19,22 @@
 
           <!-- 카테고리 -->
           <el-form-item label="카테고리">
-            <el-select v-model="form.category" placeholder="카테고리를 선택해주세요." style="width: 100%;">
-              <el-option label="카테고리 1" value="category1" />
-              <el-option label="카테고리 2" value="category2" />
-            </el-select>
+            <BaseSelect
+              v-model="form.category"
+              placeholder="카테고리를 선택해주세요."
+              style="width: 100%;"
+              :selectData="['카테고리 1', '카테고리 2']"
+            />
           </el-form-item>
 
           <!-- 상태 -->
           <el-form-item label="상태">
-            <el-select v-model="form.status" placeholder="상태를 선택해주세요." style="width: 100%;">
-              <el-option label="진행 중" value="ongoing" />
-              <el-option label="완료" value="completed" />
-            </el-select>
+            <BaseSelect
+              v-model="form.status"
+              placeholder="상태를 선택해주세요."
+              style="width: 100%;"
+              :selectData="['진행 중', '완료']"
+            />
           </el-form-item>
 
           <!-- 담당자 -->
@@ -42,6 +46,8 @@
                 :key="index"
                 closable
                 @close="removeTag(index)"
+                effect="dark"
+                round
               >
                 {{ tag }}
               </el-tag>

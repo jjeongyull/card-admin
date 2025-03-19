@@ -34,30 +34,43 @@
           <el-row :gutter="20">
             <el-col :span="6">
               <el-form-item label="중요도">
-                <el-select v-model="policyData.importance" placeholder="선택" :disabled="!isEditing">
-                  <el-option label="운영" value="운영" />
-                </el-select>
+                <BaseSelect
+                  v-model="policyData.importance"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                  :disabled="!isEditing"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
+
               <el-form-item label="위험">
-                <el-select v-model="policyData.risk" placeholder="선택" :disabled="!isEditing">
-                  <el-option label="위험" value="위험" />
-                </el-select>
+                <BaseSelect
+                  v-model="policyData.risk"
+                  placeholder="선택"
+                  :selectData="['위험']"
+                  :disabled="!isEditing"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
               <el-form-item label="영역">
-                <el-select v-model="policyData.area" placeholder="선택" :disabled="!isEditing">
-                  <el-option label="관리" value="관리" />
-                </el-select>
+                <BaseSelect
+                  v-model="policyData.area"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                  :disabled="!isEditing"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
               <el-form-item label="공통">
-                <el-select v-model="policyData.common" placeholder="선택" :disabled="!isEditing">
-                  <el-option label="관리" value="관리" />
-                </el-select>
+                <BaseSelect
+                  v-model="policyData.common"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                  :disabled="!isEditing"
+                />
               </el-form-item>
             </el-col>
           </el-row>
@@ -74,7 +87,7 @@
                   v-if="isEditing"
                 />
                 <div class="tag-container">
-                  <el-tag v-for="(manager, index) in policyData.managers" :key="index" closable @close="removeManager(index)">
+                  <el-tag v-for="(manager, index) in policyData.managers" :key="index" closable @close="removeManager(index)" effect="dark" round>
                     {{ manager.userName }}
                   </el-tag>
                 </div>
@@ -97,7 +110,7 @@
               v-if="isEditing"
             />
             <div class="tag-container">
-              <el-tag v-for="(tag, index) in policyData.tags" :key="index" closable @close="removeTag(index)">
+              <el-tag v-for="(tag, index) in policyData.tags" :key="index" closable @close="removeTag(index)" effect="dark" round>
                 {{ tag.tagName }}
               </el-tag>
             </div>
@@ -113,7 +126,7 @@
               />
             <div class="tag-container">
 
-              <el-tag v-for="(policy, index) in policyData.relatedPolicies" :key="index" closable @close="removePolicy(index)">
+              <el-tag v-for="(policy, index) in policyData.relatedPolicies" :key="index" closable @close="removePolicy(index)" effect="dark" round>
                 {{ policy }}
               </el-tag>
             </div>

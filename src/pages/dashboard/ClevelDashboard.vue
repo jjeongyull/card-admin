@@ -66,7 +66,8 @@ const tableData_2 = ref([]);
 
 const loadTableData = async () => {
   try {
-    const response = await fetch('/src/data/tableData.json');
+    const response = await fetch('src/assets/data/tableData.json');
+    // const response = await fetch('/assets/data/tableData.json');
     const data = await response.json();
     tableColumns.value = data.tableColumns;
     tableColumns_2.value = data.tableColumns_2;

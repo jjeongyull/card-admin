@@ -35,7 +35,7 @@
               />
             </el-col>
             <el-col :xs="24" :sm="24" :md="5">
-              <BaseInput
+              <el-input
                 v-model="searchDetail"
                 placeholder="정책명을 입력하세요"
               />

@@ -30,7 +30,7 @@
     <div class="toolbar">
       <el-dropdown>
         <div class="icon-wrapper">
-          <el-icon><el-icon><User /></el-icon></el-icon>
+          <el-icon><el-icon><UserFilled /></el-icon></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>

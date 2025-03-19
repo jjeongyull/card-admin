@@ -8,7 +8,7 @@
   >
     <el-scrollbar class="sidebar-scroll">
       <SidebarToggle :isCollapsed="isCollapsed" @toggle="toggleCollapse" />
-      <SidebarMenu :selectedMenu="selectedMenu" :isCollapsed="isCollapsed" @menu-click="sideClick" />
+      <BaseSidebarItems :selectedMenu="selectedMenu" :isCollapsed="isCollapsed" @menu-click="sideClick" />
     </el-scrollbar>
 
     <!-- 사이즈 조절 핸들 -->
@@ -18,7 +18,6 @@
 
 <script setup>
 import { ref } from "vue";
-import SidebarMenu from "@/components/SidebarMenu.vue";
 import SidebarToggle from "@/components/SidebarToggle.vue";
 
 

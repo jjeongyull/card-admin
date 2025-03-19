@@ -28,12 +28,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-}
+  gap: 20px;
+  height: 100%;
+  border-left: 1px solid #e4e7ec;
+  align-items: center;
 
+}
+.legend-inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
 .legend-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 14px;
 }
@@ -53,6 +64,6 @@
 
 .percent {
   font-weight: 700;
-  font-size: 14px;
-  color: #333;
+  font-size: 22px;
+  text-align: center;
 }

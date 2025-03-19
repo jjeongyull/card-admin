@@ -5,16 +5,6 @@
   flex-wrap: wrap;
   gap: 8px;
 }
-
-/* 태그 스타일 */
-.el-tag {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  font-size: 14px;
-}
-
-
 /* 섹션 타이틀 */
 .section-title {
   font-size: 16px;

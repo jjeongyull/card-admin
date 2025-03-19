@@ -33,30 +33,38 @@
           <el-row :gutter="10">
             <el-col :xs="24" :sm="6">
               <el-form-item label="중요도">
-                <el-select v-model="formData.importance" placeholder="선택">
-                  <el-option label="운영" value="운영" />
-                </el-select>
+                <BaseSelect
+                  v-model="formData.importance"
+                  placeholder="선택"
+                  :selectData="['운영']"
+                />
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="6">
               <el-form-item label="위험">
-                <el-select v-model="formData.risk" placeholder="선택">
-                  <el-option label="위험" value="위험" />
-                </el-select>
+                <BaseSelect
+                  v-model="formData.risk"
+                  placeholder="선택"
+                  :selectData="['위험']"
+                />
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="6">
               <el-form-item label="영역">
-                <el-select v-model="formData.area" placeholder="선택">
-                  <el-option label="관리" value="관리" />
-                </el-select>
+                <BaseSelect
+                  v-model="formData.area"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                />
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="6">
               <el-form-item label="공통">
-                <el-select v-model="formData.common" placeholder="선택">
-                  <el-option label="관리" value="관리" />
-                </el-select>
+                <BaseSelect
+                  v-model="formData.common"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                />
               </el-form-item>
             </el-col>
           </el-row>
@@ -77,6 +85,7 @@
                     :key="index"
                     closable
                     @close="removeManager(index)"
+                    round
                   >
                     {{ manager }}
                   </el-tag>
@@ -85,9 +94,11 @@
             </el-col>
             <el-col :xs="24" :sm="8">
               <el-form-item label="예외구분">
-                <el-select v-model="formData.exception" placeholder="선택">
-                  <el-option label="관리" value="관리" />
-                </el-select>
+                <BaseSelect
+                  v-model="formData.exception"
+                  placeholder="선택"
+                  :selectData="['관리']"
+                />
               </el-form-item>
             </el-col>
           </el-row>
@@ -106,6 +117,8 @@
                 :key="index"
                 closable
                 @close="removeTag(index)"
+                effect="dark"
+                round
               >
                 {{ tag }}
               </el-tag>
@@ -126,6 +139,7 @@
                 :key="index"
                 closable
                 @close="removePolicy(index)"
+                round
               >
                 {{ policy }}
               </el-tag>

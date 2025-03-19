@@ -6,12 +6,14 @@
         <div ref="chartRef" class="chart"></div>
       </div>
     </el-col>
-    <el-col :xs="24" :sm="24" :md="6">
+    <el-col :xs="24" :sm="24" :md="6" style="height: 100%;">
       <div v-if="showLegend" class="legend">
-        <div v-for="item in legendData" :key="item.name" class="legend-item">
-          <span class="dot" :style="{ backgroundColor: item.color }"></span>
-          <span class="legend-text">{{ item.name }}</span>
-          <span class="percent">{{ item.value }}</span>
+        <div v-for="item in legendData" :key="item.name" class="legend-inner">
+          <div class="legend-item">
+            <span class="dot" :style="{ backgroundColor: item.color }"></span>
+            <span class="legend-text">{{ item.name }}</span>
+          </div>
+          <span class="percent" :style="{ color: item.color }">{{ item.value }}<span v-if="percent">%</span></span>
         </div>
       </div>
     </el-col>
@@ -31,6 +33,7 @@ const props = defineProps({
   chartType: { type: String, default: "pie" }, // 차트 타입 ("pie", "bar", "line")
   radius: { type: Array, default: () => ["60%", "80%"] }, // 도넛 차트 크기 설정
   showLegend: { type: Boolean, default: true }, // 범례 표시 여부
+  percent: { type: Boolean, default: false }, // 범례 표시 여부
 });
 
 const chartRef = ref(null);

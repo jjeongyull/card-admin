@@ -20,10 +20,12 @@
 
           <!-- 상태 -->
           <el-form-item label="상태">
-            <el-select v-model="form.status" placeholder="플레이스홀더" style="width: 100%;">
-              <el-option label="진행 중" value="ongoing" />
-              <el-option label="완료" value="completed" />
-            </el-select>
+            <BaseSelect
+              v-model="form.status"
+              placeholder="플레이스홀더"
+              style="width: 100%;"
+              :selectData="['진행 중', '완료']"
+            />
           </el-form-item>
 
           <!-- 대내/내외 선택 -->

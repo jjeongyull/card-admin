@@ -1,5 +1,5 @@
 <template>
-  <div
+  <li
     class="asset-item"
     @mouseover="hover = true"
     @mouseleave="hover = false"
@@ -9,21 +9,26 @@
 
     <!-- 상태 + 담당자 + 날짜 -->
     <div class="asset-info">
-      <span class="status">{{ asset.status }}</span>
-      <span class="managers">{{ asset.managers.join(", ") }}</span>
-      <span class="date">{{ asset.date }}</span>
+      <div class="asset-info-inner">
+        <div>
+          <span class="status">{{ asset.status }}</span>&nbsp;
+          <span class="managers">{{ asset.managers.join(", ") }}</span>
+        </div>
+        <span class="date">{{ asset.date }}</span>
+      </div>
+      <!-- 호버 시 아이콘 버튼 표시 -->
+      <div class="icon-buttons" v-if="hover">
+        <BaseButton class="icon-btn" @click="emit('history-click', asset)">
+          <el-icon><Clock /></el-icon>
+        </BaseButton>
+        <BaseButton class="icon-btn" @click="emit('edit-click', asset)">
+          <el-icon><Edit /></el-icon>
+        </BaseButton>
+      </div>
     </div>
 
-    <!-- 호버 시 아이콘 버튼 표시 -->
-    <div class="icon-buttons" v-if="hover">
-      <BaseButton class="icon-btn" @click="emit('history-click', asset)">
-        <el-icon><Clock /></el-icon>
-      </BaseButton>
-      <BaseButton class="icon-btn" @click="emit('edit-click', asset)">
-        <el-icon><Edit /></el-icon>
-      </BaseButton>
-    </div>
-  </div>
+
+  </li>
 </template>
 
 <script setup>
@@ -43,6 +48,7 @@ const hover = ref(false);
   border-bottom: 1px solid #ddd;
   position: relative;
   transition: background 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .asset-item:hover {
@@ -51,14 +57,22 @@ const hover = ref(false);
 
 .asset-title {
   font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .asset-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.asset-info-inner {
   font-size: 12px;
   color: #666;
   margin-top: 4px;
   display: flex;
   gap: 5px;
+  flex-direction: column;
 }
 
 .status {
@@ -66,18 +80,21 @@ const hover = ref(false);
 }
 
 .date {
-  margin-left: auto;
   color: #aaa;
 }
 
 .icon-buttons {
   display: flex;
   justify-content: flex-end;
-  margin-top: 5px;
+  gap: 7px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
 }
 .icon-btn{
   border: none;
   padding: 0;
   height: fit-content;
+  margin: 0;
 }
 </style>

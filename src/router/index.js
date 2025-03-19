@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import DefaultLayout from '../layouts/default/Layout.vue'
 import OnlyHeaderLayout from '../layouts/default/OnlyHeaderLayout.vue'
 
@@ -77,7 +77,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 

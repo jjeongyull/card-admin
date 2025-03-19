@@ -5,21 +5,22 @@
       :key="item.complianceSeq"
       class="detail-card"
       @update="openUpdatePop"
+       @click="updateDataPopup(item)"
       >
       <!-- 카테고리 및 제목 -->
       <div class="card-chk">
-        <el-checkbox v-model="item.checked"></el-checkbox>
+        <el-checkbox v-model="item.checked" @click.stop></el-checkbox>
         <span class="subtitle">{{ item.categoryName }}</span>
       </div>
       <div class="card-header">
         <el-tag class="dot" type="success" effect="dark"></el-tag>
-        <span class="title" @click="updateDataPopup(item)">{{ item.categoryName }}</span>
+        <span class="title">{{ item.categoryName }}</span>
         <div
           class="tags"
           v-for="tagItem in item.tags"
           :key="tagItem.itemTagSeq"
         >
-          <el-tag size="small" type="info">{{ tagItem.tagName }}</el-tag>
+          <el-tag size="small" type="primary" effect="plain" round>{{ tagItem.tagName }}</el-tag>
         </div>
       </div>
 
@@ -32,7 +33,6 @@
           <span>코드 {{ item.itemCode }} 대상 {{ item.target }}</span>
         </div>
         <div class="footer">
-        <el-tag style="opacity: 0;" class="dot" type="success" effect="dark"></el-tag>
           <div>
             <p class="date">{{ item.regDate.substr(0, 10) }}</p>
             <p class="author">운영 |
@@ -67,4 +67,4 @@
   }
 </script>
 
-<style scoped src="@/assets/styles/components/ElcardDiv.css"></style>
+<style scoped lang="scss" src="@/assets/styles/components/BaseList.scss"></style>
