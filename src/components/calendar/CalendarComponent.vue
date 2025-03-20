@@ -1,10 +1,10 @@
 <template>
   <div class="calendar-wrapper">
-    <div class="calendar-header">
+    <!-- <div class="calendar-header">
       <el-button @click="prevMonth" icon="ArrowLeft" circle />
       <h3>{{ currentMonth }} {{ currentYear }}</h3>
       <el-button @click="nextMonth" icon="ArrowRight" circle />
-    </div>
+    </div> -->
 
     <el-calendar v-model="selectedDate" class="custom-calendar">
       <template #date-cell="{ data }">
@@ -40,6 +40,7 @@ const currentYear = computed(() => selectedDate.value.getFullYear());
 const currentMonth = computed(() =>
   selectedDate.value.toLocaleString("default", { month: "long" })
 );
+
 
 // 날짜 표시 형식 조정
 const formatDay = (day) => {

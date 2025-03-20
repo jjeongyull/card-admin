@@ -16,8 +16,8 @@
   text-align: center;
   padding: 8px;
   position: relative;
-  font-size: 14px;
-  border-radius: 4px;
+  font-size: 12px;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -30,7 +30,6 @@
   background-color: #409eff !important;
   color: white;
   font-weight: bold;
-  border-radius: 4px;
 }
 
 .data-dot {
@@ -61,11 +60,12 @@
 }
 .el-calendar-table thead th{
   padding: 5px 0;
+  font-size: 14px;
 }
 .el-calendar-table .el-calendar-day{
   height: auto;
   font-size: 12px;
-  padding: 4px;
+  padding: 0;
 }
 .el-collapse{
   border-bottom: none;

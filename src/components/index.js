@@ -7,6 +7,7 @@ const components = {
   BaseButtonTab: defineAsyncComponent(() => import("./base/BaseButtonTab.vue")),
   BaseList: defineAsyncComponent(() => import("./base/BaseList.vue")),
   BaseSelect: defineAsyncComponent(() => import("./base/BaseSelect.vue")),
+  TreeSelect: defineAsyncComponent(() => import("./tree/TreeSelect.vue")),
   BaseMenuItem: defineAsyncComponent(() => import("./base/BaseMenuItem.vue")),
   BaseSidebarItems: defineAsyncComponent(() => import("./base/BaseSidebarItems.vue")),
   BaseTable: defineAsyncComponent(() => import("./tables/BaseTable.vue")),
@@ -18,6 +19,12 @@ const components = {
   ExtraList: defineAsyncComponent(() => import("./others/ExtraList.vue")),
   LogList: defineAsyncComponent(() => import("./others/LogList.vue")),
   CategoryCard: defineAsyncComponent(() => import("./others/CategoryCard.vue")),
+
+  // 모달
+
+  // 패널
+  PolicyDetailPanel: defineAsyncComponent(() => import("./panel/PolicyDetailPanel.vue")),
+  PolicySearchPanel: defineAsyncComponent(() => import("./panel/PolicySearchPanel.vue")),
 };
 
 // 컴포넌트 전역 등록

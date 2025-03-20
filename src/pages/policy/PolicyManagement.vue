@@ -140,7 +140,7 @@ import { ElMessage } from 'element-plus';
 import policyDetailData from '@/data/policy_detail.json';
 import PolicyAddPopup from "./components/PolicyAddPopup.vue"; // 정책분야 추가 팝업
 import PolicyDataDialog from "./components/PolicyDataDialog.vue"; // 단위정책 추가 팝업
-import PolicyDetailPanel from "./components/PolicyDetailPanel.vue"; // 단위정책 디테일 패널
+
 
 // 트리 데이터
 const treeData = ref(menu);

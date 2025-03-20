@@ -29,7 +29,7 @@
       </BaseButton>
 
       <!-- 신규 추가 버튼 -->
-      <BaseButton class="black-button" @click="openCompliancepup">
+      <BaseButton class="black-button"  @click="openCompliancepup">
         신규 컴플라이언스 &nbsp;<el-icon><Plus /></el-icon>
       </BaseButton>
     </div>
@@ -38,7 +38,18 @@
     <!-- 왼쪽: 트리 데이터 리스트 -->
       <el-col :xs="24" :sm="24" :md="4">
         <div class="data-list">
-          <h4 class="mb-20">{{ treeTitle }}</h4>
+          <div class="mb-20 flex-space">
+            <h4>{{ treeTitle }}</h4>
+            <BaseButton plain size="small">
+              컴플라이언스 수정
+              <el-icon><Edit/></el-icon>
+            </BaseButton>
+          </div>
+
+          <div class="mb-10">
+            <el-input type="text" v-model="policyCategorySearch" placeholder="정책분야 조회"/>
+          </div>
+
           <TreeComponent
             :data="treeData"
             @edit="openUpdatePop"
@@ -110,7 +121,7 @@
               />
             </el-col>
             <el-col :sm="12" :md="3">
-              <BaseButton class="black-button w-100" type="link" @click="openDataPop">
+              <BaseButton class="black-button w-100" type="link" @click="openPanel">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
               </BaseButton>
             </el-col>
@@ -130,7 +141,6 @@
             <!--  @update="openUpdatePop" -->
             <BaseList
               :filteredDetails="filteredDetails"
-              @openPanel="openDetail"
             ></BaseList>
           </div>
 
@@ -147,10 +157,18 @@
 
     <!-- 로그 리스트 -->
     <ChangeLogDialog
-      :visible="dialogVisible"
+      :visible="openPanel"
       :changeLogs="changeLogs"
       @close="dialogVisible = false"
     />
+
+    <!-- 단위정책 리스트 -->
+    <PolicySearchPanel
+      :visible="dialogVisible"
+      @close="dialogVisible = false"
+    />
+
+
 
   </div>
 </template>
@@ -167,6 +185,7 @@ const props = defineProps({
   complianceList: Array,
   selectComplianceCategory: Object
 });
+const policyCategorySearch = ref('')
 const treeTitle = ref(props.selectComplianceCategory.title);
 watch(
   () => props.selectComplianceCategory, // selectCompliance 값 감지
@@ -181,6 +200,7 @@ watch(
 const emit = defineEmits(["selectedCom"]);
 const scrollbarRef = ref(null);
 const dialogVisible = ref(false);
+const panelVisible = ref(false);
 // 필터 및 검색어 상태
 const searchDetail = ref('');
 const activeTab = ref('전체');
@@ -260,6 +280,9 @@ const changeLogs = ref([
 
 const openDialog = () => {
   dialogVisible.value = true;
+}
+const openPanel = () => {
+  panelVisible.value = true;
 }
 </script>
 <style scoped src="@/assets/styles/pages/PolicyManagement.css"></style>

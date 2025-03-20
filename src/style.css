@@ -102,3 +102,8 @@ body{
   overflow-y: auto; /* 스크롤 추가 */
   max-height: 500px;
  }
+ .flex-space{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ }
