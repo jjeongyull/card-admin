@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div >
     <el-card
       v-for="item in filteredDetails"
       :key="item.complianceSeq"
       class="detail-card"
-      @update="openUpdatePop"
-       @click="updateDataPopup(item)"
-      >
+      :draggable="droppable"
+      @dragstart="(event) => onDragStart(event, item, index)"
+      @dragover.prevent
+      @drop="(event) => onDrop(event, index)"
+    >
       <!-- 카테고리 및 제목 -->
       <div class="card-chk">
         <el-checkbox v-model="item.checked" @click.stop></el-checkbox>
@@ -14,7 +16,7 @@
       </div>
       <div class="card-header">
         <el-tag class="dot" type="success" effect="dark"></el-tag>
-        <span class="title">{{ item.categoryName }}</span>
+        <span class="title" @click="updateDataPopup(item)">{{ item.categoryName }}</span>
         <div
           class="tags"
           v-for="tagItem in item.tags"
@@ -43,7 +45,6 @@
                 <strong v-if="index > 0">, {{ maItem.userName }}</strong>
                 <strong v-else>{{ maItem.userName }}</strong>
               </span>
-
             </p>
           </div>
         </div>
@@ -54,13 +55,48 @@
 </template>
 
 <script setup>
-  defineProps({
+import { ref } from "vue";
+  const draggedItem = ref(null);
+  const draggedIndex = ref(null);
+
+  const props = defineProps({
     filteredDetails: {
       type: Array,
-      required: true
-    }
+      required: true,
+
+    },
+    droppable: {type: Boolean, default: false}
   });
-  const emit = defineEmits(["openPanel"]);
+  const emit = defineEmits(["openPanel", "dropItem"]);
+
+  const onDragStart = (event, item, index) => {
+  console.log("Drag Start", item);
+  draggedItem.value = item;
+  draggedIndex.value = index;
+
+  event.dataTransfer.setData("application/json", JSON.stringify(item));
+  event.dataTransfer.effectAllowed = "move";
+
+  // 드래그 중인 요소 스타일 추가
+  event.target.classList.add("dragging");
+};
+
+const onDrop = (event, targetIndex) => {
+  event.preventDefault();
+  if (draggedItem.value === null) return;
+
+  console.log(" Drop at index:", targetIndex);
+
+  const newList = [...props.filteredDetails];
+  newList.splice(draggedIndex.value, 1);
+  newList.splice(targetIndex, 0, draggedItem.value);
+
+  emit("updateList", newList); // 부모 컴포넌트에 데이터 전달
+
+  draggedItem.value = null;
+  draggedIndex.value = null;
+};
+
 
   const updateDataPopup = (data) => {
     emit("openPanel", data);

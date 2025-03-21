@@ -29,6 +29,7 @@
 .sidebar {
   border-right: 1px solid var(--el-menu-border-color);
   position: relative;
+  user-select: none;
 }
 .sidebar .el-menu-item,
 .sidebar .el-sub-menu__title {

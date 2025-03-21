@@ -65,7 +65,7 @@
 
       <!-- 오른쪽: 선택된 데이터 상세 -->
       <el-col :xs="24" :sm="24" :md="20">
-        <div class="data-details">
+        <div class="data-details" style="position: relative;">
           <BaseButtonTab
             v-model="activeTab"
             :tabData="TabList"
@@ -141,9 +141,17 @@
             <!--  @update="openUpdatePop" -->
             <BaseList
               :filteredDetails="filteredDetails"
+              :droppable="true"
+              @updateList="updateFilteredDetails"
             ></BaseList>
-          </div>
 
+
+          </div>
+          <!-- 단위정책 리스트 -->
+          <PolicySearchPanel
+            :visible="panelVisible"
+            @close="panelVisible = false"
+          />
         </div>
       </el-col>
     </el-row>
@@ -162,11 +170,6 @@
       @close="dialogVisible = false"
     />
 
-    <!-- 단위정책 리스트 -->
-    <PolicySearchPanel
-      :visible="dialogVisible"
-      @close="dialogVisible = false"
-    />
 
 
 
@@ -216,6 +219,16 @@ const filter = ref({
 
 const selectComplianceData = ref(null);
 
+const handleDrop = (item) => {
+  // 이미 있는 항목이면 추가하지 않음
+  // const exists = details.value.some(detail => detail.id === item.id);
+  console.log(item)
+  const exists = false;
+  if (!exists) {
+    details.value.push(item);
+  }
+};
+
 
 // 탭 버튼 상태
 const dataViewState = ref(0);
@@ -231,6 +244,10 @@ const filteredDetails = computed(() => {
     (!searchDetail.value || item.title.includes(searchDetail.value))
   );
 });
+
+const updateFilteredDetails = (newList) => {
+  details.value = newList;
+};
 
 // 트리 데이터
 const treeData = ref(menu);

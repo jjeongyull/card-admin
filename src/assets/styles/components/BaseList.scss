@@ -1,6 +1,5 @@
 .detail-card {
   border-radius: 8px;
-  margin-bottom: 10px;
   box-shadow: none;
   border: none;
   border-radius: 0;
@@ -13,6 +12,23 @@
       color: var(--color-white);
     }
   }
+  &:active {
+    cursor: grabbing;
+
+
+  }
+}
+.not-select{
+  user-select: none;
+}
+.drag-preview {
+  opacity: 1;
+  pointer-events: none;
+}
+.dragging {
+  border-radius: 8px;
+  opacity: 1;
+  background-color: var(--el-color-primary);
 }
 .card-chk{
   display: flex;
