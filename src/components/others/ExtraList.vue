@@ -52,7 +52,7 @@ const hover = ref(false);
 }
 
 .asset-item:hover {
-  background: #f5f5f5;
+  background: #FAFCFF;
 }
 
 .asset-title {

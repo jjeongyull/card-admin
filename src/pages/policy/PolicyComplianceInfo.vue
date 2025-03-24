@@ -40,7 +40,7 @@
         <div class="data-list">
           <div class="mb-20 flex-space">
             <h4>{{ treeTitle }}</h4>
-            <BaseButton plain size="small">
+            <BaseButton class="white-button" size="small" @click="openDetail">
               컴플라이언스 수정
               <el-icon><Edit/></el-icon>
             </BaseButton>
@@ -121,17 +121,17 @@
               />
             </el-col>
             <el-col :sm="12" :md="3">
-              <BaseButton class="black-button w-100" type="link" @click="openPanel">
+              <BaseButton class="black-button w-100" type="text" @click="openPanel">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100" type="text">
                 <el-icon><Delete/></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="link" @click="openDialog">
+              <BaseButton class="white-button w-100" type="text" @click="openDialog">
                 <el-icon><Operation /></el-icon>
               </BaseButton>
             </el-col>
@@ -139,11 +139,15 @@
 
           <div>
             <!--  @update="openUpdatePop" -->
-            <BaseList
-              :filteredDetails="filteredDetails"
-              :droppable="true"
-              @updateList="updateFilteredDetails"
-            ></BaseList>
+            <VueDraggableNext
+              v-model="filteredDetails"
+              group="shared"
+              item-key="complianceSeq"
+            >
+              <BaseList
+                :filteredDetails="filteredDetails"
+              ></BaseList>
+            </VueDraggableNext>
 
 
           </div>
@@ -151,6 +155,7 @@
           <PolicySearchPanel
             :visible="panelVisible"
             @close="panelVisible = false"
+            @DragAddItem="DragAddItem"
           />
         </div>
       </el-col>
@@ -169,10 +174,6 @@
       :changeLogs="changeLogs"
       @close="dialogVisible = false"
     />
-
-
-
-
   </div>
 </template>
 
@@ -183,11 +184,14 @@ import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
 import NewCompliance from "./components/NewCompliance.vue";
+import { VueDraggableNext } from 'vue-draggable-next';
+import { ElMessage } from 'element-plus'
 
 const props = defineProps({
   complianceList: Array,
   selectComplianceCategory: Object
 });
+
 const policyCategorySearch = ref('')
 const treeTitle = ref(props.selectComplianceCategory.title);
 watch(
@@ -219,17 +223,6 @@ const filter = ref({
 
 const selectComplianceData = ref(null);
 
-const handleDrop = (item) => {
-  // 이미 있는 항목이면 추가하지 않음
-  // const exists = details.value.some(detail => detail.id === item.id);
-  console.log(item)
-  const exists = false;
-  if (!exists) {
-    details.value.push(item);
-  }
-};
-
-
 // 탭 버튼 상태
 const dataViewState = ref(0);
 watch(activeTab, (newValue) => {
@@ -245,9 +238,6 @@ const filteredDetails = computed(() => {
   );
 });
 
-const updateFilteredDetails = (newList) => {
-  details.value = newList;
-};
 
 // 트리 데이터
 const treeData = ref(menu);
@@ -301,5 +291,18 @@ const openDialog = () => {
 const openPanel = () => {
   panelVisible.value = true;
 }
+
+// 드래그 관련
+const DragAddItem = (items) => {
+  filteredDetails.value.push(items);
+  console.log(filteredDetails.value);
+
+  ElMessage({
+    message: '단위 정책이 성공적으로 추가되었습니다.',
+    type: 'success',
+
+  })
+};
+
 </script>
 <style scoped src="@/assets/styles/pages/PolicyManagement.css"></style>

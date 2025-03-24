@@ -14,8 +14,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  border-bottom: 1px solid #CDD0D6;
 }
-
 .title {
   font-size: 1rem;
   font-weight: bold;
@@ -99,4 +99,8 @@
   color: #000 !important;
   border: 1px solid #000 !important;
   margin-left: 0;
+}
+:deep(.custom-tabs > .el-tabs__header) {
+  margin: 0 !important;
+  border-bottom: 1px solid #CDD0D6;
 }

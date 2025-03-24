@@ -1,13 +1,9 @@
 <template>
-  <div >
+
     <el-card
       v-for="item in filteredDetails"
       :key="item.complianceSeq"
       class="detail-card"
-      :draggable="droppable"
-      @dragstart="(event) => onDragStart(event, item, index)"
-      @dragover.prevent
-      @drop="(event) => onDrop(event, index)"
     >
       <!-- 카테고리 및 제목 -->
       <div class="card-chk">
@@ -50,52 +46,23 @@
         </div>
       </div>
     </el-card>
-  </div>
+
 
 </template>
 
 <script setup>
-import { ref } from "vue";
-  const draggedItem = ref(null);
-  const draggedIndex = ref(null);
+
 
   const props = defineProps({
     filteredDetails: {
       type: Array,
       required: true,
 
-    },
-    droppable: {type: Boolean, default: false}
+    }
   });
-  const emit = defineEmits(["openPanel", "dropItem"]);
+  const emit = defineEmits(["openPanel"]);
 
-  const onDragStart = (event, item, index) => {
-  console.log("Drag Start", item);
-  draggedItem.value = item;
-  draggedIndex.value = index;
 
-  event.dataTransfer.setData("application/json", JSON.stringify(item));
-  event.dataTransfer.effectAllowed = "move";
-
-  // 드래그 중인 요소 스타일 추가
-  event.target.classList.add("dragging");
-};
-
-const onDrop = (event, targetIndex) => {
-  event.preventDefault();
-  if (draggedItem.value === null) return;
-
-  console.log(" Drop at index:", targetIndex);
-
-  const newList = [...props.filteredDetails];
-  newList.splice(draggedIndex.value, 1);
-  newList.splice(targetIndex, 0, draggedItem.value);
-
-  emit("updateList", newList); // 부모 컴포넌트에 데이터 전달
-
-  draggedItem.value = null;
-  draggedIndex.value = null;
-};
 
 
   const updateDataPopup = (data) => {

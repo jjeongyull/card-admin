@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    title="업무 등록"
+    :title="selectDataRef?'업무 등록': '업무 수정'"
     :width="dialogWidth"
     :close-on-click-modal="closeDialog"
     class="custom-dialog"
@@ -52,17 +52,13 @@
           </el-form-item>
 
           <!-- 상세설명 -->
-          <el-form-item label="상세설명">
+          <el-form-item label="상세설명" v-if="isNewForm">
             <el-input v-model="form.description" type="textarea" placeholder="상세설명을 입력해주세요." />
           </el-form-item>
 
-          <!-- 정렬순번 -->
-          <el-form-item label="정렬순번">
-            <el-input v-model="form.order" type="number" />
-          </el-form-item>
 
           <!-- 파일 업로드 -->
-          <el-form-item label="정렬순번">
+          <el-form-item label="첨부파일">
             <el-upload
               class="upload-container"
               drag
@@ -93,7 +89,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from "vue";
+import { ref, watch, onMounted, onUnmounted, computed } from "vue";
 
 const form = ref({
   complianceName: "",
@@ -105,10 +101,15 @@ const form = ref({
   files: [],
 });
 
+
 const props = defineProps({
   visible: Boolean,
-  selectData: Object
+  selectData: {type: Object, default: null}
 });
+
+const isNewForm = computed(() => !props.selectData)
+
+
 
 const emit = defineEmits(["close"]);
 
@@ -117,6 +118,7 @@ const dialogVisible = ref(false);
 watch(() => props.visible, (val) => {
   dialogVisible.value = val;
 });
+
 
 const closeDialog = () => {
   dialogVisible.value = false;

@@ -28,10 +28,17 @@
             />
           </el-col>
         </el-row>
-        <BaseList
-          :filteredDetails="listData"
-          :droppable="false"
-        ></BaseList>
+        <VueDraggableNext
+          v-model="myList"
+          group="shared"
+          item-key="complianceSeq"
+          @end="DragStartItem"
+          >
+          <BaseList
+            :filteredDetails="listData"
+          ></BaseList>
+        </VueDraggableNext>
+
       </el-scrollbar>
     </div>
   </transition>
@@ -43,11 +50,13 @@ import { ref } from "vue";
 import { Close } from "@element-plus/icons-vue";
 import policyDetailData from '@/assets/data/policy_detail2.json';
 
+import { VueDraggableNext } from 'vue-draggable-next';
+
 const props = defineProps({
   visible: Boolean
 });
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["close", "DragAddItem"]);
 
 const policyData = ref(null);
 const listData = ref(policyDetailData);
@@ -59,6 +68,16 @@ const closePanel = () => {
   emit("close");
 };
 
+const DragStartItem = (event) => {
+  const addedItem = listData.value[event.newIndex];
+  emit("DragAddItem", addedItem);
+};
+
 </script>
 
 <style scoped src="@/assets/styles/components/PolicyDetailPanel.css"></style>
+<style scoped>
+  :deep(.panel-body .el-scrollbar__wrap){
+    padding-right: 10px;
+  }
+</style>

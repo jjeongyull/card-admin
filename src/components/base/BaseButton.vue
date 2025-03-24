@@ -15,7 +15,7 @@
 import { useAttrs } from "vue";
 
 const props = defineProps({
-  type: { type: String, default: "" },
+  type: { type: String, default: "link" },
   size: { type: String, default: "default" },
   customClass: { type: [String, Array, Object], default: "" }, // 사용자 정의 클래스
   customStyle: { type: Object, default: () => ({}) }, // 사용자 정의 스타일

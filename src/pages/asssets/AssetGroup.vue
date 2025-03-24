@@ -15,7 +15,7 @@
         <div class="data-list">
           <div class="left-header mb-20">
             <h4>전체 7건</h4>
-            <BaseButton size="small" @click="openAssetPopup">자산 그룹 등록</BaseButton>
+            <BaseButton size="small" class="white-button" @click="openAssetPopup">자산 그룹 등록</BaseButton>
           </div>
 
           <el-row :gutter="10" class="filter-section">
@@ -37,6 +37,8 @@
               v-for="(asset, index) in filteredAssets"
               :key="index"
               :asset="asset"
+              @history-click="histoyClick"
+              @edit-click="editClick"
             />
           </ul>
 
@@ -54,16 +56,16 @@
 
           <el-row :gutter="10" class="mb-20">
             <el-col :xs="24" :sm="24" :md="7">
-              <el-button-group class="status-buttons">
-                <BaseButton
+              <el-radio-group v-model="selectedCategory" >
+                <el-radio-button
                   v-for="(status, index) in statusFilters"
                   :key="index"
-                  :class="{ active: activeStatus === status }"
+                  :label="status"
+                  :value="status"
                   @click="setStatusFilter(status)"
-                >
-                  {{ status }}
-                </BaseButton>
-              </el-button-group>
+                  />
+              </el-radio-group>
+
             </el-col>
             <el-col :xs="24" :sm="12" :md="10">
               <el-input  v-model="searchQuery" placeholder="정책명을 입력하세요"/>
@@ -115,6 +117,7 @@
     <NewAssetsGroup
       :visible="NewAssetsGroupVisible"
       @close="NewAssetsGroupVisible = false"
+      :SelectData="SelectAssetGroupData"
     />
 
     <!-- 자산 등록 -->
@@ -122,6 +125,13 @@
       :visible="NewAssetsDataVisible"
       @close="NewAssetsDataVisible = false"
     />
+
+    <!-- 히스토리 팝업 -->
+     <ChangeLogDialog
+      :visible="historyVisible"
+      @close="historyVisible = false"
+      :changeLogs="changeLogs"
+     />
 
   </div>
 </template>
@@ -156,7 +166,7 @@ const filteredAssets = computed(() => {
   );
 });
 
-const categories = ref(["전체", "애플리케이션", "보안장비", "기타그룹"]);
+const categories = ref(["전체", "애플리케이션", "네트워크", "보안장비", "기타그룹"]);
 const selectedCategory = ref("전체");
 const activeTab = ref('웹/앱');
 const searchQuery = ref("");
@@ -166,7 +176,7 @@ const selectedSecurity = ref("");
 
 watch(activeTab);
 const TabList = ref(['웹/앱', '인프라']);
-
+const SelectAssetGroupData = ref(null);
 const statusFilters = ["전체", "준비", "운영", "종료", "폐기", "기타"];
 const platforms = ["Android", "iOS", "Windows", "Linux"];
 const securityLevels = ["높음", "보통", "낮음"];
@@ -248,8 +258,34 @@ const openAssetPopup = () => {
 // 자산등록
 const NewAssetsDataVisible = ref(false);
 const openAssetDataPopup = () => {
+  SelectAssetGroupData.value = null;
   NewAssetsDataVisible.value = true;
 };
+
+// 자산그룹 히스토리 클릭
+const historyVisible = ref(false);
+const changeLogs = ref([
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+  { timestamp: "2025-01-02T19:24:12", action: "순서변경", user: "관리자" },
+]);
+
+const histoyClick = (items) => {
+  historyVisible.value = true;
+}
+
+// 자산그룹 수정 클릭
+
+const editClick = (items) => {
+  SelectAssetGroupData.value = items;
+  NewAssetsGroupVisible.value = true;
+}
 
 </script>
 
