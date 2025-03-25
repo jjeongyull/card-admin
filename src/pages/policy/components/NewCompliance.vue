@@ -90,7 +90,7 @@
     <!-- 하단 버튼 -->
     <template #footer>
       <div class="dialog-footer">
-        <BaseButton @click="closeDialog">취소</BaseButton>
+        <BaseButton @click="closeDialog" class="white-button">취소</BaseButton>
         <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
       </div>
     </template>

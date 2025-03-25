@@ -159,7 +159,7 @@
     <!-- 푸터 (모달 하단 고정) -->
     <template #footer>
       <div class="dialog-footer">
-        <BaseButton @click="closeDialog">취소</BaseButton>
+        <BaseButton @click="closeDialog" class="white-button">취소</BaseButton>
         <BaseButton class="black-button" type="primary" @click="submitForm">추가완료</BaseButton>
       </div>
     </template>

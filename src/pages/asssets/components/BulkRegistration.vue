@@ -37,7 +37,7 @@
     <!-- 하단 버튼 -->
     <template #footer>
       <div class="dialog-footer space">
-        <BaseButton @click="downloadFile">양식 다운로드&nbsp;<el-icon><Download/></el-icon></BaseButton>
+        <BaseButton @click="downloadFile" class="white-button">양식 다운로드&nbsp;<el-icon><Download/></el-icon></BaseButton>
         <BaseButton @click="submitForm" class="black-button">등록하기</BaseButton>
       </div>
     </template>

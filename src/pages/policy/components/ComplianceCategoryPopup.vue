@@ -37,7 +37,7 @@
         </BaseButton>
 
         <div class="footer-right">
-          <BaseButton plain @click="onClose">취소</BaseButton>
+          <BaseButton plain @click="onClose" class="white-button">취소</BaseButton>
           <BaseButton class="black-button" type="info" @click="submitForm">
             {{ formData.menuName && policyType === 'edit' ? "수정완료" : "추가완료" }}
           </BaseButton>

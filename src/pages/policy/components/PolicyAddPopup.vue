@@ -49,7 +49,7 @@
 
         <div class="footer-right">
           <!-- 정책 데이터가 있을 때: "취소", "수정완료" / 없을 때: "닫기", "완료" -->
-          <BaseButton plain @click="onClose">닫기</BaseButton>
+          <BaseButton plain @click="onClose" class="white-button">닫기</BaseButton>
           <BaseButton class="black-button" type="info" @click="submitForm">{{ formData.menuName && policyType === 'edit' ? "수정완료" : "추가완료" }}</BaseButton>
         </div>
       </div>
