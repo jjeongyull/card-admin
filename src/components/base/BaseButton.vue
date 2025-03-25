@@ -15,9 +15,9 @@
 import { useAttrs } from "vue";
 
 const props = defineProps({
-  type: { type: String, default: "link" },
+  type: { type: String, default: "info" },
   size: { type: String, default: "default" },
-  customClass: { type: [String, Array, Object], default: "" }, // 사용자 정의 클래스
+  customClass: { type: [String, Array, Object], default: "white-button" }, // 사용자 정의 클래스
   customStyle: { type: Object, default: () => ({}) }, // 사용자 정의 스타일
 });
 
@@ -26,7 +26,13 @@ const emit = defineEmits(["click"]);
 const attrs = useAttrs(); // 추가적인 속성들을 자동 바인딩
 
 const onClick = () => {
-  emit("click");
+  try {
+    emit("click");
+    // 실행할 코드
+  } catch (error) {
+    console.error("버튼 클릭 중 오류 발생:", error);
+  }
+
 };
 </script>
 

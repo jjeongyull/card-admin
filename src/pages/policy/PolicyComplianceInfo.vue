@@ -47,7 +47,7 @@
           </div>
 
           <div class="mb-10">
-            <el-input type="text" v-model="policyCategorySearch" placeholder="정책분야 조회"/>
+            <el-input type="text"  :prefix-icon="Search" v-model="policyCategorySearch" placeholder="정책분야 조회"/>
           </div>
 
           <TreeComponent
@@ -121,17 +121,17 @@
               />
             </el-col>
             <el-col :sm="12" :md="3">
-              <BaseButton class="black-button w-100" type="text" @click="openPanel">
+              <BaseButton class="black-button w-100" @click="openPanel">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="text">
+              <BaseButton class="white-button w-100">
                 <el-icon><Delete/></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="text" @click="openDialog">
+              <BaseButton class="white-button w-100" @click="openDialog">
                 <el-icon><Operation /></el-icon>
               </BaseButton>
             </el-col>
@@ -186,6 +186,7 @@ import policyDetailData from '@/data/policy_detail.json';
 import NewCompliance from "./components/NewCompliance.vue";
 import { VueDraggableNext } from 'vue-draggable-next';
 import { ElMessage } from 'element-plus'
+import { Search } from '@element-plus/icons-vue'
 
 const props = defineProps({
   complianceList: Array,

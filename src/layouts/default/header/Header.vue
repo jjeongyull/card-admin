@@ -62,7 +62,7 @@
   import { ref, computed } from 'vue';
   import { useMenuStore } from '@/store/menuStore';
 
-  const config = ref(configData)
+  const config = ref(configData);
   const emit = defineEmits(['menu-selected']);
   const menuStore = useMenuStore();
   const menuList = computed(() => menuStore.menuList);

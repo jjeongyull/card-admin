@@ -1,6 +1,11 @@
 .slide{
   padding: 16px;
 }
+.panel-title{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
 /* 패널 애니메이션 */
 .slide-enter-active, .slide-leave-active {
   transition: transform 0.3s ease-in-out;

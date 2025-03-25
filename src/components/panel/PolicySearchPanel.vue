@@ -3,7 +3,7 @@
     <div v-if="visible" class="policy-detail-panel inner-panel">
       <div class="panel-header">
         <h3><el-icon style="margin-right: 8px;"><Search/></el-icon>단위 정책 검색 및 추가</h3>
-        <BaseButton type="text" class="close-btn" @click="closePanel">
+        <BaseButton class="close-btn" @click="closePanel">
           <el-icon><Close /></el-icon>
         </BaseButton>
       </div>

@@ -49,12 +49,12 @@
               </div>
             </template>
             <template v-else-if="column.prop === 'history'">
-              <BaseButton type="link" @click.stop="emit('history-click', row)">
+              <BaseButton class="white-button" @click.stop="emit('history-click', row)">
                 <el-icon><Refresh /></el-icon>
               </BaseButton>
             </template>
             <template v-else-if="column.prop === 'actions'">
-              <BaseButton type="link" @click.stop="emit('actions-click', row)">
+              <BaseButton class="white-button" @click.stop="emit('actions-click', row)">
                 <el-icon><Setting /></el-icon>
               </BaseButton>
             </template>
@@ -175,7 +175,7 @@ const getStatusTag = (status) => {
     case "조치필요":
       return "danger";
     default:
-      return "";
+      return "primary";
   }
 };
 
@@ -257,4 +257,5 @@ const getStatusClass = (status) => {
 :deep(.el-table .el-table__cell) {
   padding: 0;
 }
+
 </style>

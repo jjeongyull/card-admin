@@ -20,6 +20,7 @@
   padding: 20px !important;
   border-radius: 8px;
   height: 100%;
+  overflow-x: hidden;
 }
 .responsive-row {
   display: flex;

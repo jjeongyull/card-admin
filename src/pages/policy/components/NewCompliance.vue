@@ -3,7 +3,7 @@
     v-model="dialogVisible"
     title="컴플라이언스 추가"
     :width="dialogWidth"
-    :close-on-click-modal="closeDialog"
+    :close-on-click-modal="false"
     class="custom-dialog"
     align-center
     @close="closeDialog"
@@ -48,6 +48,7 @@
                 @close="removeTag(index)"
                 effect="dark"
                 round
+                type="info"
               >
                 {{ tag }}
               </el-tag>

@@ -36,50 +36,7 @@ const isEmpty = (value, isCheckWithZero = false) => {
   )
 }
 
-/**
- * 주어진 평면 배열 데이터를 트리 구조로 변환하는 함수입니다.
- *
- * 이 함수는 주어진 데이터를 `parentKey`와 `key`를 기준으로 트리 구조로 변환하고,
- * 부모 메뉴 ID가 `startMenuId`인 항목들을 찾아 트리의 루트로 설정합니다.
- * 또한, 항목들을 `sortKey`를 기준으로 정렬합니다.
- *
- * @param {Array} items - 트리 구조로 변환할 평면 배열 데이터입니다.
- * @param {string} parentKey - 부모 항목의 ID를 나타내는 키입니다.
- * @param {string} key - 각 항목의 고유 ID를 나타내는 키입니다.
- * @param {string} startMenuId - 트리 구조의 루트로 설정할 부모 항목의 ID입니다.
- * @param {string} [sortKey='sort'] - 항목들을 정렬할 키입니다. 기본값은 `'sort'`입니다.
- *
- * @returns {Array} 트리 구조로 변환된 배열을 반환합니다.
- *
- * @example
- * const flatData = [
- *   { menuId: '1', parentMenuId: '0', sort: 1 },
- *   { menuId: '2', parentMenuId: '0', sort: 2 },
- *   { menuId: '3', parentMenuId: '1', sort: 1 },
- *   { menuId: '4', parentMenuId: '1', sort: 2 },
- * ];
- * const treeData = buildTree(flatData, 'parentMenuId', 'menuId', '0');
- * console.log(treeData);
- *
- * // 결과:
- * [
- *   {
- *     menuId: '1',
- *     parentMenuId: '0',
- *     sort: 1,
- *     children: [
- *       { menuId: '3', parentMenuId: '1', sort: 1, children: [] },
- *       { menuId: '4', parentMenuId: '1', sort: 2, children: [] }
- *     ]
- *   },
- *   {
- *     menuId: '2',
- *     parentMenuId: '0',
- *     sort: 2,
- *     children: []
- *   }
- * ]
- */
+
 const buildTree = (items, parentKey, key, startMenuId, sortKey = "sort") =>
   items
     .filter(item => item[parentKey] === startMenuId) // 부모 ID가 startMenuId인 것만 필터링
@@ -91,10 +48,10 @@ const buildTree = (items, parentKey, key, startMenuId, sortKey = "sort") =>
 
 
     /**
-     * 
+     *
      * @param {*} nodes 트리구조로 만들 최종데이터
      * @param {*} keyName : label데이터에 넣을 기존의 key값
-     * @returns 
+     * @returns
      */
 const addLabelRecursively = (nodes, keyName) => {
   return nodes.map(node => ({
@@ -104,38 +61,7 @@ const addLabelRecursively = (nodes, keyName) => {
   }));
 };
 
-/**
- * 부모 항목을 포함한 특정 항목을 찾는 함수입니다.
- *
- * 이 함수는 주어진 `value` 값을 `separator`로 구분하여 부모 항목들을 하나씩 찾아가며,
- * 해당 항목을 `key` 값을 기준으로 `items`에서 검색합니다. 각 부모 항목을 추적하며
- * 일치하는 항목을 `result` 배열에 추가합니다.
- *
- * @param {Array} items - 항목들이 담긴 배열입니다.
- * @param {string} key - 항목에서 검색할 키입니다.
- * @param {string} value - 검색할 값으로, 부모 항목들을 구분할 `separator`를 포함한 값입니다.
- * @param {string} separator - 부모 항목을 구분하는 구분자입니다.
- *
- * @returns {Array} `key`와 일치하는 항목들을 포함하는 배열을 반환합니다.
- * 여러 부모 항목이 있을 경우 각각의 항목을 포함합니다.
- *
- * @example
- * const items = [
- *   { menuId: '1', name: 'Menu 1' },
- *   { menuId: '1.1', name: 'Sub Menu 1.1' },
- *   { menuId: '1.1.1', name: 'Sub Sub Menu 1.1.1' },
- *   { menuId: '2', name: 'Menu 2' }
- * ];
- * const result = findItemWidthParents(items, 'menuId', '1.1.1', '.');
- * console.log(result);
- *
- * // 결과:
- * [
- *   { menuId: '1', name: 'Menu 1' },
- *   { menuId: '1.1', name: 'Sub Menu 1.1' },
- *   { menuId: '1.1.1', name: 'Sub Sub Menu 1.1.1' }
- * ]
- */
+
 const findItemWidthParents = (items, key, value, separator) => {
   const tmps = value.split(separator)
   const result = []

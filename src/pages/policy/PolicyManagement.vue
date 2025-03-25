@@ -5,6 +5,11 @@
       <el-col :xs="24" :sm="24" :md="4">
         <div class="data-list">
           <h4 class="mb-20">단위정책 탐색</h4>
+
+          <div class="mb-10">
+            <el-input type="text" v-model="policyCategorySearch" :prefix-icon="Search" placeholder="정책분야 조회"/>
+          </div>
+
           <TreeComponent
             :data="treeData"
             @edit="openUpdatePop"
@@ -76,17 +81,17 @@
               />
             </el-col>
             <el-col :sm="12" :md="3">
-              <BaseButton class="black-button w-100" type="link" @click="openDataPop">
+              <BaseButton class="black-button w-100" @click="openDataPop">
                 단위정책 등록 &nbsp;<el-icon><Plus /></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100">
                 <el-icon><Delete/></el-icon>
               </BaseButton>
             </el-col>
             <el-col :sm="6" :md="1">
-              <BaseButton class="white-button w-100" type="link">
+              <BaseButton class="white-button w-100">
                 <el-icon><Operation /></el-icon>
               </BaseButton>
             </el-col>
@@ -135,7 +140,7 @@
 <script setup>
 import menu from '@/data/menu.json';
 import { ref, watch, computed } from 'vue';
-
+import { Search } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus';
 import policyDetailData from '@/data/policy_detail.json';
 import PolicyAddPopup from "./components/PolicyAddPopup.vue"; // 정책분야 추가 팝업
@@ -144,6 +149,7 @@ import PolicyDataDialog from "./components/PolicyDataDialog.vue"; // 단위정�
 
 // 트리 데이터
 const treeData = ref(menu);
+const policyCategorySearch = ref(null);
 
 // 정책분야 팝업
 const dialogVisible = ref(false);

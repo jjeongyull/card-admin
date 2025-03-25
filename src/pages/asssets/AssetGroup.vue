@@ -52,6 +52,7 @@
             v-model="activeTab"
             :tabData="TabList"
             class="mb-10"
+            style="width: 100%;"
           />
 
           <el-row :gutter="10" class="mb-20">
@@ -67,7 +68,7 @@
               </el-radio-group>
 
             </el-col>
-            <el-col :xs="24" :sm="12" :md="10">
+            <el-col :xs="24" :sm="12" :md="8">
               <el-input  v-model="searchQuery" placeholder="정책명을 입력하세요"/>
             </el-col>
 
@@ -90,7 +91,10 @@
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="2">
-              <BaseButton class="black-button w-100" @click="openAssetDataPopup">자산 등록 <el-icon><Plus /></el-icon></BaseButton>
+              <BaseButton class="black-button w-100" @click="openAssetDataPopup">자산 등록 &nbsp;<el-icon><Plus /></el-icon></BaseButton>
+            </el-col>
+            <el-col :xs="12" :sm="6" :md="2">
+              <BaseButton class="white-button w-100" @click="openbulkPopup">일괄 등록&nbsp;<el-icon><Upload /></el-icon></BaseButton>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="1">
@@ -133,6 +137,12 @@
       :changeLogs="changeLogs"
      />
 
+     <!-- 일괄등록 팝업 -->
+     <BulkRegistration
+      :visible="bulkVisible"
+      @close="bulkVisible = false"
+     />
+
   </div>
 </template>
 
@@ -140,20 +150,21 @@
 import { ref, computed, watch } from "vue";
 import NewAssetsGroup from "./components/NewAssetsGroup.vue";
 import NewAssetsData from "./components/NewAssetsData.vue";
+import BulkRegistration from "./components/BulkRegistration.vue";
 
 // 더미 데이터
 const assets = ref([
-  { name: "현대카드 IOS 앱 수정", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "Dive 운영관리", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "Auto Digital", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" },
-  { name: "Finance 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32" }
+  { name: "현대카드 IOS 앱 수정", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: ""},
+  { name: "Dive 운영관리", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "Auto Digital", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "현대카드용 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" },
+  { name: "Finance 서버", status: "운영", managers: ["관리자", "김민준"], date: "2023-03-28 16:14:32", description: "", files: [], scope: "" }
 ]);
 
 const assetsSearchQuery = ref("");
@@ -165,6 +176,10 @@ const filteredAssets = computed(() => {
     (!assetsSearchQuery.value || asset.name.includes(assetsSearchQuery.value))
   );
 });
+
+const sortTable = () => {
+
+}
 
 const categories = ref(["전체", "애플리케이션", "네트워크", "보안장비", "기타그룹"]);
 const selectedCategory = ref("전체");
@@ -262,6 +277,12 @@ const openAssetDataPopup = () => {
   NewAssetsDataVisible.value = true;
 };
 
+// 자산등록
+const bulkVisible = ref(false);
+const openbulkPopup = () => {
+  bulkVisible.value = true;
+};
+
 // 자산그룹 히스토리 클릭
 const historyVisible = ref(false);
 const changeLogs = ref([
@@ -281,8 +302,8 @@ const histoyClick = (items) => {
 }
 
 // 자산그룹 수정 클릭
-
 const editClick = (items) => {
+  console.log(items)
   SelectAssetGroupData.value = items;
   NewAssetsGroupVisible.value = true;
 }

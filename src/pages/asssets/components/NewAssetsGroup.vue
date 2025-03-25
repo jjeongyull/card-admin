@@ -1,9 +1,9 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    :title="selectDataRef?'업무 등록': '업무 수정'"
+    :title="form.name === null ?'업무 등록': '업무 수정'"
     :width="dialogWidth"
-    :close-on-click-modal="closeDialog"
+    :close-on-click-modal="false"
     class="custom-dialog"
     align-center
     @close="closeDialog"
@@ -14,7 +14,7 @@
         <el-form label-position="top">
           <!-- 업무명 -->
           <el-form-item label="업무명">
-            <el-input v-model="form.complianceName" placeholder="업무명을 입력해주세요." />
+            <el-input v-model="form.name" placeholder="업무명을 입력해주세요." />
           </el-form-item>
 
           <!-- 상태 -->
@@ -39,12 +39,13 @@
             <el-input v-model="newTag" placeholder="담당자" @keyup.enter="addTag" />
             <div class="tag-container">
               <el-tag
-                v-for="(tag, index) in form.assignees"
+                v-for="(tag, index) in form.managers"
                 :key="index"
                 closable
                 @close="removeTag(index)"
                 effect="dark"
                 round
+                type="info"
               >
                 {{ tag }}
               </el-tag>
@@ -52,7 +53,7 @@
           </el-form-item>
 
           <!-- 상세설명 -->
-          <el-form-item label="상세설명" v-if="isNewForm">
+          <el-form-item label="상세설명" v-if="form.name === null">
             <el-input v-model="form.description" type="textarea" placeholder="상세설명을 입력해주세요." />
           </el-form-item>
 
@@ -89,26 +90,32 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted, computed } from "vue";
+import { ref, watch, onMounted, onUnmounted } from "vue";
 
 const form = ref({
-  complianceName: "",
-  status: "",
-  scope: "대내",
-  assignees: ["관리자", "김민준"],
-  description: "",
-  order: 24,
+  name: null,
+  status: null,
+  scope: null,
+  managers: [],
+  description: null,
   files: [],
 });
 
-
 const props = defineProps({
   visible: Boolean,
-  selectData: {type: Object, default: null}
+  selectData: Object
 });
 
-const isNewForm = computed(() => !props.selectData)
-
+watch(() => props.selectData, (newData) => {
+  form.value = newData ? { ...newData } : {
+    name: null,
+    status: null,
+    scope: null,
+    managers: [],
+    description: null,
+    files: [],
+  };
+}, { immediate: true });
 
 
 const emit = defineEmits(["close"]);
@@ -119,7 +126,6 @@ watch(() => props.visible, (val) => {
   dialogVisible.value = val;
 });
 
-
 const closeDialog = () => {
   dialogVisible.value = false;
   emit("close", false);
@@ -128,14 +134,14 @@ const closeDialog = () => {
 const newTag = ref("");
 
 const addTag = () => {
-  if (newTag.value && !form.value.assignees.includes(newTag.value)) {
-    form.value.assignees.push(newTag.value);
+  if (newTag.value && !form.value.managers.includes(newTag.value)) {
+    form.value.managers.push(newTag.value);
     newTag.value = "";
   }
 };
 
 const removeTag = (index) => {
-  form.value.assignees.splice(index, 1);
+  form.value.managers.splice(index, 1);
 };
 
 const beforeUpload = (file) => {
@@ -170,4 +176,6 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped src="@/assets/styles/components/NewCompliance.css"></style>
+<style scoped lang="scss">
+@import '@/assets/styles/components/NewCompliance.css';
+</style>

@@ -2,8 +2,8 @@
   <transition class="slide" name="slide">
     <div v-if="visible" class="policy-detail-panel">
       <div class="panel-header">
-        <h3>정책상세: {{ policyData.title }}</h3>
-        <BaseButton type="text" class="close-btn" @click="closePanel">
+        <h3 class="panel-title"><el-icon><Document /></el-icon>정책상세: {{ policyData.title }}</h3>
+        <BaseButton class="close-btn" @click="closePanel">
           <el-icon><Close /></el-icon>
         </BaseButton>
       </div>
@@ -13,25 +13,25 @@
           <el-form label-position="top">
           <!-- 기본 정보 -->
           <h4 class="section-title">기본 정보</h4>
-          <el-row :gutter="20">
-            <el-col :span="8">
+          <el-row :gutter="10">
+            <el-col :span="6">
               <el-form-item label="공통 코드/항목">
                 <el-input v-model="policyData.code1" :disabled="!isEditing" />
               </el-form-item>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="6">
               <el-form-item label="자체 코드/항목">
                 <el-input v-model="policyData.code2" :disabled="!isEditing" />
               </el-form-item>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="12">
               <el-form-item label="정책 제목">
                 <el-input v-model="policyData.title" :disabled="!isEditing" />
               </el-form-item>
             </el-col>
           </el-row>
 
-          <el-row :gutter="20">
+          <el-row :gutter="10">
             <el-col :span="6">
               <el-form-item label="중요도">
                 <BaseSelect
@@ -77,7 +77,7 @@
 
           <!-- 관리 정보 -->
           <h4 class="section-title">관리 정보</h4>
-          <el-row :gutter="20">
+          <el-row :gutter="10">
             <el-col :span="12">
               <el-form-item label="담당자">
                 <el-input
@@ -87,7 +87,7 @@
                   v-if="isEditing"
                 />
                 <div class="tag-container">
-                  <el-tag v-for="(manager, index) in policyData.managers" :key="index" closable @close="removeManager(index)" effect="dark" round>
+                  <el-tag v-for="(manager, index) in policyData.managers" :key="index" closable @close="removeManager(index)" effect="dark" round type="info">
                     {{ manager.userName }}
                   </el-tag>
                 </div>
@@ -110,7 +110,7 @@
               v-if="isEditing"
             />
             <div class="tag-container">
-              <el-tag v-for="(tag, index) in policyData.tags" :key="index" closable @close="removeTag(index)" effect="dark" round>
+              <el-tag v-for="(tag, index) in policyData.tags" :key="index" closable @close="removeTag(index)" effect="dark" round type="info">
                 {{ tag.tagName }}
               </el-tag>
             </div>
@@ -126,7 +126,7 @@
               />
             <div class="tag-container">
 
-              <el-tag v-for="(policy, index) in policyData.relatedPolicies" :key="index" closable @close="removePolicy(index)" effect="dark" round>
+              <el-tag v-for="(policy, index) in policyData.relatedPolicies" :key="index" closable @close="removePolicy(index)" effect="dark" round type="info">
                 {{ policy }}
               </el-tag>
             </div>
@@ -159,14 +159,14 @@
       <!-- 푸터 (수정 및 삭제) -->
       <div class="panel-footer">
         <div>
-          <BaseButton v-if="!isEditing" type="danger" @click="deletePolicy">삭제</BaseButton>
+          <BaseButton v-if="!isEditing" type="danger" @click="deletePolicy"><el-icon><Delete /></el-icon>&nbsp;삭제</BaseButton>
         </div>
         <div>
           <BaseButton @click="cancelEdit">
             {{ isEditing ? '취소' : '닫기' }}
           </BaseButton>
           <BaseButton v-if="isEditing" class="black-button" @click="saveChanges">수정 완료</BaseButton>
-          <BaseButton v-else class="black-button" @click="enableEdit">단위정책 수정</BaseButton>
+          <BaseButton v-else class="black-button" @click="enableEdit">단위정책 수정&nbsp;<el-icon><Edit /></el-icon></BaseButton>
         </div>
       </div>
     </div>

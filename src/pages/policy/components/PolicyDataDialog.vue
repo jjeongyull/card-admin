@@ -86,6 +86,7 @@
                     closable
                     @close="removeManager(index)"
                     round
+                    type="info"
                   >
                     {{ manager }}
                   </el-tag>
@@ -119,6 +120,7 @@
                 @close="removeTag(index)"
                 effect="dark"
                 round
+                type="info"
               >
                 {{ tag }}
               </el-tag>
@@ -140,6 +142,7 @@
                 closable
                 @close="removePolicy(index)"
                 round
+                type="info"
               >
                 {{ policy }}
               </el-tag>

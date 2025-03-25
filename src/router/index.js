@@ -5,8 +5,37 @@ import OnlyHeaderLayout from '../layouts/default/OnlyHeaderLayout.vue'
 const routes = [
   {
     path: '/',
+    redirect: '/login',
+    // redirect: '/login-temp',
+    component: () => import('@/pages/Login.vue')
+    // component: () => import('@/views/LoginTemp')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    props: true,
+    component: () => import('@/pages/Login.vue'),
+    // component: () => import('@/views/LoginTemp'),
+    meta: {
+      menuId: '',
+      icon: '',
+      auth: {
+        title: '로그인',
+        permit: {
+          C: true,
+          R: true,
+          U: true,
+          D: true
+        }
+      },
+      fullPath: []
+    }
+  },
+  {
+    path: '/dashboard',
     component: OnlyHeaderLayout,
-    redirect: '/',
+    redirect: '/dashboard',
+    name: 'Dashboard',
     children: [
       {
         path: '',
