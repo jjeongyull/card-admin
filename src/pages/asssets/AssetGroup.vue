@@ -94,7 +94,8 @@
               <BaseButton class="black-button w-100" @click="openAssetDataPopup">자산 등록 &nbsp;<el-icon><Plus /></el-icon></BaseButton>
             </el-col>
             <el-col :xs="12" :sm="6" :md="2">
-              <BaseButton class="white-button w-100" @click="openbulkPopup">일괄 등록&nbsp;<el-icon><Upload /></el-icon></BaseButton>
+              <BaseButton v-if="tableSelectList.length === 0" class="white-button w-100" @click="openbulkPopup">일괄 등록&nbsp;<el-icon><Upload /></el-icon></BaseButton>
+              <BaseButton v-else class="white-button w-100" @click="openbulkUpdatePopup">일괄 변경&nbsp;<el-icon><Edit /></el-icon></BaseButton>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="1">
@@ -112,6 +113,9 @@
             :pageSize="pageSize"
             @update:currentPage="updateCurrentPage"
             :cheackValue="true"
+            @history-click="histoyClick"
+            @actions-click="editClick"
+            @selected-rows="tableCheck"
           />
         </div>
       </el-col>
@@ -141,6 +145,14 @@
      <BulkRegistration
       :visible="bulkVisible"
       @close="bulkVisible = false"
+      @result="OpenResultPopup"
+     />
+
+     <!-- 일괄등록 결과 팝업 -->
+     <BulkResult
+      :visible="BulkResultVisible"
+      @close="BulkResultVisible = false"
+      :data="assetsALLResponseData"
      />
 
   </div>
@@ -151,6 +163,7 @@ import { ref, computed, watch } from "vue";
 import NewAssetsGroup from "./components/NewAssetsGroup.vue";
 import NewAssetsData from "./components/NewAssetsData.vue";
 import BulkRegistration from "./components/BulkRegistration.vue";
+import BulkResult from "./components/BulkResult.vue";
 
 // 더미 데이터
 const assets = ref([
@@ -283,6 +296,11 @@ const openbulkPopup = () => {
   bulkVisible.value = true;
 };
 
+// 자산 일괄 수정 버튼
+const openbulkUpdatePopup = () => {
+
+}
+
 // 자산그룹 히스토리 클릭
 const historyVisible = ref(false);
 const changeLogs = ref([
@@ -306,6 +324,25 @@ const editClick = (items) => {
   console.log(items)
   SelectAssetGroupData.value = items;
   NewAssetsGroupVisible.value = true;
+}
+
+// 자산그룹 일괄등록 결과
+const BulkResultVisible = ref(false);
+const assetsALLResponseData = ref({
+  status: true,
+  title: '테스트 2556',
+  type: '-',
+  other: '자산그룹명 중복'
+});
+const OpenResultPopup = () => {
+  BulkResultVisible.value = true;
+}
+
+// 테이블 선택 시
+const tableSelectList = ref([]);
+const tableCheck = (row) => {
+  tableSelectList.value = row;
+  console.log(row)
 }
 
 </script>

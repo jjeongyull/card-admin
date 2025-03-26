@@ -2,7 +2,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    title="자산 일괄등록"
+    title="자산 그룹 일괄등록 결과"
     :width="dialogWidth"
     :close-on-click-modal="false"
     class="custom-dialog"
@@ -10,35 +10,43 @@
     @close="closeDialog"
   >
     <el-scrollbar class="no-x-scroll">
-      <div class="modal-body">
+      <div class="modal-body not-scroll">
+        <div class="status-div">
+          <p>
+            <el-icon class="succes-icon"><CircleCheckFilled /></el-icon>
+            등록 성공: <strong>0건</strong>
+          </p>
+          <p>
+            <el-icon class="fail-icon"><WarningFilled /></el-icon>
+            등록 실패: <strong>1건</strong>
+          </p>
+        </div>
 
-        <el-form label-position="top">
-          <!-- 파일 업로드 -->
-          <el-form-item label="파일등록">
-            <el-upload
-              class="upload-container"
-              drag
-              multiple
-              :show-file-list="true"
-              :before-upload="beforeUpload"
-              :file-list="form.files"
-              :on-remove="handleRemove"
-              :auto-upload="false"
-            >
-              <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-              <p>파일을 이곳에 드래그하거나 <span class="upload-text">여기를 클릭해주세요</span></p>
-              <p class="upload-hint">jpg/png files with a size less than 500KB.</p>
-            </el-upload>
-          </el-form-item>
-        </el-form>
+        <table class="black-table">
+          <thead>
+            <tr>
+              <th class="first">상태</th>
+              <th>업무명</th>
+              <th>등록타입</th>
+              <th class="last">비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="first">{{ data.status?'성공':'실패' }}</td>
+              <td>{{ data.title }}</td>
+              <td>{{ data.type }}</td>
+              <td class="last">{{ data.other }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </el-scrollbar>
 
     <!-- 하단 버튼 -->
     <template #footer>
-      <div class="dialog-footer space">
-        <BaseButton @click="downloadFile" class="white-button">양식 다운로드&nbsp;<el-icon><Download/></el-icon></BaseButton>
-        <BaseButton @click="submitForm" class="black-button">등록하기</BaseButton>
+      <div class="dialog-footer">
+        <BaseButton @click="closeDialog" class="black-button">확인</BaseButton>
       </div>
     </template>
   </el-dialog>
@@ -47,16 +55,14 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from "vue";
 
-const form = ref({
-  files: []
-});
 
 const props = defineProps({
   visible: Boolean,
+  data: Object,
 });
 
 
-const emit = defineEmits(["close", "OpenResultPopup"]);
+const emit = defineEmits(["close"]);
 
 // 다이얼로그의 상태 동기화
 const dialogVisible = ref(false);
@@ -88,8 +94,6 @@ const handleRemove = (file, fileList) => {
 const submitForm = () => {
   console.log("제출 데이터:", form.value);
   // dialogVisible.value = false;
-  emit("close", false);
-  emit("result");
 };
 
 // 반응형 다이얼로그 크기 설정

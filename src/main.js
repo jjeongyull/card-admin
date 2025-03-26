@@ -1,7 +1,8 @@
 import { ArrowLeft, ArrowRight, Delete,
     Edit, Menu, More, Plus, Search, Setting,
     User, Operation, UploadFilled, Calendar, Warning,
-    Download, Refresh, Clock, UserFilled, Document, Upload
+    Download, Refresh, Clock, UserFilled, Document, Upload, CircleCheckFilled,
+    WarningFilled
   } from '@element-plus/icons-vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -27,7 +28,7 @@ const icons = { Edit, Delete, Search,
   Setting, Menu, User, Operation,
   UploadFilled, Calendar, Warning,
   Download, Refresh, Clock, UserFilled, Document,
-  Upload
+  Upload, CircleCheckFilled, WarningFilled
 }
 
 for (const [key, component] of Object.entries(icons)) {

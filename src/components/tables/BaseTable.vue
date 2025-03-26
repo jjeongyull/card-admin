@@ -7,6 +7,7 @@
       style="width: 100%"
       :height="filteredData.length ? 'auto' : '100px'"
       @row-click="handleRowClick"
+      @selection-change="handleSelectionChange"
     >
       <!--
         체크박스 컬럼 (선택 가능)
@@ -49,12 +50,12 @@
               </div>
             </template>
             <template v-else-if="column.prop === 'history'">
-              <BaseButton class="white-button" @click.stop="emit('history-click', row)">
+              <BaseButton class="white-button" @click="emit('history-click', row)">
                 <el-icon><Refresh /></el-icon>
               </BaseButton>
             </template>
             <template v-else-if="column.prop === 'actions'">
-              <BaseButton class="white-button" @click.stop="emit('actions-click', row)">
+              <BaseButton class="white-button" @click="emit('actions-click', row)">
                 <el-icon><Setting /></el-icon>
               </BaseButton>
             </template>
@@ -101,7 +102,7 @@ const props = defineProps({
 const emit = defineEmits([
   "row-click", "cell-click", "sort", "filter",
   "update:currentPage", "update:pageSize",
-  "history-click", "actions-click"
+  "history-click", "actions-click", "selected-rows"
 ]);
 
 // 현재 페이지 상태 (props 값이 변경 가능하도록 ref 사용)
@@ -160,6 +161,13 @@ const handleRowClick = (row) => {
 // 셀 클릭 이벤트
 const handleCellClick = (column, row) => {
   emit("cell-click", { column, row });
+};
+
+// 선택된 행 변경 시 이벤트 처리
+const selectedRows = ref([]);
+const handleSelectionChange = (rows) => {
+  selectedRows.value = rows;
+  emit("selected-rows", rows);
 };
 
 // 상태별 태그 색상 반환
@@ -256,6 +264,11 @@ const getStatusClass = (status) => {
 
 :deep(.el-table .el-table__cell) {
   padding: 0;
+}
+
+:deep(.cell-content .el-button) {
+  padding: 3px;
+  height: fit-content;
 }
 
 </style>

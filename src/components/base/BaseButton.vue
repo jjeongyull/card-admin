@@ -32,7 +32,6 @@ const onClick = () => {
   } catch (error) {
     console.error("버튼 클릭 중 오류 발생:", error);
   }
-
 };
 </script>
 
