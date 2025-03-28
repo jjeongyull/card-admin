@@ -23,11 +23,14 @@
         :width="column.width"
         :sortable="column.sortable"
         :align="column.align || 'center'"
+        sortable
       >
         <template #header>
           <div class="header-with-menu">
             {{ column.label }}
-            <el-dropdown trigger="click">
+
+          </div>
+          <!-- <el-dropdown trigger="click">
               <el-icon class="header-menu"><More /></el-icon>
               <template #dropdown>
                 <el-dropdown-menu>
@@ -35,8 +38,7 @@
                   <el-dropdown-item @click="filterTable(column.prop)">필터</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
-            </el-dropdown>
-          </div>
+            </el-dropdown> -->
         </template>
 
         <template #default="{ row }">
@@ -144,14 +146,14 @@ const updatePageSize = (size) => {
 };
 
 // 정렬 기능
-const sortTable = (key) => {
-  emit("sort", key);
-};
+// const sortTable = (key) => {
+//   emit("sort", key);
+// };
 
 // 필터 기능
-const filterTable = (key) => {
-  emit("filter", key);
-};
+// const filterTable = (key) => {
+//   emit("filter", key);
+// };
 
 // 행 클릭 이벤트
 const handleRowClick = (row) => {
@@ -205,70 +207,4 @@ const getStatusClass = (status) => {
 };
 </script>
 
-<style scoped>
-.table-wrapper {
-  width: 100%;
-}
-
-.header-with-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-menu {
-  cursor: pointer;
-  font-size: 16px;
-  color: #999;
-  margin-left: 5px;
-}
-
-.cell-content {
-  cursor: pointer;
-  padding: 5px;
-}
-
-.status-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.status-success {
-  background-color: #67c23a;
-}
-
-.status-warning {
-  background-color: #e6a23c;
-}
-
-.status-danger {
-  background-color: #f56c6c;
-}
-
-.ellipsis {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-:deep(.el-pagination) {
-  justify-content: center;
-}
-
-:deep(.el-table__body-wrapper) {
-  overflow-y: auto !important;
-  max-height: 450px;
-}
-
-:deep(.el-table .el-table__cell) {
-  padding: 0;
-}
-
-:deep(.cell-content .el-button) {
-  padding: 3px;
-  height: fit-content;
-}
-
-</style>
+<style scoped lang="scss" src="@/assets/styles/components/BaseTable.scss"></style>

@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    title="자산 등록"
+    :title="selectedData?'자산 수정':'자신 등록'"
     :width="dialogWidth"
     :close-on-click-modal="false"
     class="custom-dialog"
@@ -141,9 +141,15 @@
 
     <!-- 하단 버튼 -->
     <template #footer>
-      <div class="dialog-footer">
-        <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
-        <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
+      <div class="dialog-footer" :class="selectedData === null? 'flex-end': 'space'">
+
+        <BaseButton v-if="selectData" type="danger" @click="deletePolicy">
+          <el-icon><Delete /></el-icon> 삭제
+        </BaseButton>
+        <div class="footer-right">
+          <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
+          <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
+        </div>
       </div>
     </template>
   </el-dialog>
@@ -173,6 +179,12 @@ const form = ref({
 
 const props = defineProps({
   visible: Boolean,
+  selectData: Object
+});
+
+const selectedData = ref(null);
+watch(() => props.selectData, (val) => {
+  selectedData.value = val;
 });
 
 const emit = defineEmits(["close"]);
@@ -184,6 +196,7 @@ watch(() => props.visible, (val) => {
 
 const closeDialog = () => {
   dialogVisible.value = false;
+  selectedData.value = null;
   emit("close", false);
 };
 
@@ -205,36 +218,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped src="@/assets/styles/pages/PolicyCompliance.css"></style>
-<style scoped>
-.custom-dialog {
-  max-width: 600px;
-}
-.subtitle {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid #DCDFE6;
-}
-.no-x-scroll {
-  overflow-x: hidden;
-}
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.input-round-box{
-  width: 100%;
-  border: 1px solid #DCDFE6;
-  padding: 20px;
-  border-radius: 20px;
-}
-.info-use-group{
-  display: flex ;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-</style>
+<style scoped src="@/assets/styles/components/NewCompliance.css"></style>

@@ -95,11 +95,11 @@
             </el-col>
             <el-col :xs="12" :sm="6" :md="2">
               <BaseButton v-if="tableSelectList.length === 0" class="white-button w-100" @click="openbulkPopup">일괄 등록&nbsp;<el-icon><Upload /></el-icon></BaseButton>
-              <BaseButton v-else class="white-button w-100" @click="openbulkUpdatePopup">일괄 변경&nbsp;<el-icon><Edit /></el-icon></BaseButton>
+              <BaseButton v-else class="white-button w-100" @click="openBulkUpdatePop">일괄 변경&nbsp;<el-icon><Edit /></el-icon></BaseButton>
             </el-col>
 
             <el-col :xs="12" :sm="6" :md="1">
-              <BaseButton class="white-button w-100"><el-icon><Download /></el-icon></BaseButton>
+              <BaseButton class="white-button w-100" @click="openExcelDownloadPopup"><el-icon><Download /></el-icon></BaseButton>
             </el-col>
           </el-row>
 
@@ -114,7 +114,7 @@
             @update:currentPage="updateCurrentPage"
             :cheackValue="true"
             @history-click="histoyClick"
-            @actions-click="editClick"
+            @actions-click="editDataPopup"
             @selected-rows="tableCheck"
           />
         </div>
@@ -124,14 +124,15 @@
     <!-- 자산 그룹 등록 -->
     <NewAssetsGroup
       :visible="NewAssetsGroupVisible"
-      @close="NewAssetsGroupVisible = false"
-      :SelectData="SelectAssetGroupData"
+      @close="() => {NewAssetsGroupVisible = false; SelectAssetGroupData=null}"
+      :select-data="SelectAssetGroupData"
     />
 
     <!-- 자산 등록 -->
     <NewAssetsData
       :visible="NewAssetsDataVisible"
-      @close="NewAssetsDataVisible = false"
+      @close="() => {NewAssetsDataVisible = false; selectAssetData = null}"
+      :select-data="selectAssetData"
     />
 
     <!-- 히스토리 팝업 -->
@@ -155,15 +156,30 @@
       :data="assetsALLResponseData"
      />
 
+     <!-- 엑셀 다운로드 팝업 -->
+      <ExcelDownloadPopup
+        :visible="ExcelModalVisible"
+        @close="ExcelModalVisible = false"
+        :table-colums="ExcelColumns"
+        :table-data="ExcelTableData"
+      />
+
+      <!-- 일괄변경 팝업 -->
+      <BulkUpdate
+        :visible="BulkUpdateVisible"
+        @close="BulkUpdateVisible"
+      />
+
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from "vue";
-import NewAssetsGroup from "./components/NewAssetsGroup.vue";
-import NewAssetsData from "./components/NewAssetsData.vue";
-import BulkRegistration from "./components/BulkRegistration.vue";
-import BulkResult from "./components/BulkResult.vue";
+import NewAssetsGroup from "./dialogs/NewAssetsGroup.vue";
+import NewAssetsData from "./dialogs/NewAssetsData.vue";
+import BulkRegistration from "./dialogs/BulkRegistration.vue";
+import BulkResult from "./dialogs/BulkResult.vue";
+import BulkUpdate from "./dialogs/BulkUpdate.vue";
 
 // 더미 데이터
 const assets = ref([
@@ -296,10 +312,6 @@ const openbulkPopup = () => {
   bulkVisible.value = true;
 };
 
-// 자산 일괄 수정 버튼
-const openbulkUpdatePopup = () => {
-
-}
 
 // 자산그룹 히스토리 클릭
 const historyVisible = ref(false);
@@ -321,9 +333,15 @@ const histoyClick = (items) => {
 
 // 자산그룹 수정 클릭
 const editClick = (items) => {
-  console.log(items)
   SelectAssetGroupData.value = items;
   NewAssetsGroupVisible.value = true;
+}
+
+// 자산데이터 수정
+const selectAssetData = ref(null);
+const editDataPopup = (items) => {
+  NewAssetsDataVisible.value = true;
+  selectAssetData.value = items;
 }
 
 // 자산그룹 일괄등록 결과
@@ -345,6 +363,33 @@ const tableCheck = (row) => {
   console.log(row)
 }
 
+// 엑셀 다운로드 버튼 클릭 시
+const ExcelModalVisible = ref(false);
+const ExcelColumns = [
+  { prop: "status", label: "상태", width: "100", sortable: true },
+  { prop: "type", label: "자산유형", width: "120" },
+  { prop: "category", label: "자산구분", width: "120" },
+  { prop: "group", label: "자산그룹", width: "120" },
+  { prop: "checkGroup", label: "점검그룹", width: "100" },
+  { prop: "host", label: "HOST", width: "120" },
+  { prop: "manager", label: "담당자", width: "120" },
+];
+
+// 예제 데이터
+const ExcelTableData = ref([
+  { status: "운영", type: "웹", category: "UNIX", group: "Dive-웹", checkGroup: "[]", manager: "SCM", manager: "관리자" },
+  { status: "운영", type: "웹", category: "UNIX", group: "Dive-웹", checkGroup: "[]", manager: "SCM", manager: "관리자" },
+  { status: "운영", type: "웹", category: "UNIX", group: "Dive-웹", checkGroup: "[]", manager: "SCM", manager: "관리자" },
+]);
+const openExcelDownloadPopup = () => {
+  ExcelModalVisible.value = true;
+}
+
+// 일괄변경 팝업
+const BulkUpdateVisible = ref(false);
+const openBulkUpdatePop = () => {
+  BulkUpdateVisible.value = true;
+}
 </script>
 
 <style scoped src="@/assets/styles/pages/AssetGroup.css"></style>

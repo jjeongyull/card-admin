@@ -18,10 +18,10 @@
       </div>
       <!-- 호버 시 아이콘 버튼 표시 -->
       <div class="icon-buttons" v-if="hover">
-        <BaseButton class="icon-btn" @click="emit('history-click', asset)">
+        <BaseButton class="icon-btn white-button" @click="emit('history-click', asset)">
           <el-icon><Clock /></el-icon>
         </BaseButton>
-        <BaseButton class="icon-btn" @click="emit('edit-click', asset)">
+        <BaseButton class="icon-btn white-button" @click="emit('edit-click', asset)">
           <el-icon><Edit /></el-icon>
         </BaseButton>
       </div>

@@ -96,9 +96,9 @@ const routes = [
       },
       {
         // 자산정보관리
-        path: '/assets-setting',
-        name: 'assetsSet',
-        component: () => import('@/pages/asssets/AssetSetting.vue'),
+        path: '/manager-assets',
+        name: 'managerAssets',
+        component: () => import('@/pages/managerAssets/ManageAsset.vue'),
         meta: { menuId: '3.2', icon: '', auth: null, fullPath: [], isNested: true }
       }
     ]

@@ -15,11 +15,11 @@
 <script setup>
   import { ref } from 'vue';
   // 현업자대시보드
-  import WorkerDashboard from './WorkerDashboard.vue';
+  import WorkerDashboard from './components/WorkerDashboard.vue';
   // 점검자대시보드
-  import InspectorDashboard from './InspectorDashboard.vue';
+  import InspectorDashboard from './components/InspectorDashboard.vue';
   // C레벨 대시보드
-  import ClevelDashboard from './ClevelDashboard.vue';
+  import ClevelDashboard from './components/ClevelDashboard.vue';
 
   const viewMode = ref(0);
 

@@ -5,7 +5,7 @@
 
     <div class="category-slider">
       <!-- 왼쪽 스크롤 버튼 -->
-      <BaseButton class="scroll-btn left-btn" @click="scrollLeft">
+      <BaseButton class="scroll-btn left-btn white-button" @click="scrollLeft">
         <el-icon><ArrowLeft /></el-icon>
       </BaseButton>
 
@@ -15,7 +15,7 @@
           <BaseButton
             v-for="compliance in complianceList"
             :key="compliance.id"
-            class="category-item"
+            class="category-item white-button"
             @click="selectCategory(compliance.id)"
           >
             {{ compliance.title }}
@@ -24,7 +24,7 @@
       </el-scrollbar>
 
       <!-- 오른쪽 스크롤 버튼 -->
-      <BaseButton class="scroll-btn right-btn" @click="scrollRight">
+      <BaseButton class="scroll-btn right-btn white-button" @click="scrollRight">
         <el-icon><ArrowRight /></el-icon>
       </BaseButton>
 
@@ -183,7 +183,7 @@ import { ref, watch, computed } from "vue";
 import menu from '@/data/menu.json';
 import policyDetailData from '@/data/policy_detail.json';
 
-import NewCompliance from "./components/NewCompliance.vue";
+import NewCompliance from "./dialogs/NewCompliance.vue";
 import { VueDraggableNext } from 'vue-draggable-next';
 import { ElMessage } from 'element-plus'
 import { Search } from '@element-plus/icons-vue'

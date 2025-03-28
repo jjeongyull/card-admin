@@ -85,3 +85,23 @@
 .black-table td.last{
   border-bottom-right-radius: 8px;
 }
+.subtitle {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DCDFE6;
+}
+
+.input-round-box{
+  width: 100%;
+  border: 1px solid #DCDFE6;
+  padding: 20px;
+  border-radius: 20px;
+}
+.info-use-group{
+  display: flex ;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -52,8 +52,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import ComplianceCategoryPopup from "./components/ComplianceCategoryPopup.vue";
-import NewCompliance from "./components/NewCompliance.vue";
+import ComplianceCategoryPopup from "./dialogs/ComplianceCategoryPopup.vue";
+import NewCompliance from "./dialogs/NewCompliance.vue";
 
 const categories = ref(["전체", "정보보안", "ESG", "내부 통제"]);
 const selectedCategory = ref("전체");

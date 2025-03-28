@@ -15,12 +15,13 @@ const components = {
   Calendar: defineAsyncComponent(() => import("./calendar/CalendarComponent.vue")),
   CalendarPopup: defineAsyncComponent(() => import("./calendar/CalendarPopup.vue")),
   TreeComponent: defineAsyncComponent(() => import("./tree/TreeComponent.vue")),
-  ChangeLogDialog: defineAsyncComponent(() => import("./dialogs/ChangeLogDialog.vue")),
   ExtraList: defineAsyncComponent(() => import("./others/ExtraList.vue")),
   LogList: defineAsyncComponent(() => import("./others/LogList.vue")),
   CategoryCard: defineAsyncComponent(() => import("./others/CategoryCard.vue")),
 
   // 모달
+  ChangeLogDialog: defineAsyncComponent(() => import("./dialogs/ChangeLogDialog.vue")),
+  ExcelDownloadPopup: defineAsyncComponent(() => import("./dialogs/ExcelDownloadPopup.vue")),
 
   // 패널
   PolicyDetailPanel: defineAsyncComponent(() => import("./panel/PolicyDetailPanel.vue")),

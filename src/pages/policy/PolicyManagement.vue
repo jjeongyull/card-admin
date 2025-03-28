@@ -143,8 +143,8 @@ import { ref, watch, computed } from 'vue';
 import { Search } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus';
 import policyDetailData from '@/data/policy_detail.json';
-import PolicyAddPopup from "./components/PolicyAddPopup.vue"; // 정책분야 추가 팝업
-import PolicyDataDialog from "./components/PolicyDataDialog.vue"; // 단위정책 추가 팝업
+import PolicyAddPopup from "./dialogs/PolicyAddPopup.vue"; // 정책분야 추가 팝업
+import PolicyDataDialog from "./dialogs/PolicyDataDialog.vue"; // 단위정책 추가 팝업
 
 
 // 트리 데이터

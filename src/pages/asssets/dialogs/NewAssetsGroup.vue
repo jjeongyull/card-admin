@@ -1,7 +1,9 @@
+
+
 <template>
   <el-dialog
     v-model="dialogVisible"
-    :title="form.name === null ?'업무 등록': '업무 수정'"
+    :title="selectData?'업무 수정': '업무 등록'"
     :width="dialogWidth"
     :close-on-click-modal="false"
     class="custom-dialog"
@@ -53,9 +55,30 @@
           </el-form-item>
 
           <!-- 상세설명 -->
-          <el-form-item label="상세설명" v-if="form.name === null">
+          <el-form-item label="상세설명" v-if="selectData === null">
             <el-input v-model="form.description" type="textarea" placeholder="상세설명을 입력해주세요." />
           </el-form-item>
+
+          <table class="black-table" v-else style="margin-bottom: 20px;">
+            <thead>
+              <tr>
+                <th class="first">웹</th>
+                <th>앱</th>
+                <th>서버 (OS)</th>
+                <th>데이터베이스</th>
+                <th class="last">WEB / WAS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="first">3</td>
+                <td>7</td>
+                <td>16</td>
+                <td>2</td>
+                <td class="last">3</td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <!-- 파일 업로드 -->
@@ -81,9 +104,16 @@
 
     <!-- 하단 버튼 -->
     <template #footer>
-      <div class="dialog-footer">
-        <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
-        <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
+      <div class="dialog-footer" :class="selectData === null? 'flex-end': 'space'">
+        <BaseButton v-if="selectData" type="danger" @click="deletePolicy">
+          <el-icon><Delete /></el-icon> 삭제
+        </BaseButton>
+
+        <div class="footer-right">
+          <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
+          <BaseButton @click="submitForm" class="black-button">추가완료</BaseButton>
+        </div>
+
       </div>
     </template>
   </el-dialog>
@@ -102,19 +132,22 @@ const form = ref({
 });
 
 const props = defineProps({
-  visible: Boolean,
-  selectData: Object
+  visible: {
+    type: Boolean,
+    default: false
+  },
+  selectData: {
+    type: Object,
+    default: null
+  }
 });
 
-watch(() => props.selectData, (newData) => {
-  form.value = newData ? { ...newData } : {
-    name: null,
-    status: null,
-    scope: null,
-    managers: [],
-    description: null,
-    files: [],
-  };
+const selectedData = ref(null);
+watch(() => props.selectData, (newVal) => {
+  selectedData.value = newVal;
+  if (newVal) {
+    form.value = { ...newVal };
+  }
 }, { immediate: true });
 
 
@@ -128,6 +161,8 @@ watch(() => props.visible, (val) => {
 
 const closeDialog = () => {
   dialogVisible.value = false;
+  selectedData.value = null;
+  form.value = {name: null, status: null, scope: null, managers: [], description: null, files: [],}
   emit("close", false);
 };
 
