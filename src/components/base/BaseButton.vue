@@ -25,8 +25,9 @@ const emit = defineEmits(["click"]);
 
 const attrs = useAttrs(); // 추가적인 속성들을 자동 바인딩
 
-const onClick = () => {
+const onClick = (e) => {
   try {
+    e.stopPropagation();
     emit("click");
     // 실행할 코드
   } catch (error) {
@@ -41,6 +42,9 @@ const onClick = () => {
     border-color: #000 !important;
     color: #000 !important;
     outline: none !important;
+}
+.el-button.is-disabled {
+  opacity: .5;
 }
 .white-button {
   background-color: #fff !important;

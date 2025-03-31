@@ -26,18 +26,24 @@
     <AddInspectAssetDialog
       :visible="AddInspectAssetDialogVisible"
       @close="AddInspectAssetDialogClose"
+      @result="creatAssetGroupList"
     />
 
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
 import AssetManagerDialog from "../dialogs/AssetManagerDialog.vue";
 import AddInspectAssetDialog from "../dialogs/AddInspectAssetDialog.vue";
 
 // 자산점검 등록 리스트
 const assetsGroupList = ref([]);
+
+// 자산점검 등록하기
+const creatAssetGroupList = (items) => {
+  assetsGroupList.value = items;
+}
 // 자산등록 팝업관리
 const CreateAssetsGroupVisible = ref(false);
 const assetsGroupOpen = () => {

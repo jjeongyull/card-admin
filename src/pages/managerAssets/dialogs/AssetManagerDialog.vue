@@ -63,6 +63,8 @@
     <!-- 하단 버튼 -->
     <template #footer>
       <div class="dialog-footer">
+
+
         <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
         <BaseButton @click="submitForm" class="black-button">점검그룹 등록</BaseButton>
       </div>
@@ -84,6 +86,8 @@ const props = defineProps({
   },
   tableList: Array
 });
+
+
 const emit = defineEmits(["close", 'other']);
 // 다이얼로그의 상태 동기화
 const dialogVisible = ref(false);

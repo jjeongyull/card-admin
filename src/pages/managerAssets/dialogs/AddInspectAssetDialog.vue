@@ -55,7 +55,6 @@
               @actions-click=""
               @selected-rows="tableCheck"
             />
-
           </el-col>
 
           <el-col :xs="24" :sm="24" :md="12">
@@ -101,14 +100,15 @@
     <template #footer>
       <div class="dialog-footer">
         <BaseButton class="white-button" @click="closeDialog">취소</BaseButton>
-        <BaseButton @click="submitForm" class="black-button">점검그룹 등록</BaseButton>
+        <BaseButton @click="insertInspectAsset" class="black-button">점검그룹 등록</BaseButton>
       </div>
     </template>
   </el-dialog>
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from "vue";
+import { ref, watch } from "vue";
+import { uNewMessageBox } from '@/utils';
 
 const selectCount = ref(0);
 
@@ -119,7 +119,7 @@ const props = defineProps({
   },
   tableList: Array
 });
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["close", "result"]);
 // 다이얼로그의 상태 동기화
 const dialogVisible = ref(false);
 watch(() => props.visible, (val) => {
@@ -153,11 +153,6 @@ const tableData = [
   { id: 7, status: '운영', type: '데이터베이스', asset: 'NGINX', host: 'SCM', ip: '123.456.789', appManager: '미지정', infraManager: '현업 담당자2' },
   { id: 8, status: '종료', type: '데이터베이스', asset: 'NGINX', host: 'SCM', ip: '123.456.789', appManager: '미지정', infraManager: '현업 담당자2' },
 ];
-
-const submitForm = () => {
-  console.log("제출 데이터:", form.value);
-  // dialogVisible.value = false;
-};
 
 // 반응형 다이얼로그 크기 설정
 const dialogWidth = ref("90vw");
@@ -201,6 +196,29 @@ const delSelectList = () => {
     }
   });
 }
+
+// 점검그룹 등록
+const insertInspectAsset = () => {
+  try{
+    if(newDataList.value.length === 0 ){
+    uNewMessageBox.showMessage({
+      message: '선택한 점검그룹 항목이 없습니다.',
+      type: 'error',
+      position: 'center'
+    });
+    return;
+  }
+  dialogVisible.value = false;
+  emit("result", newDataList.value);
+  }catch(e){
+    uNewMessageBox.showMessage({
+      message: e.message,
+      type: 'error',
+      position: 'center'
+    });
+  }
+}
+
 </script>
 
 <style scoped lang="scss">

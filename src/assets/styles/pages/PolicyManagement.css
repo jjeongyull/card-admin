@@ -82,6 +82,12 @@
 
 .scroll-content {
   display: flex;
+  gap: 10px;
+}
+
+.scroll-content .white-button{
+  border: none !important;
+  font-weight: 700;
 }
 
 .category-item {

@@ -48,7 +48,15 @@
                 <el-tag :type="getStatusTag(row[column.prop])">
                   {{ row[column.prop] }}
                 </el-tag>
-                <span class="status-icon" :class="getStatusClass(row[column.prop])"></span>
+                <!-- <span class="status-icon" :class="getStatusClass(row[column.prop])"></span> -->
+              </div>
+            </template>
+            <template v-else-if="column.prop === 'level'">
+              <div class="status-container">
+                <el-tag :type="getStatusTag(row[column.prop])">
+                  {{ row[column.prop] }}
+                </el-tag>
+                <!-- <span class="status-icon" :class="getStatusClass(row[column.prop])"></span> -->
               </div>
             </template>
             <template v-else-if="column.prop === 'history'">
@@ -59,6 +67,11 @@
             <template v-else-if="column.prop === 'actions'">
               <BaseButton class="white-button" @click="emit('actions-click', row)">
                 <el-icon><Setting /></el-icon>
+              </BaseButton>
+            </template>
+            <template v-else-if="column.prop === 'update'">
+              <BaseButton class="white-button" @click="emit('actions-click', row)">
+                <el-icon><Edit /></el-icon>
               </BaseButton>
             </template>
             <template v-else-if="column.render">
@@ -75,6 +88,7 @@
     <!-- 페이지네이션 (수정된 부분) -->
     <el-pagination
       v-if="pageUse"
+      class="padeDiv"
       :current-page="currentPage"
       :page-size="pageSize"
       layout="total, sizes, prev, pager, next"
@@ -177,29 +191,36 @@ const getStatusTag = (status) => {
   switch (status) {
     case "운영":
     case "조치완료":
+    case "하":
       return "success";
     case "준비":
     case "조치지연":
+    case "중":
       return "warning";
     case "폐기":
     case "조치필요":
+    case "상":
       return "danger";
     default:
       return "primary";
   }
 };
 
+
 // 상태별 아이콘 스타일 반환
 const getStatusClass = (status) => {
   switch (status) {
     case "운영":
     case "조치완료":
+    case "하":
       return "status-success";
     case "준비":
     case "조치지연":
+    case "중":
       return "status-warning";
     case "폐기":
     case "조치필요":
+    case "상":
       return "status-danger";
     default:
       return "";
