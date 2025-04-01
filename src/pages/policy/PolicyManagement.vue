@@ -212,7 +212,6 @@ const filteredDetails = computed(() => {
   );
 });
 
-
 // 단위정책추가 팝업
 const dataDialogVisible = ref(false);
 const openDataPop = () => {
@@ -221,7 +220,6 @@ const openDataPop = () => {
 const closeDataPop = () => {
   dataDialogVisible.value = false;
 };
-
 
 // 단위정책 패널
 const detailVisible = ref(false);

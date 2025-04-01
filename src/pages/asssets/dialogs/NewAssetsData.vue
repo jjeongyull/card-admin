@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    :title="selectedData?'자산 수정':'자신 등록'"
+    :title="selectedData?'자산 수정':'자산 등록'"
     :width="dialogWidth"
     :close-on-click-modal="false"
     class="custom-dialog"

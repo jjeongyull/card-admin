@@ -1,19 +1,19 @@
 <template>
 
   <el-row :gutter="10" class="chart-wrapper">
-    <el-col :xs="24" :sm="24" :md="18">
-      <div class="chart-container">
-        <div ref="chartRef" class="chart"></div>
+    <el-col :xs="24" :sm="24" :md="type ? 12 : 18">
+      <div :class="['chart-container', type ? 'small' : '']">
+        <div ref="chartRef" :class="['chart', type ? 'small' : '']"></div>
       </div>
     </el-col>
-    <el-col :xs="24" :sm="24" :md="6" style="height: 100%;">
+    <el-col :xs="24" :sm="24" :md="type ? 12 : 6" style="height: 100%;">
       <div v-if="showLegend" class="legend">
-        <div v-for="item in legendData" :key="item.name" class="legend-inner">
-          <div class="legend-item">
+        <div v-for="item in legendData" :key="item.name" :class="['legend-inner', type ? 'small' : '']">
+          <div :class="['legend-item', type ? 'small' : '']">
             <span class="dot" :style="{ backgroundColor: item.color }"></span>
             <span class="legend-text">{{ item.name }}</span>
           </div>
-          <span class="percent" :style="{ color: item.color }">{{ item.value }}<span v-if="percent">%</span></span>
+          <span :class="['percent', type ? 'small' : '']" :style="{ color: item.color }">{{ item.value }}<span v-if="percent">%</span></span>
         </div>
       </div>
     </el-col>
@@ -34,6 +34,7 @@ const props = defineProps({
   radius: { type: Array, default: () => ["60%", "80%"] }, // 도넛 차트 크기 설정
   showLegend: { type: Boolean, default: true }, // 범례 표시 여부
   percent: { type: Boolean, default: false }, // 범례 표시 여부
+  type: { type: Boolean, default: false }, // 크기설정
 });
 
 const chartRef = ref(null);

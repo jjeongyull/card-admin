@@ -34,5 +34,4 @@ const props = defineProps({
 :deep(.el-select) {
   color: #000 !important;
 }
-
 </style>

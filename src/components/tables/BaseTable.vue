@@ -45,16 +45,28 @@
           <div @click="handleCellClick(column.prop, row)" class="cell-content">
             <template v-if="column.prop === 'status'">
               <div class="status-container">
-                <el-tag :type="getStatusTag(row[column.prop])">
+                <el-tag effect="dark" :type="getStatusTag(row[column.prop])">
                   {{ row[column.prop] }}
                 </el-tag>
-                <!-- <span class="status-icon" :class="getStatusClass(row[column.prop])"></span> -->
               </div>
             </template>
             <template v-else-if="column.prop === 'level'">
               <div class="status-container">
-                <el-tag :type="getStatusTag(row[column.prop])">
+                <el-tag effect="dark" :type="getStatusTag(row[column.prop])">
                   {{ row[column.prop] }}
+                </el-tag>
+              </div>
+            </template>
+            <template v-else-if="column.prop === 'percent'">
+              <div class="table-progress-div">
+                <p>{{ row[column.prop] }}</p>
+                <progress class="table-progress-bar" :value="row[column.prop].replace('%', '')" max="100"></progress>
+              </div>
+            </template>
+            <template v-else-if="column.prop === 'target'">
+              <div class="status-container">
+                <el-tag v-for="item in row[column.prop].split(',')" effect="dark" type="info">
+                  {{ item }}
                 </el-tag>
                 <!-- <span class="status-icon" :class="getStatusClass(row[column.prop])"></span> -->
               </div>

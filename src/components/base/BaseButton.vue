@@ -52,6 +52,12 @@ const onClick = (e) => {
   border: 1px solid #000 !important;
   margin-left: 0;
 }
+.info-button{
+  background-color: #fff !important;
+  color: #616161 !important;
+  border: 1px solid #DCDFE6 !important;
+  margin-left: 0;
+}
 .black-button {
   background-color: #000 !important;
   color: #fff !important;

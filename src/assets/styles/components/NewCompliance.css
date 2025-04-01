@@ -17,7 +17,11 @@
   font-size: 12px;
   color: gray;
 }
-
+.footer-right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .dialog-footer {
   display: flex;
   justify-content: flex-end;

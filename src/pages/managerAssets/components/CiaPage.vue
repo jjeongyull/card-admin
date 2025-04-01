@@ -10,7 +10,7 @@
           @click="setStatusFilter(status)"
           />
       </el-radio-group>
-      <BaseButton class="black-button">
+      <BaseButton class="black-button" @click="openCiaPopup">
         등록&nbsp;<el-icon><Plus/></el-icon>
       </BaseButton>
     </div>
@@ -25,16 +25,38 @@
       @update:currentPage="updateCurrentPage"
       :cheackValue="false"
       @history-click=""
-      @actions-click=""
+      @actions-click="editCiaPopup"
       @selected-rows=""
+    />
+
+    <CIADialog
+      :visible="ciaPopupVisible"
+      @close="closeCiaPopup"
+      :data="selectedData"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
+import CIADialog from "../dialogs/CIADialog.vue"
+
 const activeTab = ref('기밀성');
 const TabList = ref(['기밀성', '무결성', '가용성']);
+
+const ciaPopupVisible = ref(false);
+const selectedData = ref(null);
+const openCiaPopup = () => {
+  ciaPopupVisible.value = true;
+}
+const closeCiaPopup = () => {
+  selectedData.value = null;
+  ciaPopupVisible.value = false;
+}
+const editCiaPopup = (items) => {
+  ciaPopupVisible.value = true;
+  selectedData.value = items;
+}
 
 const currentPage = ref(1);
 const pageSize = ref(10);
@@ -42,9 +64,9 @@ const updateCurrentPage = (page) => {
   currentPage.value = page;
 };
 const columns = ref([
-{ prop: "level", label: "평가수준", width: "80" },
-{ prop: "group", label: "그룹명", sortable: true },
-{ prop: "update", label: "수정"},
+  { prop: "level", label: "평가수준", width: "80" },
+  { prop: "group", label: "그룹명", sortable: true },
+  { prop: "update", label: "수정"},
 ]);
 const dumiData = [
   {
@@ -97,7 +119,9 @@ const dumiData = [
     group: "자산 소유 담당부서/담당자 이외 관련 담당부서 등 당사 내부에 관계하여 접근 및 열람이 가능한 정보를 가지고 있는 자산",
     description: "자산 소유 담당부서/담당자 이외 관련 담당부서 등 당사 내부에 관계하여 접근 및 열람이 가능한 정보를 가지고 있는 자산"
   }
-]
+];
+
+
 </script>
 
 <style scoped></style>

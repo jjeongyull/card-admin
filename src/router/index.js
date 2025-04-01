@@ -102,6 +102,49 @@ const routes = [
         meta: { menuId: '3.2', icon: '', auth: null, fullPath: [], isNested: true }
       }
     ]
+  },
+  {
+    path: '/infra-inspection',
+    redirect: '/infra-inspection',
+    name: 'infraInspection',
+    component: DefaultLayout,
+    meta: { menuId: '6', icon: 'ti ti-list-details' },
+    children: [
+      {
+        // 인프라 점검
+        path: '',
+        name: 'infra',
+        component: () => import('@/pages/infraInspection/infraInspection.vue'),
+        meta: { menuId: '6.1', icon: '', auth: null, fullPath: [], isNested: true },
+
+      },
+      {
+        path: 'infra-detail',
+        name: 'infraDetail',
+        component: () => import('@/pages/infraInspection/components/infraInspectionDetail.vue'),
+        meta: {
+          menuId: '6.1.1',
+          icon: '',
+          auth: null,
+          fullPath: [],
+          isNested: true
+        }
+      },
+      {
+        // 수동 점검
+        path: '/passivity-inspection',
+        name: 'passivityInspection',
+        component: () => import('@/pages/infraInspection/passivityInspection.vue'),
+        meta: { menuId: '6.2', icon: '', auth: null, fullPath: [], isNested: true }
+      },
+      {
+        // 조치현황
+        path: '/action-status',
+        name: 'actionStatus',
+        component: () => import('@/pages/infraInspection/actionStatus.vue'),
+        meta: { menuId: '6.3', icon: '', auth: null, fullPath: [], isNested: true }
+      }
+    ]
   }
 ]
 

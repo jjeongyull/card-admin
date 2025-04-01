@@ -35,7 +35,6 @@
             </p>
             <p style="font-size: 12px; color: #777777;">등 3건</p>
           </div>
-
         </BaseCard>
       </el-col>
     </el-row>

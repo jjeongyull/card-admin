@@ -4,23 +4,38 @@
   font-weight: normal;
   font-style: normal;
 }
-
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'YouandiModern', sans-serif;
 }
+.w-full{
+  width: 100%;
+}
+.white-box{
+  width: 100%;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 16px;
+}
 .full-width {
   width: 100%;
   display: flex;
 }
-
+.flex{
+  display: flex;
+  align-items: center;
+}
+.gap-5{
+  gap: 5px;
+}
+.gap-10{
+  gap: 10px;
+}
 .flex-button {
   flex: 1;
-
 }
-
 .col-display{
   display: flex;
   flex-direction: column;
@@ -51,25 +66,21 @@ body{
   left: 50% !important;
   transform: translateX(-50%) !important;
 }
-
 .custom-message-bottom {
   bottom: 20px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
 }
-
 .custom-message-left {
   top: 50% !important;
   left: 20px !important;
   transform: translateY(-50%) !important;
 }
-
 .custom-message-right {
   top: 50% !important;
   right: 20px !important;
   transform: translateY(-50%) !important;
 }
-
 .custom-message-center {
   top: 50% !important;
   left: 50% !important;
@@ -91,6 +102,7 @@ body{
   background-color: #000 !important;
   color: #fff !important;
   border: none !important;
+  margin-left: 0 !important;
 }
 .el-dialog.custom-dialog{
   padding: 20px;
@@ -115,10 +127,10 @@ body{
   margin-left: 0 !important;
   margin-right: 0 !important;
 } */
- .list-warpper-500{
+.list-warpper-500{
   overflow-y: auto; /* 스크롤 추가 */
   max-height: 500px;
- }
+}
  .flex-space{
   display: flex;
   align-items: center;

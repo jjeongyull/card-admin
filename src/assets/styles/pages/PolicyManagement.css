@@ -32,6 +32,22 @@
   flex: 1;
 
 }
+.custom-row {
+  border: 1px solid #ebeef5;
+  font-size: 14px;
+  border-bottom: none;
+}
+.custom-row.last {
+  border-bottom:  1px solid #ebeef5;
+}
+
+.custom-label.title {
+  background-color: #FAFCFF;
+  font-weight: bold;
+}
+.custom-label {
+  padding: 12px;
+}
 @media screen and (max-width: 600px) {
   .responsive-row-inner {
     height: fit-content;

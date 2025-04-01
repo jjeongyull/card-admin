@@ -93,6 +93,59 @@
     ]
   },
   {
+    "menuName": "기반시설진단",
+    "menuId": "6",
+    "parentMenuId": "0",
+    "sort": 5,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "인프라 점검",
+        "menuId": "6.1",
+        "parentMenuId": "6",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "수동점검",
+        "menuId": "6.2",
+        "parentMenuId": "6",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      },
+      {
+        "menuName": "조치현황",
+        "menuId": "6.3",
+        "parentMenuId": "6",
+        "sort": 3,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
     "menuName": "예외관리",
     "menuId": "4",
     "parentMenuId": "0",
@@ -163,115 +216,6 @@
         "menuId": "5.1",
         "parentMenuId": "5",
         "sort": 1,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": []
-      }
-    ]
-  },
-  {
-    "menuName": "기반시설진단",
-    "menuId": "6",
-    "parentMenuId": "0",
-    "sort": 5,
-    "permit": {
-      "c": true,
-      "r": true,
-      "u": true,
-      "d": true
-    },
-    "children": [
-      {
-        "menuName": "자동점검",
-        "menuId": "6.1",
-        "parentMenuId": "6",
-        "sort": 1,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": [
-          {
-            "menuName": "점검결과",
-            "menuId": "6.1.1",
-            "parentMenuId": "6.1",
-            "sort": 1,
-            "permit": {
-              "c": true,
-              "r": true,
-              "u": true,
-              "d": true
-            },
-            "children": [
-              {
-                "menuName": "취약점리스트",
-                "menuId": "6.1.1.1",
-                "parentMenuId": "6.1.1",
-                "sort": 1,
-                "permit": {
-                  "c": true,
-                  "r": true,
-                  "u": true,
-                  "d": true
-                },
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "menuName": "수동점검",
-        "menuId": "6.2",
-        "parentMenuId": "6",
-        "sort": 2,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": [
-          {
-            "menuName": "점검결과",
-            "menuId": "6.2.1",
-            "parentMenuId": "6.2",
-            "sort": 1,
-            "permit": {
-              "c": true,
-              "r": true,
-              "u": true,
-              "d": true
-            },
-            "children": [
-              {
-                "menuName": "취약점리스트",
-                "menuId": "6.2.1.1",
-                "parentMenuId": "6.2.1",
-                "sort": 1,
-                "permit": {
-                  "c": true,
-                  "r": true,
-                  "u": true,
-                  "d": true
-                },
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "menuName": "조치현황",
-        "menuId": "6.3",
-        "parentMenuId": "6",
-        "sort": 3,
         "permit": {
           "c": true,
           "r": true,

@@ -70,3 +70,18 @@
 .padeDiv{
   margin-top: 20px;
 }
+.custom-table .el-tag__content{
+  font-size: 12px;
+}
+.table-progress-div{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  p{
+    line-height: 1;
+    text-align: left;
+  }
+  .table-progress-bar{
+
+  }
+}

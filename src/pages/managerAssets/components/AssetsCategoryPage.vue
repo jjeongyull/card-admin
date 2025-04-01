@@ -34,7 +34,7 @@
       </ul>
     </el-col>
     <el-col class="col-list" :xs="24" :sm="24" :md="8">
-      <div class="flex-space">
+      <div class="flex-space mb-20">
         <h3>소분류</h3>
         <BaseButton @click="openCategoryPopup" class="white-button" :disabled="disabled_2">소분류 자산 구분 등록&nbsp; <el-icon><Plus/></el-icon></BaseButton>
       </div>

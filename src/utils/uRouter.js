@@ -96,11 +96,22 @@ const findMenuByPath = (path) => {
   return menu ? { menu } : null;
 };
 
-
+/*
+by name 은 store에 마지막 메뉴 menuId정보를 저정하지 않는다.
+참고: aside menu 이벤트가 아니고, 내부 메뉴 이동시 활용!
+*/
+const goToByName = (name, params) => {
+  try {
+    router.push({ name: name, params: params || null })
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export default {
  getRouterInfoByMenuId,
  goToByMenuId,
  initRoutesWithMenuRole,
- findMenuByPath
+ findMenuByPath,
+ goToByName
 }
