@@ -135,7 +135,20 @@ const routes = [
         path: '/passivity-inspection',
         name: 'passivityInspection',
         component: () => import('@/pages/infraInspection/passivityInspection.vue'),
-        meta: { menuId: '6.2', icon: '', auth: null, fullPath: [], isNested: true }
+        meta: { menuId: '6.2', icon: '', auth: null, fullPath: [], isNested: true },
+
+      },
+      {
+        path: 'passivity-detail',
+        name: 'passivityInspectionDetail',
+        component: () => import('@/pages/infraInspection/components/passivityInspectionDetail.vue'),
+        meta: {
+          menuId: '6.2.1',
+          icon: '',
+          auth: null,
+          fullPath: [],
+          isNested: true
+        }
       },
       {
         // 조치현황

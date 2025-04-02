@@ -127,7 +127,7 @@ const tableColumns = [
   { label: '점검율', prop: 'percent' },
   { label: '등록자', prop: 'manager', width: 130 },
   { label: '등록일자', prop: 'writeDate', width: 100 },
-  { label: '수정', prop: 'update', width: 50 },
+  { label: '수정', prop: 'update', width: 50 }
 ];
 const dumiData = [
   {title: 'Dive 앱 서버 주기 점검', target: 'OS:2, DBMS: 4, WEB/WAS: 3', cycle: '주기', startData: '02/28 20:01:13', percent: '5%', manager: '총괄 관리자', writeDate: '02/28', update: '수정'},

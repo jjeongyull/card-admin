@@ -123,6 +123,18 @@ body{
 .mb-10 {
   margin-bottom: 10px;
 }
+.mb-5 {
+  margin-bottom: 5px;
+}
+.uderline-text{
+  width: 100%;
+  border-bottom: 1px solid #CDD0D6;
+  padding-bottom: 5px;
+}
+.black-bold{
+  color: #000;
+  font-weight: bold;
+}
 /* .el-row{
   margin-left: 0 !important;
   margin-right: 0 !important;

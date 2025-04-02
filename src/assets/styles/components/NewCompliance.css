@@ -101,7 +101,7 @@
   width: 100%;
   border: 1px solid #DCDFE6;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .info-use-group{
   display: flex ;

@@ -82,8 +82,23 @@
               </BaseButton>
             </template>
             <template v-else-if="column.prop === 'update'">
-              <BaseButton class="white-button" @click="emit('actions-click', row)">
+              <BaseButton class="info-button" @click="emit('actions-click', row)">
                 <el-icon><Edit /></el-icon>
+              </BaseButton>
+            </template>
+            <template v-else-if="column.prop === 'record'">
+              <BaseButton class="info-button" @click="emit('history-click', row)">
+                <el-icon><Document /></el-icon>
+              </BaseButton>
+            </template>
+            <template v-else-if="column.prop === 'vulnerable'">
+              <BaseButton class="black-button" @click="emit('confrim-click')">
+                확인
+              </BaseButton>
+            </template>
+            <template v-else-if="column.prop === 'evidence'">
+              <BaseButton class="black-button" @click="emit('actions-click', row)">
+                등록
               </BaseButton>
             </template>
             <template v-else-if="column.render">
@@ -114,7 +129,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { More } from "@element-plus/icons-vue";
+// import { More } from "@element-plus/icons-vue";
 
 const props = defineProps({
   tableColumns: Array, // 컬럼 정의
@@ -130,7 +145,8 @@ const props = defineProps({
 const emit = defineEmits([
   "row-click", "cell-click", "sort", "filter",
   "update:currentPage", "update:pageSize",
-  "history-click", "actions-click", "selected-rows"
+  "history-click", "actions-click", "selected-rows",
+  "confrim-click"
 ]);
 
 // 현재 페이지 상태 (props 값이 변경 가능하도록 ref 사용)
@@ -215,27 +231,6 @@ const getStatusTag = (status) => {
       return "danger";
     default:
       return "primary";
-  }
-};
-
-
-// 상태별 아이콘 스타일 반환
-const getStatusClass = (status) => {
-  switch (status) {
-    case "운영":
-    case "조치완료":
-    case "하":
-      return "status-success";
-    case "준비":
-    case "조치지연":
-    case "중":
-      return "status-warning";
-    case "폐기":
-    case "조치필요":
-    case "상":
-      return "status-danger";
-    default:
-      return "";
   }
 };
 </script>
