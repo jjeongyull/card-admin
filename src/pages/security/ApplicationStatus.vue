@@ -1,53 +1,39 @@
 <template>
   <div>
-    <h2 class="title">수동점검</h2>
+    <h2 class="title">신청현황</h2>
     <div class="data-details">
-      <el-row :gutter="5" class="mb-20">
-        <el-col :xs="24" :sm="24" :md="10">
-          <el-radio-group v-model="activeTab" class="status-buttons">
+      <div class="flex-space mb-20">
+        <div class="flex gap-10 w-full">
+          <el-radio-group v-model="activeTab">
             <el-radio-button
               v-for="(status, index) in TabList"
               :key="index"
               :label="status"
               :value="status"
-              class="w-full"
               />
           </el-radio-group>
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="2">
           <BaseSelect
             v-model="inspectionName"
-            placeholder="점검명"
-            :selectData="['점검명1', '점검명2', '점검명3']"
+            placeholder="전체"
+            style="max-width: 140px;"
+            :selectData="['전체', '전체', '전체']"
           />
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="5">
+        </div>
+        <div class="flex gap-10 w-full end">
+          <BaseSelect
+            v-model="inspectionName"
+            placeholder="심의 신청명"
+            style="max-width: 140px;"
+            :selectData="['심의 신청명', '심의 신청명', '심의 신청명']"
+          />
           <el-input
             v-model="searchDetail"
+            style="max-width: 300px;"
             placeholder="검색어를 입력하세요"
           />
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="2">
-          <el-date-picker
-            v-model="startDate"
-            type="date"
-            placeholder="시작일자"
-            style="width: 100%;"
-          />
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="2">
-          <el-date-picker
-            v-model="endDate"
-            type="date"
-            placeholder="종료일자"
-            style="width: 100%;"
-          />
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="3" style="display: flex; flex-wrap: nowrap; gap: 5px;">
-          <BaseButton class="white-button"><el-icon><Download/></el-icon></BaseButton>
-          <BaseButton class="black-button w-full" @click="openInspectPopup">점검프로젝트 등록&nbsp;<el-icon><Plus/></el-icon></BaseButton>
-        </el-col>
-      </el-row>
+          <BaseButton class="black-button" @click="openInspectPopup">심의 신청&nbsp;<el-icon><Plus/></el-icon></BaseButton>
+        </div>
+      </div>
 
       <BaseTable
         :tableColumns="tableColumns"
@@ -64,60 +50,22 @@
       />
     </div>
 
-    <!-- 점검프로젝트 등록 팝업 -->
-    <InsertpassivityInspectionDialog
-      :visible="inspectPopupVisible"
-      @close="() => {inspectPopupVisible = false; selectedData=null; selectInspectList=[]}"
-      :selectData="selectedData"
-      :tableList="selectInspectList"
-      @other="openAddInspectDialog"
-    />
-
-    <!-- 점검대상 등록 팝업 -->
-    <AddPassivityInspectDialog
-      :visible="addInspectAssetVisible"
-      @close="() => {addInspectAssetVisible = false;}"
-      @result="creatInspectList"
-    />
-
   </div>
 </template>
 
 <script setup>
 import {ref} from 'vue';
 import uRouter from '@/utils/uRouter';
-import InsertpassivityInspectionDialog from './dialogs/InsertpassivityInspectionDialog.vue';
-import AddPassivityInspectDialog from './dialogs/AddPassivityInspectDialog.vue';
 
 const activeTab = ref('전체');
-const TabList = ref(["전체", "서버", "운영", "DB", "네트워크", "보안장비", "WEB/WES", "전문", "웹", "앱"]);
+const TabList = ref(["전체", "개발", "전문", "ADSL"]);
 const inspectionName = ref('');
 const searchDetail = ref('');
-const startDate = ref('');
-const endDate = ref('');
-
-// 점검프로젝트 등록 팝업 관련
-const inspectPopupVisible = ref(false);
-const selectedData = ref(null)
-const openInspectPopup = () => {
-  inspectPopupVisible.value = true;
-}
-
-// 점검대상 등록 팝업 관련
-const addInspectAssetVisible = ref(false);
-const selectInspectList = ref([]);
-const openAddInspectDialog = () => {
-  addInspectAssetVisible.value = true;
-}
-// 자산점검 등록하기
-const creatInspectList = (items) => {
-  selectInspectList.value = items;
-}
 
 
 // 상세보기 페이지로 이동
 const doRowClick = () => {
-  uRouter.goToByName('passivityInspectionDetail');
+  uRouter.goToByName('applyStatusDetail');
 }
 const currentPage = ref(1);
 const pageSize = ref(5); // 한 페이지에 표시할 개수
@@ -147,7 +95,6 @@ const dumiData = [
   {division: '서버(OS)', count: 2, title: 'Dive 앱 서버 주기 점검', reportDate: '상반기', startData: '02/28 20:01:13', endData: '02/28 20:01:13', manager: '총괄 관리자', writeDate: '02/28', update: '수정'},
   {division: '웹', count: 4, title: 'Dive 앱 서버 주기 점검', reportDate: '상반기', startData: '02/28 20:01:13', endData: '02/28 20:01:13', manager: '총괄 관리자', writeDate: '02/28', update: '수정'},
   {division: '서버(OS)', count: 4, title: 'Dive 앱 서버 주기 점검', reportDate: '상반기', startData: '02/28 20:01:13', endData: '02/28 20:01:13', manager: '총괄 관리자', writeDate: '02/28', update: '수정'},
-
 ];
 </script>
 

@@ -158,6 +158,45 @@ const routes = [
         meta: { menuId: '6.3', icon: '', auth: null, fullPath: [], isNested: true }
       }
     ]
+  },
+  {
+    path: '/security',
+    redirect: '/security',
+    name: 'applyStatusPage',
+    component: DefaultLayout,
+    meta: { menuId: '7', icon: 'ti ti-list-details' },
+    children: [
+      {
+        // 신청 현황
+        path: '',
+        name: 'applyStatus',
+        component: () => import('@/pages/security/ApplicationStatus.vue'),
+        meta: { menuId: '7.1', icon: '', auth: null, fullPath: [], isNested: true },
+
+      },
+      {
+        // 신청 현황 상세
+        path: 'apply-status-detail',
+        name: 'applyStatusDetail',
+        component: () => import('@/pages/security/components/applyStatusDetail.vue'),
+        meta: { menuId: '7.1.1', icon: '', auth: null, fullPath: [], isNested: true },
+
+      },
+      {
+        // 전체 현황
+        path: '/all-status',
+        name: 'AllStatus',
+        component: () => import('@/pages/security/AllStatus.vue'),
+        meta: { menuId: '7.2', icon: '', auth: null, fullPath: [], isNested: true },
+      },
+      {
+        // 전체 현황
+        path: '/deliberation-schedule',
+        name: 'DeliberationSchedule',
+        component: () => import('@/pages/security/DeliberationSchedule.vue'),
+        meta: { menuId: '7.3', icon: '', auth: null, fullPath: [], isNested: true },
+      }
+    ]
   }
 ]
 

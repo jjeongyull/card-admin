@@ -118,18 +118,18 @@
 
           <div class="white-box mb-20">
             <BaseTable
-                :tableColumns="tableColumns"
-                :tableData="dumiData"
-                :allData="dumiData"
-                @cell-click="doRowClick"
-                @sort=""
-                :currentPage="currentPage"
-                :pageSize="pageSize"
-                @update:currentPage="updateCurrentPage"
-                @history-click=""
-                @actions-click="openInspectInsertModal"
-                @confrim-click="openInspectModal"
-                @selected-rows="tableCheck"
+              :tableColumns="tableColumns"
+              :tableData="dumiData"
+              :allData="dumiData"
+              @cell-click="doRowClick"
+              @sort=""
+              :currentPage="currentPage"
+              :pageSize="pageSize"
+              @update:currentPage="updateCurrentPage"
+              @history-click=""
+              @actions-click="openInspectInsertModal"
+              @confrim-click="openInspectModal"
+              @selected-rows="tableCheck"
               />
           </div>
 

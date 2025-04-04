@@ -146,87 +146,6 @@
     ]
   },
   {
-    "menuName": "예외관리",
-    "menuId": "4",
-    "parentMenuId": "0",
-    "sort": 4,
-    "permit": {
-      "c": true,
-      "r": true,
-      "u": true,
-      "d": true
-    },
-    "children": [
-      {
-        "menuName": "예외신청",
-        "menuId": "4.1",
-        "parentMenuId": "4",
-        "sort": 1,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": [
-          {
-            "menuName": "예외신청",
-            "menuId": "4.1.1",
-            "parentMenuId": "4.1",
-            "sort": 1,
-            "permit": {
-              "c": true,
-              "r": true,
-              "u": true,
-              "d": true
-            },
-            "children": []
-          }
-        ]
-      },
-      {
-        "menuName": "예외현황",
-        "menuId": "4.2",
-        "parentMenuId": "4",
-        "sort": 2,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": []
-      }
-    ]
-  },
-  {
-    "menuName": "상시평가",
-    "menuId": "5",
-    "parentMenuId": "0",
-    "sort": 4,
-    "permit": {
-      "c": true,
-      "r": true,
-      "u": true,
-      "d": true
-    },
-    "children": [
-      {
-        "menuName": "증빙현황",
-        "menuId": "5.1",
-        "parentMenuId": "5",
-        "sort": 1,
-        "permit": {
-          "c": true,
-          "r": true,
-          "u": true,
-          "d": true
-        },
-        "children": []
-      }
-    ]
-  },
-  {
     "menuName": "보안성심의",
     "menuId": "7",
     "parentMenuId": "0",
@@ -320,6 +239,88 @@
       }
     ]
   },
+  {
+    "menuName": "예외관리",
+    "menuId": "4",
+    "parentMenuId": "0",
+    "sort": 4,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "예외신청",
+        "menuId": "4.1",
+        "parentMenuId": "4",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": [
+          {
+            "menuName": "예외신청",
+            "menuId": "4.1.1",
+            "parentMenuId": "4.1",
+            "sort": 1,
+            "permit": {
+              "c": true,
+              "r": true,
+              "u": true,
+              "d": true
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "menuName": "예외현황",
+        "menuId": "4.2",
+        "parentMenuId": "4",
+        "sort": 2,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+  {
+    "menuName": "상시평가",
+    "menuId": "5",
+    "parentMenuId": "0",
+    "sort": 4,
+    "permit": {
+      "c": true,
+      "r": true,
+      "u": true,
+      "d": true
+    },
+    "children": [
+      {
+        "menuName": "증빙현황",
+        "menuId": "5.1",
+        "parentMenuId": "5",
+        "sort": 1,
+        "permit": {
+          "c": true,
+          "r": true,
+          "u": true,
+          "d": true
+        },
+        "children": []
+      }
+    ]
+  },
+
   {
     "menuName": "기타보안점검",
     "menuId": "8",
